@@ -32,7 +32,7 @@ export default function StepSuccess({ data }) {
   }
 
   const subdomain      = data?.subdomain || ''
-  const loginUrl       = data?.loginUrl  || `${import.meta.env.VITE_SCHOOL_APP_URL || 'http://localhost:5004'}/${subdomain}`
+  const loginUrl       = data?.loginUrl  || `https://${subdomain}.schoolcloudx.com`
   const loginPageUrl   = `${loginUrl}/login`
   const superAdminId   = data?.credentials?.superAdmin?.userId   || '—'
   const superAdminPass = data?.credentials?.superAdmin?.password || '(sent via email)'

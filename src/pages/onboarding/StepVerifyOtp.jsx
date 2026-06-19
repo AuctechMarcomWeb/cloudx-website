@@ -106,6 +106,8 @@ export default function StepVerifyOtp({ registrationId, schoolEmail, mobileNo, o
     try {
       const res = await axios.post(`${API}onboarding/resend-otp`, { registrationId })
       toast.success(res.data.message || 'OTP resent successfully!')
+      const devOtp = res.data.data?.devOtp
+      if (devOtp) toast(`📧 Dev OTP: ${devOtp}`, { duration: 15000, icon: '🔑' })
       setTimer(60)
       setCanResend(false)
       setOtp(['', '', '', '', '', ''])

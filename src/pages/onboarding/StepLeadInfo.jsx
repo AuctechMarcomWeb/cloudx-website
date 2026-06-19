@@ -81,7 +81,9 @@ export default function StepLeadInfo({ onNext }) {
         whatsappNo:  form.whatsappNo || form.mobileNo,
         email:       form.email,
       })
+      const devOtp = res.data.data?.devOtp
       toast.success(res.data.message || 'OTP sent successfully!')
+      if (devOtp) toast(`📧 Dev OTP: ${devOtp}`, { duration: 15000, icon: '🔑' })
       onNext({
         registrationId: res.data.data.registrationId,
         email:          form.email,
@@ -191,12 +193,11 @@ export default function StepLeadInfo({ onNext }) {
                 display: 'flex', alignItems: 'center', padding: '0 14px',
                 borderLeft: '1px solid rgba(255,255,255,0.07)',
                 background: 'rgba(255,255,255,0.03)',
-                color: 'rgba(255,255,255,0.38)',
-                fontSize: 12.5, fontWeight: 600,
                 whiteSpace: 'nowrap', userSelect: 'none',
+                fontSize: 12.5, fontWeight: 600,
                 letterSpacing: '-0.01em',
               }}>
-                .schoolcloudx.com
+                <span style={{ color: 'rgba(255,255,255,0.38)' }}>.schoolcloudx.com</span>
               </div>
             </div>
 
@@ -219,6 +220,23 @@ export default function StepLeadInfo({ onNext }) {
                 <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.24)' }}>
                   Lowercase letters, numbers and hyphens only
                 </p>
+              )}
+
+              {/* Live URL preview */}
+              {form.subdomain && (
+                <div style={{
+                  marginTop: 10,
+                  display: 'inline-flex', alignItems: 'center', gap: 7,
+                  background: 'rgba(255,255,255,0.04)',
+                  border: '1px solid rgba(255,255,255,0.08)',
+                  borderRadius: 7, padding: '5px 12px',
+                }}>
+                  <Globe size={12} color="rgba(255,255,255,0.3)" />
+                  <span style={{ fontSize: 12.5, color: 'rgba(255,255,255,0.35)', letterSpacing: '-0.01em' }}>
+                    <strong style={{ color: '#fabf22', fontWeight: 700 }}>{form.subdomain}</strong>
+                    <span style={{ color: 'rgba(255,255,255,0.4)' }}>.schoolcloudx.com</span>
+                  </span>
+                </div>
               )}
             </div>
           </div>
