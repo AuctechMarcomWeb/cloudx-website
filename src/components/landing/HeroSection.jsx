@@ -17,13 +17,13 @@ export default function HeroSection() {
       <div style={{
         position: 'absolute', top: -200, left: '50%', transform: 'translateX(-50%)',
         width: 800, height: 800, borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(99,102,241,0.15) 0%, transparent 70%)',
+        background: 'radial-gradient(circle, rgba(4,41,84,0.25) 0%, transparent 70%)',
         pointerEvents: 'none',
       }} />
       <div style={{
         position: 'absolute', top: 100, right: -100,
         width: 400, height: 400, borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 70%)',
+        background: 'radial-gradient(circle, rgba(250,191,34,0.08) 0%, transparent 70%)',
         pointerEvents: 'none',
       }} />
 
@@ -34,12 +34,12 @@ export default function HeroSection() {
           <span style={{
             display: 'inline-flex', alignItems: 'center', gap: 8,
             padding: '6px 16px', borderRadius: 50,
-            background: 'rgba(99,102,241,0.12)',
-            border: '1px solid rgba(99,102,241,0.3)',
-            fontSize: 13, fontWeight: 500, color: '#a5b4fc',
+            background: 'rgba(4,41,84,0.3)',
+            border: '1px solid rgba(250,191,34,0.4)',
+            fontSize: 13, fontWeight: 500, color: '#fabf22',
           }}>
-            <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#6366f1', display: 'inline-block', animation: 'pulse-ring 1.5s ease infinite' }} />
-            India ka #1 School Management SaaS
+            <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#fabf22', display: 'inline-block', animation: 'pulse-ring 1.5s ease infinite' }} />
+            India's #1 School Management SaaS
           </span>
         </div>
 
@@ -50,17 +50,17 @@ export default function HeroSection() {
           textAlign: 'center', marginBottom: 24,
           letterSpacing: '-1px',
         }}>
-          Apne School ko{' '}
-          <span className="gradient-text">Digital banao</span>
-          <br />aaj hi — 30 minutes mein
+          Take Your School{' '}
+          <span className="gradient-text">Digital</span>
+          <br />Today — in 30 Minutes
         </h1>
 
         <p style={{
           textAlign: 'center', fontSize: 18, color: 'rgba(255,255,255,0.55)',
           maxWidth: 600, margin: '0 auto 40px', lineHeight: 1.7,
         }}>
-          Admission, Fees, Attendance, Marksheet, Transport — sab kuch ek platform par.
-          No IT team chahiye. Setup karo, login karo, shuru karo.
+          Admissions, Fees, Attendance, Marksheets, Transport — everything on one platform.
+          No IT team needed. Set up, log in, and get started.
         </p>
 
         {/* CTAs */}
@@ -70,16 +70,16 @@ export default function HeroSection() {
             style={{
               display: 'flex', alignItems: 'center', gap: 8,
               padding: '16px 32px',
-              background: 'linear-gradient(135deg,#6366f1,#3b82f6)',
+              background: 'linear-gradient(135deg,#042954,#051f3e)',
               color: '#fff', border: 'none', borderRadius: 14,
               fontSize: 16, fontWeight: 700, cursor: 'pointer',
-              boxShadow: '0 12px 40px rgba(99,102,241,0.4)',
+              boxShadow: '0 12px 40px rgba(4,41,84,0.5)',
               transition: 'all 0.2s',
             }}
             onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
             onMouseLeave={(e) => e.currentTarget.style.transform = ''}
           >
-            Abhi Start Karo — Free <ArrowRight size={18} />
+            Get Started Free <ArrowRight size={18} />
           </button>
           <button
             style={{
@@ -94,7 +94,7 @@ export default function HeroSection() {
             onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)' }}
             onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.06)' }}
           >
-            <Play size={16} /> Demo Dekhein
+            <Play size={16} /> Watch Demo
           </button>
         </div>
 
@@ -106,7 +106,7 @@ export default function HeroSection() {
           {STATS.map(({ icon: Icon, value, label }) => (
             <div key={label} style={{ textAlign: 'center' }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, marginBottom: 4 }}>
-                <Icon size={18} color="#6366f1" />
+                <Icon size={18} color="#fabf22" />
                 <span style={{ fontSize: 28, fontWeight: 800, color: '#fff' }}>{value}</span>
               </div>
               <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.45)' }}>{label}</div>

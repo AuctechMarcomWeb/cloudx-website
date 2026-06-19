@@ -9,7 +9,7 @@ const API = import.meta.env.VITE_API_BASE_URL
 const FALLBACK_PLANS = [
   {
     _id: 'small', name: 'Starter', targetSchoolSize: 'Small',
-    description: '500 tak students',
+    description: 'Up to 500 students',
     price: 2500, pricingModel: 'FIXED', billingCycle: 'Monthly',
     studentLimit: 500, trialDays: 30, isPopular: false,
     yearlyDiscountPercent: 15,
@@ -17,11 +17,11 @@ const FALLBACK_PLANS = [
   },
   {
     _id: 'medium', name: 'Growth', targetSchoolSize: 'Medium',
-    description: '2000 tak students',
+    description: 'Up to 2000 students',
     price: 6000, pricingModel: 'FIXED', billingCycle: 'Monthly',
     studentLimit: 2000, trialDays: 30, isPopular: true,
     yearlyDiscountPercent: 15,
-    features: ['Sab Starter features', 'Transport', 'SMS Alerts', 'Marksheet', 'Mobile App'],
+    features: ['All Starter features', 'Transport', 'SMS Alerts', 'Marksheet', 'Mobile App'],
   },
   {
     _id: 'large', name: 'Enterprise', targetSchoolSize: 'Large',
@@ -29,7 +29,7 @@ const FALLBACK_PLANS = [
     price: 0, pricingModel: 'PER_STUDENT', pricePerStudent: 25,
     billingCycle: 'Monthly', studentLimit: 0, trialDays: 0, isPopular: false,
     yearlyDiscountPercent: 20,
-    features: ['Sab Growth features', 'Multi-branch', 'Custom branding', 'Dedicated support', 'API access'],
+    features: ['All Growth features', 'Multi-branch', 'Custom branding', 'Dedicated support', 'API access'],
   },
 ]
 
@@ -68,14 +68,14 @@ export default function PricingSection() {
     <section id="pricing" className="section">
       <div className="container">
         <div style={{ textAlign: 'center', marginBottom: 48 }}>
-          <span style={{ fontSize: 13, fontWeight: 600, color: '#6366f1', letterSpacing: 2, textTransform: 'uppercase' }}>
+          <span style={{ fontSize: 13, fontWeight: 600, color: '#fabf22', letterSpacing: 2, textTransform: 'uppercase' }}>
             Pricing
           </span>
           <h2 style={{ fontSize: 'clamp(28px,4vw,44px)', fontWeight: 800, marginTop: 8, marginBottom: 16 }}>
-            Transparent pricing, koi hidden charges nahi
+            Transparent pricing, no hidden charges
           </h2>
           <p style={{ color: 'rgba(255,255,255,0.5)', maxWidth: 500, margin: '0 auto', fontSize: 16 }}>
-            School size ke hisab se plan choose karo. Yearly plan pe 15-20% bachao.
+            Choose a plan based on your school size. Save 15–20% with a yearly plan.
           </p>
         </div>
 
@@ -92,7 +92,7 @@ export default function PricingSection() {
                 style={{
                   padding: '8px 24px', borderRadius: 50, border: 'none', cursor: 'pointer',
                   fontSize: 14, fontWeight: 600, transition: 'all 0.2s',
-                  background: billing === c ? 'linear-gradient(135deg,#6366f1,#3b82f6)' : 'transparent',
+                  background: billing === c ? 'linear-gradient(135deg,#042954,#051f3e)' : 'transparent',
                   color: billing === c ? '#fff' : 'rgba(255,255,255,0.45)',
                 }}
               >
@@ -116,7 +116,7 @@ export default function PricingSection() {
             <div className="glass-card" style={{ padding: '20px 24px' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
                 <span style={{ fontSize: 14, color: 'rgba(255,255,255,0.6)' }}>Number of Students</span>
-                <span style={{ fontWeight: 700, color: '#818cf8', fontSize: 16 }}>{students.toLocaleString()} students</span>
+                <span style={{ fontWeight: 700, color: '#fabf22', fontSize: 16 }}>{students.toLocaleString()} students</span>
               </div>
               <input type="range" min={100} max={5000} step={100} value={students} onChange={(e) => setStudents(+e.target.value)} />
               <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12, color: 'rgba(255,255,255,0.3)', marginTop: 6 }}>
@@ -139,7 +139,7 @@ export default function PricingSection() {
                 <div
                   key={plan._id}
                   className="plan-card"
-                  style={{ position: 'relative', ...(plan.isPopular ? { borderColor: '#6366f1', background: 'rgba(99,102,241,0.08)' } : {}) }}
+                  style={{ position: 'relative', ...(plan.isPopular ? { borderColor: '#042954', background: 'rgba(4,41,84,0.15)' } : {}) }}
                 >
                   {plan.isPopular && (
                     <div style={{ position: 'absolute', top: -14, left: '50%', transform: 'translateX(-50%)' }}>
@@ -163,7 +163,7 @@ export default function PricingSection() {
                       <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: 14 }}>/{billing === 'Yearly' ? 'yr' : 'mo'}</span>
                     </div>
                     {plan.pricingModel === 'PER_STUDENT' && (
-                      <div style={{ fontSize: 13, color: '#818cf8', marginTop: 4 }}>
+                      <div style={{ fontSize: 13, color: '#fabf22', marginTop: 4 }}>
                         ₹{plan.pricePerStudent}/student/month
                       </div>
                     )}
@@ -194,7 +194,7 @@ export default function PricingSection() {
                     onClick={() => navigate('/register')}
                     style={{
                       width: '100%', padding: '13px',
-                      background: plan.isPopular ? 'linear-gradient(135deg,#6366f1,#3b82f6)' : 'rgba(255,255,255,0.07)',
+                      background: plan.isPopular ? 'linear-gradient(135deg,#042954,#051f3e)' : 'rgba(255,255,255,0.07)',
                       color: '#fff', border: plan.isPopular ? 'none' : '1.5px solid rgba(255,255,255,0.15)',
                       borderRadius: 12, fontSize: 15, fontWeight: 600, cursor: 'pointer',
                       transition: 'all 0.2s',
@@ -202,7 +202,7 @@ export default function PricingSection() {
                     onMouseEnter={(e) => { if (!plan.isPopular) e.currentTarget.style.background = 'rgba(255,255,255,0.12)' }}
                     onMouseLeave={(e) => { if (!plan.isPopular) e.currentTarget.style.background = 'rgba(255,255,255,0.07)' }}
                   >
-                    {plan.trialDays > 0 ? `${plan.trialDays} din free try karo` : 'Register Karo'}
+                    {plan.trialDays > 0 ? `Start ${plan.trialDays}-Day Free Trial` : 'Get Started'}
                   </button>
                 </div>
               )
@@ -211,7 +211,7 @@ export default function PricingSection() {
         )}
 
         <p style={{ textAlign: 'center', marginTop: 32, fontSize: 13, color: 'rgba(255,255,255,0.35)' }}>
-          Sab plans mein SSL security, 99.9% uptime SLA, aur email support included hai.
+          All plans include SSL security, 99.9% uptime SLA, and email support.
         </p>
       </div>
     </section>

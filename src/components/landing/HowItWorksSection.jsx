@@ -1,10 +1,10 @@
 import { ClipboardList, CreditCard, LogIn, Rocket } from 'lucide-react'
 
 const STEPS = [
-  { icon: ClipboardList, num: '01', title: 'Form Bharo',      desc: 'School ka naam, email aur contact number enter karo. Bas 2 minute lagenge.' },
-  { icon: CreditCard,    num: '02', title: 'Plan Choose Karo', desc: 'Apne school size ke hisab se plan select karo. Per-student ya fixed pricing.' },
-  { icon: LogIn,         num: '03', title: 'Payment Karo',     desc: 'Razorpay se secure payment — UPI, Card, NetBanking sab accepted.' },
-  { icon: Rocket,        num: '04', title: 'Login Karo',       desc: 'Credentials email pe aayenge. 30 minutes mein school fully live!' },
+  { icon: ClipboardList, num: '01', title: 'Fill the Form',    desc: 'Enter your school name, email, and contact number. Takes less than 2 minutes.' },
+  { icon: CreditCard,    num: '02', title: 'Choose a Plan',    desc: 'Select the right plan based on your school size. Per-student or fixed pricing.' },
+  { icon: LogIn,         num: '03', title: 'Make Payment',     desc: 'Secure payment via Razorpay — UPI, Card, and NetBanking all accepted.' },
+  { icon: Rocket,        num: '04', title: 'Log In',           desc: 'Credentials will be sent to your email. School fully live in 30 minutes!' },
 ]
 
 export default function HowItWorksSection() {
@@ -12,14 +12,14 @@ export default function HowItWorksSection() {
     <section id="how-it-works" className="section">
       <div className="container">
         <div style={{ textAlign: 'center', marginBottom: 56 }}>
-          <span style={{ fontSize: 13, fontWeight: 600, color: '#6366f1', letterSpacing: 2, textTransform: 'uppercase' }}>
+          <span style={{ fontSize: 13, fontWeight: 600, color: '#fabf22', letterSpacing: 2, textTransform: 'uppercase' }}>
             Process
           </span>
           <h2 style={{ fontSize: 'clamp(28px,4vw,44px)', fontWeight: 800, marginTop: 8, marginBottom: 16 }}>
-            Sirf 4 steps mein shuru karo
+            Get started in just 4 steps
           </h2>
           <p style={{ color: 'rgba(255,255,255,0.5)', maxWidth: 500, margin: '0 auto', fontSize: 16 }}>
-            Koi installation nahi, koi server setup nahi — sirf browser kholo aur shuru karo.
+            No installation, no server setup — just open a browser and get started.
           </p>
         </div>
 
@@ -32,7 +32,7 @@ export default function HowItWorksSection() {
           {/* Connecting line (desktop) */}
           <div style={{
             position: 'absolute', top: 36, left: '12.5%', right: '12.5%', height: 2,
-            background: 'linear-gradient(90deg, transparent, rgba(99,102,241,0.4), transparent)',
+            background: 'linear-gradient(90deg, transparent, rgba(250,191,34,0.5), transparent)',
             pointerEvents: 'none',
           }} />
 
@@ -40,14 +40,14 @@ export default function HowItWorksSection() {
             <div key={num} style={{ padding: '0 16px', textAlign: 'center', animation: `fadeInUp 0.5s ease ${i * 0.1}s both` }}>
               <div style={{
                 width: 72, height: 72, borderRadius: '50%', margin: '0 auto 20px',
-                background: 'linear-gradient(135deg,#6366f1,#3b82f6)',
+                background: 'linear-gradient(135deg,#042954,#051f3e)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                boxShadow: '0 0 30px rgba(99,102,241,0.3)',
+                boxShadow: '0 0 30px rgba(4,41,84,0.5)',
                 position: 'relative', zIndex: 1,
               }}>
-                <Icon size={28} color="#fff" />
+                <Icon size={28} color="#fabf22" />
               </div>
-              <div style={{ fontSize: 11, fontWeight: 700, color: '#6366f1', letterSpacing: 2, marginBottom: 8 }}>
+              <div style={{ fontSize: 11, fontWeight: 700, color: '#fabf22', letterSpacing: 2, marginBottom: 8 }}>
                 STEP {num}
               </div>
               <h3 style={{ fontSize: 18, fontWeight: 700, marginBottom: 10, color: '#fff' }}>{title}</h3>

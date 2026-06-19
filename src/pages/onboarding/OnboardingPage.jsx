@@ -2,17 +2,22 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast'
 import { ArrowLeft } from 'lucide-react'
-import StepSchoolInfo from './StepSchoolInfo'
+import StepLeadInfo from './StepLeadInfo'
 import StepVerifyOtp from './StepVerifyOtp'
-import StepChoosePlan from './StepChoosePlan'
-import StepPayment from './StepPayment'
+import StepSchoolCreate from './StepSchoolCreate'
 import StepSuccess from './StepSuccess'
 
+/**
+ * New 2-Step Flow:
+ *  Step 0 → Lead Info (subdomain + name + mobile + whatsapp + email)
+ *  Step 1 → OTP Verify
+ *  Step 2 → School Details (name, address, logo, affiliation)
+ *  Step 3 → Success (credentials sent)
+ */
 const STEPS = [
-  { label: 'School Info',  short: '01' },
-  { label: 'Verify Email', short: '02' },
-  { label: 'Choose Plan',  short: '03' },
-  { label: 'Payment',      short: '04' },
+  { label: 'Your Info',   short: '01' },
+  { label: 'Verify OTP', short: '02' },
+  { label: 'School Info', short: '03' },
 ]
 
 export default function OnboardingPage() {
@@ -20,9 +25,9 @@ export default function OnboardingPage() {
   const [step, setStep] = useState(0)
   const [state, setState] = useState({
     registrationId: null,
-    schoolEmail: '',
-    schoolName: '',
-    selectedPlan: null,
+    email: '',
+    mobileNo: '',
+    contactName: '',
     successData: null,
   })
 
@@ -32,18 +37,21 @@ export default function OnboardingPage() {
   }
   const back = () => setStep((s) => s - 1)
 
+  const totalSteps = STEPS.length
+  const isSuccess  = step === totalSteps
+
   return (
-    <div style={{ minHeight: '100vh', background: '#0a0f1e', position: 'relative', overflow: 'hidden' }}>
+    <div style={{ minHeight: '100vh', background: '#021a3a', position: 'relative', overflow: 'hidden' }}>
 
       {/* Background blobs */}
-      <div style={{ position: 'fixed', top: -200, left: -200, width: 600, height: 600, borderRadius: '50%', background: 'radial-gradient(circle, rgba(99,102,241,0.08) 0%, transparent 70%)', pointerEvents: 'none' }} />
-      <div style={{ position: 'fixed', bottom: -200, right: -200, width: 600, height: 600, borderRadius: '50%', background: 'radial-gradient(circle, rgba(59,130,246,0.06) 0%, transparent 70%)', pointerEvents: 'none' }} />
+      <div style={{ position: 'fixed', top: -200, left: -200, width: 600, height: 600, borderRadius: '50%', background: 'radial-gradient(circle, rgba(4,41,84,0.2) 0%, transparent 70%)', pointerEvents: 'none' }} />
+      <div style={{ position: 'fixed', bottom: -200, right: -200, width: 600, height: 600, borderRadius: '50%', background: 'radial-gradient(circle, rgba(250,191,34,0.06) 0%, transparent 70%)', pointerEvents: 'none' }} />
 
       {/* Header */}
       <header style={{
         padding: '16px 24px',
         borderBottom: '1px solid rgba(255,255,255,0.06)',
-        background: 'rgba(10,15,30,0.8)',
+        background: 'rgba(2,26,58,0.8)',
         backdropFilter: 'blur(20px)',
         display: 'flex',
         alignItems: 'center',
@@ -58,43 +66,47 @@ export default function OnboardingPage() {
         </button>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-          <div style={{ width: 30, height: 30, borderRadius: 8, background: 'linear-gradient(135deg,#6366f1,#3b82f6)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: 16, color: '#fff' }}>C</div>
-          <span style={{ fontWeight: 700, fontSize: 16, color: '#fff' }}>CloudX LMS</span>
+          <div style={{ width: 30, height: 30, borderRadius: 8, background: 'linear-gradient(135deg,#042954,#051f3e)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: 16, color: '#fff' }}>C</div>
+          <span style={{ fontWeight: 700, fontSize: 16, color: '#fff' }}>School CloudX</span>
         </div>
 
         <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.35)' }}>
-          {step < 4 ? `Step ${step + 1} of 4` : 'Complete ✓'}
+          {isSuccess ? 'Complete ✓' : `Step ${step + 1} of ${totalSteps}`}
         </div>
       </header>
 
       {/* Progress Bar */}
-      {step < 4 && (
+      {!isSuccess && (
         <div style={{ height: 3, background: 'rgba(255,255,255,0.06)' }}>
           <div style={{
             height: '100%',
-            width: `${((step + 1) / 4) * 100}%`,
+            width: `${((step + 1) / totalSteps) * 100}%`,
             background: 'linear-gradient(90deg,#6366f1,#3b82f6)',
             transition: 'width 0.4s ease',
           }} />
         </div>
       )}
 
-      <div style={{ maxWidth: 680, margin: '0 auto', padding: '40px 24px 80px' }}>
+      <div style={{ maxWidth: 640, margin: '0 auto', padding: '40px 24px 80px' }}>
 
         {/* Step Indicators */}
-        {step < 4 && (
+        {!isSuccess && (
           <div style={{ display: 'flex', justifyContent: 'center', gap: 0, marginBottom: 40 }}>
             {STEPS.map((s, i) => (
               <div key={i} style={{ display: 'flex', alignItems: 'center' }}>
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', minWidth: 70 }}>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', minWidth: 80 }}>
                   <div style={{
                     width: 36, height: 36, borderRadius: '50%',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     fontWeight: 700, fontSize: 13,
-                    background: i < step ? 'linear-gradient(135deg,#22c55e,#16a34a)' : i === step ? 'linear-gradient(135deg,#6366f1,#3b82f6)' : 'rgba(255,255,255,0.07)',
+                    background: i < step
+                      ? 'linear-gradient(135deg,#22c55e,#16a34a)'
+                      : i === step
+                        ? 'linear-gradient(135deg,#042954,#051f3e)'
+                        : 'rgba(255,255,255,0.07)',
                     color: '#fff',
-                    border: i === step ? '2px solid rgba(99,102,241,0.5)' : '2px solid transparent',
-                    boxShadow: i === step ? '0 0 20px rgba(99,102,241,0.3)' : 'none',
+                    border: i === step ? '2px solid rgba(4,41,84,0.4)' : '2px solid transparent',
+                    boxShadow: i === step ? '0 0 20px rgba(4,41,84,0.3)' : 'none',
                     transition: 'all 0.3s',
                   }}>
                     {i < step ? '✓' : s.short}
@@ -104,7 +116,7 @@ export default function OnboardingPage() {
                   </span>
                 </div>
                 {i < STEPS.length - 1 && (
-                  <div style={{ width: 50, height: 2, background: i < step ? '#22c55e' : 'rgba(255,255,255,0.08)', marginBottom: 20, transition: 'all 0.3s' }} />
+                  <div style={{ width: 60, height: 2, background: i < step ? '#22c55e' : 'rgba(255,255,255,0.08)', marginBottom: 20, transition: 'all 0.3s' }} />
                 )}
               </div>
             ))}
@@ -112,41 +124,46 @@ export default function OnboardingPage() {
         )}
 
         {/* Step Content */}
-        <div style={{ animation: 'fadeInUp 0.35s ease both' }} key={step}>
+        <div key={step} style={{ animation: 'fadeInUp 0.35s ease both' }}>
+
           {step === 0 && (
-            <StepSchoolInfo
-              onNext={(data) => next({ registrationId: data.registrationId, schoolEmail: data.schoolEmail, schoolName: data.schoolName })}
+            <StepLeadInfo
+              onNext={(data) => next({
+                registrationId: data.registrationId,
+                email: data.email,
+                mobileNo: data.mobileNo,
+                contactName: data.contactName,
+              })}
             />
           )}
+
           {step === 1 && (
             <StepVerifyOtp
               registrationId={state.registrationId}
-              schoolEmail={state.schoolEmail}
+              schoolEmail={state.email}
+              mobileNo={state.mobileNo}
               onNext={() => next()}
               onBack={back}
             />
           )}
+
           {step === 2 && (
-            <StepChoosePlan
-              onNext={(plan) => next({ selectedPlan: plan })}
-              onBack={back}
-            />
-          )}
-          {step === 3 && (
-            <StepPayment
+            <StepSchoolCreate
               registrationId={state.registrationId}
-              selectedPlan={state.selectedPlan}
-              schoolName={state.schoolName}
-              schoolEmail={state.schoolEmail}
-              onSuccess={(data) => next({ successData: data })}
+              contactName={state.contactName}
+              onNext={(data) => next({ successData: data })}
               onBack={back}
             />
           )}
-          {step === 4 && (
+
+          {step === 3 && (
             <StepSuccess data={state.successData} />
           )}
+
         </div>
       </div>
+
+      <Toaster position="top-right" />
     </div>
   )
 }

@@ -4,15 +4,15 @@ import {
 } from 'lucide-react'
 
 const FEATURES = [
-  { icon: Users,      title: 'Student Management',   desc: 'Admission se TC tak — complete student lifecycle ek jagah.' },
-  { icon: CreditCard, title: 'Fee Management',        desc: 'Online/offline collection, installments, receipts, overdue reminders.' },
-  { icon: BookOpen,   title: 'Attendance System',     desc: 'Daily attendance, teacher-wise, class-wise reports.' },
-  { icon: BarChart2,  title: 'Exam & Marksheet',      desc: 'Exam schedule, marks entry, auto-generated report cards.' },
-  { icon: Bus,        title: 'Transport Management',  desc: 'Route planning, bus tracking, transport fee integration.' },
-  { icon: Bell,       title: 'Notice & SMS',          desc: 'Instant notices to parents via app notification & SMS.' },
-  { icon: FileText,   title: 'Certificates',          desc: 'Bonafide, TC, character certificate — one click print.' },
-  { icon: Shield,     title: 'Role-Based Access',     desc: 'Super Admin, Admin, Teacher — alag alag permissions.' },
-  { icon: Smartphone, title: 'Mobile Ready',          desc: 'Parents & teachers ke liye fully responsive interface.' },
+  { icon: Users,      title: 'Student Management',   desc: 'From admission to transfer certificate — complete student lifecycle in one place.' },
+  { icon: CreditCard, title: 'Fee Management',        desc: 'Online/offline collection, installments, receipts, and overdue reminders.' },
+  { icon: BookOpen,   title: 'Attendance System',     desc: 'Daily attendance with teacher-wise and class-wise reports.' },
+  { icon: BarChart2,  title: 'Exam & Marksheet',      desc: 'Exam scheduling, marks entry, and auto-generated report cards.' },
+  { icon: Bus,        title: 'Transport Management',  desc: 'Route planning, bus tracking, and transport fee integration.' },
+  { icon: Bell,       title: 'Notice & SMS',          desc: 'Instant notices to parents via app notification and SMS.' },
+  { icon: FileText,   title: 'Certificates',          desc: 'Bonafide, TC, character certificate — one-click print.' },
+  { icon: Shield,     title: 'Role-Based Access',     desc: 'Super Admin, Admin, Teacher — separate permissions for each role.' },
+  { icon: Smartphone, title: 'Mobile Ready',          desc: 'Fully responsive interface for parents and teachers.' },
 ]
 
 export default function FeaturesSection() {
@@ -29,14 +29,14 @@ export default function FeaturesSection() {
 
       <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         <div style={{ textAlign: 'center', marginBottom: 56 }}>
-          <span style={{ fontSize: 13, fontWeight: 600, color: '#6366f1', letterSpacing: 2, textTransform: 'uppercase' }}>
+          <span style={{ fontSize: 13, fontWeight: 600, color: '#fabf22', letterSpacing: 2, textTransform: 'uppercase' }}>
             Features
           </span>
           <h2 style={{ fontSize: 'clamp(28px,4vw,44px)', fontWeight: 800, marginTop: 8, marginBottom: 16 }}>
-            Har kaam ke liye ek tool
+            One tool for every task
           </h2>
           <p style={{ color: 'rgba(255,255,255,0.5)', maxWidth: 500, margin: '0 auto', fontSize: 16 }}>
-            Alag alag software khatam karo — CloudX mein sab kuch built-in hai.
+            Eliminate separate software — School CloudX has everything built-in.
           </p>
         </div>
 
@@ -55,11 +55,11 @@ export default function FeaturesSection() {
             >
               <div style={{
                 width: 48, height: 48, borderRadius: 12, marginBottom: 16,
-                background: 'linear-gradient(135deg,rgba(99,102,241,0.2),rgba(59,130,246,0.2))',
-                border: '1px solid rgba(99,102,241,0.3)',
+                background: 'linear-gradient(135deg,rgba(4,41,84,0.4),rgba(5,31,62,0.4))',
+                border: '1px solid rgba(250,191,34,0.3)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
               }}>
-                <Icon size={22} color="#818cf8" />
+                <Icon size={22} color="#fabf22" />
               </div>
               <h3 style={{ fontSize: 16, fontWeight: 700, marginBottom: 8, color: '#fff' }}>{title}</h3>
               <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.5)', lineHeight: 1.6 }}>{desc}</p>

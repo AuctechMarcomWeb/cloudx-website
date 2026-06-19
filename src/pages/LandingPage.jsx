@@ -10,7 +10,7 @@ import CtaSection from '../components/landing/CtaSection'
 
 export default function LandingPage() {
   return (
-    <div style={{ background: '#0a0f1e', minHeight: '100vh' }}>
+    <div style={{ background: '#021a3a', minHeight: '100vh' }}>
       <Navbar />
       <HeroSection />
       <FeaturesSection />

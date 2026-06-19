@@ -6,7 +6,7 @@ const TESTIMONIALS = [
     role: 'Principal, DPS Lucknow',
     avatar: 'RK',
     color: '#6366f1',
-    quote: 'CloudX ne humari school management completely transform kar di. Fee collection aur attendance tracking ab bahut aasaan ho gaya hai.',
+    quote: 'School CloudX has completely transformed our school management. Fee collection and attendance tracking are now effortless.',
     stars: 5,
   },
   {
@@ -14,7 +14,7 @@ const TESTIMONIALS = [
     role: 'Director, St. Mary\'s School, Kanpur',
     avatar: 'SS',
     color: '#3b82f6',
-    quote: 'Pehle 4 alag softwares use karte the. Ab sab ek jagah — CloudX pe. Staff ka time bachta hai, parents happy hain.',
+    quote: 'We used to rely on 4 different software tools. Now everything is in one place — School CloudX. Staff save time, and parents are happy.',
     stars: 5,
   },
   {
@@ -22,7 +22,7 @@ const TESTIMONIALS = [
     role: 'Administrator, Modern Academy, Agra',
     avatar: 'AS',
     color: '#06b6d4',
-    quote: '30 din trial mein hi convince ho gaye. Setup bahut aasaan tha aur support team ne haath pakad ke sab sikhaya.',
+    quote: 'We were convinced within the 30-day trial. Setup was straightforward and the support team guided us every step of the way.',
     stars: 5,
   },
 ]
@@ -36,7 +36,7 @@ export default function TestimonialsSection() {
             Testimonials
           </span>
           <h2 style={{ fontSize: 'clamp(28px,4vw,44px)', fontWeight: 800, marginTop: 8, marginBottom: 16 }}>
-            Schools jo CloudX use kar rahe hain
+            Schools already using School CloudX
           </h2>
         </div>
 
