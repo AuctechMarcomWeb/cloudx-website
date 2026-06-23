@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import {
   CheckCircle, Mail, ExternalLink, Copy, Check,
   Rocket, BookOpen, Users, BarChart2, ShieldCheck, MessageCircle,
+  Zap, CalendarDays,
 } from 'lucide-react'
 import toast from 'react-hot-toast'
 
@@ -40,6 +41,13 @@ export default function StepSuccess({ data }) {
   const adminPass      = data?.credentials?.admin?.password      || '(sent via email)'
   const schoolName     = data?.schoolName  || 'Your School'
   const schoolEmail    = data?.schoolEmail || '—'
+
+  /* ── Trial info ── */
+  const trial       = data?.trial
+  const trialEndsOn = trial?.endsOn ? new Date(trial.endsOn) : null
+  const fmtDate     = (d) => d
+    ? d.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' })
+    : '—'
 
   return (
     <div style={{ position: 'relative' }}>
@@ -79,6 +87,76 @@ export default function StepSuccess({ data }) {
           <span style={{ fontSize: 14 }}>Your login credentials have been sent to your email.</span>
         </p>
       </div>
+
+      {/* 30-Day Free Trial Banner */}
+      {trial?.active && (
+        <div className="glass-card" style={{
+          padding: '16px 20px', marginBottom: 20,
+          border: '1px solid rgba(96,165,250,0.3)',
+          background: 'linear-gradient(135deg, rgba(4,41,84,0.35) 0%, rgba(59,130,246,0.08) 100%)',
+          animation: 'fadeInUp 0.5s ease 0.12s both',
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10 }}>
+            <div style={{
+              width: 34, height: 34, borderRadius: 10, flexShrink: 0,
+              background: 'linear-gradient(135deg,#3b82f6,#1d4ed8)',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              boxShadow: '0 0 16px rgba(59,130,246,0.3)',
+            }}>
+              <Zap size={17} color="#fff" />
+            </div>
+            <div>
+              <div style={{ fontSize: 14, fontWeight: 700, color: '#fff' }}>
+                🎁 {trial.days || 30}-Day Free Trial Activated!
+              </div>
+              <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.45)', marginTop: 1 }}>
+                {trial.planName || 'Free Trial'} — No payment required
+              </div>
+            </div>
+            <div style={{
+              marginLeft: 'auto', fontSize: 11, fontWeight: 700,
+              padding: '3px 10px', borderRadius: 20,
+              background: 'rgba(96,165,250,0.15)',
+              color: '#60a5fa', border: '1px solid rgba(96,165,250,0.25)',
+              whiteSpace: 'nowrap',
+            }}>
+              FREE
+            </div>
+          </div>
+
+          <div style={{ display: 'flex', alignItems: 'center', gap: 14, flexWrap: 'wrap' }}>
+            <div style={{
+              display: 'flex', alignItems: 'center', gap: 6,
+              padding: '7px 12px', borderRadius: 8,
+              background: 'rgba(255,255,255,0.05)',
+              border: '1px solid rgba(255,255,255,0.08)',
+            }}>
+              <CalendarDays size={13} color="#60a5fa" />
+              <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.6)' }}>
+                Trial ends: <strong style={{ color: '#fff' }}>{fmtDate(trialEndsOn)}</strong>
+              </span>
+            </div>
+            <div style={{
+              display: 'flex', alignItems: 'center', gap: 6,
+              padding: '7px 12px', borderRadius: 8,
+              background: 'rgba(255,255,255,0.05)',
+              border: '1px solid rgba(255,255,255,0.08)',
+            }}>
+              <Users size={13} color="#60a5fa" />
+              <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.6)' }}>
+                {trial.studentLimit > 0
+                  ? <><strong style={{ color: '#fff' }}>{trial.studentLimit.toLocaleString('en-IN')}</strong> student limit</>
+                  : <strong style={{ color: '#4ade80' }}>Unlimited students</strong>
+                }
+              </span>
+            </div>
+          </div>
+
+          <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.35)', marginTop: 10, lineHeight: 1.5 }}>
+            Trial expire hone ke baad admin se plan assign karwayein. Aapka data safe rahega.
+          </p>
+        </div>
+      )}
 
       {/* Delivery Confirmation */}
       <div className="glass-card" style={{

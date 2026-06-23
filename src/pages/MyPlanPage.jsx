@@ -6,6 +6,7 @@ import {
   ArrowLeft, Mail, CreditCard, Zap,
   GraduationCap, CalendarDays, Clock, ExternalLink, Rocket,
   Users, ShieldCheck, AlertTriangle, Check, RefreshCw, Search,
+  CheckCircle2, AlertCircle, IndianRupee, Puzzle,
 } from 'lucide-react'
 
 const API = import.meta.env.VITE_API_BASE_URL
@@ -206,6 +207,146 @@ function StepOtp({ email, onVerified, onBack }) {
 }
 
 // â”€â”€â”€ Step 3: Plan result â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── InstallmentSection ──────────────────────────────────────────────────
+function InstallmentSection({ tenantId }) {
+  const [data,    setData]    = useState(null)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    if (!tenantId) return
+    axios.get(`${API}subscription/${tenantId}/installments`)
+      .then(res => setData(res?.data?.data || null))
+      .catch(() => setData(null))
+      .finally(() => setLoading(false))
+  }, [tenantId])
+
+  if (loading) return (
+    <div style={{ textAlign: 'center', padding: '20px 0', color: 'rgba(255,255,255,0.4)', fontSize: 13 }}>
+      <div className="spinner" style={{ margin: '0 auto 8px' }} />
+      Loading installments…
+    </div>
+  )
+
+  if (!data || data.billingCycle !== 'Yearly' || !data.installments?.length) return null
+
+  const { installments, summary, totalAmount } = data
+
+  const INST_CFG = {
+    PAID:    { label: 'Paid',    icon: CheckCircle2, color: '#4ade80', bg: 'rgba(34,197,94,0.1)',   border: 'rgba(34,197,94,0.25)' },
+    PENDING: { label: 'Pending', icon: Clock,        color: '#fbbf24', bg: 'rgba(251,191,36,0.08)', border: 'rgba(251,191,36,0.2)' },
+    OVERDUE: { label: 'Overdue', icon: AlertCircle,  color: '#f87171', bg: 'rgba(239,68,68,0.1)',   border: 'rgba(239,68,68,0.25)' },
+  }
+
+  const fmtMonth = (ym) => {
+    if (!ym) return '—'
+    const [y, m] = ym.split('-')
+    return new Date(y, m - 1, 1).toLocaleDateString('en-IN', { month: 'short', year: 'numeric' })
+  }
+
+  const receivedAmt = installments.filter(i => i.status === 'PAID').reduce((s, i) => s + (i.amount || 0), 0)
+  const paidPct = Math.round((summary.paid / 12) * 100)
+
+  return (
+    <div className="glass-card" style={{ padding: 20, marginBottom: 16 }}>
+      {/* Header */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
+        <div style={{ width: 36, height: 36, borderRadius: 10, background: 'linear-gradient(135deg,#042954,#051f3e)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+          <IndianRupee size={16} color="#fabf22" />
+        </div>
+        <div>
+          <div style={{ fontSize: 15, fontWeight: 700, color: '#fff' }}>Installment Schedule</div>
+          <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.4)' }}>Yearly plan — 12 monthly installments</div>
+        </div>
+      </div>
+
+      {/* Summary pills */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 8, marginBottom: 14 }}>
+        {[
+          { label: 'Paid',    value: summary.paid,    color: '#4ade80', bg: 'rgba(34,197,94,0.1)' },
+          { label: 'Pending', value: summary.pending, color: '#fbbf24', bg: 'rgba(251,191,36,0.08)' },
+          { label: 'Overdue', value: summary.overdue, color: '#f87171', bg: 'rgba(239,68,68,0.1)' },
+        ].map(({ label, value, color, bg }) => (
+          <div key={label} style={{ background: bg, borderRadius: 10, padding: '10px 8px', textAlign: 'center' }}>
+            <div style={{ fontSize: 22, fontWeight: 800, color }}>{value}</div>
+            <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.4)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: 0.5 }}>{label}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* Progress bar */}
+      <div style={{ marginBottom: 16 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, color: 'rgba(255,255,255,0.4)', marginBottom: 5 }}>
+          <span>₹{receivedAmt.toLocaleString('en-IN')} received</span>
+          <span>{summary.paid}/12 months · Total ₹{totalAmount?.toLocaleString('en-IN')}</span>
+        </div>
+        <div style={{ width: '100%', height: 8, background: 'rgba(255,255,255,0.08)', borderRadius: 99, overflow: 'hidden' }}>
+          <div style={{
+            height: '100%', borderRadius: 99, transition: 'width 0.6s ease',
+            width: `${paidPct}%`,
+            background: summary.overdue > 0 ? '#f87171' : '#4ade80',
+          }} />
+        </div>
+        <div style={{ textAlign: 'right', fontSize: 10, color: 'rgba(255,255,255,0.35)', marginTop: 3 }}>
+          ₹{(totalAmount - receivedAmt).toLocaleString('en-IN')} remaining
+        </div>
+      </div>
+
+      {/* 3-column month grid */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 8 }}>
+        {installments.map((inst) => {
+          const cfg = INST_CFG[inst.status] || INST_CFG.PENDING
+          const Icon = cfg.icon
+          return (
+            <div key={inst.installmentNo} style={{
+              background: cfg.bg, border: `1px solid ${cfg.border}`,
+              borderRadius: 12, padding: '10px 10px 8px', position: 'relative',
+            }}>
+              <span style={{ position: 'absolute', top: 6, right: 8, fontSize: 10, color: 'rgba(255,255,255,0.25)', fontWeight: 600 }}>
+                #{inst.installmentNo}
+              </span>
+
+              <div style={{ display: 'flex', alignItems: 'center', gap: 5, marginBottom: 4 }}>
+                <CalendarDays size={11} color={cfg.color} />
+                <span style={{ fontSize: 11, fontWeight: 700, color: cfg.color }}>{fmtMonth(inst.billingMonth)}</span>
+              </div>
+
+              <div style={{ fontSize: 14, fontWeight: 800, color: '#fff', marginBottom: 5 }}>
+                ₹{Number(inst.amount || 0).toLocaleString('en-IN')}
+              </div>
+
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: 4, background: 'rgba(0,0,0,0.2)', borderRadius: 20, padding: '2px 7px' }}>
+                <Icon size={9} color={cfg.color} />
+                <span style={{ fontSize: 10, color: cfg.color, fontWeight: 700 }}>{cfg.label}</span>
+              </div>
+
+              {inst.status === 'PAID' && inst.paidDate && (
+                <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.4)', marginTop: 4 }}>
+                  ✓ {new Date(inst.paidDate).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: '2-digit' })}
+                </div>
+              )}
+
+              {inst.status !== 'PAID' && inst.dueDate && (
+                <div style={{ fontSize: 10, color: inst.status === 'OVERDUE' ? '#f87171' : 'rgba(255,255,255,0.4)', marginTop: 4 }}>
+                  Due: {new Date(inst.dueDate).toLocaleDateString('en-IN', { day: '2-digit', month: 'short' })}
+                </div>
+              )}
+            </div>
+          )
+        })}
+      </div>
+
+      {summary.overdue > 0 && (
+        <div style={{ marginTop: 14, display: 'flex', alignItems: 'center', gap: 8, padding: '10px 12px', borderRadius: 10, background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.2)' }}>
+          <AlertTriangle size={14} color="#f87171" />
+          <span style={{ fontSize: 12, color: '#f87171', fontWeight: 600 }}>
+            {summary.overdue} installment{summary.overdue > 1 ? 's' : ''} overdue — please contact admin to clear dues
+          </span>
+        </div>
+      )}
+    </div>
+  )
+}
+
 function PlanResult({ result, onReset }) {
   const { school, plan } = result
   const statusCfg = STATUS_CONFIG[plan?.status] || STATUS_CONFIG.PENDING
@@ -375,6 +516,9 @@ function PlanResult({ result, onReset }) {
           </div>
         )}
       </div>
+
+      {/* Installment Schedule — only shows for Yearly plans */}
+      {school.tenantId && <InstallmentSection tenantId={school.tenantId} />}
 
       {/* Actions */}
       <a href={school.loginUrl} target="_blank" rel="noopener noreferrer" className="btn-primary"
