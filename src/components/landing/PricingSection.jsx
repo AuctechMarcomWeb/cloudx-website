@@ -56,7 +56,7 @@ export default function PricingSection() {
 
         <div style={{ textAlign:'center', marginBottom:52 }}>
           <span style={{ display:'inline-block',fontSize:12,fontWeight:700,color:'#1bbc9b',letterSpacing:2,textTransform:'uppercase',background:'rgba(27,188,155,0.08)',padding:'5px 16px',borderRadius:50,marginBottom:14 }}>Pricing</span>
-          <h2 style={{ fontSize:'clamp(26px,4vw,42px)',fontWeight:800,color:'#1a1a2e',marginBottom:14 }}>Flexible pricing packages</h2>
+          <h2 className="section-title">Flexible pricing packages</h2>
           <p style={{ color:'#64748b',maxWidth:520,margin:'0 auto',fontSize:16,lineHeight:1.7 }}>
             Choose the plan that fits your school best. Prepaid or per-student billing — transparent, no hidden charges.
           </p>
@@ -166,3 +166,5 @@ export default function PricingSection() {
     </section>
   )
 }
+
+

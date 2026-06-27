@@ -64,7 +64,7 @@ export default function StepSuccess({ data }) {
         <div style={{ width:88,height:88,borderRadius:'50%',margin:'0 auto 20px',background:'linear-gradient(135deg,#1bbc9b,#0ea5e9)',display:'flex',alignItems:'center',justifyContent:'center',boxShadow:'0 0 50px rgba(27,188,155,0.35)' }}>
           <CheckCircle size={44} color="#fff" />
         </div>
-        <h2 style={{ fontSize:32,fontWeight:800,marginBottom:10,color:'#1a1a2e',fontFamily:"'Poppins',sans-serif" }}>
+        <h2 style={{ fontSize:32,fontWeight:800,marginBottom:10,color:'#1a1a2e',fontFamily:"'Lato', sans-serif" }}>
           🎉 School Created Successfully!
         </h2>
         <p style={{ color:'#64748b',fontSize:16,lineHeight:1.6 }}>

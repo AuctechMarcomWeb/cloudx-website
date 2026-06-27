@@ -70,7 +70,7 @@ export default function StepLeadInfo({ onNext }) {
           <span style={{ width:6,height:6,borderRadius:'50%',background:'#1bbc9b',display:'inline-block' }} />
           <span style={{ fontSize:11.5,fontWeight:700,color:'#1bbc9b',letterSpacing:'0.06em' }}>STEP 1 OF 3</span>
         </div>
-        <h2 style={{ fontSize:30,fontWeight:800,marginBottom:8,color:'#1a1a2e',fontFamily:"'Poppins',sans-serif" }}>Register Your School</h2>
+        <h2 style={{ fontSize:30,fontWeight:800,marginBottom:8,color:'#1a1a2e',fontFamily:"'Lato', sans-serif" }}>Register Your School</h2>
         <p style={{ color:'#64748b',fontSize:15,lineHeight:1.65 }}>Fill in your basic details — school setup comes next</p>
       </div>
 

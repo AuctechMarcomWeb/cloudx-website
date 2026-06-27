@@ -1,6 +1,11 @@
 import { useState } from 'react'
 import { Users, CreditCard, BookOpen, Bus, Bell, BarChart2, FileText, Shield, GraduationCap, Calendar, ClipboardList, Home, Settings } from 'lucide-react'
-import superAdminImg from '../../assets/HxCMMWD6ttfGHPpTS4EzpysImSjyF4c8d1GLbQ12.png'
+import superAdminImg   from '../../assets/HxCMMWD6ttfGHPpTS4EzpysImSjyF4c8d1GLbQ12.png'
+import studentImg      from '../../assets/StudentImage.png'
+import schoolAdminImg  from '../../assets/682c33c666a931.887378031747727302.png'
+import teacherImg      from '../../assets/qFMqcY4MZ7kTMZ0fRigMJkhlhDFiOcCg9v3qosVw.png'
+import staffAppImg     from '../../assets/mobile phone.png'
+import parentsAppImg   from '../../assets/ourApp.png'
 
 /* ─────────────────────────────────────────────
    Exact phone mockup with real app-like UI
@@ -51,7 +56,7 @@ function SuperAdminScreen1() {
         <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:5, marginBottom:8 }}>
           {[{l:'Schools',v:'127',c:'#1bbc9b'},{l:'Students',v:'1.2L',c:'#0ea5e9'},{l:'Teachers',v:'8.9K',c:'#8b5cf6'},{l:'Revenue',v:'$48k',c:'#f59e0b'}].map((s,i)=>(
             <div key={i} style={{ background:s.c+'15',borderRadius:8,padding:'7px 8px',textAlign:'center' }}>
-              <div style={{ fontSize:11,fontWeight:900,color:s.c,fontFamily:'Nunito,sans-serif' }}>{s.v}</div>
+              <div style={{ fontSize:11,fontWeight:900,color:s.c,fontFamily:"'Lato', sans-serif" }}>{s.v}</div>
               <div style={{ fontSize:6,color:'#64748b',marginTop:1 }}>{s.l}</div>
             </div>
           ))}
@@ -82,7 +87,7 @@ function SuperAdminScreen2() {
         {[{n:'Basic',p:'$0.02/student',c:'#1bbc9b',pop:false},{n:'Standard',p:'$1.00/student',c:'#0ea5e9',pop:false},{n:'Pro',p:'$99 package',c:'#8b5cf6',pop:true}].map((pl,i)=>(
           <div key={i} style={{ background:pl.pop?pl.c:'#f8fffe',borderRadius:10,padding:'8px 10px',marginBottom:6,border:`1.5px solid ${pl.pop?pl.c:pl.c+'30'}` }}>
             <div style={{ display:'flex',justifyContent:'space-between',alignItems:'center' }}>
-              <span style={{ fontSize:8,fontWeight:800,color:pl.pop?'#fff':'#1a1a2e',fontFamily:'Nunito,sans-serif' }}>{pl.n}</span>
+              <span style={{ fontSize:8,fontWeight:800,color:pl.pop?'#fff':'#1a1a2e',fontFamily:"'Lato', sans-serif" }}>{pl.n}</span>
               {pl.pop && <span style={{ fontSize:6,background:'rgba(255,255,255,0.25)',color:'#fff',borderRadius:4,padding:'1px 5px',fontWeight:700 }}>Popular</span>}
             </div>
             <div style={{ fontSize:7,color:pl.pop?'rgba(255,255,255,0.85)':pl.c,marginTop:2,fontWeight:600 }}>{pl.p}</div>
@@ -108,7 +113,7 @@ function SchoolAdminScreen1() {
         <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:5,marginBottom:8 }}>
           {[{l:'Students',v:'2,847',c:'#1bbc9b'},{l:'Teachers',v:'184',c:'#0ea5e9'},{l:'Classes',v:'56',c:'#8b5cf6'},{l:'Fees Due',v:'$12k',c:'#f59e0b'}].map((s,i)=>(
             <div key={i} style={{ background:s.c+'15',borderRadius:8,padding:'6px',textAlign:'center' }}>
-              <div style={{ fontSize:10,fontWeight:900,color:s.c,fontFamily:'Nunito,sans-serif' }}>{s.v}</div>
+              <div style={{ fontSize:10,fontWeight:900,color:s.c,fontFamily:"'Lato', sans-serif" }}>{s.v}</div>
               <div style={{ fontSize:5.5,color:'#64748b',marginTop:1 }}>{s.l}</div>
             </div>
           ))}
@@ -308,7 +313,7 @@ function StudentScreen1() {
           <div key={i} style={{ background:'#f8fffe',borderRadius:8,padding:'6px 8px',marginBottom:5,border:'1px solid #e8faf6' }}>
             <div style={{ display:'flex',justifyContent:'space-between',marginBottom:4 }}>
               <span style={{ fontSize:7.5,fontWeight:800,color:'#1a1a2e' }}>{sub.s}</span>
-              <span style={{ fontSize:8,fontWeight:900,color:sub.c,fontFamily:'Nunito,sans-serif' }}>{sub.p}%</span>
+              <span style={{ fontSize:8,fontWeight:900,color:sub.c,fontFamily:"'Lato', sans-serif" }}>{sub.p}%</span>
             </div>
             <div style={{ background:'#e8faf6',borderRadius:4,height:5,overflow:'hidden' }}>
               <div style={{ width:`${sub.p}%`,height:'100%',background:`linear-gradient(90deg,${sub.c},${sub.c}bb)`,borderRadius:4 }} />
@@ -328,13 +333,13 @@ function StudentScreen2() {
       </div>
       <div style={{ padding:'8px' }}>
         <div style={{ background:'linear-gradient(135deg,#e8faf6,#d1f5ee)',borderRadius:10,padding:'10px',textAlign:'center',marginBottom:8,border:'1.5px solid rgba(27,188,155,0.2)' }}>
-          <div style={{ fontSize:22,fontWeight:900,color:'#1bbc9b',fontFamily:'Nunito,sans-serif' }}>87.4%</div>
+          <div style={{ fontSize:22,fontWeight:900,color:'#1bbc9b',fontFamily:"'Lato', sans-serif" }}>87.4%</div>
           <div style={{ fontSize:7,color:'#64748b',marginTop:2 }}>Overall Score · Grade A</div>
         </div>
         {[{s:'Maths',m:'92/100',c:'#1bbc9b'},{s:'Science',m:'88/100',c:'#0ea5e9'},{s:'English',m:'82/100',c:'#8b5cf6'},{s:'History',m:'85/100',c:'#f59e0b'}].map((r,i)=>(
           <div key={i} style={{ display:'flex',justifyContent:'space-between',alignItems:'center',padding:'5px 0',borderTop:'1px solid #f0fdf9' }}>
             <span style={{ fontSize:7.5,color:'#374151',fontWeight:700 }}>{r.s}</span>
-            <span style={{ fontSize:7.5,color:r.c,fontWeight:800,background:r.c+'18',padding:'2px 8px',borderRadius:5,fontFamily:'Nunito,sans-serif' }}>{r.m}</span>
+            <span style={{ fontSize:7.5,color:r.c,fontWeight:800,background:r.c+'18',padding:'2px 8px',borderRadius:5,fontFamily:"'Lato', sans-serif" }}>{r.m}</span>
           </div>
         ))}
       </div>
@@ -354,7 +359,7 @@ function StaffScreen1() {
         <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:5,marginBottom:8 }}>
           {[{l:'Classes Today',v:'4',c:'#1bbc9b'},{l:'Pending Leave',v:'2',c:'#f59e0b'},{l:'Assignments',v:'8',c:'#0ea5e9'},{l:'Notices',v:'3',c:'#8b5cf6'}].map((s,i)=>(
             <div key={i} style={{ background:s.c+'18',borderRadius:8,padding:'6px',textAlign:'center' }}>
-              <div style={{ fontSize:13,fontWeight:900,color:s.c,fontFamily:'Nunito,sans-serif' }}>{s.v}</div>
+              <div style={{ fontSize:13,fontWeight:900,color:s.c,fontFamily:"'Lato', sans-serif" }}>{s.v}</div>
               <div style={{ fontSize:5.5,color:'#64748b',marginTop:1,lineHeight:1.3 }}>{s.l}</div>
             </div>
           ))}
@@ -415,6 +420,7 @@ const PANELS = [
   {
     id:'school-admin', label:'School Admin Panel',
     heading:'Manage school operations with our intuitive admin panel and operate seamless daily operations.',
+    image: schoolAdminImg,
     screens:[<SchoolAdminScreen1/>,<SchoolAdminScreen2/>],
     features:[
       {icon:GraduationCap,title:'Academy Setup Made Easy',        desc:'Simplify academy management with our all-in-one solution. From creating mediums, subjects, and semesters to managing shifts.'},
@@ -430,6 +436,7 @@ const PANELS = [
   {
     id:'teacher', label:'Teacher Panel',
     heading:'Simplify classroom management with our intuitive Teacher Admin Panel.',
+    image: teacherImg,
     screens:[<TeacherScreen1/>,<TeacherScreen2/>],
     features:[
       {icon:BookOpen,     title:'Lesson & Topic Crafting',               desc:'Teachers manage comprehensive lessons and break them down into topics for effective teaching and learning.'},
@@ -442,6 +449,7 @@ const PANELS = [
   {
     id:'parents-app', label:'Parents/Students App',
     heading:'Bridge the gap between home and school, creating a collaborative learning environment that supports growth and success.',
+    image: parentsAppImg,
     screens:[<ParentsScreen1/>,<ParentsScreen2/>],
     features:[
       {icon:Home,         title:'Attractive Home',                desc:'Keep up-to-date with the latest announcements and subject information right from our homepage.'},
@@ -453,6 +461,7 @@ const PANELS = [
   {
     id:'student', label:'Student Panel',
     heading:'Everything Students Need - Courses, Assignments, Results & More - in One Smart Dashboard.',
+    image: studentImg,
     screens:[<StudentScreen1/>,<StudentScreen2/>],
     features:[
       {icon:BookOpen, title:'Subjects & Lessons',              desc:'Students can easily access subject materials, lesson topics, and study resources in one organized space.'},
@@ -464,6 +473,7 @@ const PANELS = [
   {
     id:'teacher-staff-app', label:'Teacher - Staff App',
     heading:'From Classroom to Office: Enhancing Communication for Educators and Admins.',
+    image: staffAppImg,
     screens:[<StaffScreen1/>,<StaffScreen2/>],
     features:[
       {icon:BarChart2,title:'Attractive Dashboard',desc:'Easily access timetable, leave details, and holiday schedules all in one place.'},
@@ -475,148 +485,303 @@ const PANELS = [
   },
 ]
 
-/* ── Main Component — exact screenshot layout ── */
-export default function FeaturesSection() {
-  const [active, setActive] = useState('super-admin')
-  const [activeFeature, setActiveFeature] = useState(0)
-  const panel = PANELS.find(p => p.id === active)
+/* ── Feature Grid Icons (SVG - matching reference site style) ── */
+const FEATURE_GRID = [
+  {
+    title: 'Student management',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" width="36" height="36">
+        <circle cx="24" cy="14" r="7" stroke="#1bbc9b" strokeWidth="2" fill="none"/>
+        <path d="M8 40c0-8.837 7.163-16 16-16s16 7.163 16 16" stroke="#1bbc9b" strokeWidth="2" strokeLinecap="round" fill="none"/>
+        <path d="M34 10l8-4-8-4v8z" stroke="#1bbc9b" strokeWidth="1.5" fill="none"/>
+        <circle cx="38" cy="18" r="2" stroke="#1bbc9b" strokeWidth="1.5" fill="none"/>
+      </svg>
+    ),
+  },
+  {
+    title: 'Academics management',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" width="36" height="36">
+        <rect x="8" y="12" width="32" height="28" rx="3" stroke="#1bbc9b" strokeWidth="2" fill="none"/>
+        <path d="M16 12V8a2 2 0 012-2h12a2 2 0 012 2v4" stroke="#1bbc9b" strokeWidth="2" fill="none"/>
+        <path d="M16 24h16M16 30h10" stroke="#1bbc9b" strokeWidth="2" strokeLinecap="round"/>
+        <circle cx="36" cy="36" r="6" fill="#e8faf6" stroke="#1bbc9b" strokeWidth="1.5"/>
+        <path d="M34 36l1.5 1.5L38 34" stroke="#1bbc9b" strokeWidth="1.5" strokeLinecap="round"/>
+      </svg>
+    ),
+  },
+  {
+    title: 'Slider management',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" width="36" height="36">
+        <rect x="4" y="12" width="40" height="26" rx="3" stroke="#1bbc9b" strokeWidth="2" fill="none"/>
+        <path d="M4 18h40" stroke="#1bbc9b" strokeWidth="1.5"/>
+        <rect x="10" y="22" width="28" height="10" rx="2" stroke="#1bbc9b" strokeWidth="1.5" fill="none"/>
+        <circle cx="14" cy="40" r="2" fill="#1bbc9b"/>
+        <circle cx="24" cy="40" r="2" fill="#d1f5ee" stroke="#1bbc9b" strokeWidth="1.5"/>
+        <circle cx="34" cy="40" r="2" fill="#d1f5ee" stroke="#1bbc9b" strokeWidth="1.5"/>
+      </svg>
+    ),
+  },
+  {
+    title: 'Teacher management',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" width="36" height="36">
+        <rect x="6" y="8" width="36" height="26" rx="3" stroke="#1bbc9b" strokeWidth="2" fill="none"/>
+        <path d="M16 38h16M24 34v4" stroke="#1bbc9b" strokeWidth="2" strokeLinecap="round"/>
+        <circle cx="24" cy="20" r="5" stroke="#1bbc9b" strokeWidth="1.5" fill="none"/>
+        <path d="M14 30c0-5.523 4.477-8 10-8s10 2.477 10 8" stroke="#1bbc9b" strokeWidth="1.5" strokeLinecap="round" fill="none"/>
+      </svg>
+    ),
+  },
+  {
+    title: 'Session year management',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" width="36" height="36">
+        <rect x="6" y="10" width="36" height="32" rx="3" stroke="#1bbc9b" strokeWidth="2" fill="none"/>
+        <path d="M6 18h36" stroke="#1bbc9b" strokeWidth="1.5"/>
+        <path d="M16 6v8M32 6v8" stroke="#1bbc9b" strokeWidth="2" strokeLinecap="round"/>
+        <rect x="12" y="24" width="8" height="6" rx="1" fill="#e8faf6" stroke="#1bbc9b" strokeWidth="1.2"/>
+        <rect x="28" y="24" width="8" height="6" rx="1" fill="#e8faf6" stroke="#1bbc9b" strokeWidth="1.2"/>
+        <path d="M12 34h8M28 34h8" stroke="#1bbc9b" strokeWidth="1.5" strokeLinecap="round"/>
+      </svg>
+    ),
+  },
+  {
+    title: 'Holiday management',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" width="36" height="36">
+        <path d="M24 6C15.163 6 8 13.163 8 22c0 8.284 5.5 15.284 13 17.5V42h6v-2.5C34.5 37.284 40 30.284 40 22c0-8.837-7.163-16-16-16z" stroke="#1bbc9b" strokeWidth="2" fill="none"/>
+        <path d="M18 22c0-3.314 2.686-6 6-6s6 2.686 6 6" stroke="#1bbc9b" strokeWidth="1.5" strokeLinecap="round" fill="none"/>
+        <path d="M20 42h8" stroke="#1bbc9b" strokeWidth="2" strokeLinecap="round"/>
+        <circle cx="24" cy="22" r="2" fill="#1bbc9b"/>
+      </svg>
+    ),
+  },
+  {
+    title: 'Timetable management',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" width="36" height="36">
+        <rect x="6" y="8" width="36" height="34" rx="3" stroke="#1bbc9b" strokeWidth="2" fill="none"/>
+        <path d="M6 18h36" stroke="#1bbc9b" strokeWidth="1.5"/>
+        <path d="M16 8v6M32 8v6" stroke="#1bbc9b" strokeWidth="2" strokeLinecap="round"/>
+        <path d="M12 25h6v5h-6zM21 25h6v5h-6zM30 25h6v5h-6z" stroke="#1bbc9b" strokeWidth="1.2" fill="none"/>
+        <path d="M12 34h6M21 34h6M30 34h6" stroke="#1bbc9b" strokeWidth="1.5" strokeLinecap="round"/>
+      </svg>
+    ),
+  },
+  {
+    title: 'Attendance management',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" width="36" height="36">
+        <rect x="8" y="8" width="32" height="36" rx="3" stroke="#1bbc9b" strokeWidth="2" fill="none"/>
+        <path d="M16 4v8M32 4v8" stroke="#1bbc9b" strokeWidth="2" strokeLinecap="round"/>
+        <path d="M14 24l4 4 8-8" stroke="#1bbc9b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M14 34h12M14 30h20" stroke="#1bbc9b" strokeWidth="1.5" strokeLinecap="round"/>
+      </svg>
+    ),
+  },
+  {
+    title: 'Exam management',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" width="36" height="36">
+        <rect x="10" y="6" width="28" height="36" rx="3" stroke="#1bbc9b" strokeWidth="2" fill="none"/>
+        <path d="M18 16h12M18 22h12M18 28h8" stroke="#1bbc9b" strokeWidth="2" strokeLinecap="round"/>
+        <rect x="28" y="28" width="10" height="10" rx="2" fill="#e8faf6" stroke="#1bbc9b" strokeWidth="1.5"/>
+        <path d="M30 33l2 2 4-4" stroke="#1bbc9b" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    ),
+  },
+]
 
-  const handleTab = (id) => { setActive(id); setActiveFeature(0) }
+/* ── Main Component — Simple vertical scroll, no tabs ── */
+export default function FeaturesSection() {
+  const [activeFeature, setActiveFeature] = useState({})
+
+  const getActiveFeature = (id) => activeFeature[id] ?? 0
+  const setFeature = (panelId, i) =>
+    setActiveFeature(prev => ({ ...prev, [panelId]: i }))
 
   return (
-    <section id="features" style={{ background:'#fff', padding:'80px 0' }}>
-      <div className="container">
+    <section id="features" style={{ background: '#fff' }}>
 
-        {/* Header */}
-        <div style={{ textAlign:'center', marginBottom:48 }}>
-          <span style={{ display:'inline-block',fontSize:12,fontWeight:700,color:'#1bbc9b',letterSpacing:2,textTransform:'uppercase',background:'rgba(27,188,155,0.08)',padding:'5px 16px',borderRadius:50,marginBottom:14 }}>Features</span>
-          <h2 style={{ fontSize:'clamp(26px,4vw,42px)',fontWeight:800,color:'#1a1a2e',marginBottom:14,fontFamily:"'Nunito','Poppins',sans-serif" }}>Explore our top features</h2>
-          <p style={{ color:'#64748b',fontSize:16,lineHeight:1.7,maxWidth:520,margin:'0 auto' }}>14+ robust features for an enhanced educational experience.</p>
-        </div>
+      {/* ── Section Header ── */}
+      <div style={{ textAlign: 'center', padding: '80px 0 48px' }}>
+        <span style={{ display:'inline-block',fontSize:12,fontWeight:700,color:'#1bbc9b',letterSpacing:2,textTransform:'uppercase',background:'rgba(27,188,155,0.08)',padding:'5px 16px',borderRadius:50,marginBottom:14 }}>Features</span>
+        <h2 className="section-title">Explore our top features</h2>
+        <p style={{ color:'#64748b',fontSize:16,lineHeight:1.7,maxWidth:520,margin:'0 auto' }}>14+ robust features for an enhanced educational experience.</p>
+      </div>
 
-        {/* Tabs */}
-        <div style={{ display:'flex',flexWrap:'wrap',gap:10,justifyContent:'center',marginBottom:52 }}>
-          {PANELS.map(p => {
-            const on = active === p.id
-            return (
-              <button key={p.id} onClick={() => handleTab(p.id)} style={{
-                padding:'10px 22px', borderRadius:50,
-                border: on ? 'none' : '1.5px solid #d1f5ee',
-                background: on ? 'linear-gradient(135deg,#1bbc9b,#0e9f82)' : '#fff',
-                color: on ? '#fff' : '#64748b',
-                fontSize:14, fontWeight:700, cursor:'pointer',
-                transition:'all 0.2s', fontFamily:"'Nunito',sans-serif",
-                boxShadow: on ? '0 6px 20px rgba(27,188,155,0.35)' : 'none',
-              }}>{p.label}</button>
-            )
-          })}
-        </div>
-
-        {/* Panel — exact layout from screenshot */}
-        <div key={active} style={{ animation:'fadeInUp 0.3s ease both' }}>
-
-          {/* Center heading — tab label green, heading bold */}
-          <div style={{ textAlign:'center', marginBottom:40 }}>
-            <p style={{ fontSize:14,fontWeight:700,color:'#1bbc9b',marginBottom:14,fontFamily:"'Nunito',sans-serif" }}>{panel.label}</p>
-            <h3 style={{
-              fontSize:'clamp(20px,3vw,32px)', fontWeight:900, color:'#1a1a2e',
-              maxWidth:700, margin:'0 auto 20px', lineHeight:1.3,
-              fontFamily:"'Nunito','Poppins',sans-serif",
-              letterSpacing:'-0.3px',
-            }}>{panel.heading}</h3>
-            {/* Horizontal line with green dot — exact screenshot */}
-            <div style={{ display:'flex', alignItems:'center', justifyContent:'center', gap:0, maxWidth:600, margin:'0 auto' }}>
-              <div style={{ flex:1, height:2, background:'#1a1a2e', opacity:0.12 }} />
-              <div style={{ width:10, height:10, borderRadius:'50%', background:'#1bbc9b', margin:'0 8px', flexShrink:0, boxShadow:'0 0 8px rgba(27,188,155,0.4)' }} />
-              <div style={{ flex:1, height:2, background:'#1a1a2e', opacity:0.12 }} />
-            </div>
-          </div>
-
-          {/* Two column: left phones, right feature list */}
-          <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:64, alignItems:'center', maxWidth:1000, margin:'0 auto' }} className="feat-grid">
-
-            {/* Left — image or phone mockups in mint card */}
-            <div style={{
-              background:'#e8faf6',
-              borderRadius:24,
-              padding: panel.image ? '24px' : '36px 24px 36px',
-              display:'flex',
-              gap:16,
-              justifyContent:'center',
-              alignItems: panel.image ? 'center' : 'flex-end',
-              minHeight:420,
-              position:'relative',
-            }}>
-              {panel.image ? (
-                <img
-                  src={panel.image}
-                  alt={panel.label}
-                  style={{
-                    width: '100%',
-                    maxWidth: 420,
-                    height: 'auto',
-                    display: 'block',
-                    borderRadius: 16,
-                    filter: 'drop-shadow(0 20px 48px rgba(0,0,0,0.15))',
-                  }}
-                />
-              ) : (
-                <>
-                  <PhoneMockup>{panel.screens[0]}</PhoneMockup>
-                  <PhoneMockup tilt>{panel.screens[1]}</PhoneMockup>
-                </>
-              )}
-            </div>
-
-            {/* Right — feature list */}
-            <div style={{ display:'flex', flexDirection:'column', gap:4 }}>
-              {panel.features.map(({ icon:Icon, title, desc }, i) => {
-                const isActive = activeFeature === i
-                return (
-                  <div
-                    key={title}
-                    onClick={() => setActiveFeature(i)}
-                    style={{
-                      display:'flex', gap:14, padding:'14px 16px',
-                      borderRadius:12, cursor:'pointer',
-                      background: isActive ? 'rgba(27,188,155,0.08)' : 'transparent',
-                      borderLeft: `3px solid ${isActive ? '#1bbc9b' : 'transparent'}`,
-                      transition:'all 0.2s',
-                    }}
-                    onMouseEnter={e => { if(!isActive){ e.currentTarget.style.background='rgba(27,188,155,0.04)'; e.currentTarget.style.borderLeftColor='rgba(27,188,155,0.4)' }}}
-                    onMouseLeave={e => { if(!isActive){ e.currentTarget.style.background='transparent'; e.currentTarget.style.borderLeftColor='transparent' }}}
-                  >
-                    {/* Icon box */}
-                    <div style={{
-                      width:42, height:42, borderRadius:10, flexShrink:0,
-                      background: isActive ? '#1bbc9b' : 'rgba(27,188,155,0.1)',
-                      border: `1px solid ${isActive ? '#1bbc9b' : 'rgba(27,188,155,0.2)'}`,
-                      display:'flex', alignItems:'center', justifyContent:'center',
-                      transition:'all 0.2s',
-                    }}>
-                      <Icon size={18} color={isActive ? '#fff' : '#1bbc9b'} />
-                    </div>
-                    <div style={{ flex:1 }}>
-                      <h4 style={{
-                        fontSize:15, fontWeight:800, color:'#1a1a2e', marginBottom: isActive ? 6 : 0,
-                        fontFamily:"'Nunito',sans-serif", lineHeight:1.3,
-                      }}>{title}</h4>
-                      {isActive && (
-                        <p style={{ fontSize:13.5, color:'#64748b', lineHeight:1.65, margin:0, animation:'fadeIn 0.2s ease both' }}>{desc}</p>
-                      )}
-                    </div>
-                  </div>
-                )
-              })}
-            </div>
-
+      {/* ── Feature Grid ── */}
+      <div style={{ padding: '0 0 72px' }}>
+        <div className="container">
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(3, 1fr)',
+            gap: 16,
+            maxWidth: 960,
+            margin: '0 auto',
+          }} className="feat-icon-grid">
+            {FEATURE_GRID.map(({ title, icon }) => (
+              <div key={title} style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 14,
+                background: '#fff',
+                border: '1.5px solid #e8f5f2',
+                borderLeft: '4px solid #1bbc9b',
+                borderRadius: 10,
+                padding: '16px 20px',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
+                transition: 'all 0.2s',
+              }}
+                onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 6px 20px rgba(27,188,155,0.15)'; e.currentTarget.style.borderColor = '#1bbc9b' }}
+                onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.04)'; e.currentTarget.style.borderColor = '#e8f5f2'; e.currentTarget.style.borderLeftColor = '#1bbc9b' }}
+              >
+                <div style={{
+                  width: 48, height: 48, borderRadius: 10, flexShrink: 0,
+                  background: '#f0fdf9',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                }}>
+                  {icon}
+                </div>
+                <span style={{
+                  fontSize: 14.5, fontWeight: 600, color: '#1a1a2e',
+                  fontFamily: "'Lato', sans-serif", lineHeight: 1.4,
+                }}>{title}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
 
+      {/* ── All Panels stacked vertically ── */}
+      {PANELS.map((panel) => {
+        const activeF = getActiveFeature(panel.id)
+        return (
+          <div
+            key={panel.id}
+            id={`panel-${panel.id}`}
+            style={{ padding: '80px 0', borderBottom: '1px solid #f1f5f9' }}
+          >
+            <div className="container">
+
+              {/* Panel heading */}
+              <div style={{ textAlign: 'center', marginBottom: 48 }}>
+                <p style={{ fontSize:14,fontWeight:700,color:'#1bbc9b',marginBottom:12,fontFamily:"'Lato', sans-serif" }}>{panel.label}</p>
+                <h3 style={{
+                  fontSize: 'clamp(20px,3vw,32px)',
+                  fontWeight: 900,
+                  color: '#1a1a2e',
+                  maxWidth: 700,
+                  margin: '0 auto 20px',
+                  lineHeight: 1.3,
+                  fontFamily:"'Lato', sans-serif",
+                }}>{panel.heading}</h3>
+                {/* Divider line with dot */}
+                <div style={{ display:'flex',alignItems:'center',justifyContent:'center',maxWidth:600,margin:'0 auto' }}>
+                  <div style={{ flex:1,height:2,background:'#1a1a2e',opacity:0.1 }} />
+                  <div style={{ width:10,height:10,borderRadius:'50%',background:'#1bbc9b',margin:'0 8px',flexShrink:0,boxShadow:'0 0 8px rgba(27,188,155,0.4)' }} />
+                  <div style={{ flex:1,height:2,background:'#1a1a2e',opacity:0.1 }} />
+                </div>
+              </div>
+
+              {/* Two column: image left, features right */}
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: '1fr 1fr',
+                gap: 64,
+                alignItems: 'center',
+                maxWidth: 1000,
+                margin: '0 auto',
+              }} className="feat-grid">
+
+                {/* Left — image */}
+                <div style={{
+                  background: '#e8faf6',
+                  borderRadius: 24,
+                  padding: '28px',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  minHeight: 380,
+                }}>
+                  <img
+                    src={panel.image}
+                    alt={panel.label}
+                    style={{
+                      width: '100%',
+                      maxWidth: 420,
+                      height: 'auto',
+                      display: 'block',
+                      borderRadius: 16,
+                      filter: 'drop-shadow(0 20px 48px rgba(0,0,0,0.15))',
+                    }}
+                  />
+                </div>
+
+                {/* Right — feature list */}
+                <div style={{ display:'flex', flexDirection:'column', gap:4 }}>
+                  {panel.features.map(({ icon: Icon, title, desc }, i) => {
+                    const isActive = activeF === i
+                    return (
+                      <div
+                        key={title}
+                        onClick={() => setFeature(panel.id, i)}
+                        style={{
+                          display: 'flex',
+                          gap: 14,
+                          padding: '14px 16px',
+                          borderRadius: 12,
+                          cursor: 'pointer',
+                          background: isActive ? 'rgba(27,188,155,0.08)' : 'transparent',
+                          borderLeft: `3px solid ${isActive ? '#1bbc9b' : 'transparent'}`,
+                          transition: 'all 0.2s',
+                        }}
+                        onMouseEnter={e => { if (!isActive) { e.currentTarget.style.background='rgba(27,188,155,0.04)'; e.currentTarget.style.borderLeftColor='rgba(27,188,155,0.4)' }}}
+                        onMouseLeave={e => { if (!isActive) { e.currentTarget.style.background='transparent'; e.currentTarget.style.borderLeftColor='transparent' }}}
+                      >
+                        <div style={{
+                          width: 42, height: 42, borderRadius: 10, flexShrink: 0,
+                          background: isActive ? '#1bbc9b' : 'rgba(27,188,155,0.1)',
+                          border: `1px solid ${isActive ? '#1bbc9b' : 'rgba(27,188,155,0.2)'}`,
+                          display: 'flex', alignItems: 'center', justifyContent: 'center',
+                          transition: 'all 0.2s',
+                        }}>
+                          <Icon size={18} color={isActive ? '#fff' : '#1bbc9b'} />
+                        </div>
+                        <div style={{ flex: 1 }}>
+                          <h4 style={{
+                            fontSize: 15, fontWeight: 800, color: '#1a1a2e',
+                            marginBottom: isActive ? 6 : 0,
+                            fontFamily:"'Lato', sans-serif", lineHeight: 1.3,
+                          }}>{title}</h4>
+                          {isActive && (
+                            <p style={{ fontSize:13.5,color:'#64748b',lineHeight:1.65,margin:0,animation:'fadeIn 0.2s ease both' }}>{desc}</p>
+                          )}
+                        </div>
+                      </div>
+                    )
+                  })}
+                </div>
+
+              </div>
+            </div>
+          </div>
+        )
+      })}
+
       <style>{`
-        @media(max-width:768px){ .feat-grid{grid-template-columns:1fr!important} }
+        @media(max-width:768px){
+          .feat-grid{ grid-template-columns:1fr !important }
+          .feat-icon-grid{ grid-template-columns:1fr !important }
+        }
+        @media(max-width:600px){
+          .feat-icon-grid{ grid-template-columns:1fr !important }
+        }
       `}</style>
     </section>
   )
 }
+
+

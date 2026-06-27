@@ -92,7 +92,7 @@ export default function StepVerifyOtp({ registrationId, schoolEmail, mobileNo, o
           <span style={{ width:6,height:6,borderRadius:'50%',background:'#1bbc9b',display:'inline-block' }} />
           <span style={{ fontSize:11.5,fontWeight:700,color:'#1bbc9b',letterSpacing:'0.06em' }}>STEP 2 OF 3</span>
         </div>
-        <h2 style={{ fontSize:30,fontWeight:800,marginBottom:8,color:'#1a1a2e',fontFamily:"'Poppins',sans-serif" }}>
+        <h2 style={{ fontSize:30,fontWeight:800,marginBottom:8,color:'#1a1a2e',fontFamily:"'Lato', sans-serif" }}>
           {mode==='email' ? 'Verify Your Email' : 'Verify Your Phone'}
         </h2>
         <p style={{ color:'#64748b',fontSize:15 }}>
