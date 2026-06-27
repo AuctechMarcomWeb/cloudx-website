@@ -15,7 +15,6 @@ export default function HeroSection() {
       id="home"
       style={{
         background: 'linear-gradient(135deg, #f0fdf9 0%, #e8faf6 50%, #f0fdf9 100%)',
-        minHeight: '100vh',
         position: 'relative',
         overflow: 'hidden',
       }}
@@ -33,10 +32,9 @@ export default function HeroSection() {
           gridTemplateColumns: '1fr 1fr',
           gap: 64,
           alignItems: 'center',
-          minHeight: 'calc(100vh - 68px)',
           paddingTop: 80,
           paddingBottom: 80,
-        }}>
+        }} className="hero-grid">
 
           {/* ── LEFT TEXT ── */}
           <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
@@ -46,13 +44,13 @@ export default function HeroSection() {
             </p>
 
             <h1 style={{
-              fontSize: 'clamp(32px, 4vw, 52px)',
+              fontSize: 'clamp(28px, 4vw, 52px)',
               fontWeight: 700,
               color: '#1a1a2e',
               lineHeight: 1.1,
               letterSpacing: '-0.5px',
               marginBottom: 20,
-            }}>
+            }} className="hero-h1">
               Transform School<br />Management<br />
               <span style={{ color: '#1bbc9b' }}>With School CloudX</span>
             </h1>
@@ -113,7 +111,7 @@ export default function HeroSection() {
             }} />
 
             {/* Floating card: Top Rated */}
-            <div style={{
+            <div className="hero-float-left" style={{
               position: 'absolute', bottom: 80, left: -10, zIndex: 10,
               background: '#fff', borderRadius: 16, padding: '14px 18px',
               boxShadow: '0 8px 32px rgba(0,0,0,0.12)',
@@ -135,7 +133,7 @@ export default function HeroSection() {
             </div>
 
             {/* Floating card: Features */}
-            <div style={{
+            <div className="hero-float-right" style={{
               position: 'absolute', top: 30, right: -10, zIndex: 10,
               background: '#fff', borderRadius: 14, padding: '12px 16px',
               boxShadow: '0 8px 28px rgba(0,0,0,0.1)',
@@ -149,6 +147,7 @@ export default function HeroSection() {
             <img
               src={heroImg}
               alt="School CloudX"
+              className="hero-img"
               style={{
                 width: '100%', maxWidth: 520, height: 'auto',
                 display: 'block', position: 'relative', zIndex: 1,
@@ -160,14 +159,25 @@ export default function HeroSection() {
       </div>
 
       <style>{`
-        @media (max-width: 768px) {
-          #home .container > div {
+        @media (max-width: 900px) {
+          .hero-grid {
             grid-template-columns: 1fr !important;
-            min-height: auto !important;
             padding-top: 48px !important;
             padding-bottom: 48px !important;
-            gap: 32px !important;
+            gap: 36px !important;
           }
+          .hero-img { max-width: 360px !important; margin: 0 auto !important; }
+          .hero-float-left  { display: none !important; }
+          .hero-float-right { display: none !important; }
+        }
+        @media (max-width: 600px) {
+          .hero-grid {
+            padding-top: 32px !important;
+            padding-bottom: 40px !important;
+            gap: 28px !important;
+          }
+          .hero-h1 { font-size: 26px !important; }
+          .hero-img { max-width: 100% !important; }
         }
       `}</style>
     </section>

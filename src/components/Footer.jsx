@@ -115,7 +115,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div style={{ padding: '20px 0', display: 'flex', flexWrap: 'wrap', gap: 12, justifyContent: 'space-between', alignItems: 'center' }}>
+        <div className="footer-bottom" style={{ padding: '20px 0', display: 'flex', flexWrap: 'wrap', gap: 12, justifyContent: 'space-between', alignItems: 'center' }}>
           <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.25)', margin: 0 }}>© {year} School CloudX. All Rights Reserved</p>
           <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.2)', margin: 0 }}>
             © <a href="https://wrteam.in/" target="_blank" rel="noreferrer" style={{ color: 'rgba(255,255,255,0.35)', textDecoration: 'none', transition: 'color 0.2s' }}
@@ -127,11 +127,12 @@ export default function Footer() {
       </div>
 
       <style>{`
-        @media (max-width: 768px) {
-          .footer-grid { grid-template-columns: 1fr 1fr !important; gap: 32px !important; }
+        @media (max-width: 1024px) {
+          .footer-grid { grid-template-columns: 1fr 1fr !important; gap: 36px !important; }
         }
-        @media (max-width: 480px) {
-          .footer-grid { grid-template-columns: 1fr !important; }
+        @media (max-width: 600px) {
+          .footer-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
+          .footer-bottom { flex-direction: column !important; align-items: flex-start !important; gap: 8px !important; }
         }
       `}</style>
     </footer>

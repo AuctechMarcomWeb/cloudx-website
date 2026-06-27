@@ -70,6 +70,28 @@ input, select, textarea, button { outline: none; font-family: 'Lato', sans-serif
   box-shadow: 0 1px 8px rgba(27,188,155,0.08);
 }
 
+/* ── Responsive utilities ── */
+@media (max-width: 1024px) {
+  .desk-nav { gap: 0 !important; }
+  .desk-nav button { padding: 8px 10px !important; font-size: 13.5px !important; }
+}
+@media (max-width: 900px) {
+  .desk-nav { display: none !important; }
+  .mob-btn  { display: flex !important; }
+  .mob-hide { display: none !important; }
+}
+@media (max-width: 768px) {
+  .desk-nav { display: none !important; }
+  .mob-btn  { display: flex !important; }
+  .mob-hide { display: none !important; }
+}
+
+/* Prevent horizontal scroll on all screen sizes */
+@media (max-width: 600px) {
+  .container { padding: 0 14px !important; }
+  img { max-width: 100%; }
+}
+
 /* Section heading — reference site .commonTitle */
 .section-title {
   font-size: 24px;

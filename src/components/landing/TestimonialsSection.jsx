@@ -31,7 +31,7 @@ export default function TestimonialsSection() {
           <p className="section-sub">Trusted by hundreds of schools. Here's what some of our users have to say.</p>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}>
+        <div className="testimonials-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}>
           {TESTIMONIALS.map(({ name, role, initials, color, grad, quote, stars }) => (
             <div key={name} className="card" style={{ position: 'relative', overflow: 'hidden' }}>
               {/* Top color bar */}
@@ -71,7 +71,14 @@ export default function TestimonialsSection() {
           ))}
         </div>
       </div>
-      <style>{`@media(max-width:768px){.testimonials-grid{grid-template-columns:1fr!important}}`}</style>
+      <style>{`
+        @media(max-width: 900px) {
+          .testimonials-grid { grid-template-columns: 1fr 1fr !important; }
+        }
+        @media(max-width: 600px) {
+          .testimonials-grid { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
     </section>
   )
 }

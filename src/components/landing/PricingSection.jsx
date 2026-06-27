@@ -67,7 +67,7 @@ export default function PricingSection() {
             <div className="spinner" style={{ margin:'0 auto', width:36, height:36 }} />
           </div>
         ) : (
-          <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(260px,1fr))', gap:24, maxWidth:1100, margin:'0 auto' }}>
+          <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(240px,1fr))', gap:24, maxWidth:1100, margin:'0 auto' }} className="pricing-grid">
             {plans.map((plan, idx) => {
               const pop = plan.isPopular
               return (
@@ -151,7 +151,7 @@ export default function PricingSection() {
         )}
 
         {/* Custom package */}
-        <div style={{ maxWidth:700,margin:'48px auto 0',background:'linear-gradient(135deg,#e8faf6,#d1f5ee)',border:'1.5px solid rgba(27,188,155,0.25)',borderRadius:20,padding:'36px 40px',textAlign:'center' }}>
+        <div style={{ maxWidth:700,margin:'48px auto 0',background:'linear-gradient(135deg,#e8faf6,#d1f5ee)',border:'1.5px solid rgba(27,188,155,0.25)',borderRadius:20,padding:'36px 40px',textAlign:'center' }} className="custom-pkg">
           <h3 style={{ fontSize:22,fontWeight:800,color:'#0e6b5a',marginBottom:10 }}>Custom package</h3>
           <p style={{ color:'#64748b',fontSize:15,lineHeight:1.7,marginBottom:24 }}>
             Tailor your experience with our custom package options. From personalized services to bespoke solutions, we offer flexibility to meet your unique needs.
@@ -163,6 +163,15 @@ export default function PricingSection() {
           </button>
         </div>
       </div>
+      <style>{`
+        @media (max-width: 600px) {
+          .pricing-grid { grid-template-columns: 1fr !important; }
+          .custom-pkg { padding: 28px 20px !important; }
+        }
+        @media (max-width: 400px) {
+          .pricing-grid > div { padding: 24px 18px !important; }
+        }
+      `}</style>
     </section>
   )
 }

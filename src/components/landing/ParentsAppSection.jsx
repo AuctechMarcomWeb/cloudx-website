@@ -31,7 +31,7 @@ export default function ParentsAppSection() {
   return (
     <section style={{ background: '#fff', padding: '80px 0', overflow: 'hidden' }}>
       <div className="container">
-        <div style={{ display: 'flex', alignItems: 'center', gap: 64, flexWrap: 'wrap', justifyContent: 'center' }}>
+        <div className="parents-grid" style={{ display: 'flex', alignItems: 'center', gap: 64, flexWrap: 'wrap', justifyContent: 'center' }}>
 
           {/* Image */}
           <div style={{ flexShrink: 0, position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -65,7 +65,7 @@ export default function ParentsAppSection() {
               that awaits you — get started now!
             </p>
 
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 14 }}>
+            <div className="store-btns" style={{ display: 'flex', flexWrap: 'wrap', gap: 14 }}>
               {STORE_BUTTONS.map(({ icon, label, title, href }) => (
                 <a key={title} href={href} target="_blank" rel="noreferrer" style={{
                   display: 'flex', alignItems: 'center', gap: 10,
@@ -89,6 +89,22 @@ export default function ParentsAppSection() {
           </div>
         </div>
       </div>
+      <style>{`
+        @media (max-width: 900px) {
+          .parents-grid { gap: 40px !important; }
+        }
+        @media (max-width: 600px) {
+          .parents-grid { flex-direction: column !important; gap: 32px !important; align-items: stretch !important; }
+          .parents-grid > div:first-child { width: 100% !important; }
+          .parents-grid > div:first-child img { max-width: 280px !important; }
+          .parents-grid > div:last-child { min-width: unset !important; width: 100% !important; }
+          .store-btns { flex-direction: column !important; }
+          .store-btns a { width: 100% !important; justify-content: center !important; }
+        }
+        @media (max-width: 400px) {
+          .parents-grid > div:first-child img { max-width: 220px !important; }
+        }
+      `}</style>
     </section>
   )
 }

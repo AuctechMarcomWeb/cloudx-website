@@ -50,7 +50,15 @@ export default function HowItWorksSection() {
         </div>
       </div>
 
-      <style>{`@media(max-width:768px){ .why-grid{ grid-template-columns:1fr !important; gap:40px !important; } }`}</style>
+      <style>{`
+        @media(max-width: 900px) {
+          .why-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+        }
+        @media(max-width: 600px) {
+          .why-grid { gap: 28px !important; }
+          #info { padding: 56px 0 !important; }
+        }
+      `}</style>
     </section>
   )
 }

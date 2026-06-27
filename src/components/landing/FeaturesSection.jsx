@@ -669,6 +669,7 @@ export default function FeaturesSection() {
           <div
             key={panel.id}
             id={`panel-${panel.id}`}
+            className="feat-panel"
             style={{ padding: '80px 0', borderBottom: '1px solid #f1f5f9' }}
           >
             <div className="container">
@@ -808,10 +809,19 @@ export default function FeaturesSection() {
       </div>
 
       <style>{`
-        @media(max-width:768px){
-          .feat-grid{ grid-template-columns:1fr !important }
-          .feat-icon-grid{ grid-template-columns:1fr !important }
-          .schools-grid{ grid-template-columns:1fr 1fr !important }
+        @media(max-width: 900px){
+          .feat-grid { grid-template-columns: 1fr !important; gap: 36px !important; }
+          .feat-icon-grid { grid-template-columns: 1fr 1fr !important; }
+          .schools-grid { grid-template-columns: 1fr 1fr !important; }
+        }
+        @media(max-width: 600px){
+          .feat-icon-grid { grid-template-columns: 1fr !important; }
+          .schools-grid { grid-template-columns: 1fr !important; }
+          .feat-panel { padding: 48px 0 !important; }
+          .feat-panel-heading { font-size: 20px !important; }
+        }
+        @media(max-width: 480px){
+          .feat-icon-grid > div { padding: 12px 14px !important; }
         }
       `}</style>
     </section>
