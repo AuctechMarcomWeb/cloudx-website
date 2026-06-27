@@ -6,6 +6,13 @@ import schoolAdminImg  from '../../assets/682c33c666a931.887378031747727302.png'
 import teacherImg      from '../../assets/qFMqcY4MZ7kTMZ0fRigMJkhlhDFiOcCg9v3qosVw.png'
 import staffAppImg     from '../../assets/mobile phone.png'
 import parentsAppImg   from '../../assets/ourApp.png'
+import schoolLogoImg   from '../../assets/6561c20cbfb617.710131971700905484.jpg'
+
+const SCHOOL_LIST = [
+  { name: 'Maple Grove High School', logo: schoolLogoImg },
+  { name: 'Crestwood Academy',       logo: schoolLogoImg },
+  { name: 'Vidhiya School',          logo: schoolLogoImg },
+]
 
 /* ─────────────────────────────────────────────
    Exact phone mockup with real app-like UI
@@ -771,13 +778,40 @@ export default function FeaturesSection() {
         )
       })}
 
+      {/* ── Schools Section — directly after features ── */}
+      <div style={{ background: '#fff', padding: '60px 0 80px' }}>
+        <div className="container">
+
+          {/* Title with teal underline — exactly like reference */}
+          <div style={{ textAlign: 'center', marginBottom: 40 }}>
+            <h2 style={{ fontSize: 24, fontWeight: 700, color: '#1a1a2e', marginBottom: 12 }}>Schools</h2>
+            <div style={{ width: 120, height: 3, background: 'linear-gradient(90deg, #1bbc9b, #0ea5e9)', borderRadius: 2, margin: '0 auto' }} />
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 20, maxWidth: 860, margin: '0 auto' }} className="schools-grid">
+            {SCHOOL_LIST.map(school => (
+              <div key={school.name} style={{
+                background: '#fff', border: '1px solid #e2e8f0', borderRadius: 8,
+                padding: '24px 16px 16px', display: 'flex', flexDirection: 'column',
+                alignItems: 'center', gap: 12,
+                transition: 'box-shadow 0.2s',
+              }}
+                onMouseEnter={e => e.currentTarget.style.boxShadow = '0 4px 16px rgba(0,0,0,0.08)'}
+                onMouseLeave={e => e.currentTarget.style.boxShadow = 'none'}
+              >
+                <img src={school.logo} alt={school.name} style={{ width: 80, height: 80, objectFit: 'contain' }} />
+                <p style={{ fontSize: 13, fontWeight: 600, color: '#374151', textAlign: 'center', margin: 0 }}>{school.name}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
       <style>{`
         @media(max-width:768px){
           .feat-grid{ grid-template-columns:1fr !important }
           .feat-icon-grid{ grid-template-columns:1fr !important }
-        }
-        @media(max-width:600px){
-          .feat-icon-grid{ grid-template-columns:1fr !important }
+          .schools-grid{ grid-template-columns:1fr 1fr !important }
         }
       `}</style>
     </section>

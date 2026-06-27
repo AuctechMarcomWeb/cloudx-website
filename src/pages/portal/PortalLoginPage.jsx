@@ -18,45 +18,85 @@ export default function PortalLoginPage() {
   const [tab, setTab] = useState('password')
 
   return (
-    <div style={{ minHeight: '100vh', background: '#021a3a', display: 'flex', flexDirection: 'column' }}>
-      {/* BG */}
-      <div style={{ position: 'fixed', top: -200, left: -200, width: 600, height: 600, borderRadius: '50%', background: 'radial-gradient(circle, rgba(4,41,84,0.3) 0%, transparent 70%)', pointerEvents: 'none' }} />
-      <div style={{ position: 'fixed', bottom: -200, right: -200, width: 600, height: 600, borderRadius: '50%', background: 'radial-gradient(circle, rgba(250,191,34,0.06) 0%, transparent 70%)', pointerEvents: 'none' }} />
+    <div style={{
+      minHeight: '100vh',
+      background: 'linear-gradient(135deg, #f0fdf9 0%, #e8faf6 50%, #f0fdf9 100%)',
+      display: 'flex',
+      flexDirection: 'column',
+      position: 'relative',
+      overflow: 'hidden',
+    }}>
+      {/* BG dot pattern */}
+      <div style={{
+        position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: 0,
+        backgroundImage: 'radial-gradient(circle, rgba(27,188,155,0.1) 1.5px, transparent 1.5px)',
+        backgroundSize: '28px 28px',
+      }} />
 
       {/* Header */}
-      <header style={{ padding: '16px 24px', borderBottom: '1px solid rgba(255,255,255,0.06)', background: 'rgba(2,26,58,0.9)', backdropFilter: 'blur(20px)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        <button onClick={() => navigate('/')} style={{ display: 'flex', alignItems: 'center', gap: 8, background: 'none', border: 'none', cursor: 'pointer', color: 'rgba(255,255,255,0.5)', fontSize: 14 }}>
+      <header style={{
+        position: 'relative', zIndex: 10,
+        padding: '14px 24px',
+        borderBottom: '1px solid #e8faf6',
+        background: 'rgba(255,255,255,0.9)',
+        backdropFilter: 'blur(20px)',
+        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+      }}>
+        <button onClick={() => navigate('/')} style={{
+          display: 'flex', alignItems: 'center', gap: 6,
+          background: 'none', border: 'none', cursor: 'pointer',
+          color: '#64748b', fontSize: 14, fontWeight: 500,
+          fontFamily: 'Lato, sans-serif', transition: 'color 0.2s',
+        }}
+          onMouseEnter={e => e.currentTarget.style.color = '#1bbc9b'}
+          onMouseLeave={e => e.currentTarget.style.color = '#64748b'}
+        >
           <ArrowLeft size={16} /> Back to Home
         </button>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-          <img src="/auctech-logo.png" alt="CloudX Logo" style={{ height: 36, objectFit: 'contain' }} />
-        </div>
+
+        <img src="/auctech-logo.png" alt="CloudX" style={{ height: 36, objectFit: 'contain' }} />
+
         <div style={{ width: 120 }} />
       </header>
 
       {/* Body */}
-      <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '40px 24px' }}>
-        <div style={{ width: '100%', maxWidth: 420 }}>
+      <div style={{
+        flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center',
+        padding: '40px 24px', position: 'relative', zIndex: 1,
+      }}>
+        <div style={{ width: '100%', maxWidth: 440 }}>
 
           {/* Icon + Title */}
           <div style={{ textAlign: 'center', marginBottom: 32 }}>
-            <div style={{ width: 68, height: 68, borderRadius: '50%', margin: '0 auto 16px', background: 'linear-gradient(135deg,#042954,#051f3e)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 0 32px rgba(4,41,84,0.5)' }}>
-              <ShieldCheck size={30} color="#fabf22" />
+            <div style={{
+              width: 68, height: 68, borderRadius: '50%', margin: '0 auto 16px',
+              background: 'linear-gradient(135deg, #1bbc9b, #0e9f82)',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              boxShadow: '0 8px 28px rgba(27,188,155,0.35)',
+            }}>
+              <ShieldCheck size={30} color="#fff" />
             </div>
-            <h1 style={{ fontSize: 26, fontWeight: 800, marginBottom: 6 }}>School Portal Login</h1>
-            <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: 14 }}>
+            <h1 style={{ fontSize: 26, fontWeight: 700, color: '#1a1a2e', marginBottom: 6 }}>
+              School Portal Login
+            </h1>
+            <p style={{ color: '#64748b', fontSize: 14 }}>
               Manage your plan, billing and subscription
             </p>
           </div>
 
           {/* Tab switcher */}
-          <div style={{ display: 'flex', background: 'rgba(255,255,255,0.05)', borderRadius: 12, padding: 4, marginBottom: 24, border: '1px solid rgba(255,255,255,0.08)' }}>
+          <div style={{
+            display: 'flex', background: '#f1f5f9', borderRadius: 12,
+            padding: 4, marginBottom: 24, border: '1px solid #e2e8f0',
+          }}>
             {[['password', 'Login with Password'], ['otp', 'Login with OTP']].map(([key, label]) => (
               <button key={key} onClick={() => setTab(key)} style={{
                 flex: 1, padding: '9px 0', border: 'none', cursor: 'pointer', borderRadius: 9,
                 fontSize: 13, fontWeight: 600, transition: 'all 0.2s',
-                background: tab === key ? 'linear-gradient(135deg,#042954,#051f3e)' : 'transparent',
-                color: tab === key ? '#fabf22' : 'rgba(255,255,255,0.45)',
+                fontFamily: 'Lato, sans-serif',
+                background: tab === key ? 'linear-gradient(135deg,#1bbc9b,#0e9f82)' : 'transparent',
+                color: tab === key ? '#fff' : '#64748b',
+                boxShadow: tab === key ? '0 2px 8px rgba(27,188,155,0.3)' : 'none',
               }}>
                 {label}
               </button>
@@ -66,18 +106,37 @@ export default function PortalLoginPage() {
           <div key={tab} style={{ animation: 'fadeInUp 0.25s ease both' }}>
             {tab === 'password'
               ? <PasswordLoginForm onSuccess={(tok, sch) => { login(tok, sch); navigate('/portal/dashboard') }} />
-              : <OtpLoginForm onSuccess={(tok, sch) => { login(tok, sch); navigate('/portal/dashboard') }} />
+              : <OtpLoginForm     onSuccess={(tok, sch) => { login(tok, sch); navigate('/portal/dashboard') }} />
             }
           </div>
 
-          <p style={{ textAlign: 'center', marginTop: 20, fontSize: 13, color: 'rgba(255,255,255,0.3)' }}>
+          <p style={{ textAlign: 'center', marginTop: 20, fontSize: 13, color: '#94a3b8' }}>
             New here?{' '}
-            <button onClick={() => navigate('/register')} style={{ background: 'none', border: 'none', color: '#fabf22', cursor: 'pointer', fontSize: 13, fontWeight: 500 }}>
+            <button onClick={() => navigate('/register')} style={{
+              background: 'none', border: 'none', color: '#1bbc9b',
+              cursor: 'pointer', fontSize: 13, fontWeight: 600,
+              fontFamily: 'Lato, sans-serif',
+            }}>
               Register now
             </button>
           </p>
         </div>
       </div>
+    </div>
+  )
+}
+
+/* ── Shared card wrapper ── */
+function FormCard({ children }) {
+  return (
+    <div style={{
+      background: '#fff',
+      border: '1.5px solid #e8faf6',
+      borderRadius: 20,
+      padding: 32,
+      boxShadow: '0 8px 32px rgba(27,188,155,0.08)',
+    }}>
+      {children}
     </div>
   )
 }
@@ -104,35 +163,40 @@ function PasswordLoginForm({ onSuccess }) {
   }
 
   return (
-    <div className="glass-card" style={{ padding: 28 }}>
+    <FormCard>
       <form onSubmit={handleSubmit}>
         <div style={{ marginBottom: 16 }}>
           <label className="form-label">School Email</label>
           <div className="input-group">
             <div className="input-icon"><Mail size={15} /></div>
-            <input className="dark-input" type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="admin@yourschool.com" required />
+            <input className="dark-input" type="email" value={email}
+              onChange={e => setEmail(e.target.value)}
+              placeholder="admin@yourschool.com" required />
           </div>
         </div>
 
         <div style={{ marginBottom: 24 }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 6 }}>
-            <label className="form-label" style={{ marginBottom: 0 }}>Password</label>
-          </div>
+          <label className="form-label">Password</label>
           <div className="input-group">
             <div className="input-icon"><Lock size={15} /></div>
-            <input className="dark-input" type={showPass ? 'text' : 'password'} value={password} onChange={e => setPassword(e.target.value)} placeholder="••••••••" required style={{ paddingRight: 44 }} />
-            <button type="button" onClick={() => setShowPass(v => !v)}
-              style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '0 12px', color: 'rgba(255,255,255,0.4)', display: 'flex', alignItems: 'center' }}>
+            <input className="dark-input" type={showPass ? 'text' : 'password'}
+              value={password} onChange={e => setPassword(e.target.value)}
+              placeholder="••••••••" required />
+            <button type="button" onClick={() => setShowPass(v => !v)} style={{
+              background: 'none', border: 'none', cursor: 'pointer',
+              padding: '0 12px', color: '#9ca3af',
+              display: 'flex', alignItems: 'center',
+            }}>
               {showPass ? <EyeOff size={15} /> : <Eye size={15} />}
             </button>
           </div>
         </div>
 
-        <button type="submit" className="btn-primary" disabled={loading}>
+        <button type="submit" className="btn-primary" disabled={loading} style={{ width: '100%', justifyContent: 'center' }}>
           {loading ? <><div className="spinner" /> Logging in...</> : 'Login'}
         </button>
       </form>
-    </div>
+    </FormCard>
   )
 }
 
@@ -200,56 +264,68 @@ function OtpLoginForm({ onSuccess }) {
 
   if (step === 'email') {
     return (
-      <div className="glass-card" style={{ padding: 28 }}>
+      <FormCard>
         <form onSubmit={sendOtp}>
           <div style={{ marginBottom: 20 }}>
             <label className="form-label">School Email</label>
             <div className="input-group">
               <div className="input-icon"><Mail size={15} /></div>
-              <input className="dark-input" type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="admin@yourschool.com" required />
+              <input className="dark-input" type="email" value={email}
+                onChange={e => setEmail(e.target.value)}
+                placeholder="admin@yourschool.com" required />
             </div>
           </div>
-          <button type="submit" className="btn-primary" disabled={loading}>
+          <button type="submit" className="btn-primary" disabled={loading} style={{ width: '100%', justifyContent: 'center' }}>
             {loading ? <><div className="spinner" /> Sending...</> : 'Send OTP'}
           </button>
         </form>
-      </div>
+      </FormCard>
     )
   }
 
   return (
-    <div className="glass-card" style={{ padding: 28 }}>
-      <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', marginBottom: 20, textAlign: 'center' }}>
-        OTP sent to: <strong style={{ color: '#fabf22' }}>{email}</strong>
+    <FormCard>
+      <p style={{ fontSize: 13, color: '#64748b', marginBottom: 24, textAlign: 'center' }}>
+        OTP sent to: <strong style={{ color: '#1bbc9b' }}>{email}</strong>
       </p>
 
       <div style={{ display: 'flex', justifyContent: 'center', gap: 8, marginBottom: 20 }} onPaste={handlePaste}>
         {otp.map((d, i) => (
           <input key={i} ref={el => refs.current[i] = el}
-            className={`otp-input ${d ? 'filled' : ''}`}
+            className="otp-input"
             type="text" inputMode="numeric" maxLength={1} value={d}
             onChange={e => handleChange(e.target.value, i)}
             onKeyDown={e => handleKey(e, i)}
+            style={{ color: '#1a1a2e' }}
           />
         ))}
       </div>
 
       <div style={{ textAlign: 'center', marginBottom: 18 }}>
         {canResend
-          ? <button onClick={() => sendOtp()} disabled={resending}
-              style={{ background: 'none', border: 'none', color: '#fabf22', cursor: 'pointer', fontSize: 13, display: 'inline-flex', alignItems: 'center', gap: 5 }}>
+          ? <button onClick={() => sendOtp()} disabled={resending} style={{
+              background: 'none', border: 'none', color: '#1bbc9b',
+              cursor: 'pointer', fontSize: 13, fontWeight: 600,
+              display: 'inline-flex', alignItems: 'center', gap: 5,
+              fontFamily: 'Lato, sans-serif',
+            }}>
               <RefreshCw size={12} /> Resend OTP
             </button>
-          : <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: 13 }}>Resend in <strong style={{ color: '#fabf22' }}>{timer}s</strong></span>
+          : <span style={{ color: '#94a3b8', fontSize: 13 }}>
+              Resend in <strong style={{ color: '#1bbc9b' }}>{timer}s</strong>
+            </span>
         }
       </div>
 
-      <button className="btn-primary" onClick={verify} disabled={loading || otp.join('').length < 6} style={{ marginBottom: 10 }}>
+      <button className="btn-primary" onClick={verify}
+        disabled={loading || otp.join('').length < 6}
+        style={{ width: '100%', justifyContent: 'center', marginBottom: 10 }}>
         {loading ? <><div className="spinner" /> Verifying...</> : 'Verify & Login'}
       </button>
+
       <button className="btn-ghost" onClick={() => setStep('email')} disabled={loading}>
         <ArrowLeft size={14} /> Change Email
       </button>
-    </div>
+    </FormCard>
   )
 }
