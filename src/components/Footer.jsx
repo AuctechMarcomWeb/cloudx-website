@@ -1,4 +1,41 @@
-import { ExternalLink } from 'lucide-react'
+import { ExternalLink, Mail, Phone } from 'lucide-react'
+
+/* ── Inline SVG social icons ── */
+const FacebookIcon = () => (
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17 2h-3.5C11.567 2 10 3.567 10 5.5V8H7v4h3v10h4V12h3l.5-4H14V5.5c0-.276.224-.5.5-.5H17V2z"/>
+  </svg>
+)
+const InstagramIcon = () => (
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" xmlns="http://www.w3.org/2000/svg">
+    <rect x="2" y="2" width="20" height="20" rx="5"/>
+    <circle cx="12" cy="12" r="4"/>
+    <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/>
+  </svg>
+)
+const LinkedInIcon = () => (
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M4.98 3.5A2.49 2.49 0 002.5 6a2.49 2.49 0 002.48 2.5A2.49 2.49 0 007.46 6 2.49 2.49 0 004.98 3.5zM3 8.976h3.96V21H3V8.976zm7.902 0H14.8v1.65h.054c.546-1.034 1.882-2.124 3.874-2.124C22.914 8.502 24 11.37 24 15v6h-3.958v-5.318c0-1.27-.022-2.903-1.768-2.903-1.77 0-2.04 1.383-2.04 2.81V21H12.39V8.976h-.488z"/>
+  </svg>
+)
+
+const PlayIcon = () => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M3 20.5v-17c0-.83.93-1.3 1.6-.8l14 8.5c.6.37.6 1.23 0 1.6l-14 8.5c-.67.5-1.6.03-1.6-.8z"/>
+  </svg>
+)
+const AppleIcon = () => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+  </svg>
+)
+const WebIcon = () => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="12" cy="12" r="10"/>
+    <line x1="2" y1="12" x2="22" y2="12"/>
+    <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+  </svg>
+)
 
 export default function Footer() {
   const year = new Date().getFullYear()
@@ -8,131 +45,294 @@ export default function Footer() {
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 
+  const linkStyle = {
+    color: 'rgba(255,255,255,0.5)',
+    fontSize: 14,
+    textDecoration: 'none',
+    transition: 'color 0.2s',
+    display: 'flex',
+    alignItems: 'center',
+    gap: 9,
+    lineHeight: 1,
+  }
+
+  const colHead = {
+    fontSize: 12,
+    fontWeight: 700,
+    color: '#fff',
+    letterSpacing: '1.8px',
+    textTransform: 'uppercase',
+    marginBottom: 20,
+    display: 'flex',
+    alignItems: 'center',
+    gap: 8,
+  }
+
+  const dot = (
+    <span style={{
+      display: 'inline-block', width: 6, height: 6,
+      borderRadius: '50%', background: '#1bbc9b', flexShrink: 0,
+    }} />
+  )
+
   return (
-    <footer style={{ background: '#0d1f1a', color: 'rgba(255,255,255,0.5)' }}>
-      {/* Top gradient bar */}
-      <div style={{ height: 4, background: 'linear-gradient(90deg, #1bbc9b, #0ea5e9)' }} />
+    <footer style={{ background: '#0a1c15', fontFamily: 'Lato, sans-serif' }}>
 
-      <div className="container" style={{ paddingTop: 56, paddingBottom: 0 }}>
-        <div className="footer-grid" style={{ display: 'grid', gridTemplateColumns: '1.6fr 1fr 1fr 1.4fr', gap: 48, paddingBottom: 48, borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
+      {/* ── Top gradient line ── */}
+      <div style={{ height: 3, background: 'linear-gradient(90deg, #1bbc9b, #0ea5e9, #1bbc9b)' }} />
 
-          {/* Brand */}
+      <div className="container" style={{ padding: '0 24px' }}>
+
+        {/* ── Main content ── */}
+        <div className="footer-grid" style={{
+          display: 'grid',
+          gridTemplateColumns: '1.8fr 1fr 1fr 1.6fr',
+          gap: 40,
+          paddingTop: 60,
+          paddingBottom: 48,
+          borderBottom: '1px solid rgba(255,255,255,0.07)',
+        }}>
+
+          {/* ── Col 1: Brand ── */}
           <div>
-            <img src="/auctech-logo.png" alt="School CloudX" style={{ height: 36, objectFit: 'contain', marginBottom: 16, filter: 'brightness(0) invert(1)' }} />
-            <p style={{ fontSize: 14, lineHeight: 1.75, color: 'rgba(255,255,255,0.4)', maxWidth: 220, marginBottom: 24 }}>
-              School CloudX — Manage Your School with ease and efficiency.
+            <img
+              src="/auctech-logo.png"
+              alt="School CloudX"
+              style={{ height: 42, objectFit: 'contain', display: 'block', marginBottom: 18, filter: 'brightness(0) invert(1)' }}
+            />
+
+            <p style={{ fontSize: 14, lineHeight: 1.8, color: 'rgba(255,255,255,0.45)', maxWidth: 230, marginBottom: 24, margin: '0 0 24px' }}>
+              A modern school management platform — built for speed, simplicity, and every stakeholder.
             </p>
-            <div style={{ display: 'flex', gap: 10 }}>
+
+            {/* Contact */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 24 }}>
               {[
-                { label: 'FB', href: 'https://www.facebook.com/wrteam.in/' },
-                { label: 'IG', href: 'https://www.instagram.com/wrteam.in/' },
-                { label: 'IN', href: 'https://in.linkedin.com/company/wrteam' },
-              ].map(({ label, href }) => (
-                <a key={label} href={href} target="_blank" rel="noreferrer" style={{
-                  width: 36, height: 36, borderRadius: 8,
-                  background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  color: 'rgba(255,255,255,0.45)', textDecoration: 'none',
-                  fontSize: 11, fontWeight: 700, transition: 'all 0.2s',
-                }}
-                  onMouseEnter={e => { e.currentTarget.style.background = 'rgba(27,188,155,0.25)'; e.currentTarget.style.borderColor = 'rgba(27,188,155,0.5)'; e.currentTarget.style.color = '#fff' }}
-                  onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.06)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = 'rgba(255,255,255,0.45)' }}
-                >{label}</a>
+                { Icon: Phone, text: '+91 12345 67890' },
+                { Icon: Mail,  text: 'hello@schoolcloudx.com' },
+              ].map(({ Icon, text }) => (
+                <div key={text} style={{ display: 'flex', alignItems: 'center', gap: 10, fontSize: 13, color: 'rgba(255,255,255,0.4)' }}>
+                  <span style={{
+                    width: 28, height: 28, borderRadius: 7,
+                    background: 'rgba(27,188,155,0.12)',
+                    border: '1px solid rgba(27,188,155,0.2)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
+                  }}>
+                    <Icon size={13} color="#1bbc9b" />
+                  </span>
+                  {text}
+                </div>
               ))}
             </div>
-          </div>
 
-          {/* Links */}
-          <div>
-            <h4 style={{ fontSize: 13, fontWeight: 700, color: '#fff', letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: 20 }}>Links</h4>
-            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 13 }}>
+            {/* Social icons */}
+            <div style={{ display: 'flex', gap: 8 }}>
               {[
-                { label: 'Home',     href: '#home' },
-                { label: 'Features', href: '#features' },
-                { label: 'Faqs',     href: '#faq' },
-                { label: 'Info',     href: '#info' },
-                { label: 'About us', href: '#info' },
-                { label: 'Contact',  href: '#contact' },
-              ].map(({ label, href }) => (
-                <li key={label}>
-                  <button onClick={() => scrollTo(href)} style={{
-                    background: 'none', border: 'none', color: 'rgba(255,255,255,0.45)',
-                    fontSize: 14, cursor: 'pointer', padding: 0, fontFamily: 'Lato, sans-serif',
-                    textAlign: 'left', transition: 'color 0.2s',
+                { label: 'Facebook',  href: 'https://www.facebook.com/wrteam.in/',    Icon: FacebookIcon },
+                { label: 'Instagram', href: 'https://www.instagram.com/wrteam.in/',   Icon: InstagramIcon },
+                { label: 'LinkedIn',  href: 'https://in.linkedin.com/company/wrteam', Icon: LinkedInIcon },
+              ].map(({ label, href, Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={label}
+                  title={label}
+                  style={{
+                    width: 36, height: 36, borderRadius: 9,
+                    background: 'rgba(255,255,255,0.06)',
+                    border: '1px solid rgba(255,255,255,0.1)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    color: 'rgba(255,255,255,0.5)',
+                    textDecoration: 'none', transition: 'all 0.2s',
+                    flexShrink: 0,
                   }}
-                    onMouseEnter={e => e.currentTarget.style.color = '#1bbc9b'}
-                    onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.45)'}
-                  >{label}</button>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Info */}
-          <div>
-            <h4 style={{ fontSize: 13, fontWeight: 700, color: '#fff', letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: 20 }}>Info</h4>
-            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 13 }}>
-              {[
-                { label: 'About us',            href: '#' },
-                { label: 'Privacy policy',      href: 'https://eschool-saas.wrteam.me/page/type/privacy-policy' },
-                { label: 'Terms & conditions',  href: 'https://eschool-saas.wrteam.me/page/type/terms-conditions' },
-                { label: 'Refund cancellation', href: 'https://eschool-saas.wrteam.me/page/type/refund-cancellation' },
-              ].map(({ label, href }) => (
-                <li key={label}>
-                  <a href={href} target={href.startsWith('http') ? '_blank' : '_self'} rel="noreferrer" style={{ color: 'rgba(255,255,255,0.45)', fontSize: 14, textDecoration: 'none', transition: 'color 0.2s' }}
-                    onMouseEnter={e => e.currentTarget.style.color = '#1bbc9b'}
-                    onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.45)'}
-                  >{label}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Follow */}
-          <div>
-            <h4 style={{ fontSize: 13, fontWeight: 700, color: '#fff', letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: 20 }}>Follow</h4>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-              {[
-                { label: 'Google Play', href: 'https://play.google.com/store/apps/details?id=com.wrteam.saas.school' },
-                { label: 'App Store',   href: 'https://testflight.apple.com/join/HxZcnKO6' },
-                { label: 'Student Web', href: 'https://eschool-saas.student-web.wrteam.me/' },
-              ].map(({ label, href }) => (
-                <a key={label} href={href} target="_blank" rel="noreferrer" style={{
-                  display: 'inline-flex', alignItems: 'center', gap: 8,
-                  padding: '10px 16px', background: 'rgba(255,255,255,0.04)',
-                  border: '1px solid rgba(255,255,255,0.1)', borderRadius: 8,
-                  fontSize: 13.5, fontWeight: 500, color: 'rgba(255,255,255,0.5)',
-                  textDecoration: 'none', transition: 'all 0.2s',
-                }}
-                  onMouseEnter={e => { e.currentTarget.style.background = 'rgba(27,188,155,0.15)'; e.currentTarget.style.borderColor = 'rgba(27,188,155,0.4)'; e.currentTarget.style.color = '#fff' }}
-                  onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = 'rgba(255,255,255,0.5)' }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.background = 'rgba(27,188,155,0.18)'
+                    e.currentTarget.style.borderColor = '#1bbc9b'
+                    e.currentTarget.style.color = '#1bbc9b'
+                    e.currentTarget.style.transform = 'translateY(-3px)'
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.background = 'rgba(255,255,255,0.06)'
+                    e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'
+                    e.currentTarget.style.color = 'rgba(255,255,255,0.5)'
+                    e.currentTarget.style.transform = 'translateY(0)'
+                  }}
                 >
-                  <ExternalLink size={14} />{label}
+                  <Icon />
                 </a>
               ))}
             </div>
           </div>
+
+          {/* ── Col 2: Quick Links ── */}
+          <div>
+            <div style={colHead}>
+              <span style={{ width: 3, height: 16, background: '#1bbc9b', borderRadius: 2, display: 'inline-block' }} />
+              Quick Links
+            </div>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 13 }}>
+              {[
+                { label: 'Home',     href: '#home' },
+                { label: 'Features', href: '#features' },
+                { label: 'About us', href: '#info' },
+                { label: 'FAQs',     href: '#faq' },
+                { label: 'Contact',  href: '#contact' },
+              ].map(({ label, href }) => (
+                <li key={label}>
+                  <button
+                    onClick={() => scrollTo(href)}
+                    style={{ ...linkStyle, background: 'none', border: 'none', cursor: 'pointer', padding: 0, fontFamily: 'Lato, sans-serif' }}
+                    onMouseEnter={e => { e.currentTarget.style.color = '#1bbc9b' }}
+                    onMouseLeave={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.5)' }}
+                  >
+                    {dot}{label}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* ── Col 3: Info ── */}
+          <div>
+            <div style={colHead}>
+              <span style={{ width: 3, height: 16, background: '#1bbc9b', borderRadius: 2, display: 'inline-block' }} />
+              Info
+            </div>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 13 }}>
+              {[
+                { label: 'About us',              href: '#info',    ext: false },
+                { label: 'Privacy Policy',        href: 'https://eschool-saas.wrteam.me/page/type/privacy-policy', ext: true },
+                { label: 'Terms & Conditions',    href: 'https://eschool-saas.wrteam.me/page/type/terms-conditions', ext: true },
+                { label: 'Refund & Cancellation', href: 'https://eschool-saas.wrteam.me/page/type/refund-cancellation', ext: true },
+              ].map(({ label, href, ext }) => (
+                <li key={label}>
+                  <a
+                    href={href}
+                    target={ext ? '_blank' : '_self'}
+                    rel="noreferrer"
+                    style={linkStyle}
+                    onMouseEnter={e => { e.currentTarget.style.color = '#1bbc9b' }}
+                    onMouseLeave={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.5)' }}
+                  >
+                    {dot}{label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* ── Col 4: Download ── */}
+          <div>
+            <div style={colHead}>
+              <span style={{ width: 3, height: 16, background: '#1bbc9b', borderRadius: 2, display: 'inline-block' }} />
+              Download App
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+              {[
+                { label: 'Google Play', sub: 'Get it on',       href: 'https://play.google.com/store/apps/details?id=com.wrteam.saas.school', Icon: PlayIcon,  bg: '#34a853' },
+                { label: 'App Store',   sub: 'Download on the', href: 'https://testflight.apple.com/join/HxZcnKO6',                           Icon: AppleIcon, bg: '#555' },
+                { label: 'Student Web', sub: 'Access via',      href: 'https://eschool-saas.student-web.wrteam.me/',                          Icon: WebIcon,   bg: '#0ea5e9' },
+              ].map(({ label, sub, href, Icon, bg }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{
+                    display: 'flex', alignItems: 'center', gap: 12,
+                    padding: '10px 14px',
+                    background: 'rgba(255,255,255,0.04)',
+                    border: '1px solid rgba(255,255,255,0.08)',
+                    borderRadius: 10,
+                    textDecoration: 'none',
+                    transition: 'all 0.22s',
+                  }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.background = 'rgba(27,188,155,0.1)'
+                    e.currentTarget.style.borderColor = 'rgba(27,188,155,0.3)'
+                    e.currentTarget.style.transform = 'translateX(4px)'
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.background = 'rgba(255,255,255,0.04)'
+                    e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'
+                    e.currentTarget.style.transform = 'translateX(0)'
+                  }}
+                >
+                  {/* Icon box */}
+                  <span style={{
+                    width: 36, height: 36, borderRadius: 9, flexShrink: 0,
+                    background: bg,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    color: '#fff',
+                  }}>
+                    <Icon />
+                  </span>
+                  {/* Text */}
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.35)', letterSpacing: '0.5px', lineHeight: 1, marginBottom: 4 }}>{sub}</div>
+                    <div style={{ fontSize: 13, fontWeight: 700, color: 'rgba(255,255,255,0.85)', lineHeight: 1, whiteSpace: 'nowrap' }}>{label}</div>
+                  </div>
+                  <ExternalLink size={12} color="rgba(255,255,255,0.2)" style={{ flexShrink: 0 }} />
+                </a>
+              ))}
+            </div>
+          </div>
+
         </div>
 
-        {/* Bottom */}
-        <div className="footer-bottom" style={{ padding: '20px 0', display: 'flex', flexWrap: 'wrap', gap: 12, justifyContent: 'space-between', alignItems: 'center' }}>
-          <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.25)', margin: 0 }}>© {year} School CloudX. All Rights Reserved</p>
-          <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.2)', margin: 0 }}>
-            © <a href="https://wrteam.in/" target="_blank" rel="noreferrer" style={{ color: 'rgba(255,255,255,0.35)', textDecoration: 'none', transition: 'color 0.2s' }}
-              onMouseEnter={e => e.currentTarget.style.color = '#1bbc9b'}
-              onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.35)'}
-            >WRTeam</a>. All Rights Reserved
+        {/* ── Bottom bar ── */}
+        <div className="footer-bottom" style={{
+          padding: '20px 0',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          gap: 12,
+          flexWrap: 'wrap',
+        }}>
+          <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.3)', margin: 0 }}>
+            © {year} School CloudX. All rights reserved.
+          </p>
+          <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.25)', margin: 0 }}>
+            Built by{' '}
+            <a
+              href="https://wrteam.in/"
+              target="_blank"
+              rel="noreferrer"
+              style={{ color: '#1bbc9b', textDecoration: 'none', fontWeight: 600 }}
+              onMouseEnter={e => { e.currentTarget.style.textDecoration = 'underline' }}
+              onMouseLeave={e => { e.currentTarget.style.textDecoration = 'none' }}
+            >WRTeam</a>
           </p>
         </div>
+
       </div>
 
       <style>{`
+        /* ── Tablet: 2 col ── */
         @media (max-width: 1024px) {
-          .footer-grid { grid-template-columns: 1fr 1fr !important; gap: 36px !important; }
+          .footer-grid {
+            grid-template-columns: 1fr 1fr !important;
+            gap: 36px 48px !important;
+            padding-top: 52px !important;
+          }
         }
+        /* ── Mobile: 1 col ── */
         @media (max-width: 600px) {
-          .footer-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
-          .footer-bottom { flex-direction: column !important; align-items: flex-start !important; gap: 8px !important; }
+          .footer-grid {
+            grid-template-columns: 1fr !important;
+            gap: 32px !important;
+            padding-top: 40px !important;
+            padding-bottom: 36px !important;
+          }
+          .footer-bottom {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            gap: 4px !important;
+            padding: 16px 0 !important;
+          }
         }
       `}</style>
     </footer>
