@@ -678,12 +678,12 @@ export default function FeaturesSection() {
               <div style={{ textAlign: 'center', marginBottom: 48 }}>
                 <p style={{ fontSize:14,fontWeight:700,color:'#0040a0',marginBottom:12,fontFamily:"'Lato', sans-serif" }}>{panel.label}</p>
                 <h3 style={{
-                  fontSize: 'clamp(20px,3vw,32px)',
-                  fontWeight: 900,
+                  fontSize: 'clamp(26px, 3.5vw, 40px)',
+                  fontWeight: 700,
                   color: '#1a1a2e',
                   maxWidth: 700,
                   margin: '0 auto 20px',
-                  lineHeight: 1.3,
+                  lineHeight: 1.2,
                   fontFamily:"'Lato', sans-serif",
                 }}>{panel.heading}</h3>
                 {/* Divider line with dot */}
@@ -706,9 +706,9 @@ export default function FeaturesSection() {
 
                 {/* Left — image */}
                 <div style={{
-                  background: '#e8f0fc',
+                  background: 'transparent',
                   borderRadius: 24,
-                  padding: '28px',
+                  padding: '0',
                   display: 'flex',
                   justifyContent: 'center',
                   alignItems: 'center',
