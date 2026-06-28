@@ -1,4 +1,4 @@
-import whyImg from '../../assets/682c33c666a931.887378031747727302.png'
+﻿import whyImg from '../../assets/682c33c666a931.887378031747727302.png'
 
 export default function HowItWorksSection() {
   return (
@@ -8,8 +8,8 @@ export default function HowItWorksSection() {
 
           {/* Left */}
           <div>
-            <div style={{ borderLeft: '3px solid #1bbc9b', paddingLeft: 14, marginBottom: 20 }}>
-              <p style={{ fontSize: 13, fontWeight: 600, color: '#1bbc9b', margin: 0 }}>A modern and unique style</p>
+            <div style={{ borderLeft: '3px solid #0040a0', paddingLeft: 14, marginBottom: 20 }}>
+              <p style={{ fontSize: 13, fontWeight: 600, color: '#0040a0', margin: 0 }}>A modern and unique style</p>
             </div>
 
             <h2 className="section-title">Why it is best?</h2>
@@ -26,11 +26,11 @@ export default function HowItWorksSection() {
                 <div key={label} style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
                   <div style={{
                     width: 22, height: 22, borderRadius: '50%', flexShrink: 0,
-                    border: '2px solid #1bbc9b',
+                    border: '2px solid #0040a0',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                   }}>
                     <svg width="11" height="9" viewBox="0 0 11 9" fill="none">
-                      <path d="M1 4.5L4 7.5L10 1" stroke="#1bbc9b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M1 4.5L4 7.5L10 1" stroke="#0040a0" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </div>
                   <span style={{ fontSize: 15, fontWeight: 600, color: '#374151' }}>{label}</span>

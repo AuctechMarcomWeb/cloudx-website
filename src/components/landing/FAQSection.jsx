@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+﻿import { useState, useEffect } from 'react'
 import { ChevronDown, HelpCircle } from 'lucide-react'
 
 const API = import.meta.env.VITE_API_BASE_URL || 'http://localhost:9001/api/'
@@ -37,7 +37,7 @@ export default function FAQSection() {
   const filtered = activeTab === 'All' ? faqs : faqs.filter(f => f.category === activeTab)
 
   return (
-    <section id="faq" style={{ background: 'linear-gradient(135deg, #f0fdf9 0%, #e8faf6 100%)', padding: '80px 0' }}>
+    <section id="faq" style={{ background: 'linear-gradient(135deg, #f0fdf9 0%, #e8f0fc 100%)', padding: '80px 0' }}>
       <div className="container">
 
         <div style={{ textAlign: 'center', marginBottom: 52 }}>
@@ -54,11 +54,11 @@ export default function FAQSection() {
             {categories.map(cat => (
               <button key={cat} onClick={() => { setActiveTab(cat); setOpenId(null) }} style={{
                 padding: '8px 20px', borderRadius: 999, cursor: 'pointer',
-                border: activeTab === cat ? 'none' : '1.5px solid #d1f5ee',
-                background: activeTab === cat ? 'linear-gradient(135deg,#1bbc9b,#0e9f82)' : '#fff',
+                border: activeTab === cat ? 'none' : '1.5px solid #ccdaf5',
+                background: activeTab === cat ? 'linear-gradient(135deg,#0040a0,#002f80)' : '#fff',
                 color: activeTab === cat ? '#fff' : '#64748b',
                 fontSize: 13.5, fontWeight: 500, transition: 'all 0.2s',
-                boxShadow: activeTab === cat ? '0 4px 14px rgba(27,188,155,0.3)' : 'none',
+                boxShadow: activeTab === cat ? '0 4px 14px rgba(0,64,160,0.3)' : 'none',
               }}>{cat}</button>
             ))}
           </div>
@@ -80,8 +80,8 @@ export default function FAQSection() {
               return (
                 <div key={faq._id} style={{
                   background: '#fff', borderRadius: 14, overflow: 'hidden', transition: 'all 0.25s',
-                  border: isOpen ? '1.5px solid rgba(27,188,155,0.4)' : '1.5px solid #e8faf6',
-                  boxShadow: isOpen ? '0 8px 24px rgba(27,188,155,0.1)' : '0 1px 4px rgba(0,0,0,0.04)',
+                  border: isOpen ? '1.5px solid rgba(0,64,160,0.4)' : '1.5px solid #e8f0fc',
+                  boxShadow: isOpen ? '0 8px 24px rgba(0,64,160,0.1)' : '0 1px 4px rgba(0,0,0,0.04)',
                 }}>
                   <button onClick={() => setOpenId(isOpen ? null : faq._id)} style={{
                     width: '100%', display: 'flex', alignItems: 'center',
@@ -89,18 +89,18 @@ export default function FAQSection() {
                     padding: '18px 22px', background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left',
                   }}>
                     <div style={{ display: 'flex', alignItems: 'flex-start', gap: 12 }}>
-                      <HelpCircle size={17} style={{ color: isOpen ? '#1bbc9b' : '#d1d5db', flexShrink: 0, marginTop: 1 }} />
+                      <HelpCircle size={17} style={{ color: isOpen ? '#0040a0' : '#d1d5db', flexShrink: 0, marginTop: 1 }} />
                       <span style={{ fontSize: 15, fontWeight: 600, color: isOpen ? '#1a1a2e' : '#374151', lineHeight: 1.5 }}>
                         {faq.question}
                       </span>
                     </div>
                     <div style={{
                       width: 28, height: 28, borderRadius: '50%', flexShrink: 0,
-                      background: isOpen ? 'rgba(27,188,155,0.1)' : '#f3f4f6',
+                      background: isOpen ? 'rgba(0,64,160,0.1)' : '#f3f4f6',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                     }}>
                       <ChevronDown size={16} style={{
-                        color: isOpen ? '#1bbc9b' : '#9ca3af',
+                        color: isOpen ? '#0040a0' : '#9ca3af',
                         transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
                         transition: 'transform 0.25s',
                       }} />

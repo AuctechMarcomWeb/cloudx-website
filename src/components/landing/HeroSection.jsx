@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom'
+﻿import { useNavigate } from 'react-router-dom'
 import heroImg from '../../assets/herro Section.png'
 
 const FEATURE_PILLS = [
@@ -14,7 +14,7 @@ export default function HeroSection() {
     <section
       id="home"
       style={{
-        background: 'linear-gradient(135deg, #f0fdf9 0%, #e8faf6 50%, #f0fdf9 100%)',
+        background: 'linear-gradient(135deg, #f0fdf9 0%, #e8f0fc 50%, #f0fdf9 100%)',
         position: 'relative',
         overflow: 'hidden',
       }}
@@ -22,7 +22,7 @@ export default function HeroSection() {
       {/* BG dot pattern */}
       <div style={{
         position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: 0,
-        backgroundImage: 'radial-gradient(circle, rgba(27,188,155,0.12) 1.5px, transparent 1.5px)',
+        backgroundImage: 'radial-gradient(circle, rgba(0,64,160,0.12) 1.5px, transparent 1.5px)',
         backgroundSize: '28px 28px',
       }} />
 
@@ -39,7 +39,7 @@ export default function HeroSection() {
           {/* ── LEFT TEXT ── */}
           <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
 
-            <p style={{ fontSize: 13, fontWeight: 600, color: '#1bbc9b', marginBottom: 16, letterSpacing: '0.3px' }}>
+            <p style={{ fontSize: 13, fontWeight: 600, color: '#0040a0', marginBottom: 16, letterSpacing: '0.3px' }}>
               Transform School Management With School CloudX
             </p>
 
@@ -52,7 +52,7 @@ export default function HeroSection() {
               marginBottom: 20,
             }} className="hero-h1">
               Transform School<br />Management<br />
-              <span style={{ color: '#1bbc9b' }}>With School CloudX</span>
+              <span style={{ color: '#0040a0' }}>With School CloudX</span>
             </h1>
 
             <p style={{ fontSize: 16, color: '#64748b', lineHeight: 1.75, marginBottom: 32, maxWidth: 480 }}>
@@ -82,18 +82,18 @@ export default function HeroSection() {
                 <span key={f} style={{
                   display: 'inline-flex', alignItems: 'center', gap: 6,
                   padding: '6px 14px', borderRadius: 999,
-                  background: '#fff', border: '1.5px solid #d1f5ee',
+                  background: '#fff', border: '1.5px solid #ccdaf5',
                   fontSize: 12, fontWeight: 500, color: '#374151',
                   boxShadow: '0 1px 4px rgba(0,0,0,0.04)',
                 }}>
-                  <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#1bbc9b', flexShrink: 0 }} />
+                  <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#0040a0', flexShrink: 0 }} />
                   {f}
                 </span>
               ))}
               <button
                 onClick={() => document.querySelector('#features')?.scrollIntoView({ behavior: 'smooth' })}
                 className="btn-primary"
-                style={{ padding: '6px 16px', fontSize: 12, borderRadius: 999, boxShadow: '0 3px 10px rgba(27,188,155,0.35)' }}
+                style={{ padding: '6px 16px', fontSize: 12, borderRadius: 999, boxShadow: '0 3px 10px rgba(0,64,160,0.35)' }}
               >
                 View more features →
               </button>
@@ -107,7 +107,7 @@ export default function HeroSection() {
               position: 'absolute', borderRadius: '50%', pointerEvents: 'none',
               width: 420, height: 420, top: '50%', left: '50%',
               transform: 'translate(-50%,-50%)',
-              background: 'radial-gradient(circle, rgba(27,188,155,0.15) 0%, transparent 70%)',
+              background: 'radial-gradient(circle, rgba(0,64,160,0.15) 0%, transparent 70%)',
             }} />
 
             {/* Floating card: Top Rated */}
@@ -121,7 +121,7 @@ export default function HeroSection() {
               <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 6 }}>
                 <div style={{
                   width: 36, height: 36, borderRadius: 10, flexShrink: 0,
-                  background: 'linear-gradient(135deg,#1bbc9b,#0e9f82)',
+                  background: 'linear-gradient(135deg,#0040a0,#002f80)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 16,
                 }}>⭐</div>
                 <div>
@@ -140,7 +140,7 @@ export default function HeroSection() {
               animation: 'float 4s ease-in-out infinite 0.8s',
               maxWidth: 200, fontSize: 12, color: '#64748b', lineHeight: 1.5,
             }}>
-              <span style={{ fontWeight: 700, color: '#1bbc9b' }}>Opt for School CloudX</span>
+              <span style={{ fontWeight: 700, color: '#0040a0' }}>Opt for School CloudX</span>
               <br />14+ robust features for an enhanced educational experience.
             </div>
 
@@ -151,7 +151,7 @@ export default function HeroSection() {
               style={{
                 width: '100%', maxWidth: 520, height: 'auto',
                 display: 'block', position: 'relative', zIndex: 1,
-                filter: 'drop-shadow(0 20px 40px rgba(27,188,155,0.2))',
+                filter: 'drop-shadow(0 20px 40px rgba(0,64,160,0.2))',
               }}
             />
           </div>

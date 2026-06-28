@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Menu, X, ChevronDown, LayoutDashboard, LogOut } from 'lucide-react'
 import { usePortalAuth } from '../context/PortalAuthContext'
@@ -51,7 +51,7 @@ export default function Navbar() {
             {isLoggedIn ? (
               <div style={{ position: 'relative' }}>
                 <button onClick={() => setDrop(v => !v)} className="school-menu-btn"
-                  onMouseEnter={e => { e.currentTarget.style.borderColor = '#1bbc9b'; e.currentTarget.style.background = '#e8faf6' }}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = '#0040a0'; e.currentTarget.style.background = '#e8f0fc' }}
                   onMouseLeave={e => { e.currentTarget.style.borderColor = '#e2e8f0'; e.currentTarget.style.background = '#f9fafb' }}
                 >
                   <div className="school-avatar">
@@ -70,8 +70,8 @@ export default function Navbar() {
                       <div style={{ fontSize: 11, color: '#9ca3af', marginTop: 2 }}>{school?.email || ''}</div>
                     </div>
                     <button onClick={() => { navigate('/portal/dashboard'); setDrop(false) }} style={{ width: '100%', display: 'flex', alignItems: 'center', gap: 10, padding: '10px 12px', background: 'none', border: 'none', borderRadius: 8, cursor: 'pointer', color: '#374151', fontSize: 13, fontWeight: 500, fontFamily: 'Lato, sans-serif', transition: 'background 0.15s' }}
-                      onMouseEnter={e => e.currentTarget.style.background = '#e8faf6'} onMouseLeave={e => e.currentTarget.style.background = 'none'}
-                    ><LayoutDashboard size={15} color="#1bbc9b" /> Dashboard</button>
+                      onMouseEnter={e => e.currentTarget.style.background = '#e8f0fc'} onMouseLeave={e => e.currentTarget.style.background = 'none'}
+                    ><LayoutDashboard size={15} color="#0040a0" /> Dashboard</button>
                     <button onClick={() => { logout(); setDrop(false); navigate('/') }} style={{ width: '100%', display: 'flex', alignItems: 'center', gap: 10, padding: '10px 12px', background: 'none', border: 'none', borderRadius: 8, cursor: 'pointer', color: '#ef4444', fontSize: 13, fontWeight: 500, fontFamily: 'Lato, sans-serif', transition: 'background 0.15s' }}
                       onMouseEnter={e => e.currentTarget.style.background = '#fef2f2'} onMouseLeave={e => e.currentTarget.style.background = 'none'}
                     ><LogOut size={15} /> Logout</button>
@@ -102,7 +102,7 @@ export default function Navbar() {
         <div className="mob-menu">
           {NAV_LINKS.map(l => (
             <button key={l.label} onClick={() => scrollTo(l.href)} className="mob-menu-link"
-              onMouseEnter={e => { e.currentTarget.style.background = '#e8faf6'; e.currentTarget.style.color = '#1bbc9b' }}
+              onMouseEnter={e => { e.currentTarget.style.background = '#e8f0fc'; e.currentTarget.style.color = '#0040a0' }}
               onMouseLeave={e => { e.currentTarget.style.background = 'none'; e.currentTarget.style.color = '#4a5568' }}
             >{l.label}</button>
           ))}
@@ -158,8 +158,8 @@ export default function Navbar() {
           font-family: Lato, sans-serif;
         }
         .nav-link-btn:hover {
-          color: #1bbc9b;
-          background: #e8faf6;
+          color: #0040a0;
+          background: #e8f0fc;
         }
 
         /* Right section */
@@ -185,7 +185,7 @@ export default function Navbar() {
           width: 30px;
           height: 30px;
           border-radius: 8px;
-          background: linear-gradient(135deg,#1bbc9b,#0e9f82);
+          background: linear-gradient(135deg,#0040a0,#002f80);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -227,7 +227,7 @@ export default function Navbar() {
           z-index: 150;
           background: #fff;
           padding: 16px 24px 20px;
-          border-top: 1px solid #e8faf6;
+          border-top: 1px solid #e8f0fc;
           box-shadow: 0 10px 30px rgba(0,0,0,0.08);
           display: flex;
           flex-direction: column;

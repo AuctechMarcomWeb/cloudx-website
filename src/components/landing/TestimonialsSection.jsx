@@ -1,9 +1,9 @@
-import { Star, Quote } from 'lucide-react'
+﻿import { Star, Quote } from 'lucide-react'
 
 const TESTIMONIALS = [
   {
     name: 'Ramesh Kumar', role: 'Principal, DPS Lucknow', initials: 'RK',
-    color: '#1bbc9b', grad: 'linear-gradient(135deg,#1bbc9b,#0e9f82)',
+    color: '#0040a0', grad: 'linear-gradient(135deg,#0040a0,#002f80)',
     quote: 'School CloudX has completely transformed our school management. Fee collection and attendance tracking are now effortless for our entire staff.',
     stars: 5,
   },
