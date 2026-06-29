@@ -173,13 +173,7 @@ export default function FAQSection() {
           </>
         )}
 
-        <div style={{ textAlign: 'center', marginTop: 44 }}>
-          <p style={{ color: '#94a3b8', fontSize: 14, marginBottom: 14 }}>Still have questions?</p>
-          <a href="#contact" onClick={e => { e.preventDefault(); document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }) }}
-            className="btn-primary" style={{ display: 'inline-flex' }}>
-            Contact Support →
-          </a>
-        </div>
+
       </div>
     </section>
   )
