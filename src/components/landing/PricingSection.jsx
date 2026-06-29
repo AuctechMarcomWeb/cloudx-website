@@ -150,6 +150,61 @@ export default function PricingSection() {
           </div>
         )}
 
+        {/* ── Comparison Table ── */}
+        <div style={{ maxWidth: 900, margin: '52px auto 0' }}>
+          <h3 style={{ textAlign: 'center', fontSize: 20, fontWeight: 700, color: '#1a1a2e', marginBottom: 28, fontFamily: "'Lato', sans-serif" }}>
+            What's included in every plan
+          </h3>
+          <div style={{ overflowX: 'auto', borderRadius: 16, border: '1.5px solid #ccdaf5', boxShadow: '0 4px 24px rgba(0,64,160,0.06)' }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse', background: '#fff', fontFamily: "'Lato', sans-serif" }}>
+              <thead>
+                <tr style={{ background: 'linear-gradient(135deg,#0040a0,#002f80)' }}>
+                  <th style={{ padding: '16px 20px', textAlign: 'left', color: '#fff', fontSize: 13, fontWeight: 700 }}>Feature</th>
+                  {['Basic', 'Standard', 'Pro'].map(p => (
+                    <th key={p} style={{ padding: '16px 20px', textAlign: 'center', color: '#fff', fontSize: 13, fontWeight: 700 }}>
+                      {p} {p === 'Pro' && <span style={{ fontSize: 10, background: '#e0c000', color: '#fff', borderRadius: 50, padding: '2px 8px', marginLeft: 4 }}>Popular</span>}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  ['Student Management',       true,  true,  true],
+                  ['Teacher Management',        true,  true,  true],
+                  ['Attendance Tracking',       true,  true,  true],
+                  ['Fee Management',            true,  true,  true],
+                  ['Exam & Results',            true,  true,  true],
+                  ['Timetable Management',      false, true,  true],
+                  ['Assignment Management',     false, true,  true],
+                  ['Parent App Access',         false, true,  true],
+                  ['Chat Module',               false, false, true],
+                  ['Transportation Module',     false, false, true],
+                  ['ID Card Generation',        false, false, true],
+                  ['Website Management',        false, false, true],
+                  ['30-Day Free Trial',         true,  true,  true],
+                  ['Dedicated Support',         false, true,  true],
+                ].map(([feat, basic, std, pro], i) => (
+                  <tr key={feat} style={{ background: i % 2 === 0 ? '#fff' : '#f8fafe', borderBottom: '1px solid #e8f0fc' }}>
+                    <td style={{ padding: '13px 20px', fontSize: 13.5, color: '#374151', fontWeight: 500 }}>{feat}</td>
+                    {[basic, std, pro].map((has, j) => (
+                      <td key={j} style={{ padding: '13px 20px', textAlign: 'center' }}>
+                        {has
+                          ? <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 22, height: 22, borderRadius: '50%', background: 'rgba(0,64,160,0.1)' }}>
+                              <svg width="12" height="10" viewBox="0 0 12 10"><path d="M1 5l3.5 3.5L11 1" stroke="#0040a0" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/></svg>
+                            </span>
+                          : <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 22, height: 22, borderRadius: '50%', background: '#f3f4f6' }}>
+                              <svg width="10" height="10" viewBox="0 0 10 10"><path d="M2 2l6 6M8 2l-6 6" stroke="#d1d5db" strokeWidth="1.8" strokeLinecap="round"/></svg>
+                            </span>
+                        }
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
         {/* Custom package */}
         <div style={{ maxWidth:700,margin:'48px auto 0',background:'linear-gradient(135deg,#e8f0fc,#ccdaf5)',border:'1.5px solid rgba(0,64,160,0.25)',borderRadius:20,padding:'36px 40px',textAlign:'center' }} className="custom-pkg">
           <h3 style={{ fontSize:22,fontWeight:800,color:'#0e6b5a',marginBottom:10 }}>Custom package</h3>

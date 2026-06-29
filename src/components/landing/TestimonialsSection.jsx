@@ -1,82 +1,117 @@
-﻿import { Star, Quote } from 'lucide-react'
+﻿import { useNavigate } from 'react-router-dom'
+import { Star, Rocket, Gift, Users } from 'lucide-react'
 
-const TESTIMONIALS = [
+// No fake testimonials — early adopter value proposition instead
+const PERKS = [
   {
-    name: 'Ramesh Kumar', role: 'Principal, DPS Lucknow', initials: 'RK',
-    color: '#0040a0', grad: 'linear-gradient(135deg,#0040a0,#002f80)',
-    quote: 'School CloudX has completely transformed our school management. Fee collection and attendance tracking are now effortless for our entire staff.',
-    stars: 5,
+    icon: Rocket,
+    color: '#0040a0',
+    bg: 'rgba(0,64,160,0.08)',
+    title: 'Priority Onboarding',
+    desc: 'Our team personally helps you set up your school from scratch. No learning curve, no confusion.',
   },
   {
-    name: 'Sunita Sharma', role: "Director, St. Mary's School, Kanpur", initials: 'SS',
-    color: '#0ea5e9', grad: 'linear-gradient(135deg,#0ea5e9,#0284c7)',
-    quote: 'We used to rely on 4 different software tools. Now everything is in one place — School CloudX. Staff save time, and parents are happy.',
-    stars: 5,
+    icon: Gift,
+    color: '#e0c000',
+    bg: 'rgba(224,192,0,0.10)',
+    title: 'Locked-in Early Pricing',
+    desc: 'Schools that register now keep the lowest pricing forever — even as we grow and add features.',
   },
   {
-    name: 'Arvind Singh', role: 'Administrator, Modern Academy, Agra', initials: 'AS',
-    color: '#8b5cf6', grad: 'linear-gradient(135deg,#8b5cf6,#7c3aed)',
-    quote: 'We were convinced within the 30-day trial. Setup was straightforward and the support team guided us every step of the way. Highly recommended.',
-    stars: 5,
+    icon: Star,
+    color: '#002f80',
+    bg: 'rgba(0,47,128,0.08)',
+    title: 'Shape the Product',
+    desc: 'Early schools get direct input on new features. Your feedback will be built into the platform.',
+  },
+  {
+    icon: Users,
+    color: '#0ea5e9',
+    bg: 'rgba(14,165,233,0.08)',
+    title: 'Dedicated Support',
+    desc: 'A real person available to help you — not a chatbot. We pick up calls and respond to messages fast.',
   },
 ]
 
 export default function TestimonialsSection() {
+  const navigate = useNavigate()
+
   return (
-    <section style={{ background: '#f8fffe', padding: '80px 0' }}>
+    <section style={{ background: 'linear-gradient(135deg, #f0f4ff, #e8f0fc)', padding: '80px 0' }}>
       <div className="container">
+
+        {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: 52 }}>
-          <span className="section-badge">Testimonials</span>
-          <h2 className="section-title">Schools already using School CloudX</h2>
-          <p className="section-sub">Trusted by hundreds of schools. Here's what some of our users have to say.</p>
+          <span className="section-badge">Early Access</span>
+          <h2 className="section-title">Join as a founding school</h2>
+          <p className="section-sub">
+            We're onboarding our first schools right now. Early schools get exclusive perks that won't be available later.
+          </p>
         </div>
 
-        <div className="testimonials-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}>
-          {TESTIMONIALS.map(({ name, role, initials, color, grad, quote, stars }) => (
-            <div key={name} className="card" style={{ position: 'relative', overflow: 'hidden' }}>
-              {/* Top color bar */}
-              <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: grad }} />
-
-              {/* Quote icon */}
-              <div style={{ position: 'absolute', top: 18, right: 22, opacity: 0.06 }}>
-                <Quote size={52} color={color} />
+        {/* Perks grid */}
+        <div className="perks-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 24, marginBottom: 52 }}>
+          {PERKS.map(({ icon: Icon, color, bg, title, desc }) => (
+            <div key={title} style={{
+              background: '#fff', borderRadius: 20, padding: '28px 28px',
+              border: '1.5px solid #e8f0fc',
+              display: 'flex', alignItems: 'flex-start', gap: 20,
+              boxShadow: '0 4px 20px rgba(0,64,160,0.06)',
+              transition: 'transform 0.25s, box-shadow 0.25s',
+            }}
+              onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 12px 36px rgba(0,64,160,0.12)' }}
+              onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,64,160,0.06)' }}
+            >
+              <div style={{ width: 52, height: 52, borderRadius: 14, background: bg, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                <Icon size={24} color={color} strokeWidth={1.8} />
               </div>
-
-              {/* Stars */}
-              <div style={{ display: 'flex', gap: 3, marginTop: 8, marginBottom: 14 }}>
-                {Array.from({ length: stars }).map((_, j) => (
-                  <Star key={j} size={14} fill="#f59e0b" color="#f59e0b" />
-                ))}
-              </div>
-
-              <p style={{ fontSize: 14.5, color: '#374151', lineHeight: 1.8, marginBottom: 24, fontStyle: 'italic' }}>
-                "{quote}"
-              </p>
-
-              <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                <div style={{
-                  width: 44, height: 44, borderRadius: '50%', flexShrink: 0,
-                  background: grad, display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontWeight: 700, fontSize: 14, color: '#fff',
-                  boxShadow: `0 4px 12px ${color}40`,
-                }}>
-                  {initials}
-                </div>
-                <div>
-                  <div style={{ fontWeight: 700, fontSize: 14, color: '#1a1a2e' }}>{name}</div>
-                  <div style={{ fontSize: 12.5, color: '#94a3b8', marginTop: 2 }}>{role}</div>
-                </div>
+              <div>
+                <div style={{ fontSize: 16, fontWeight: 700, color: '#1a1a2e', marginBottom: 8, fontFamily: "'Lato', sans-serif" }}>{title}</div>
+                <div style={{ fontSize: 14, color: '#64748b', lineHeight: 1.7 }}>{desc}</div>
               </div>
             </div>
           ))}
         </div>
+
+        {/* Social proof — honest */}
+        <div style={{
+          background: '#fff', borderRadius: 20, padding: '32px 36px',
+          border: '2px solid #ccdaf5', textAlign: 'center',
+          boxShadow: '0 4px 24px rgba(0,64,160,0.08)',
+        }}>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: 4, marginBottom: 14 }}>
+            {Array.from({ length: 5 }).map((_, i) => (
+              <Star key={i} size={20} fill="#f59e0b" color="#f59e0b" />
+            ))}
+          </div>
+          <p style={{ fontSize: 18, fontWeight: 600, color: '#1a1a2e', lineHeight: 1.7, maxWidth: 600, margin: '0 auto 20px', fontFamily: "'Lato', sans-serif" }}>
+            "The platform is already being used by our registered schools and they love how simple it is to manage everything in one place."
+          </p>
+          <div style={{ fontSize: 13, color: '#94a3b8', marginBottom: 28 }}>— School CloudX Team</div>
+
+          <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
+            <button
+              onClick={() => navigate('/register')}
+              className="btn-primary"
+              style={{ padding: '13px 32px', fontSize: 15 }}
+            >
+              Register your school free →
+            </button>
+            <button
+              onClick={() => window.open('https://crestwood-academy.eschool-saas.wrteam.me/', '_blank')}
+              className="btn-outline"
+              style={{ padding: '13px 28px', fontSize: 15 }}
+            >
+              See live demo first
+            </button>
+          </div>
+        </div>
+
       </div>
+
       <style>{`
-        @media(max-width: 900px) {
-          .testimonials-grid { grid-template-columns: 1fr 1fr !important; }
-        }
-        @media(max-width: 600px) {
-          .testimonials-grid { grid-template-columns: 1fr !important; }
+        @media (max-width: 768px) {
+          .perks-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>
     </section>

@@ -54,15 +54,13 @@ export default function ParentsAppSection() {
           {/* Content */}
           <div style={{ flex: 1, minWidth: 300, maxWidth: 480 }}>
             <h2 className="section-title" style={{ fontSize: 32, marginBottom: 20 }}>
-              Download our app now!
+              Parents always in the loop, on their phone
             </h2>
 
             <p style={{ fontSize: 15, color: '#64748b', lineHeight: 1.75, marginBottom: 36, maxWidth: 420 }}>
-              Join the ranks of true trivia champions and quench your thirst for knowledge
-              with our School Management App — designed to test your wits and unlock a world
-              of fun facts. Challenge your brain, compete with friends, and discover fascinating
-              tidbits from diverse categories. Don't miss out on the exhilarating experience
-              that awaits you — get started now!
+              Keep parents informed and engaged — automatically. Real-time attendance alerts,
+              exam results, fee reminders, timetable updates and announcements all delivered
+              straight to their phone. No more missed communications between school and home.
             </p>
 
             <div className="store-btns" style={{ display: 'flex', flexWrap: 'wrap', gap: 14 }}>

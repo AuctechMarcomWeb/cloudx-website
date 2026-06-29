@@ -37,7 +37,7 @@ export default function FAQSection() {
   const filtered = activeTab === 'All' ? faqs : faqs.filter(f => f.category === activeTab)
 
   return (
-    <section id="faq" style={{ background: 'linear-gradient(135deg, #f0fdf9 0%, #e8f0fc 100%)', padding: '80px 0' }}>
+    <section id="faq" style={{ background: 'linear-gradient(135deg, #f0f4ff 0%, #e8f0fc 100%)', padding: '80px 0' }}>
       <div className="container">
 
         <div style={{ textAlign: 'center', marginBottom: 52 }}>

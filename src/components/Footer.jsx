@@ -1,4 +1,42 @@
-﻿import { ExternalLink, Mail, Phone } from 'lucide-react'
+﻿import { useState } from 'react'
+import { ExternalLink, Mail, Phone } from 'lucide-react'
+
+function NewsletterForm() {
+  const [email, setEmail] = useState('')
+  const [done, setDone] = useState(false)
+  const submit = (e) => {
+    e.preventDefault()
+    if (!email) return
+    setDone(true)
+    setEmail('')
+    setTimeout(() => setDone(false), 4000)
+  }
+  return (
+    <form onSubmit={submit} style={{ display: 'flex', gap: 10, flexWrap: 'wrap', flexShrink: 0 }}>
+      <input
+        type="email" value={email} onChange={e => setEmail(e.target.value)}
+        placeholder="your@email.com" required
+        style={{
+          height: 44, padding: '0 16px', borderRadius: 10, border: '1.5px solid rgba(255,255,255,0.25)',
+          background: 'rgba(255,255,255,0.1)', color: '#fff', fontSize: 14,
+          fontFamily: 'Lato, sans-serif', outline: 'none', minWidth: 220,
+          transition: 'border-color 0.2s',
+        }}
+        onFocus={e => e.target.style.borderColor = '#e0c000'}
+        onBlur={e => e.target.style.borderColor = 'rgba(255,255,255,0.25)'}
+      />
+      <button type="submit" style={{
+        height: 44, padding: '0 22px', borderRadius: 10, border: 'none', cursor: 'pointer',
+        background: done ? 'rgba(255,255,255,0.2)' : 'linear-gradient(135deg, #e0c000, #b89a00)',
+        color: '#fff', fontSize: 14, fontWeight: 700, fontFamily: 'Lato, sans-serif',
+        boxShadow: '0 4px 16px rgba(224,192,0,0.3)', transition: 'all 0.2s',
+        whiteSpace: 'nowrap',
+      }}>
+        {done ? '✓ Subscribed!' : 'Subscribe ✦'}
+      </button>
+    </form>
+  )
+}
 
 /* ── Inline SVG social icons ── */
 const FacebookIcon = () => (
@@ -81,6 +119,23 @@ export default function Footer() {
       {/* ── Top gradient line ── */}
       <div style={{ height: 3, background: 'linear-gradient(90deg, #0040a0, #0ea5e9, #0040a0)' }} />
 
+      {/* ── Newsletter Strip ── */}
+      <div style={{ background: 'linear-gradient(135deg, #0040a0, #002f80)', padding: '40px 0' }}>
+        <div className="container">
+          <div className="newsletter-row" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 32, flexWrap: 'wrap' }}>
+            <div>
+              <h3 style={{ fontSize: 20, fontWeight: 700, color: '#fff', margin: '0 0 6px', fontFamily: 'Lato, sans-serif' }}>
+                Stay updated with School CloudX
+              </h3>
+              <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.65)', margin: 0 }}>
+                Get product updates, tips and school management insights straight to your inbox.
+              </p>
+            </div>
+            <NewsletterForm />
+          </div>
+        </div>
+      </div>
+
       <div className="container" style={{ padding: '0 24px' }}>
 
         {/* ── Main content ── */}
@@ -95,11 +150,13 @@ export default function Footer() {
 
           {/* ── Col 1: Brand ── */}
           <div>
-            <img
-              src="/auctech-logo.png"
-              alt="School CloudX"
-              style={{ height: 42, objectFit: 'contain', display: 'block', marginBottom: 18, filter: 'brightness(0) invert(1)' }}
-            />
+            <div style={{ background: '#fff', borderRadius: 12, padding: '8px 14px', display: 'inline-block', marginBottom: 18 }}>
+              <img
+                src="/auctech-logo.png"
+                alt="School CloudX"
+                style={{ height: 42, objectFit: 'contain', display: 'block' }}
+              />
+            </div>
 
             <p style={{ fontSize: 14, lineHeight: 1.8, color: 'rgba(255,255,255,0.45)', maxWidth: 230, marginBottom: 24, margin: '0 0 24px' }}>
               A modern school management platform — built for speed, simplicity, and every stakeholder.

@@ -1,5 +1,4 @@
-﻿import { useState } from 'react'
-import { Users, CreditCard, BookOpen, Bus, Bell, BarChart2, FileText, Shield, GraduationCap, Calendar, ClipboardList, Home, Settings } from 'lucide-react'
+﻿import { Users, CreditCard, BookOpen, Bus, Bell, BarChart2, FileText, Shield, GraduationCap, Calendar, ClipboardList, Home, Settings } from 'lucide-react'
 import superAdminImg   from '../../assets/HxCMMWD6ttfGHPpTS4EzpysImSjyF4c8d1GLbQ12.png'
 import studentImg      from '../../assets/StudentImage.png'
 import schoolAdminImg  from '../../assets/682c33c666a931.887378031747727302.png'
@@ -603,11 +602,6 @@ const FEATURE_GRID = [
 
 /* ── Main Component — Simple vertical scroll, no tabs ── */
 export default function FeaturesSection() {
-  const [activeFeature, setActiveFeature] = useState({})
-
-  const getActiveFeature = (id) => activeFeature[id] ?? 0
-  const setFeature = (panelId, i) =>
-    setActiveFeature(prev => ({ ...prev, [panelId]: i }))
 
   return (
     <section id="features" style={{ background: '#fff' }}>
@@ -664,7 +658,6 @@ export default function FeaturesSection() {
 
       {/* ── All Panels stacked vertically ── */}
       {PANELS.map((panel) => {
-        const activeF = getActiveFeature(panel.id)
         return (
           <div
             key={panel.id}
@@ -699,20 +692,18 @@ export default function FeaturesSection() {
                 display: 'grid',
                 gridTemplateColumns: '1fr 1fr',
                 gap: 64,
-                alignItems: 'center',
+                alignItems: 'start',
                 maxWidth: 1000,
                 margin: '0 auto',
               }} className="feat-grid">
 
-                {/* Left — image */}
+                {/* Left — image: sticky so it stays centered while list scrolls */}
                 <div style={{
-                  background: 'transparent',
-                  borderRadius: 24,
-                  padding: '0',
+                  position: 'sticky',
+                  top: 100,
                   display: 'flex',
                   justifyContent: 'center',
-                  alignItems: 'center',
-                  minHeight: 380,
+                  alignItems: 'flex-start',
                 }}>
                   <img
                     src={panel.image}
@@ -730,47 +721,33 @@ export default function FeaturesSection() {
 
                 {/* Right — feature list */}
                 <div style={{ display:'flex', flexDirection:'column', gap:4 }}>
-                  {panel.features.map(({ icon: Icon, title, desc }, i) => {
-                    const isActive = activeF === i
-                    return (
-                      <div
-                        key={title}
-                        onClick={() => setFeature(panel.id, i)}
-                        style={{
-                          display: 'flex',
-                          gap: 14,
-                          padding: '14px 16px',
-                          borderRadius: 12,
-                          cursor: 'pointer',
-                          background: isActive ? 'rgba(0,64,160,0.08)' : 'transparent',
-                          borderLeft: `3px solid ${isActive ? '#0040a0' : 'transparent'}`,
-                          transition: 'all 0.2s',
-                        }}
-                        onMouseEnter={e => { if (!isActive) { e.currentTarget.style.background='rgba(0,64,160,0.04)'; e.currentTarget.style.borderLeftColor='rgba(0,64,160,0.4)' }}}
-                        onMouseLeave={e => { if (!isActive) { e.currentTarget.style.background='transparent'; e.currentTarget.style.borderLeftColor='transparent' }}}
-                      >
-                        <div style={{
-                          width: 42, height: 42, borderRadius: 10, flexShrink: 0,
-                          background: isActive ? '#0040a0' : 'rgba(0,64,160,0.1)',
-                          border: `1px solid ${isActive ? '#0040a0' : 'rgba(0,64,160,0.2)'}`,
-                          display: 'flex', alignItems: 'center', justifyContent: 'center',
-                          transition: 'all 0.2s',
-                        }}>
-                          <Icon size={18} color={isActive ? '#fff' : '#0040a0'} />
-                        </div>
-                        <div style={{ flex: 1 }}>
-                          <h4 style={{
-                            fontSize: 15, fontWeight: 800, color: '#1a1a2e',
-                            marginBottom: isActive ? 6 : 0,
-                            fontFamily:"'Lato', sans-serif", lineHeight: 1.3,
-                          }}>{title}</h4>
-                          {isActive && (
-                            <p style={{ fontSize:13.5,color:'#64748b',lineHeight:1.65,margin:0,animation:'fadeIn 0.2s ease both' }}>{desc}</p>
-                          )}
-                        </div>
+                  {panel.features.map(({ icon: Icon, title, desc }) => (
+                    <div
+                      key={title}
+                      style={{
+                        display: 'flex',
+                        gap: 14,
+                        padding: '14px 16px',
+                        borderRadius: 12,
+                      }}
+                    >
+                      <div style={{
+                        width: 42, height: 42, borderRadius: 10, flexShrink: 0,
+                        background: 'rgba(0,64,160,0.1)',
+                        border: '1px solid rgba(0,64,160,0.2)',
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      }}>
+                        <Icon size={18} color='#0040a0' />
                       </div>
-                    )
-                  })}
+                      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                        <h4 style={{
+                          fontSize: 15, fontWeight: 700, color: '#1a1a2e',
+                          margin: 0, fontFamily:"'Lato', sans-serif", lineHeight: 1.3,
+                        }}>{title}</h4>
+                        <p style={{ fontSize: 13, color: '#64748b', lineHeight: 1.6, margin: '4px 0 0' }}>{desc}</p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
 
               </div>
