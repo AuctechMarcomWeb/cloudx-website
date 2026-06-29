@@ -124,7 +124,7 @@ export default function StatsSection() {
               Register your school free →
             </button>
             <button
-              onClick={() => window.open('https://crestwood-academy.eschool-saas.wrteam.me/', '_blank')}
+              onClick={() => {}}
               className="cta-btn-secondary"
               style={{
                 padding: '12px 24px', borderRadius: 10, cursor: 'pointer',

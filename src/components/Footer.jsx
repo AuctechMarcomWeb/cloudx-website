@@ -1,5 +1,5 @@
 ﻿import { useState } from 'react'
-import { ExternalLink, Mail, Phone } from 'lucide-react'
+import { Mail, Phone } from 'lucide-react'
 import { useSiteSettings } from '../hooks/useSiteSettings'
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:9001/api/'
@@ -218,15 +218,12 @@ export default function Footer() {
             {/* Social icons */}
             <div style={{ display: 'flex', gap: 8 }}>
               {[
-                { label: 'Facebook',  href: 'https://www.facebook.com/wrteam.in/',    Icon: FacebookIcon },
-                { label: 'Instagram', href: 'https://www.instagram.com/wrteam.in/',   Icon: InstagramIcon },
-                { label: 'LinkedIn',  href: 'https://in.linkedin.com/company/wrteam', Icon: LinkedInIcon },
-              ].map(({ label, href, Icon }) => (
-                <a
+                { label: 'Facebook',  Icon: FacebookIcon },
+                { label: 'Instagram', Icon: InstagramIcon },
+                { label: 'LinkedIn',  Icon: LinkedInIcon },
+              ].map(({ label, Icon }) => (
+                <span
                   key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noreferrer"
                   aria-label={label}
                   title={label}
                   style={{
@@ -235,24 +232,12 @@ export default function Footer() {
                     border: '1px solid rgba(255,255,255,0.1)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     color: 'rgba(255,255,255,0.5)',
-                    textDecoration: 'none', transition: 'all 0.2s',
+                    transition: 'all 0.2s',
                     flexShrink: 0,
-                  }}
-                  onMouseEnter={e => {
-                    e.currentTarget.style.background = 'rgba(0,64,160,0.18)'
-                    e.currentTarget.style.borderColor = '#0040a0'
-                    e.currentTarget.style.color = '#0040a0'
-                    e.currentTarget.style.transform = 'translateY(-3px)'
-                  }}
-                  onMouseLeave={e => {
-                    e.currentTarget.style.background = 'rgba(255,255,255,0.06)'
-                    e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'
-                    e.currentTarget.style.color = 'rgba(255,255,255,0.5)'
-                    e.currentTarget.style.transform = 'translateY(0)'
                   }}
                 >
                   <Icon />
-                </a>
+                </span>
               ))}
             </div>
           </div>
@@ -294,11 +279,12 @@ export default function Footer() {
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 13 }}>
               {[
                 { label: 'About us',              href: '#info',    ext: false },
-                { label: 'Privacy Policy',        href: 'https://eschool-saas.wrteam.me/page/type/privacy-policy', ext: true },
-                { label: 'Terms & Conditions',    href: 'https://eschool-saas.wrteam.me/page/type/terms-conditions', ext: true },
-                { label: 'Refund & Cancellation', href: 'https://eschool-saas.wrteam.me/page/type/refund-cancellation', ext: true },
+                { label: 'Privacy Policy',        href: null,       ext: false },
+                { label: 'Terms & Conditions',    href: null,       ext: false },
+                { label: 'Refund & Cancellation', href: null,       ext: false },
               ].map(({ label, href, ext }) => (
                 <li key={label}>
+                  {href ? (
                   <a
                     href={href}
                     target={ext ? '_blank' : '_self'}
@@ -309,6 +295,9 @@ export default function Footer() {
                   >
                     {dot}{label}
                   </a>
+                  ) : (
+                  <span style={linkStyle}>{dot}{label}</span>
+                  )}
                 </li>
               ))}
             </ul>
@@ -322,33 +311,18 @@ export default function Footer() {
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
               {[
-                { label: 'Google Play', sub: 'Get it on',       href: 'https://play.google.com/store/apps/details?id=com.wrteam.saas.school', Icon: PlayIcon,  bg: '#34a853' },
-                { label: 'App Store',   sub: 'Download on the', href: 'https://testflight.apple.com/join/HxZcnKO6',                           Icon: AppleIcon, bg: '#555' },
-                { label: 'Student Web', sub: 'Access via',      href: 'https://eschool-saas.student-web.wrteam.me/',                          Icon: WebIcon,   bg: '#0ea5e9' },
-              ].map(({ label, sub, href, Icon, bg }) => (
-                <a
+                { label: 'Google Play', sub: 'Get it on',       Icon: PlayIcon,  bg: '#34a853' },
+                { label: 'App Store',   sub: 'Download on the', Icon: AppleIcon, bg: '#555' },
+                { label: 'Student Web', sub: 'Access via',      Icon: WebIcon,   bg: '#0ea5e9' },
+              ].map(({ label, sub, Icon, bg }) => (
+                <span
                   key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noreferrer"
                   style={{
                     display: 'flex', alignItems: 'center', gap: 12,
                     padding: '10px 14px',
                     background: 'rgba(255,255,255,0.04)',
                     border: '1px solid rgba(255,255,255,0.08)',
                     borderRadius: 10,
-                    textDecoration: 'none',
-                    transition: 'all 0.22s',
-                  }}
-                  onMouseEnter={e => {
-                    e.currentTarget.style.background = 'rgba(0,64,160,0.1)'
-                    e.currentTarget.style.borderColor = 'rgba(0,64,160,0.3)'
-                    e.currentTarget.style.transform = 'translateX(4px)'
-                  }}
-                  onMouseLeave={e => {
-                    e.currentTarget.style.background = 'rgba(255,255,255,0.04)'
-                    e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'
-                    e.currentTarget.style.transform = 'translateX(0)'
                   }}
                 >
                   {/* Icon box */}
@@ -365,8 +339,7 @@ export default function Footer() {
                     <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.35)', letterSpacing: '0.5px', lineHeight: 1, marginBottom: 4 }}>{sub}</div>
                     <div style={{ fontSize: 13, fontWeight: 700, color: 'rgba(255,255,255,0.85)', lineHeight: 1, whiteSpace: 'nowrap' }}>{label}</div>
                   </div>
-                  <ExternalLink size={12} color="rgba(255,255,255,0.2)" style={{ flexShrink: 0 }} />
-                </a>
+                </span>
               ))}
             </div>
           </div>
@@ -384,17 +357,6 @@ export default function Footer() {
         }}>
           <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.3)', margin: 0 }}>
             © {year} School CloudX. All rights reserved.
-          </p>
-          <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.25)', margin: 0 }}>
-            Built by{' '}
-            <a
-              href="https://wrteam.in/"
-              target="_blank"
-              rel="noreferrer"
-              style={{ color: '#0040a0', textDecoration: 'none', fontWeight: 600 }}
-              onMouseEnter={e => { e.currentTarget.style.textDecoration = 'underline' }}
-              onMouseLeave={e => { e.currentTarget.style.textDecoration = 'none' }}
-            >WRTeam</a>
           </p>
         </div>
 

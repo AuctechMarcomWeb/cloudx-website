@@ -98,11 +98,11 @@ export default function TestimonialsSection() {
               Register your school free →
             </button>
             <button
-              onClick={() => window.open('https://crestwood-academy.eschool-saas.wrteam.me/', '_blank')}
+              onClick={() => {}}
               className="btn-outline"
               style={{ padding: '13px 28px', fontSize: 15 }}
             >
-              See live demo first
+              See live demo
             </button>
           </div>
         </div>

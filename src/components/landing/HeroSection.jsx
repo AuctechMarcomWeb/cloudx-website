@@ -69,7 +69,7 @@ export default function HeroSection() {
                 Register your school
               </button>
               <button
-                onClick={() => window.open('https://crestwood-academy.eschool-saas.wrteam.me/', '_blank')}
+                onClick={() => {}}
                 className="btn-outline"
               >
                 Demo school

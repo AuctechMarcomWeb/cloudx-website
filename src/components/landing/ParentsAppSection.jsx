@@ -22,9 +22,9 @@ const GradCapIcon = () => (
 )
 
 const STORE_BUTTONS = [
-  { icon: <GooglePlayIcon />, label: 'Get it on',       title: 'Google Play', href: 'https://play.google.com/store/apps/details?id=com.wrteam.saas.school' },
-  { icon: <AppleIcon />,      label: 'Download on the', title: 'App Store',   href: 'https://testflight.apple.com/join/HxZcnKO6' },
-  { icon: <GradCapIcon />,    label: 'Access via',      title: 'Student Web', href: 'https://eschool-saas.student-web.wrteam.me/' },
+  { icon: <GooglePlayIcon />, label: 'Get it on',       title: 'Google Play' },
+  { icon: <AppleIcon />,      label: 'Download on the', title: 'App Store'   },
+  { icon: <GradCapIcon />,    label: 'Access via',      title: 'Student Web' },
 ]
 
 export default function ParentsAppSection() {
@@ -64,24 +64,19 @@ export default function ParentsAppSection() {
             </p>
 
             <div className="store-btns" style={{ display: 'flex', flexWrap: 'wrap', gap: 14 }}>
-              {STORE_BUTTONS.map(({ icon, label, title, href }) => (
-                <a key={title} href={href} target="_blank" rel="noreferrer" style={{
+              {STORE_BUTTONS.map(({ icon, label, title }) => (
+                <span key={title} style={{
                   display: 'flex', alignItems: 'center', gap: 10,
                   background: '#1a1a2e', color: '#fff',
                   borderRadius: 10, padding: '12px 20px',
-                  textDecoration: 'none',
                   boxShadow: '0 4px 16px rgba(0,0,0,0.15)',
-                  transition: 'transform 0.18s, box-shadow 0.18s',
-                }}
-                  onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.2)' }}
-                  onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 16px rgba(0,0,0,0.15)' }}
-                >
+                }}>
                   {icon}
                   <div>
                     <div style={{ fontSize: 9, color: 'rgba(255,255,255,0.7)', lineHeight: 1, letterSpacing: '0.5px', textTransform: 'uppercase' }}>{label}</div>
                     <div style={{ fontSize: 15, fontWeight: 700, lineHeight: 1.3 }}>{title}</div>
                   </div>
-                </a>
+                </span>
               ))}
             </div>
           </div>
