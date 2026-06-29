@@ -45,10 +45,6 @@ export default function HeroSection() {
           {/* ── LEFT TEXT ── */}
           <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
 
-            <p style={{ fontSize: 13, fontWeight: 600, color: '#0040a0', marginBottom: 16, letterSpacing: '0.3px' }}>
-              Transform School Management With School CloudX
-            </p>
-
             <h1 style={{
               fontSize: 'clamp(28px, 4vw, 52px)',
               fontWeight: 700,
