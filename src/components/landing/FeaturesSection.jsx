@@ -1,4 +1,4 @@
-﻿import React from 'react'
+import React from 'react'
 import { Users, CreditCard, BookOpen, Bus, Bell, BarChart2, FileText, Shield, GraduationCap, Calendar, ClipboardList, Home, Settings } from 'lucide-react'
 import superAdminImg   from '../../assets/HxCMMWD6ttfGHPpTS4EzpysImSjyF4c8d1GLbQ12.png'
 import studentImg      from '../../assets/StudentImage.png'
@@ -8,16 +8,36 @@ import staffAppImg     from '../../assets/mobile phone.png'
 import parentsAppImg   from '../../assets/ourApp.png'
 import schoolLogoImg   from '../../assets/6561c20cbfb617.710131971700905484.jpg'
 
+/* ── Feature-specific screenshots from reference files ── */
+import feat_multiSchool   from '../../assets/Transform School Management With eSchool SaaS_files/HxCMMWD6ttfGHPpTS4EzpysImSjyF4c8d1GLbQ12.png'
+import feat_packages      from '../../assets/Transform School Management With eSchool SaaS_files/682c33c63c5ee5.046102311747727302.png'
+import feat_addons        from '../../assets/Transform School Management With eSchool SaaS_files/4NAmlU5byYY0J96KtSk96dnE8u7ZUhp4WuiPiphb.png'
+import feat_staff         from '../../assets/Transform School Management With eSchool SaaS_files/NUFaNlPvdp1tcuVbpBPblhD9xeedyuwT0UHNvofg.png'
+import feat_website       from '../../assets/Transform School Management With eSchool SaaS_files/TCkUawdabsTEei1hym9YeV1n4yc5uelci0v1Kumq.png'
+import feat_academy       from '../../assets/Transform School Management With eSchool SaaS_files/682c33c666a931.887378031747727302.png'
+import feat_students      from '../../assets/Transform School Management With eSchool SaaS_files/3fDl3iw6gxhjjMoLaAU9xgohPF31dVcXFxQQb2HB.png'
+import feat_teachers      from '../../assets/Transform School Management With eSchool SaaS_files/qFMqcY4MZ7kTMZ0fRigMJkhlhDFiOcCg9v3qosVw.png'
+import feat_timetable     from '../../assets/Transform School Management With eSchool SaaS_files/5poWFmozQ3ivOeQohZhX8wpsHRjwSFUQfl6fZj5q.png'
+import feat_announce      from '../../assets/Transform School Management With eSchool SaaS_files/wQlvitZmfh1FX3dNEMPozLuUIF4S2SdKraM2zdDM.png'
+import feat_exam          from '../../assets/Transform School Management With eSchool SaaS_files/XuefSezViBEVkFGfU39FLSnXap4cK1yt5osGVrew.png'
+import feat_fees          from '../../assets/Transform School Management With eSchool SaaS_files/KjO0IjKCPHc8XqY1HyxpigM1dQMdv6YHuomVNdVv.png'
+import feat_lessons       from '../../assets/Transform School Management With eSchool SaaS_files/RMA8ExnQRSbwelgL2qulPTnH6I6y6S7Ss3UfZNy5.png'
+import feat_assignments   from '../../assets/Transform School Management With eSchool SaaS_files/UXxcBKoGEAVGcoKteSyKs0NQ49A5nAJOH8MH67RZ.png'
+import feat_attendance    from '../../assets/Transform School Management With eSchool SaaS_files/tLHQtBRwQvpV3MBawCW7TFpfPPZ3N5OLRh64TWNu.png'
+import feat_parentsHome   from '../../assets/ourApp.png'
+import feat_transport     from '../../assets/Transform School Management With eSchool SaaS_files/zf2i1fBLkW4ZigmO6egVUqOQUMbsxkfvJ5Wstpym.png'
+import feat_staffDash     from '../../assets/Transform School Management With eSchool SaaS_files/qfKu1Xo49Rpt7xTue58B32nME1utaiH0RnWJyzgT.png'
+
 const SCHOOL_LIST = [
   { name: 'Maple Grove High School', logo: schoolLogoImg },
   { name: 'Crestwood Academy',       logo: schoolLogoImg },
   { name: 'Vidhiya School',          logo: schoolLogoImg },
 ]
 
-/* ─────────────────────────────────────────────
+/* ---------------------------------------------
    Exact phone mockup with real app-like UI
    Matches the screenshot style exactly
-───────────────────────────────────────────── */
+--------------------------------------------- */
 function PhoneMockup({ children, tilt = false }) {
   return (
     <div style={{
@@ -34,7 +54,7 @@ function PhoneMockup({ children, tilt = false }) {
       <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', padding:'6px 12px 4px', marginBottom: 2 }}>
         <span style={{ fontSize:7, color:'rgba(255,255,255,0.6)', fontWeight:700 }}>9:41</span>
         <div style={{ width:40, height:8, borderRadius:20, background:'rgba(255,255,255,0.15)' }} />
-        <span style={{ fontSize:7, color:'rgba(255,255,255,0.6)' }}>●●●</span>
+        <span style={{ fontSize:7, color:'rgba(255,255,255,0.6)' }}>???</span>
       </div>
       {/* Screen */}
       <div style={{ borderRadius:22, overflow:'hidden', background:'#fff', minHeight:340 }}>
@@ -48,7 +68,7 @@ function PhoneMockup({ children, tilt = false }) {
   )
 }
 
-/* ── Super Admin screens ── */
+/* -- Super Admin screens -- */
 function SuperAdminScreen1() {
   return (
     <>
@@ -78,7 +98,7 @@ function SuperAdminScreen1() {
         ))}
       </div>
       <div style={{ background:'#f1f5f9',padding:'6px 0',display:'flex',justifyContent:'space-around' }}>
-        {['⊞','🏫','💰','⚙️'].map((ic,i)=><span key={i} style={{ fontSize:12 }}>{ic}</span>)}
+        {['?','??','??','??'].map((ic,i)=><span key={i} style={{ fontSize:12 }}>{ic}</span>)}
       </div>
     </>
   )
@@ -108,7 +128,7 @@ function SuperAdminScreen2() {
   )
 }
 
-/* ── School Admin screens ── */
+/* -- School Admin screens -- */
 function SchoolAdminScreen1() {
   return (
     <>
@@ -128,7 +148,7 @@ function SchoolAdminScreen1() {
         {['Admission Form','Fee Collection','Exam Schedule','Staff Leave','Timetable'].map((m,i)=>(
           <div key={i} style={{ background:'#fff',borderRadius:7,padding:'6px 9px',marginBottom:4,display:'flex',alignItems:'center',justifyContent:'space-between',border:'1px solid #e8f0fc' }}>
             <span style={{ fontSize:7,fontWeight:700,color:'#374151' }}>{m}</span>
-            <span style={{ fontSize:9,color:'#0040a0' }}>›</span>
+            <span style={{ fontSize:9,color:'#0040a0' }}>�</span>
           </div>
         ))}
       </div>
@@ -140,7 +160,7 @@ function SchoolAdminScreen2() {
     <>
       <div style={{ background:'#0040a0',padding:'10px 12px 8px' }}>
         <div style={{ fontSize:8,color:'#fff',fontWeight:800 }}>Students</div>
-        <div style={{ fontSize:6.5,color:'rgba(255,255,255,0.8)' }}>Class X-A · 42 students</div>
+        <div style={{ fontSize:6.5,color:'rgba(255,255,255,0.8)' }}>Class X-A � 42 students</div>
       </div>
       <div style={{ padding:'8px' }}>
         {[{n:'Riya Sharma',r:'Roll 01',c:'#0040a0'},{n:'Arjun Patel',r:'Roll 02',c:'#0ea5e9'},{n:'Priya Mehta',r:'Roll 03',c:'#8b5cf6'},{n:'Rahul Kumar',r:'Roll 04',c:'#f59e0b'},{n:'Sneha T.',r:'Roll 05',c:'#ec4899'}].map((st,i)=>(
@@ -158,13 +178,13 @@ function SchoolAdminScreen2() {
   )
 }
 
-/* ── Teacher screens ── */
+/* -- Teacher screens -- */
 function TeacherScreen1() {
   return (
     <>
       <div style={{ background:'linear-gradient(135deg,#8b5cf6,#0040a0)',padding:'10px 12px 8px' }}>
         <div style={{ fontSize:8,color:'#fff',fontWeight:800 }}>Teacher Panel</div>
-        <div style={{ fontSize:6.5,color:'rgba(255,255,255,0.8)' }}>Mrs. Sharma · Maths</div>
+        <div style={{ fontSize:6.5,color:'rgba(255,255,255,0.8)' }}>Mrs. Sharma � Maths</div>
       </div>
       <div style={{ padding:'8px',background:'#f8fffe' }}>
         <div style={{ fontSize:7,fontWeight:700,color:'#374151',marginBottom:6 }}>Today's Timetable</div>
@@ -179,8 +199,8 @@ function TeacherScreen1() {
           </div>
         ))}
         <div style={{ background:'#e8f0fc',borderRadius:9,padding:'8px',textAlign:'center',marginTop:6,border:'1.5px solid rgba(0,64,160,0.25)' }}>
-          <div style={{ fontSize:7.5,fontWeight:800,color:'#0040a0' }}>✅ Mark Attendance</div>
-          <div style={{ fontSize:6,color:'#64748b',marginTop:1 }}>Class X-A · 42 students</div>
+          <div style={{ fontSize:7.5,fontWeight:800,color:'#0040a0' }}>? Mark Attendance</div>
+          <div style={{ fontSize:6,color:'#64748b',marginTop:1 }}>Class X-A � 42 students</div>
         </div>
       </div>
     </>
@@ -191,7 +211,7 @@ function TeacherScreen2() {
     <>
       <div style={{ background:'#0ea5e9',padding:'10px 12px 8px' }}>
         <div style={{ fontSize:8,color:'#fff',fontWeight:800 }}>Assignments</div>
-        <div style={{ fontSize:6.5,color:'rgba(255,255,255,0.85)' }}>Class X-A · Maths</div>
+        <div style={{ fontSize:6.5,color:'rgba(255,255,255,0.85)' }}>Class X-A � Maths</div>
       </div>
       <div style={{ padding:'8px' }}>
         {[{n:'Chapter 5 Integration',d:'Due: 28 Jun',s:'12/42',c:'#f59e0b'},{n:'Practice Set 3',d:'Due: 30 Jun',s:'35/42',c:'#0040a0'},{n:'Model Paper 2025',d:'Due: 05 Jul',s:'5/42',c:'#ef4444'}].map((a,i)=>(
@@ -211,23 +231,23 @@ function TeacherScreen2() {
   )
 }
 
-/* ── Parents/Students App screens — exact screenshot match ── */
+/* -- Parents/Students App screens � exact screenshot match -- */
 function ParentsScreen1() {
   return (
     <>
       <div style={{ background:'#0040a0',padding:'8px 10px',display:'flex',alignItems:'center',justifyContent:'space-between' }}>
         <div style={{ display:'flex',alignItems:'center',gap:7 }}>
-          <div style={{ width:26,height:26,borderRadius:'50%',background:'rgba(255,255,255,0.3)',display:'flex',alignItems:'center',justifyContent:'center',fontSize:11,overflow:'hidden',border:'2px solid rgba(255,255,255,0.5)' }}>😊</div>
+          <div style={{ width:26,height:26,borderRadius:'50%',background:'rgba(255,255,255,0.3)',display:'flex',alignItems:'center',justifyContent:'center',fontSize:11,overflow:'hidden',border:'2px solid rgba(255,255,255,0.5)' }}>??</div>
           <div>
             <div style={{ fontSize:7.5,color:'#fff',fontWeight:800 }}>Divy Jani</div>
-            <div style={{ fontSize:6,color:'rgba(255,255,255,0.8)' }}>Class 1-A · Roll No. 5</div>
+            <div style={{ fontSize:6,color:'rgba(255,255,255,0.8)' }}>Class 1-A � Roll No. 5</div>
           </div>
         </div>
-        <span style={{ fontSize:14 }}>🔔</span>
+        <span style={{ fontSize:14 }}>??</span>
       </div>
       {/* Christmas banner */}
       <div style={{ background:'linear-gradient(135deg,#0d8f75,#0040a0)',margin:'6px',borderRadius:10,padding:'8px 10px',display:'flex',alignItems:'center',gap:8 }}>
-        <span style={{ fontSize:20 }}>🎄</span>
+        <span style={{ fontSize:20 }}>??</span>
         <div>
           <div style={{ fontSize:7.5,color:'#fff',fontWeight:800 }}>Merry Christmas</div>
           <div style={{ fontSize:6,color:'rgba(255,255,255,0.8)',marginTop:1 }}>25 December is a holiday<br/>In tomorrow and holiday</div>
@@ -236,7 +256,7 @@ function ParentsScreen1() {
       <div style={{ padding:'4px 8px 6px' }}>
         <div style={{ fontSize:7,fontWeight:800,color:'#1a1a2e',marginBottom:6 }}>My Subjects</div>
         <div style={{ display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:5 }}>
-          {[{s:'Maths\n(Practice)',ic:'📐',c:'#3b82f6'},{s:'Science\n(Practice)',ic:'🔬',c:'#0040a0'},{s:'English',ic:'📖',c:'#f59e0b'},{s:'History',ic:'🏛️',c:'#8b5cf6'},{s:'Computer',ic:'💻',c:'#0ea5e9'},{s:'Art',ic:'🎨',c:'#ec4899'}].map((sub,i)=>(
+          {[{s:'Maths\n(Practice)',ic:'??',c:'#3b82f6'},{s:'Science\n(Practice)',ic:'??',c:'#0040a0'},{s:'English',ic:'??',c:'#f59e0b'},{s:'History',ic:'???',c:'#8b5cf6'},{s:'Computer',ic:'??',c:'#0ea5e9'},{s:'Art',ic:'??',c:'#ec4899'}].map((sub,i)=>(
             <div key={i} style={{ background:'#f8fffe',borderRadius:8,padding:'6px 4px',textAlign:'center',border:`1px solid ${sub.c}20` }}>
               <div style={{ fontSize:16 }}>{sub.ic}</div>
               <div style={{ fontSize:5.5,fontWeight:700,color:'#374151',marginTop:2,lineHeight:1.3 }}>{sub.s}</div>
@@ -245,7 +265,7 @@ function ParentsScreen1() {
         </div>
       </div>
       <div style={{ background:'#f8fffe',borderTop:'1px solid #e8f0fc',padding:'6px 0',display:'flex',justifyContent:'space-around',marginTop:4 }}>
-        {['🏠','📚','📅','☰'].map((ic,i)=>(
+        {['??','??','??','?'].map((ic,i)=>(
           <div key={i} style={{ textAlign:'center' }}>
             <div style={{ fontSize:13 }}>{ic}</div>
             {i===0 && <div style={{ width:16,height:2,background:'#0040a0',borderRadius:2,margin:'2px auto 0' }} />}
@@ -261,13 +281,13 @@ function ParentsScreen2() {
     <>
       <div style={{ background:'#0040a0',padding:'8px 10px',display:'flex',alignItems:'center',justifyContent:'space-between' }}>
         <div style={{ display:'flex',alignItems:'center',gap:7 }}>
-          <div style={{ width:26,height:26,borderRadius:'50%',background:'rgba(255,255,255,0.3)',display:'flex',alignItems:'center',justifyContent:'center',fontSize:11,border:'2px solid rgba(255,255,255,0.5)' }}>👨</div>
+          <div style={{ width:26,height:26,borderRadius:'50%',background:'rgba(255,255,255,0.3)',display:'flex',alignItems:'center',justifyContent:'center',fontSize:11,border:'2px solid rgba(255,255,255,0.5)' }}>??</div>
           <div>
             <div style={{ fontSize:7.5,color:'#fff',fontWeight:800 }}>John Doe</div>
             <div style={{ fontSize:6,color:'rgba(255,255,255,0.8)' }}>parent@gmail.com</div>
           </div>
         </div>
-        <span style={{ fontSize:14 }}>🔔</span>
+        <span style={{ fontSize:14 }}>??</span>
       </div>
       {/* School image */}
       <div style={{ height:58,background:'linear-gradient(135deg,#0ea5e9,#0040a0)',margin:'6px',borderRadius:10,display:'flex',alignItems:'center',justifyContent:'center',position:'relative',overflow:'hidden' }}>
@@ -280,17 +300,17 @@ function ParentsScreen2() {
       <div style={{ padding:'2px 8px 4px' }}>
         <div style={{ fontSize:7,fontWeight:800,color:'#1a1a2e',marginBottom:5 }}>My Children</div>
         <div style={{ background:'#f0fdf9',borderRadius:9,padding:'7px 8px',border:'1.5px solid rgba(0,64,160,0.2)',display:'flex',alignItems:'center',gap:8,marginBottom:6 }}>
-          <div style={{ width:28,height:28,borderRadius:'50%',background:'linear-gradient(135deg,#0040a0,#0ea5e9)',display:'flex',alignItems:'center',justifyContent:'center',fontSize:13 }}>👦</div>
+          <div style={{ width:28,height:28,borderRadius:'50%',background:'linear-gradient(135deg,#0040a0,#0ea5e9)',display:'flex',alignItems:'center',justifyContent:'center',fontSize:13 }}>??</div>
           <div>
             <div style={{ fontSize:7.5,fontWeight:800,color:'#1a1a2e' }}>Divy Jani</div>
-            <div style={{ fontSize:6,color:'#64748b' }}>Class 1-A · Roll No. 5</div>
+            <div style={{ fontSize:6,color:'#64748b' }}>Class 1-A � Roll No. 5</div>
           </div>
         </div>
         <div style={{ display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:4 }}>
           <span style={{ fontSize:7,fontWeight:800,color:'#1a1a2e' }}>Latest notices</span>
           <span style={{ fontSize:6.5,color:'#0040a0',fontWeight:700 }}>View All</span>
         </div>
-        {[{t:'Holiday',d:'Due to bad weather...',ic:'🏖️'},{t:'Exam Schedule',d:'Finals from 10 Jul',ic:'📝'}].map((n,i)=>(
+        {[{t:'Holiday',d:'Due to bad weather...',ic:'???'},{t:'Exam Schedule',d:'Finals from 10 Jul',ic:'??'}].map((n,i)=>(
           <div key={i} style={{ display:'flex',gap:6,padding:'4px 0',borderTop:'1px solid #f0fdf9',alignItems:'flex-start' }}>
             <span style={{ fontSize:13 }}>{n.ic}</span>
             <div>
@@ -301,19 +321,19 @@ function ParentsScreen2() {
         ))}
       </div>
       <div style={{ background:'#f8fffe',borderTop:'1px solid #e8f0fc',padding:'6px 0',display:'flex',justifyContent:'space-around' }}>
-        {['🏠','👨‍👩‍👧','📚','☰'].map((ic,i)=><span key={i} style={{ fontSize:13 }}>{ic}</span>)}
+        {['??','????????','??','?'].map((ic,i)=><span key={i} style={{ fontSize:13 }}>{ic}</span>)}
       </div>
     </>
   )
 }
 
-/* ── Student screens ── */
+/* -- Student screens -- */
 function StudentScreen1() {
   return (
     <>
       <div style={{ background:'linear-gradient(135deg,#0040a0,#0ea5e9)',padding:'10px 12px 8px' }}>
         <div style={{ fontSize:8,color:'#fff',fontWeight:800 }}>My Subjects</div>
-        <div style={{ fontSize:6.5,color:'rgba(255,255,255,0.8)' }}>Class X-A · Riya Sharma</div>
+        <div style={{ fontSize:6.5,color:'rgba(255,255,255,0.8)' }}>Class X-A � Riya Sharma</div>
       </div>
       <div style={{ padding:'8px' }}>
         {[{s:'Mathematics',p:87,c:'#0040a0'},{s:'Science',p:92,c:'#0ea5e9'},{s:'English',p:78,c:'#8b5cf6'},{s:'History',p:85,c:'#f59e0b'}].map((sub,i)=>(
@@ -336,12 +356,12 @@ function StudentScreen2() {
     <>
       <div style={{ background:'#8b5cf6',padding:'10px 12px 8px' }}>
         <div style={{ fontSize:8,color:'#fff',fontWeight:800 }}>Exam Results</div>
-        <div style={{ fontSize:6.5,color:'rgba(255,255,255,0.85)' }}>Term 2 · 2024-25</div>
+        <div style={{ fontSize:6.5,color:'rgba(255,255,255,0.85)' }}>Term 2 � 2024-25</div>
       </div>
       <div style={{ padding:'8px' }}>
         <div style={{ background:'linear-gradient(135deg,#e8f0fc,#ccdaf5)',borderRadius:10,padding:'10px',textAlign:'center',marginBottom:8,border:'1.5px solid rgba(0,64,160,0.2)' }}>
           <div style={{ fontSize:22,fontWeight:900,color:'#0040a0',fontFamily:"'Lato', sans-serif" }}>87.4%</div>
-          <div style={{ fontSize:7,color:'#64748b',marginTop:2 }}>Overall Score · Grade A</div>
+          <div style={{ fontSize:7,color:'#64748b',marginTop:2 }}>Overall Score � Grade A</div>
         </div>
         {[{s:'Maths',m:'92/100',c:'#0040a0'},{s:'Science',m:'88/100',c:'#0ea5e9'},{s:'English',m:'82/100',c:'#8b5cf6'},{s:'History',m:'85/100',c:'#f59e0b'}].map((r,i)=>(
           <div key={i} style={{ display:'flex',justifyContent:'space-between',alignItems:'center',padding:'5px 0',borderTop:'1px solid #f0fdf9' }}>
@@ -354,13 +374,13 @@ function StudentScreen2() {
   )
 }
 
-/* ── Teacher Staff screens ── */
+/* -- Teacher Staff screens -- */
 function StaffScreen1() {
   return (
     <>
       <div style={{ background:'linear-gradient(135deg,#0ea5e9,#8b5cf6)',padding:'10px 12px 8px' }}>
         <div style={{ fontSize:8,color:'#fff',fontWeight:800 }}>Staff Dashboard</div>
-        <div style={{ fontSize:6.5,color:'rgba(255,255,255,0.8)' }}>Mr. Raj · Science Dept.</div>
+        <div style={{ fontSize:6.5,color:'rgba(255,255,255,0.8)' }}>Mr. Raj � Science Dept.</div>
       </div>
       <div style={{ padding:'8px' }}>
         <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:5,marginBottom:8 }}>
@@ -392,7 +412,7 @@ function StaffScreen2() {
         <div style={{ fontSize:6.5,color:'rgba(255,255,255,0.85)' }}>Apply & Track</div>
       </div>
       <div style={{ padding:'8px' }}>
-        {[{t:'Sick Leave',d:'12–13 Jun',s:'Approved',sc:'#0040a0'},{t:'Casual Leave',d:'20 Jun',s:'Pending',sc:'#f59e0b'},{t:'Emergency',d:'25 Jun',s:'Rejected',sc:'#ef4444'}].map((l,i)=>(
+        {[{t:'Sick Leave',d:'12�13 Jun',s:'Approved',sc:'#0040a0'},{t:'Casual Leave',d:'20 Jun',s:'Pending',sc:'#f59e0b'},{t:'Emergency',d:'25 Jun',s:'Rejected',sc:'#ef4444'}].map((l,i)=>(
           <div key={i} style={{ background:'#f8fffe',borderRadius:9,padding:'7px 9px',marginBottom:6,border:`1.5px solid ${l.sc}22` }}>
             <div style={{ display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:2 }}>
               <span style={{ fontSize:8,fontWeight:800,color:'#1a1a2e' }}>{l.t}</span>
@@ -409,7 +429,7 @@ function StaffScreen2() {
   )
 }
 
-/* ── Panel data ── */
+/* -- Panel data -- */
 const PANELS = [
   {
     id:'super-admin', label:'Super Admin Panel',
@@ -417,11 +437,11 @@ const PANELS = [
     image: superAdminImg,
     screens:[<SuperAdminScreen1/>,<SuperAdminScreen2/>],
     features:[
-      {icon:Users,      title:'Multiple School Management',       desc:'Create, delegate, and manage schools with ease. Simplify your administrative tasks with our intuitive platform.'},
-      {icon:CreditCard, title:'Tailored Packages for Schools',    desc:"Design feature-wise packages for schools and classes. The options that best fit the institution's needs."},
-      {icon:Settings,   title:'Add-Ons - Enhanced Functionality', desc:'Unlock additional features for your school with our customisable add-ons.'},
-      {icon:Shield,     title:'Streamlined Staff Management',     desc:'Effortlessly assign permissions with role-based staff management. Organise and allocate responsibilities with ease.'},
-      {icon:Home,       title:'Customize Website Settings',       desc:"Take control of the website's appearance and functionality with all-in-one settings management for the web."},
+      {icon:Users,      image:feat_multiSchool, title:'Multiple School Management',       desc:'Create, delegate, and manage schools with ease. Simplify your administrative tasks with our intuitive platform.'},
+      {icon:CreditCard, image:feat_packages,    title:'Tailored Packages for Schools',    desc:"Design feature-wise packages for schools and classes. The options that best fit the institution's needs."},
+      {icon:Settings,   image:feat_addons,      title:'Add-Ons - Enhanced Functionality', desc:'Unlock additional features for your school with our customisable add-ons.'},
+      {icon:Shield,     image:feat_staff,       title:'Streamlined Staff Management',     desc:'Effortlessly assign permissions with role-based staff management. Organise and allocate responsibilities with ease.'},
+      {icon:Home,       image:feat_website,     title:'Customize Website Settings',       desc:"Take control of the website's appearance and functionality with all-in-one settings management for the web."},
     ],
   },
   {
@@ -430,13 +450,13 @@ const PANELS = [
     image: schoolAdminImg,
     screens:[<SchoolAdminScreen1/>,<SchoolAdminScreen2/>],
     features:[
-      {icon:GraduationCap,title:'Academy Setup Made Easy',        desc:'Simplify academy management with our all-in-one solution. From creating mediums, subjects, and semesters to managing shifts.'},
-      {icon:Users,        title:'Effortless Student Management',  desc:'Create admission forms, add students individually or in bulk and manage parent details seamlessly.'},
-      {icon:ClipboardList,title:'Streamlined Teacher Management', desc:'Effortlessly adding and managing teachers in the teacher section. Fill in all necessary information.'},
-      {icon:Calendar,     title:'Flexible Timetable Creation',    desc:'Customize schedules for division and teachers effortlessly with our timetable section.'},
-      {icon:Bell,         title:'Announcements Made Simple',      desc:'Easily create and manage section-specific announcements. Keep your school community informed.'},
-      {icon:BarChart2,    title:'Effortless Exam Management',     desc:'Simplify exam scheduling and management with our online and offline sections.'},
-      {icon:CreditCard,   title:'Fees Management',                desc:'Create different types and maintain comprehensive logs of payments. Ensuring accurate records.'},
+      {icon:GraduationCap,image:feat_academy,    title:'Academy Setup Made Easy',        desc:'Simplify academy management with our all-in-one solution. From creating mediums, subjects, and semesters to managing shifts.'},
+      {icon:Users,        image:feat_students,   title:'Effortless Student Management',  desc:'Create admission forms, add students individually or in bulk and manage parent details seamlessly.'},
+      {icon:ClipboardList,image:feat_teachers,   title:'Streamlined Teacher Management', desc:'Effortlessly adding and managing teachers in the teacher section. Fill in all necessary information.'},
+      {icon:Calendar,     image:feat_timetable,  title:'Flexible Timetable Creation',    desc:'Customize schedules for division and teachers effortlessly with our timetable section.'},
+      {icon:Bell,         image:feat_announce,   title:'Announcements Made Simple',      desc:'Easily create and manage section-specific announcements. Keep your school community informed.'},
+      {icon:BarChart2,    image:feat_exam,       title:'Effortless Exam Management',     desc:'Simplify exam scheduling and management with our online and offline sections.'},
+      {icon:CreditCard,   image:feat_fees,       title:'Fees Management',                desc:'Create different types and maintain comprehensive logs of payments. Ensuring accurate records.'},
     ],
   },
   {
@@ -445,11 +465,11 @@ const PANELS = [
     image: teacherImg,
     screens:[<TeacherScreen1/>,<TeacherScreen2/>],
     features:[
-      {icon:BookOpen,     title:'Lesson & Topic Crafting',               desc:'Teachers manage comprehensive lessons and break them down into topics for effective teaching and learning.'},
-      {icon:ClipboardList,title:'Assignments',                           desc:'Generate assignments by class, including weightage and resubmission options. Manage submitted student lists.'},
-      {icon:Users,        title:'Seamless Attendance Management',        desc:'Easily submit student attendance and view comprehensive attendance lists for effective record-keeping.'},
-      {icon:BarChart2,    title:'Efficient Offline/Online Exam Management',desc:'Exam processes by uploading offline exam marks and managing student-wise results.'},
-      {icon:Calendar,     title:'Personalized Timetable',                desc:'Teachers to view their personalized timetables, ensuring they stay organized and prepared.'},
+      {icon:BookOpen,     image:feat_lessons,    title:'Lesson & Topic Crafting',               desc:'Teachers manage comprehensive lessons and break them down into topics for effective teaching and learning.'},
+      {icon:ClipboardList,image:feat_assignments,title:'Assignments',                           desc:'Generate assignments by class, including weightage and resubmission options. Manage submitted student lists.'},
+      {icon:Users,        image:feat_attendance, title:'Seamless Attendance Management',        desc:'Easily submit student attendance and view comprehensive attendance lists for effective record-keeping.'},
+      {icon:BarChart2,    image:feat_exam,       title:'Efficient Offline/Online Exam Management',desc:'Exam processes by uploading offline exam marks and managing student-wise results.'},
+      {icon:Calendar,     image:feat_timetable,  title:'Personalized Timetable',                desc:'Teachers to view their personalized timetables, ensuring they stay organized and prepared.'},
     ],
   },
   {
@@ -458,10 +478,10 @@ const PANELS = [
     image: parentsAppImg,
     screens:[<ParentsScreen1/>,<ParentsScreen2/>],
     features:[
-      {icon:Home,         title:'Attractive Home',                desc:'Keep up-to-date with the latest announcements and subject information right from our homepage.'},
-      {icon:BookOpen,     title:'Subject Lessons and Assignments',desc:'Access subject-specific lessons and assignments, track submissions, and stay organized all in one place.'},
-      {icon:Settings,     title:'Centralized School Operations',  desc:'Access all essential school management tools in one convenient menu section.'},
-      {icon:GraduationCap,title:'Elective Subject',              desc:"Simplify elective subject selection for students with our app's intuitive profile creation feature."},
+      {icon:Home,         image:feat_parentsHome, title:'Attractive Home',                desc:'Keep up-to-date with the latest announcements and subject information right from our homepage.'},
+      {icon:BookOpen,     image:feat_lessons,     title:'Subject Lessons and Assignments',desc:'Access subject-specific lessons and assignments, track submissions, and stay organized all in one place.'},
+      {icon:Settings,     image:feat_website,     title:'Centralized School Operations',  desc:'Access all essential school management tools in one convenient menu section.'},
+      {icon:GraduationCap,image:feat_academy,     title:'Elective Subject',              desc:"Simplify elective subject selection for students with our app's intuitive profile creation feature."},
     ],
   },
   {
@@ -470,10 +490,10 @@ const PANELS = [
     image: studentImg,
     screens:[<StudentScreen1/>,<StudentScreen2/>],
     features:[
-      {icon:BookOpen, title:'Subjects & Lessons',              desc:'Students can easily access subject materials, lesson topics, and study resources in one organized space.'},
-      {icon:Bus,      title:'Transportation Tracking',         desc:'Students can view their assigned bus route, pickup timings, and transport details.'},
-      {icon:FileText, title:'Assignment Management',           desc:'Students can check homework, submit assignments online, and stay updated with submission status.'},
-      {icon:BarChart2,title:'Exam Results (Online & Offline)', desc:'Students can view their exam scores, subject-wise marks, and performance reports for all assessments.'},
+      {icon:BookOpen, image:feat_lessons,     title:'Subjects & Lessons',              desc:'Students can easily access subject materials, lesson topics, and study resources in one organized space.'},
+      {icon:Bus,      image:feat_transport,   title:'Transportation Tracking',         desc:'Students can view their assigned bus route, pickup timings, and transport details.'},
+      {icon:FileText, image:feat_assignments, title:'Assignment Management',           desc:'Students can check homework, submit assignments online, and stay updated with submission status.'},
+      {icon:BarChart2,image:feat_exam,        title:'Exam Results (Online & Offline)', desc:'Students can view their exam scores, subject-wise marks, and performance reports for all assessments.'},
     ],
   },
   {
@@ -482,16 +502,16 @@ const PANELS = [
     image: staffAppImg,
     screens:[<StaffScreen1/>,<StaffScreen2/>],
     features:[
-      {icon:BarChart2,title:'Attractive Dashboard',desc:'Easily access timetable, leave details, and holiday schedules all in one place.'},
-      {icon:BookOpen, title:'Manage Lesson',       desc:'Subject teachers can easily manage lessons and topics with just a few clicks.'},
-      {icon:FileText, title:'Leaves',              desc:'Conveniently apply for leave. Only authorised persons can approve or reject leave requests.'},
-      {icon:Calendar, title:'Timetable',           desc:'Teachers and staff users can view the class timetable, facilitating efficient scheduling.'},
-      {icon:Bell,     title:'Announcements',       desc:'Send important announcements directly from the application, ensuring timely communication.'},
+      {icon:BarChart2,image:feat_staffDash,  title:'Attractive Dashboard',desc:'Easily access timetable, leave details, and holiday schedules all in one place.'},
+      {icon:BookOpen, image:feat_lessons,    title:'Manage Lesson',       desc:'Subject teachers can easily manage lessons and topics with just a few clicks.'},
+      {icon:FileText, image:feat_attendance, title:'Leaves',              desc:'Conveniently apply for leave. Only authorised persons can approve or reject leave requests.'},
+      {icon:Calendar, image:feat_timetable,  title:'Timetable',           desc:'Teachers and staff users can view the class timetable, facilitating efficient scheduling.'},
+      {icon:Bell,     image:feat_announce,   title:'Announcements',       desc:'Send important announcements directly from the application, ensuring timely communication.'},
     ],
   },
 ]
 
-/* ── Feature Grid Icons (SVG - matching reference site style) ── */
+/* -- Feature Grid Icons (SVG - matching reference site style) -- */
 const FEATURE_GRID = [
   {
     title: 'Student management',
@@ -600,7 +620,7 @@ const FEATURE_GRID = [
   },
 ]
 
-/* ── Extra features shown on "View more" ── */
+/* -- Extra features shown on "View more" -- */
 const FEATURE_GRID_EXTRA = [
   {
     title: 'Fee management',
@@ -666,7 +686,104 @@ const FEATURE_GRID_EXTRA = [
   },
 ]
 
-/* ── Main Component — Simple vertical scroll, no tabs ── */
+
+/* ── Per-panel active feature tracker ── */
+function PanelBlock({ panel }) {
+  const [activeFeature, setActiveFeature] = React.useState(0)
+  const displayedImage = panel.features[activeFeature]?.image || panel.image
+
+  return (
+    <div
+      id={`panel-${panel.id}`}
+      className="feat-panel"
+      style={{ padding: '80px 0', borderBottom: '1px solid #f1f5f9' }}
+    >
+      <div className="container">
+
+        {/* Heading */}
+        <div style={{ textAlign: 'center', marginBottom: 48 }}>
+          <p style={{ fontSize:14,fontWeight:700,color:'#0040a0',marginBottom:12,fontFamily:"'Lato', sans-serif" }}>{panel.label}</p>
+          <h3 style={{
+            fontSize: 'clamp(28px, 3.5vw, 44px)', fontWeight: 700, color: '#1a1a2e',
+            maxWidth: 860, margin: '0 auto 20px', lineHeight: 1.2, fontFamily:"'Lato', sans-serif",
+          }}>{panel.heading}</h3>
+          <div style={{ display:'flex',alignItems:'center',justifyContent:'center',maxWidth:600,margin:'0 auto' }}>
+            <div style={{ flex:1,height:2,background:'#1a1a2e',opacity:0.1 }} />
+            <div style={{ width:10,height:10,borderRadius:'50%',background:'#0040a0',margin:'0 8px',flexShrink:0,boxShadow:'0 0 8px rgba(0,64,160,0.4)' }} />
+            <div style={{ flex:1,height:2,background:'#1a1a2e',opacity:0.1 }} />
+          </div>
+        </div>
+
+        {/* Two columns */}
+        <div style={{ display:'grid', gridTemplateColumns:'45% 55%', gap:64, alignItems:'start' }} className="feat-grid">
+
+          {/* LEFT — image, changes when feature is clicked */}
+          <div className="feat-img-wrap" style={{ position:'sticky', top:88, display:'flex', justifyContent:'center', alignItems:'flex-start' }}>
+            <img
+              key={displayedImage}
+              src={displayedImage}
+              alt={panel.features[activeFeature]?.title || panel.label}
+              style={{
+                width:'100%', maxWidth:560, height:'auto', display:'block',
+                borderRadius:16,
+                filter:'drop-shadow(0 20px 48px rgba(0,0,0,0.15))',
+                animation:'imgFadeIn 0.3s ease',
+              }}
+            />
+          </div>
+
+          {/* RIGHT — clickable feature list */}
+          <div className="feat-list" style={{
+            maxHeight: 480, overflowY: 'auto', display:'flex', flexDirection:'column', gap:6,
+            paddingRight:8, scrollbarWidth:'thin', scrollbarColor:'#ccdaf5 transparent',
+          }}>
+            {panel.features.map(({ icon: Icon, title, desc }, idx) => {
+              const isActive = activeFeature === idx
+              return (
+                <div
+                  key={title}
+                  onClick={() => setActiveFeature(idx)}
+                  style={{
+                    display:'flex', gap:16, padding:'18px 20px', borderRadius:12,
+                    background: isActive ? '#e8f0fc' : '#f8fafe',
+                    border: isActive ? '1.5px solid #a0bce8' : '1px solid #e8f0fc',
+                    transition:'all 0.2s', cursor:'pointer',
+                    boxShadow: isActive ? '0 4px 16px rgba(0,64,160,0.1)' : 'none',
+                  }}
+                  onMouseEnter={e => { if (!isActive) { e.currentTarget.style.background='#eef3fd'; e.currentTarget.style.borderColor='#ccdaf5' } }}
+                  onMouseLeave={e => { if (!isActive) { e.currentTarget.style.background='#f8fafe'; e.currentTarget.style.borderColor='#e8f0fc' } }}
+                >
+                  <div style={{
+                    width:46, height:46, borderRadius:12, flexShrink:0,
+                    background: 'rgba(0,64,160,0.1)',
+                    border: isActive ? '1px solid rgba(0,64,160,0.35)' : '1px solid rgba(0,64,160,0.2)',
+                    display:'flex', alignItems:'center', justifyContent:'center',
+                  }}>
+                    <Icon size={20} color='#0040a0' />
+                  </div>
+                  <div style={{ flex:1, display:'flex', flexDirection:'column', justifyContent:'center' }}>
+                    <h4 style={{
+                      fontSize:18, fontWeight:700, margin:0,
+                      color: isActive ? '#0040a0' : '#1a1a2e',
+                      fontFamily:"'Lato', sans-serif", lineHeight:1.3,
+                    }}>{title}</h4>
+                    <p style={{
+                      fontSize:15, lineHeight:1.65, margin:'6px 0 0',
+                      color: '#64748b',
+                    }}>{desc}</p>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+
+        </div>
+      </div>
+    </div>
+  )
+}
+
+/* ── Main Component ── */
 export default function FeaturesSection() {
   const [showMore, setShowMore] = React.useState(false)
 
@@ -677,7 +794,6 @@ export default function FeaturesSection() {
       <div style={{ textAlign: 'center', padding: '80px 0 52px' }}>
         <span style={{ display:'inline-block',fontSize:12,fontWeight:700,color:'#0040a0',letterSpacing:2,textTransform:'uppercase',background:'rgba(0,64,160,0.08)',padding:'5px 16px',borderRadius:50,marginBottom:14 }}>Features</span>
         <h2 className="section-title" style={{ marginBottom: 16 }}>Explore our top features</h2>
-        {/* blue underline with dot */}
         <div style={{ display:'flex',alignItems:'center',justifyContent:'center',maxWidth:520,margin:'0 auto 16px' }}>
           <div style={{ flex:1,height:2,background:'#0040a0',opacity:0.2 }} />
           <div style={{ width:10,height:10,borderRadius:'50%',background:'#0040a0',margin:'0 8px',flexShrink:0 }} />
@@ -689,93 +805,53 @@ export default function FeaturesSection() {
       {/* ── Feature Grid ── */}
       <div style={{ padding: '0 0 48px' }}>
         <div className="container">
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)',
-            gap: 20,
-          }} className="feat-icon-grid">
+          <div style={{ display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:20 }} className="feat-icon-grid">
             {FEATURE_GRID.map(({ title, icon }) => (
               <div key={title} style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 16,
-                background: '#fff',
-                border: '1.5px solid #e2e8f0',
-                borderLeft: '4px solid #0040a0',
-                borderRadius: 12,
-                padding: '20px 24px',
-                boxShadow: '0 2px 10px rgba(0,0,0,0.05)',
-                transition: 'all 0.2s',
-                cursor: 'default',
+                display:'flex', alignItems:'center', gap:16, background:'#fff',
+                border:'1.5px solid #e2e8f0', borderLeft:'4px solid #0040a0',
+                borderRadius:12, padding:'20px 24px',
+                boxShadow:'0 2px 10px rgba(0,0,0,0.05)', transition:'all 0.2s', cursor:'default',
               }}
-                onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,64,160,0.15)'; e.currentTarget.style.borderColor = '#0040a0'; e.currentTarget.style.transform = 'translateY(-2px)' }}
-                onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 2px 10px rgba(0,0,0,0.05)'; e.currentTarget.style.borderColor = '#e2e8f0'; e.currentTarget.style.borderLeftColor = '#0040a0'; e.currentTarget.style.transform = 'none' }}
+                onMouseEnter={e => { e.currentTarget.style.boxShadow='0 8px 24px rgba(0,64,160,0.15)'; e.currentTarget.style.borderColor='#0040a0'; e.currentTarget.style.transform='translateY(-2px)' }}
+                onMouseLeave={e => { e.currentTarget.style.boxShadow='0 2px 10px rgba(0,0,0,0.05)'; e.currentTarget.style.borderColor='#e2e8f0'; e.currentTarget.style.borderLeftColor='#0040a0'; e.currentTarget.style.transform='none' }}
               >
-                <div style={{
-                  width: 52, height: 52, borderRadius: 12, flexShrink: 0,
-                  background: 'rgba(0,64,160,0.07)',
-                  border: '1px solid rgba(0,64,160,0.15)',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                }}>
+                <div style={{ width:52,height:52,borderRadius:12,flexShrink:0,background:'rgba(0,64,160,0.07)',border:'1px solid rgba(0,64,160,0.15)',display:'flex',alignItems:'center',justifyContent:'center' }}>
                   {icon}
                 </div>
-                <span style={{
-                  fontSize: 16, fontWeight: 600, color: '#1a1a2e',
-                  fontFamily: "'Lato', sans-serif", lineHeight: 1.4,
-                }}>{title}</span>
+                <span style={{ fontSize:16,fontWeight:600,color:'#1a1a2e',fontFamily:"'Lato', sans-serif",lineHeight:1.4 }}>{title}</span>
               </div>
             ))}
-
-            {/* Extra features — shown when expanded */}
             {showMore && FEATURE_GRID_EXTRA.map(({ title, icon }) => (
               <div key={title} style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 16,
-                background: '#fff',
-                border: '1.5px solid #e2e8f0',
-                borderLeft: '4px solid #0040a0',
-                borderRadius: 12,
-                padding: '20px 24px',
-                boxShadow: '0 2px 10px rgba(0,0,0,0.05)',
-                transition: 'all 0.2s',
-                cursor: 'default',
-                animation: 'fadeInUp 0.3s ease',
+                display:'flex', alignItems:'center', gap:16, background:'#fff',
+                border:'1.5px solid #e2e8f0', borderLeft:'4px solid #0040a0',
+                borderRadius:12, padding:'20px 24px',
+                boxShadow:'0 2px 10px rgba(0,0,0,0.05)', transition:'all 0.2s', cursor:'default',
+                animation:'fadeInUp 0.3s ease',
               }}
-                onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,64,160,0.15)'; e.currentTarget.style.borderColor = '#0040a0'; e.currentTarget.style.transform = 'translateY(-2px)' }}
-                onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 2px 10px rgba(0,0,0,0.05)'; e.currentTarget.style.borderColor = '#e2e8f0'; e.currentTarget.style.borderLeftColor = '#0040a0'; e.currentTarget.style.transform = 'none' }}
+                onMouseEnter={e => { e.currentTarget.style.boxShadow='0 8px 24px rgba(0,64,160,0.15)'; e.currentTarget.style.borderColor='#0040a0'; e.currentTarget.style.transform='translateY(-2px)' }}
+                onMouseLeave={e => { e.currentTarget.style.boxShadow='0 2px 10px rgba(0,0,0,0.05)'; e.currentTarget.style.borderColor='#e2e8f0'; e.currentTarget.style.borderLeftColor='#0040a0'; e.currentTarget.style.transform='none' }}
               >
-                <div style={{
-                  width: 52, height: 52, borderRadius: 12, flexShrink: 0,
-                  background: 'rgba(0,64,160,0.07)',
-                  border: '1px solid rgba(0,64,160,0.15)',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                }}>
+                <div style={{ width:52,height:52,borderRadius:12,flexShrink:0,background:'rgba(0,64,160,0.07)',border:'1px solid rgba(0,64,160,0.15)',display:'flex',alignItems:'center',justifyContent:'center' }}>
                   {icon}
                 </div>
-                <span style={{
-                  fontSize: 16, fontWeight: 600, color: '#1a1a2e',
-                  fontFamily: "'Lato', sans-serif", lineHeight: 1.4,
-                }}>{title}</span>
+                <span style={{ fontSize:16,fontWeight:600,color:'#1a1a2e',fontFamily:"'Lato', sans-serif",lineHeight:1.4 }}>{title}</span>
               </div>
             ))}
           </div>
-
-          {/* View more / View less features button */}
-          <div style={{ textAlign: 'center', marginTop: 36 }}>
+          <div style={{ textAlign:'center', marginTop:36 }}>
             <button
               onClick={() => setShowMore(prev => !prev)}
               style={{
-                display: 'inline-flex', alignItems: 'center', gap: 8,
-                padding: '13px 32px', borderRadius: 8, border: 'none', cursor: 'pointer',
-                background: 'linear-gradient(135deg, #0040a0, #0060d0)',
-                color: '#fff', fontSize: 15, fontWeight: 600,
-                fontFamily: "'Lato', sans-serif",
-                boxShadow: '0 6px 20px rgba(0,64,160,0.35)',
-                transition: 'all 0.2s',
+                display:'inline-flex', alignItems:'center', gap:8, padding:'13px 32px',
+                borderRadius:8, border:'none', cursor:'pointer',
+                background:'linear-gradient(135deg, #0040a0, #0060d0)', color:'#fff',
+                fontSize:15, fontWeight:600, fontFamily:"'Lato', sans-serif",
+                boxShadow:'0 6px 20px rgba(0,64,160,0.35)', transition:'all 0.2s',
               }}
-              onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 10px 28px rgba(0,64,160,0.45)' }}
-              onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = '0 6px 20px rgba(0,64,160,0.35)' }}
+              onMouseEnter={e => { e.currentTarget.style.transform='translateY(-2px)'; e.currentTarget.style.boxShadow='0 10px 28px rgba(0,64,160,0.45)' }}
+              onMouseLeave={e => { e.currentTarget.style.transform='none'; e.currentTarget.style.boxShadow='0 6px 20px rgba(0,64,160,0.35)' }}
             >
               {showMore ? 'View less features ←' : 'View more features →'}
             </button>
@@ -783,142 +859,30 @@ export default function FeaturesSection() {
         </div>
       </div>
 
-      {/* ── All Panels stacked vertically ── */}
-      {PANELS.map((panel) => {
-        return (
-          <div
-            key={panel.id}
-            id={`panel-${panel.id}`}
-            className="feat-panel"
-            style={{ padding: '80px 0', borderBottom: '1px solid #f1f5f9' }}
-          >
-            <div className="container">
+      {/* ── All Panels — vertical scroll, feature click changes image ── */}
+      {PANELS.map(panel => (
+        <PanelBlock key={panel.id} panel={panel} />
+      ))}
 
-              {/* Panel heading */}
-              <div style={{ textAlign: 'center', marginBottom: 48 }}>
-                <p style={{ fontSize:14,fontWeight:700,color:'#0040a0',marginBottom:12,fontFamily:"'Lato', sans-serif" }}>{panel.label}</p>
-                <h3 style={{
-                  fontSize: 'clamp(28px, 3.5vw, 44px)',
-                  fontWeight: 700,
-                  color: '#1a1a2e',
-                  maxWidth: 860,
-                  margin: '0 auto 20px',
-                  lineHeight: 1.2,
-                  fontFamily:"'Lato', sans-serif",
-                }}>{panel.heading}</h3>
-                {/* Divider line with dot */}
-                <div style={{ display:'flex',alignItems:'center',justifyContent:'center',maxWidth:600,margin:'0 auto' }}>
-                  <div style={{ flex:1,height:2,background:'#1a1a2e',opacity:0.1 }} />
-                  <div style={{ width:10,height:10,borderRadius:'50%',background:'#0040a0',margin:'0 8px',flexShrink:0,boxShadow:'0 0 8px rgba(0,64,160,0.4)' }} />
-                  <div style={{ flex:1,height:2,background:'#1a1a2e',opacity:0.1 }} />
-                </div>
-              </div>
-
-              {/* Two column: image left (sticky), features right (scrollable) */}
-              <div style={{
-                display: 'grid',
-                gridTemplateColumns: '45% 55%',
-                gap: 64,
-                alignItems: 'start',
-              }} className="feat-grid">
-
-                {/* Left — image sticky */}
-                <div className="feat-img-wrap" style={{
-                  position: 'sticky',
-                  top: 88,
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'flex-start',
-                }}>
-                  <img
-                    src={panel.image}
-                    alt={panel.label}
-                    style={{
-                      width: '100%',
-                      maxWidth: 560,
-                      height: 'auto',
-                      display: 'block',
-                      borderRadius: 16,
-                      filter: 'drop-shadow(0 20px 48px rgba(0,0,0,0.15))',
-                    }}
-                  />
-                </div>
-
-                {/* Right — scrollable feature list */}
-                <div className="feat-list" style={{
-                  maxHeight: 480,
-                  overflowY: 'auto',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: 6,
-                  paddingRight: 8,
-                  scrollbarWidth: 'thin',
-                  scrollbarColor: '#ccdaf5 transparent',
-                }}>
-                  {panel.features.map(({ icon: Icon, title, desc }) => (
-                    <div
-                      key={title}
-                      style={{
-                        display: 'flex',
-                        gap: 16,
-                        padding: '18px 20px',
-                        borderRadius: 12,
-                        background: '#f8fafe',
-                        border: '1px solid #e8f0fc',
-                        transition: 'all 0.2s',
-                        cursor: 'default',
-                      }}
-                      onMouseEnter={e => { e.currentTarget.style.background = '#eef3fd'; e.currentTarget.style.borderColor = '#ccdaf5' }}
-                      onMouseLeave={e => { e.currentTarget.style.background = '#f8fafe'; e.currentTarget.style.borderColor = '#e8f0fc' }}
-                    >
-                      <div style={{
-                        width: 46, height: 46, borderRadius: 12, flexShrink: 0,
-                        background: 'rgba(0,64,160,0.1)',
-                        border: '1px solid rgba(0,64,160,0.2)',
-                        display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      }}>
-                        <Icon size={20} color='#0040a0' />
-                      </div>
-                      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                        <h4 style={{
-                          fontSize: 18, fontWeight: 700, color: '#1a1a2e',
-                          margin: 0, fontFamily:"'Lato', sans-serif", lineHeight: 1.3,
-                        }}>{title}</h4>
-                        <p style={{ fontSize: 15, color: '#64748b', lineHeight: 1.65, margin: '6px 0 0' }}>{desc}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-              </div>
-            </div>
-          </div>
-        )
-      })}
-
-      {/* ── Schools Section — directly after features ── */}
-      <div style={{ background: '#fff', padding: '60px 0 80px' }}>
+      {/* ── Schools Section ── */}
+      <div style={{ background:'#fff', padding:'60px 0 80px' }}>
         <div className="container">
-
-          {/* Title with teal underline — exactly like reference */}
-          <div style={{ textAlign: 'center', marginBottom: 40 }}>
-            <h2 style={{ fontSize: 24, fontWeight: 700, color: '#1a1a2e', marginBottom: 12 }}>Schools</h2>
-            <div style={{ width: 120, height: 3, background: 'linear-gradient(90deg, #0040a0, #0ea5e9)', borderRadius: 2, margin: '0 auto' }} />
+          <div style={{ textAlign:'center', marginBottom:40 }}>
+            <h2 style={{ fontSize:24, fontWeight:700, color:'#1a1a2e', marginBottom:12 }}>Schools</h2>
+            <div style={{ width:120, height:3, background:'linear-gradient(90deg, #0040a0, #0ea5e9)', borderRadius:2, margin:'0 auto' }} />
           </div>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 20 }} className="schools-grid">
+          <div style={{ display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:20 }} className="schools-grid">
             {SCHOOL_LIST.map(school => (
               <div key={school.name} style={{
-                background: '#fff', border: '1px solid #e2e8f0', borderRadius: 8,
-                padding: '24px 16px 16px', display: 'flex', flexDirection: 'column',
-                alignItems: 'center', gap: 12,
-                transition: 'box-shadow 0.2s',
+                background:'#fff', border:'1px solid #e2e8f0', borderRadius:8,
+                padding:'24px 16px 16px', display:'flex', flexDirection:'column',
+                alignItems:'center', gap:12, transition:'box-shadow 0.2s',
               }}
-                onMouseEnter={e => e.currentTarget.style.boxShadow = '0 4px 16px rgba(0,0,0,0.08)'}
-                onMouseLeave={e => e.currentTarget.style.boxShadow = 'none'}
+                onMouseEnter={e => e.currentTarget.style.boxShadow='0 4px 16px rgba(0,0,0,0.08)'}
+                onMouseLeave={e => e.currentTarget.style.boxShadow='none'}
               >
-                <img src={school.logo} alt={school.name} style={{ width: 80, height: 80, objectFit: 'contain' }} />
-                <p style={{ fontSize: 13, fontWeight: 600, color: '#374151', textAlign: 'center', margin: 0 }}>{school.name}</p>
+                <img src={school.logo} alt={school.name} style={{ width:80, height:80, objectFit:'contain' }} />
+                <p style={{ fontSize:13, fontWeight:600, color:'#374151', textAlign:'center', margin:0 }}>{school.name}</p>
               </div>
             ))}
           </div>
@@ -929,6 +893,10 @@ export default function FeaturesSection() {
         @keyframes fadeInUp {
           from { opacity: 0; transform: translateY(12px); }
           to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes imgFadeIn {
+          from { opacity: 0.4; transform: scale(0.98); }
+          to   { opacity: 1; transform: scale(1); }
         }
         @media(max-width: 900px){
           .feat-grid { grid-template-columns: 1fr !important; gap: 36px !important; }
@@ -942,7 +910,6 @@ export default function FeaturesSection() {
           .feat-icon-grid { grid-template-columns: 1fr !important; }
           .schools-grid { grid-template-columns: 1fr !important; }
           .feat-panel { padding: 48px 0 !important; }
-          .feat-panel-heading { font-size: 20px !important; }
           .feat-img-wrap img { max-width: 300px !important; }
         }
         @media(max-width: 480px){
@@ -953,5 +920,3 @@ export default function FeaturesSection() {
     </section>
   )
 }
-
-
