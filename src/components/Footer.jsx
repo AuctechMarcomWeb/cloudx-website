@@ -1,15 +1,43 @@
 ﻿import { useState } from 'react'
 import { ExternalLink, Mail, Phone } from 'lucide-react'
+import { useSiteSettings } from '../hooks/useSiteSettings'
+
+const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:9001/api/'
 
 function NewsletterForm() {
-  const [email, setEmail] = useState('')
-  const [done, setDone] = useState(false)
-  const submit = (e) => {
+  const [email,   setEmail]   = useState('')
+  const [done,    setDone]    = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error,   setError]   = useState('')
+
+  const submit = async (e) => {
     e.preventDefault()
     if (!email) return
-    setDone(true)
-    setEmail('')
-    setTimeout(() => setDone(false), 4000)
+    setError('')
+    setLoading(true)
+
+    try {
+      const res = await fetch(`${API_BASE}newsletter/subscribe`, {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify({ email }),
+      })
+
+      const data = await res.json()
+
+      if (!res.ok) {
+        setError(data?.message || 'Subscription failed. Try again.')
+        return
+      }
+
+      setDone(true)
+      setEmail('')
+      setTimeout(() => setDone(false), 4000)
+    } catch {
+      setError('Network error. Please try again.')
+    } finally {
+      setLoading(false)
+    }
   }
   return (
     <form onSubmit={submit} style={{ display: 'flex', gap: 10, flexWrap: 'wrap', flexShrink: 0 }}>
@@ -26,14 +54,18 @@ function NewsletterForm() {
         onBlur={e => e.target.style.borderColor = 'rgba(255,255,255,0.25)'}
       />
       <button type="submit" style={{
-        height: 44, padding: '0 22px', borderRadius: 10, border: 'none', cursor: 'pointer',
+        height: 44, padding: '0 22px', borderRadius: 10, border: 'none', cursor: loading ? 'not-allowed' : 'pointer',
         background: done ? 'rgba(255,255,255,0.2)' : 'linear-gradient(135deg, #e0c000, #b89a00)',
         color: '#fff', fontSize: 14, fontWeight: 700, fontFamily: 'Lato, sans-serif',
         boxShadow: '0 4px 16px rgba(224,192,0,0.3)', transition: 'all 0.2s',
-        whiteSpace: 'nowrap',
-      }}>
-        {done ? '✓ Subscribed!' : 'Subscribe ✦'}
+        whiteSpace: 'nowrap', opacity: loading ? 0.7 : 1,
+      }}
+        disabled={loading}>
+        {done ? '✓ Subscribed!' : loading ? 'Please wait…' : 'Subscribe ✦'}
       </button>
+      {error && (
+        <p style={{ width: '100%', margin: '4px 0 0', fontSize: 12, color: '#fca5a5', textAlign: 'left' }}>{error}</p>
+      )}
     </form>
   )
 }
@@ -77,6 +109,7 @@ const WebIcon = () => (
 
 export default function Footer() {
   const year = new Date().getFullYear()
+  const { settings } = useSiteSettings()
 
   const scrollTo = (id) => {
     const el = document.querySelector(id)
@@ -165,8 +198,8 @@ export default function Footer() {
             {/* Contact */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 24 }}>
               {[
-                { Icon: Phone, text: '+91 12345 67890' },
-                { Icon: Mail,  text: 'hello@schoolcloudx.com' },
+                { Icon: Phone, text: `+91 ${settings.phone}` },
+                { Icon: Mail,  text: settings.email },
               ].map(({ Icon, text }) => (
                 <div key={text} style={{ display: 'flex', alignItems: 'center', gap: 10, fontSize: 13, color: 'rgba(255,255,255,0.4)' }}>
                   <span style={{
