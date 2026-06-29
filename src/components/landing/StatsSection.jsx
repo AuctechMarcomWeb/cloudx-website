@@ -1,31 +1,32 @@
 import { useNavigate } from 'react-router-dom'
 import { Clock, Zap, ShieldCheck, HeadphonesIcon } from 'lucide-react'
 
+// Values based on actual software capabilities
 const BENEFITS = [
   {
     icon: Clock,
     value: '30',
     unit: 'Days',
     label: 'Free Trial',
-    desc: 'No credit card needed. Try every feature free for 30 days.',
+    desc: 'Try every feature free for 30 days. No credit card, no commitment.',
     color: '#0040a0',
     bg: 'rgba(0,64,160,0.08)',
   },
   {
     icon: Zap,
-    value: '10',
-    unit: 'Mins',
-    label: 'Quick Setup',
-    desc: 'Your school is live in under 10 minutes. No technical skills needed.',
+    value: '14',
+    unit: '+',
+    label: 'Features',
+    desc: 'Student, fees, exams, attendance, timetable, transport, chat and more.',
     color: '#e0c000',
     bg: 'rgba(224,192,0,0.10)',
   },
   {
     icon: ShieldCheck,
-    value: '100',
-    unit: '%',
-    label: 'Data Secure',
-    desc: 'Your school data is encrypted and backed up automatically.',
+    value: '3',
+    unit: ' Apps',
+    label: 'Mobile Apps',
+    desc: 'Separate apps for parents, students, and teachers — all included.',
     color: '#002f80',
     bg: 'rgba(0,47,128,0.08)',
   },
@@ -34,7 +35,7 @@ const BENEFITS = [
     value: '24',
     unit: '/7',
     label: 'Support',
-    desc: 'Dedicated support team ready to help you anytime you need.',
+    desc: 'Real person support — not a chatbot. We respond fast and help you onboard.',
     color: '#0ea5e9',
     bg: 'rgba(14,165,233,0.08)',
   },
@@ -55,7 +56,7 @@ export default function StatsSection() {
         </div>
 
         {/* Benefit cards */}
-        <div className="benefits-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 20, marginBottom: 48 }}>
+        <div className="benefits-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 24, marginBottom: 48 }}>
           {BENEFITS.map(({ icon: Icon, value, unit, label, desc, color, bg }) => (
             <div key={label} style={{
               background: '#fff', borderRadius: 20, padding: '28px 22px',

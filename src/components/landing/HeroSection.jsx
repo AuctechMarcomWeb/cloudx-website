@@ -1,10 +1,12 @@
 ﻿import { useNavigate } from 'react-router-dom'
 import heroImg from '../../assets/herro Section.png'
 
+// Actual software features only
 const FEATURE_PILLS = [
-  'Student Management', 'Fee Collection', 'Attendance Tracking',
-  'Exam & Results', 'Parent App', 'Teacher Portal',
-  'Timetable', 'Announcements', 'Staff Management',
+  'Student Management', 'Fees Management', 'Attendance Tracking',
+  'Exam Management', 'Lessons & Assignments', 'Timetable',
+  'Announcements', 'Staff Management', 'Transportation',
+  'Chat Module', 'Parent & Student App', 'School Gallery',
 ]
 
 export default function HeroSection() {
@@ -33,8 +35,8 @@ export default function HeroSection() {
       <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         <div style={{
           display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gap: 64,
+          gridTemplateColumns: '55% 45%',
+          gap: 48,
           alignItems: 'center',
           paddingTop: 80,
           paddingBottom: 80,
@@ -59,9 +61,10 @@ export default function HeroSection() {
               <span style={{ color: '#0040a0' }}>With School CloudX</span>
             </h1>
 
-            <p style={{ fontSize: 16, color: '#64748b', lineHeight: 1.75, marginBottom: 32, maxWidth: 480 }}>
-              Experience the future of education with our CloudX platform. Streamline
-              attendance, assignments, exams, and more. Elevate your school's efficiency and engagement.
+            <p style={{ fontSize: 16, color: '#64748b', lineHeight: 1.75, marginBottom: 32, maxWidth: 560 }}>
+              One platform for your entire school — manage students, teachers, fees, exams,
+              timetables, attendance, assignments, and parent communication. Everything your
+              school needs, in one place.
             </p>
 
             {/* CTA buttons */}

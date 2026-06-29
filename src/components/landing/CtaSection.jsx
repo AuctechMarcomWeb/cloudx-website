@@ -21,7 +21,7 @@ export default function CtaSection() {
           <p className="section-sub">Have a question or just want to say hi? We'd love to hear from you.</p>
         </div>
 
-        <div className="contact-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 40, maxWidth: 960, margin: '0 auto', alignItems: 'start' }}>
+        <div className="contact-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 40, margin: '0 auto', alignItems: 'start' }}>
 
           {/* Form */}
           <div style={{ background: '#f8fffe', borderRadius: 20, border: '1.5px solid #e8f0fc', padding: '36px 32px', boxShadow: '0 4px 20px rgba(0,64,160,0.06)' }}>

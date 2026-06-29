@@ -5,24 +5,26 @@ const STEPS = [
   {
     num: '01',
     title: 'Register your school',
-    desc: 'Sign up in 2 minutes. No paperwork, no technical setup — just your school name and email.',
+    desc: 'Sign up in 2 minutes. Add your school name, contact details and choose a plan. No paperwork needed.',
   },
   {
     num: '02',
-    title: 'Add students, staff & classes',
-    desc: 'Import or manually add your school data. Our onboarding team helps you every step of the way.',
+    title: 'Set up students, teachers & classes',
+    desc: 'Add students individually or in bulk. Create classes, assign teachers, set up timetables and fee structures.',
   },
   {
     num: '03',
-    title: 'Go live — manage everything',
-    desc: 'Attendance, fees, exams, timetables, parent communication — all from one simple dashboard.',
+    title: 'Manage everything from one dashboard',
+    desc: 'Mark attendance, collect fees, schedule exams, send announcements, and keep parents updated — all in one place.',
   },
 ]
 
 const WHY_POINTS = [
-  'Affordable — starts at $0.02 per student',
-  'No IT team needed — anyone can manage it',
-  'Your data stays private and fully encrypted',
+  'Starts at just $0.02 per student per month',
+  'Super Admin panel to manage multiple schools',
+  'Parent & Student mobile app included',
+  'Online + offline exam management',
+  'Transportation module with route management',
   'Works on mobile, tablet, and desktop',
 ]
 
@@ -68,13 +70,13 @@ export default function HowItWorksSection() {
         </div>
 
         {/* ── Why CloudX ── */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 72, alignItems: 'center', maxWidth: 1100, margin: '0 auto' }} className="why-grid">
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'center' }} className="why-grid">
 
           {/* Left */}
           <div>
             <span className="section-badge">Why School CloudX</span>
             <h2 className="section-title">Built for Indian schools, priced right</h2>
-            <p style={{ fontSize: 15, color: '#64748b', lineHeight: 1.85, marginBottom: 32, maxWidth: 460 }}>
+            <p style={{ fontSize: 15, color: '#64748b', lineHeight: 1.85, marginBottom: 32 }}>
               Most school software is expensive, complicated, or built for foreign markets.
               School CloudX is designed specifically for schools like yours — simple to use,
               easy on the budget, and backed by real support.
@@ -95,7 +97,7 @@ export default function HowItWorksSection() {
             <img
               src={whyImg}
               alt="School CloudX Dashboard"
-              style={{ width: '100%', maxWidth: 480, height: 'auto', display: 'block', filter: 'drop-shadow(0 20px 48px rgba(0,0,0,0.12))' }}
+              style={{ width: '100%', height: 'auto', display: 'block', filter: 'drop-shadow(0 20px 48px rgba(0,0,0,0.12))' }}
             />
           </div>
         </div>

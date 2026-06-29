@@ -10,31 +10,31 @@ const FALLBACK_PLANS = [
     _id:'prepaid-pro', name:'Pro', badge:'Prepaid', description:'Best for established schools',
     price:99, pricingModel:'FIXED', billingCycle:'Monthly', studentLimit:2999, staffLimit:99,
     trialDays:30, isPopular:true,
-    features:['Student management','Academics management','Slider management','Teacher management','Session year management','Holiday management','Timetable management','Attendance management','Exam management','Lesson management','Assignment management','Announcement management','Staff management','Expense management','Staff leave management','Fees management','School gallery management','ID card certificate generation','Website management','Chat module','Transportation module','Staff attendance management'],
+    features:['Student management','Academics management','Slider management','Teacher management','Session year management','Holiday management','Timetable management','Attendance management','Exam management','Lesson management','Assignment management','Announcement management','Staff management','Expense management','Fees management','School gallery management','ID card certificate generation','Website management','Chat module','Transportation module','Staff attendance management'],
   },
   {
     _id:'postpaid-developer', name:'Developer', badge:'Postpaid', description:'For developers & testing',
     price:0, pricingModel:'PER_STUDENT', pricePerStudent:10, pricePerStaff:10,
     billingCycle:'Monthly', studentLimit:0, trialDays:30, isPopular:false,
-    features:['Student management','Academics management','Slider management','Teacher management','Session year management','Holiday management','Timetable management','Attendance management','Exam management','Lesson management','Assignment management','Announcement management','Staff management','Expense management','Staff leave management','Fees management','School gallery management','ID card certificate generation','Website management','Chat module','Transportation module','Staff attendance management'],
+    features:['Student management','Academics management','Slider management','Teacher management','Session year management','Holiday management','Timetable management','Attendance management','Exam management','Lesson management','Assignment management','Announcement management','Staff management','Expense management','Fees management','School gallery management','ID card certificate generation','Website management','Chat module','Transportation module','Staff attendance management'],
   },
   {
     _id:'postpaid-basic', name:'Basic', badge:'Postpaid', description:'Perfect for small schools',
     price:0, pricingModel:'PER_STUDENT', pricePerStudent:0.02, pricePerStaff:0.02,
     billingCycle:'Monthly', studentLimit:0, trialDays:30, isPopular:false,
-    features:['Student management','Academics management','Slider management','Teacher management','Session year management','Holiday management','Timetable management','Attendance management','Exam management','Lesson management','Assignment management','Announcement management','Staff management','Expense management','Staff leave management','Fees management','School gallery management','ID card certificate generation','Website management','Chat module','Transportation module','Staff attendance management'],
+    features:['Student management','Academics management','Slider management','Teacher management','Session year management','Holiday management','Timetable management','Attendance management','Exam management','Lesson management','Assignment management','Announcement management','Staff management','Expense management','Fees management','School gallery management','ID card certificate generation','Website management','Chat module','Transportation module','Staff attendance management'],
   },
   {
     _id:'postpaid-standard', name:'Standard', badge:'Postpaid', description:'For growing institutions',
     price:0, pricingModel:'PER_STUDENT', pricePerStudent:1.00, pricePerStaff:4.00,
     billingCycle:'Monthly', studentLimit:0, trialDays:30, isPopular:false,
-    features:['Student management','Academics management','Slider management','Teacher management','Session year management','Holiday management','Timetable management','Attendance management','Exam management','Lesson management','Assignment management','Announcement management','Staff management','Expense management','Staff leave management','Fees management','School gallery management','ID card certificate generation','Website management','Chat module','Transportation module','Staff attendance management'],
+    features:['Student management','Academics management','Slider management','Teacher management','Session year management','Holiday management','Timetable management','Attendance management','Exam management','Lesson management','Assignment management','Announcement management','Staff management','Expense management','Fees management','School gallery management','ID card certificate generation','Website management','Chat module','Transportation module','Staff attendance management'],
   },
   {
     _id:'postpaid-pro', name:'Pro', badge:'Postpaid', description:'Best value postpaid',
     price:0, pricingModel:'PER_STUDENT', pricePerStudent:0.25, pricePerStaff:0.25,
     billingCycle:'Monthly', studentLimit:0, trialDays:30, isPopular:false,
-    features:['Student management','Academics management','Slider management','Teacher management','Session year management','Holiday management','Timetable management','Attendance management','Exam management','Lesson management','Assignment management','Announcement management','Staff management','Expense management','Staff leave management','Fees management','School gallery management','ID card certificate generation','Website management','Chat module','Transportation module','Staff attendance management'],
+    features:['Student management','Academics management','Slider management','Teacher management','Session year management','Holiday management','Timetable management','Attendance management','Exam management','Lesson management','Assignment management','Announcement management','Staff management','Expense management','Fees management','School gallery management','ID card certificate generation','Website management','Chat module','Transportation module','Staff attendance management'],
   },
 ]
 
@@ -67,7 +67,7 @@ export default function PricingSection() {
             <div className="spinner" style={{ margin:'0 auto', width:36, height:36 }} />
           </div>
         ) : (
-          <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(240px,1fr))', gap:24, maxWidth:1100, margin:'0 auto' }} className="pricing-grid">
+          <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(260px,1fr))', gap:24 }} className="pricing-grid">
             {plans.map((plan, idx) => {
               const pop = plan.isPopular
               return (
@@ -151,7 +151,7 @@ export default function PricingSection() {
         )}
 
         {/* ── Comparison Table ── */}
-        <div style={{ maxWidth: 900, margin: '52px auto 0' }}>
+        <div style={{ margin: '52px auto 0' }}>
           <h3 style={{ textAlign: 'center', fontSize: 20, fontWeight: 700, color: '#1a1a2e', marginBottom: 28, fontFamily: "'Lato', sans-serif" }}>
             What's included in every plan
           </h3>
@@ -169,20 +169,20 @@ export default function PricingSection() {
               </thead>
               <tbody>
                 {[
-                  ['Student Management',       true,  true,  true],
-                  ['Teacher Management',        true,  true,  true],
-                  ['Attendance Tracking',       true,  true,  true],
-                  ['Fee Management',            true,  true,  true],
-                  ['Exam & Results',            true,  true,  true],
-                  ['Timetable Management',      false, true,  true],
-                  ['Assignment Management',     false, true,  true],
-                  ['Parent App Access',         false, true,  true],
-                  ['Chat Module',               false, false, true],
-                  ['Transportation Module',     false, false, true],
-                  ['ID Card Generation',        false, false, true],
-                  ['Website Management',        false, false, true],
-                  ['30-Day Free Trial',         true,  true,  true],
-                  ['Dedicated Support',         false, true,  true],
+                  ['Student Management',          true,  true,  true],
+                  ['Teacher Management',           true,  true,  true],
+                  ['Attendance Tracking',          true,  true,  true],
+                  ['Fees Management',              true,  true,  true],
+                  ['Exam Management',              true,  true,  true],
+                  ['Timetable Management',         true,  true,  true],
+                  ['Announcements',                true,  true,  true],
+                  ['Lessons & Assignments',        false, true,  true],
+                  ['Parent & Student App',         false, true,  true],
+                  ['Chat Module',                  false, false, true],
+                  ['Transportation Module',        false, false, true],
+                  ['ID Card & Certificate',        false, false, true],
+                  ['School Website Management',    false, false, true],
+                  ['30-Day Free Trial',            true,  true,  true],
                 ].map(([feat, basic, std, pro], i) => (
                   <tr key={feat} style={{ background: i % 2 === 0 ? '#fff' : '#f8fafe', borderBottom: '1px solid #e8f0fc' }}>
                     <td style={{ padding: '13px 20px', fontSize: 13.5, color: '#374151', fontWeight: 500 }}>{feat}</td>

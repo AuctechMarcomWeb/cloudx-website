@@ -436,7 +436,6 @@ const PANELS = [
       {icon:Bell,         title:'Announcements Made Simple',      desc:'Easily create and manage section-specific announcements. Keep your school community informed.'},
       {icon:BarChart2,    title:'Effortless Exam Management',     desc:'Simplify exam scheduling and management with our online and offline sections.'},
       {icon:CreditCard,   title:'Fees Management',                desc:'Create different types and maintain comprehensive logs of payments. Ensuring accurate records.'},
-      {icon:FileText,     title:'Staff Leave Management',         desc:'Leave management for all employees — teachers & staff. Track and manage leave requests.'},
     ],
   },
   {
@@ -607,51 +606,77 @@ export default function FeaturesSection() {
     <section id="features" style={{ background: '#fff' }}>
 
       {/* ── Section Header ── */}
-      <div style={{ textAlign: 'center', padding: '80px 0 48px' }}>
-        <span style={{ display:'inline-block',fontSize:12,fontWeight:700,color:'#0040a0',letterSpacing:2,textTransform:'uppercase',background:'rgba(0,64,160,0.08)',padding:'5px 16px',borderRadius:50,marginBottom:14 }}>Features</span>
-        <h2 className="section-title">Explore our top features</h2>
+      <div style={{ textAlign: 'center', padding: '80px 0 52px' }}>
+        <span style={{ display:'inline-block',fontSize:12,fontWeight:700,color:'#0d9488',letterSpacing:2,textTransform:'uppercase',background:'rgba(13,148,136,0.08)',padding:'5px 16px',borderRadius:50,marginBottom:14 }}>Features</span>
+        <h2 className="section-title" style={{ marginBottom: 16 }}>Explore our top features</h2>
+        {/* teal underline with dot — matches reference */}
+        <div style={{ display:'flex',alignItems:'center',justifyContent:'center',maxWidth:520,margin:'0 auto 16px' }}>
+          <div style={{ flex:1,height:2,background:'#0d9488',opacity:0.3 }} />
+          <div style={{ width:10,height:10,borderRadius:'50%',background:'#0d9488',margin:'0 8px',flexShrink:0 }} />
+          <div style={{ flex:1,height:2,background:'#0d9488',opacity:0.3 }} />
+        </div>
         <p style={{ color:'#64748b',fontSize:16,lineHeight:1.7,maxWidth:520,margin:'0 auto' }}>14+ robust features for an enhanced educational experience.</p>
       </div>
 
       {/* ── Feature Grid ── */}
-      <div style={{ padding: '0 0 72px' }}>
+      <div style={{ padding: '0 0 48px' }}>
         <div className="container">
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(3, 1fr)',
-            gap: 16,
-            maxWidth: 960,
-            margin: '0 auto',
+            gap: 20,
           }} className="feat-icon-grid">
             {FEATURE_GRID.map(({ title, icon }) => (
               <div key={title} style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: 14,
+                gap: 16,
                 background: '#fff',
-                border: '1.5px solid #e8f5f2',
-                borderLeft: '4px solid #0040a0',
-                borderRadius: 10,
-                padding: '16px 20px',
-                boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
+                border: '1.5px solid #e2e8f0',
+                borderLeft: '4px solid #0d9488',
+                borderRadius: 12,
+                padding: '20px 24px',
+                boxShadow: '0 2px 10px rgba(0,0,0,0.05)',
                 transition: 'all 0.2s',
+                cursor: 'default',
               }}
-                onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 6px 20px rgba(0,64,160,0.15)'; e.currentTarget.style.borderColor = '#0040a0' }}
-                onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.04)'; e.currentTarget.style.borderColor = '#e8f5f2'; e.currentTarget.style.borderLeftColor = '#0040a0' }}
+                onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 8px 24px rgba(13,148,136,0.15)'; e.currentTarget.style.borderColor = '#0d9488'; e.currentTarget.style.transform = 'translateY(-2px)' }}
+                onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 2px 10px rgba(0,0,0,0.05)'; e.currentTarget.style.borderColor = '#e2e8f0'; e.currentTarget.style.borderLeftColor = '#0d9488'; e.currentTarget.style.transform = 'none' }}
               >
                 <div style={{
-                  width: 48, height: 48, borderRadius: 10, flexShrink: 0,
-                  background: '#f0fdf9',
+                  width: 52, height: 52, borderRadius: 12, flexShrink: 0,
+                  background: 'rgba(13,148,136,0.08)',
+                  border: '1px solid rgba(13,148,136,0.15)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                 }}>
                   {icon}
                 </div>
                 <span style={{
-                  fontSize: 14.5, fontWeight: 600, color: '#1a1a2e',
+                  fontSize: 16, fontWeight: 600, color: '#1a1a2e',
                   fontFamily: "'Lato', sans-serif", lineHeight: 1.4,
                 }}>{title}</span>
               </div>
             ))}
+          </div>
+
+          {/* View more features button — matches reference */}
+          <div style={{ textAlign: 'center', marginTop: 36 }}>
+            <button
+              onClick={() => document.querySelector('#panel-super-admin')?.scrollIntoView({ behavior: 'smooth' })}
+              style={{
+                display: 'inline-flex', alignItems: 'center', gap: 8,
+                padding: '13px 32px', borderRadius: 8, border: 'none', cursor: 'pointer',
+                background: 'linear-gradient(135deg, #0d9488, #0f766e)',
+                color: '#fff', fontSize: 15, fontWeight: 600,
+                fontFamily: "'Lato', sans-serif",
+                boxShadow: '0 6px 20px rgba(13,148,136,0.35)',
+                transition: 'all 0.2s',
+              }}
+              onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 10px 28px rgba(13,148,136,0.45)' }}
+              onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = '0 6px 20px rgba(13,148,136,0.35)' }}
+            >
+              View more features →
+            </button>
           </div>
         </div>
       </div>
@@ -671,10 +696,10 @@ export default function FeaturesSection() {
               <div style={{ textAlign: 'center', marginBottom: 48 }}>
                 <p style={{ fontSize:14,fontWeight:700,color:'#0040a0',marginBottom:12,fontFamily:"'Lato', sans-serif" }}>{panel.label}</p>
                 <h3 style={{
-                  fontSize: 'clamp(26px, 3.5vw, 40px)',
+                  fontSize: 'clamp(28px, 3.5vw, 44px)',
                   fontWeight: 700,
                   color: '#1a1a2e',
-                  maxWidth: 700,
+                  maxWidth: 860,
                   margin: '0 auto 20px',
                   lineHeight: 1.2,
                   fontFamily:"'Lato', sans-serif",
@@ -687,20 +712,18 @@ export default function FeaturesSection() {
                 </div>
               </div>
 
-              {/* Two column: image left, features right */}
+              {/* Two column: image left (sticky), features right (scrollable) */}
               <div style={{
                 display: 'grid',
-                gridTemplateColumns: '1fr 1fr',
+                gridTemplateColumns: '45% 55%',
                 gap: 64,
                 alignItems: 'start',
-                maxWidth: 1000,
-                margin: '0 auto',
               }} className="feat-grid">
 
-                {/* Left — image: sticky so it stays centered while list scrolls */}
+                {/* Left — image sticky */}
                 <div style={{
                   position: 'sticky',
-                  top: 100,
+                  top: 88,
                   display: 'flex',
                   justifyContent: 'center',
                   alignItems: 'flex-start',
@@ -710,7 +733,7 @@ export default function FeaturesSection() {
                     alt={panel.label}
                     style={{
                       width: '100%',
-                      maxWidth: 420,
+                      maxWidth: 560,
                       height: 'auto',
                       display: 'block',
                       borderRadius: 16,
@@ -719,32 +742,47 @@ export default function FeaturesSection() {
                   />
                 </div>
 
-                {/* Right — feature list */}
-                <div style={{ display:'flex', flexDirection:'column', gap:4 }}>
+                {/* Right — scrollable feature list */}
+                <div className="feat-list" style={{
+                  maxHeight: 480,
+                  overflowY: 'auto',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: 6,
+                  paddingRight: 8,
+                  scrollbarWidth: 'thin',
+                  scrollbarColor: '#ccdaf5 transparent',
+                }}>
                   {panel.features.map(({ icon: Icon, title, desc }) => (
                     <div
                       key={title}
                       style={{
                         display: 'flex',
-                        gap: 14,
-                        padding: '14px 16px',
+                        gap: 16,
+                        padding: '18px 20px',
                         borderRadius: 12,
+                        background: '#f8fafe',
+                        border: '1px solid #e8f0fc',
+                        transition: 'all 0.2s',
+                        cursor: 'default',
                       }}
+                      onMouseEnter={e => { e.currentTarget.style.background = '#eef3fd'; e.currentTarget.style.borderColor = '#ccdaf5' }}
+                      onMouseLeave={e => { e.currentTarget.style.background = '#f8fafe'; e.currentTarget.style.borderColor = '#e8f0fc' }}
                     >
                       <div style={{
-                        width: 42, height: 42, borderRadius: 10, flexShrink: 0,
+                        width: 46, height: 46, borderRadius: 12, flexShrink: 0,
                         background: 'rgba(0,64,160,0.1)',
                         border: '1px solid rgba(0,64,160,0.2)',
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
                       }}>
-                        <Icon size={18} color='#0040a0' />
+                        <Icon size={20} color='#0040a0' />
                       </div>
                       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                         <h4 style={{
-                          fontSize: 15, fontWeight: 700, color: '#1a1a2e',
+                          fontSize: 18, fontWeight: 700, color: '#1a1a2e',
                           margin: 0, fontFamily:"'Lato', sans-serif", lineHeight: 1.3,
                         }}>{title}</h4>
-                        <p style={{ fontSize: 13, color: '#64748b', lineHeight: 1.6, margin: '4px 0 0' }}>{desc}</p>
+                        <p style={{ fontSize: 15, color: '#64748b', lineHeight: 1.65, margin: '6px 0 0' }}>{desc}</p>
                       </div>
                     </div>
                   ))}
@@ -766,7 +804,7 @@ export default function FeaturesSection() {
             <div style={{ width: 120, height: 3, background: 'linear-gradient(90deg, #0040a0, #0ea5e9)', borderRadius: 2, margin: '0 auto' }} />
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 20, maxWidth: 860, margin: '0 auto' }} className="schools-grid">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 20 }} className="schools-grid">
             {SCHOOL_LIST.map(school => (
               <div key={school.name} style={{
                 background: '#fff', border: '1px solid #e2e8f0', borderRadius: 8,

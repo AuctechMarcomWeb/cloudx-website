@@ -47,7 +47,7 @@ export default function ParentsAppSection() {
             <img
               src={appImage}
               alt="Parents and Students App"
-              style={{ width: '100%', maxWidth: 420, height: 'auto', display: 'block', position: 'relative', zIndex: 1, filter: 'drop-shadow(0 24px 56px rgba(0,0,0,0.13))' }}
+              style={{ width: '100%', maxWidth: 480, height: 'auto', display: 'block', position: 'relative', zIndex: 1, filter: 'drop-shadow(0 24px 56px rgba(0,0,0,0.13))' }}
             />
           </div>
 

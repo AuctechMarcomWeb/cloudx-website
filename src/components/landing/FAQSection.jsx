@@ -72,7 +72,7 @@ export default function FAQSection() {
         )}
 
         {!loading && (
-          <div style={{ maxWidth: 800, margin: '0 auto', display: 'flex', flexDirection: 'column', gap: 12 }}>
+          <div style={{ margin: '0 auto', display: 'flex', flexDirection: 'column', gap: 12 }}>
             {filtered.length === 0 ? (
               <div style={{ textAlign: 'center', padding: '40px 0', color: '#94a3b8' }}>No FAQs found.</div>
             ) : filtered.map((faq) => {

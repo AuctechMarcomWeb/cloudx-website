@@ -1,22 +1,25 @@
+// Only actual software features — verified against FeaturesSection PANELS
 import {
   GraduationCap, ClipboardCheck, Banknote, FileText,
   CalendarDays, Smartphone, MessageCircle, Bus,
-  Building2, ShieldCheck, Zap, Gift,
+  Building2, BookOpen, Bell, Users, Image, CreditCard, BadgeCheck,
 } from 'lucide-react'
 
 const HIGHLIGHTS = [
-  { icon: GraduationCap,  text: 'Student Management',    color: '#0040a0' },
-  { icon: ClipboardCheck, text: 'Attendance Tracking',   color: '#0ea5e9' },
-  { icon: Banknote,       text: 'Fee Management',        color: '#e0c000' },
-  { icon: FileText,       text: 'Exam & Results',        color: '#002f80' },
-  { icon: CalendarDays,   text: 'Timetable Management',  color: '#0040a0' },
-  { icon: Smartphone,     text: 'Parent Mobile App',     color: '#0ea5e9' },
-  { icon: MessageCircle,  text: 'Chat Module',           color: '#002f80' },
-  { icon: Bus,            text: 'Transportation Module', color: '#e0c000' },
-  { icon: Building2,      text: 'Multi-School Support',  color: '#0040a0' },
-  { icon: ShieldCheck,    text: 'Secure & Encrypted',    color: '#0ea5e9' },
-  { icon: Zap,            text: '10-Min Setup',          color: '#002f80' },
-  { icon: Gift,           text: '30-Day Free Trial',     color: '#e0c000' },
+  { icon: GraduationCap,  text: 'Student Management',      color: '#0040a0' },
+  { icon: Users,          text: 'Teacher Management',      color: '#0ea5e9' },
+  { icon: ClipboardCheck, text: 'Attendance Tracking',     color: '#002f80' },
+  { icon: Banknote,       text: 'Fees Management',         color: '#e0c000' },
+  { icon: FileText,       text: 'Exam Management',         color: '#0040a0' },
+  { icon: BookOpen,       text: 'Lessons & Assignments',   color: '#0ea5e9' },
+  { icon: CalendarDays,   text: 'Timetable Management',    color: '#002f80' },
+  { icon: Bell,           text: 'Announcements',           color: '#e0c000' },
+  { icon: Smartphone,     text: 'Parent & Student App',    color: '#0040a0' },
+  { icon: MessageCircle,  text: 'Chat Module',             color: '#0ea5e9' },
+  { icon: Bus,            text: 'Transportation Module',   color: '#002f80' },
+  { icon: Building2,      text: 'Multi-School Management', color: '#e0c000' },
+  { icon: Image,          text: 'School Gallery',          color: '#0ea5e9' },
+  { icon: CreditCard,     text: 'Package Management',      color: '#002f80' },
 ]
 
 export default function TrustedStrip() {
