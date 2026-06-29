@@ -4,6 +4,7 @@ import HeroSection from '../components/landing/HeroSection'
 import StatsSection from '../components/landing/StatsSection'
 import TrustedStrip from '../components/landing/TrustedStrip'
 import FeaturesSection from '../components/landing/FeaturesSection'
+import WhyUsSection from '../components/landing/WhyUsSection'
 import HowItWorksSection from '../components/landing/HowItWorksSection'
 import TestimonialsSection from '../components/landing/TestimonialsSection'
 import FAQSection from '../components/landing/FAQSection'
@@ -18,11 +19,12 @@ export default function LandingPage() {
       <TrustedStrip />         {/* 2. Trusted by schools strip */}
       <StatsSection />         {/* 3. Animated stats */}
       <FeaturesSection />      {/* 4. Features panels */}
-      <HowItWorksSection />    {/* 5. Why it is best */}
-      <TestimonialsSection />  {/* 6. Testimonials carousel */}
-      <FAQSection />           {/* 7. FAQ */}
-      <CtaSection />           {/* 8. Contact */}
-      <ParentsAppSection />    {/* 9. App Download */}
+      <WhyUsSection />         {/* 5. Why Schools Choose Us */}
+      <HowItWorksSection />    {/* 6. Why it is best */}
+      <TestimonialsSection />  {/* 7. Testimonials carousel */}
+      <FAQSection />           {/* 8. FAQ */}
+      <CtaSection />           {/* 9. Contact */}
+      <ParentsAppSection />    {/* 10. App Download */}
       <Footer />
     </div>
   )

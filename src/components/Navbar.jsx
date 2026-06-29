@@ -108,7 +108,7 @@ export default function Navbar() {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          height: 68px;
+          height: 80px;
         }
 
         /* Logo */
@@ -119,30 +119,35 @@ export default function Navbar() {
           align-items: center;
         }
         .nav-logo img {
-          height: 48px;
+          height: 58px;
           width: auto;
-          max-width: 160px;
+          max-width: 200px;
           object-fit: contain;
           display: block;
         }
 
-        /* Desktop nav links */
+        /* Desktop nav links — centered */
         .desk-nav {
           display: flex;
           align-items: center;
-          gap: 2px;
+          gap: 4px;
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
         }
         .nav-link-btn {
           background: none;
           border: none;
-          color: #4a5568;
-          font-size: 14.5px;
-          font-weight: 500;
+          color: #374151;
+          font-size: 17px;
+          font-weight: 600;
           cursor: pointer;
-          padding: 8px 14px;
+          padding: 10px 18px;
           border-radius: 8px;
           transition: all 0.2s;
           font-family: Lato, sans-serif;
+          letter-spacing: 0.01em;
+          white-space: nowrap;
         }
         .nav-link-btn:hover {
           color: #0040a0;
@@ -235,20 +240,19 @@ export default function Navbar() {
 
         /* Tablet: shrink nav links */
         @media (max-width: 1024px) {
-          .nav-link-btn { padding: 8px 10px !important; font-size: 13.5px !important; }
+          .nav-link-btn { padding: 8px 12px !important; font-size: 15px !important; }
         }
 
         /* Mobile: hide desktop nav, show hamburger */
         @media (max-width: 900px) {
-          .desk-nav { display: none !important; }
+          .desk-nav { display: none !important; position: static !important; transform: none !important; }
           .mob-btn  { display: flex !important; }
           .mob-hide { display: none !important; }
         }
 
         @media (max-width: 480px) {
-          .nav-inner { height: 60px; }
-          .nav-logo img { height: 38px; }
-          .btn-primary { padding: 8px 14px !important; font-size: 13px !important; }
+          .nav-inner { height: 64px; }
+          .nav-logo img { height: 44px; }
         }
       `}</style>
     </nav>
