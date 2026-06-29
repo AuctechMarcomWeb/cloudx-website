@@ -1,4 +1,42 @@
+﻿import { useState } from 'react'
 import { ExternalLink, Mail, Phone } from 'lucide-react'
+
+function NewsletterForm() {
+  const [email, setEmail] = useState('')
+  const [done, setDone] = useState(false)
+  const submit = (e) => {
+    e.preventDefault()
+    if (!email) return
+    setDone(true)
+    setEmail('')
+    setTimeout(() => setDone(false), 4000)
+  }
+  return (
+    <form onSubmit={submit} style={{ display: 'flex', gap: 10, flexWrap: 'wrap', flexShrink: 0 }}>
+      <input
+        type="email" value={email} onChange={e => setEmail(e.target.value)}
+        placeholder="your@email.com" required
+        style={{
+          height: 44, padding: '0 16px', borderRadius: 10, border: '1.5px solid rgba(255,255,255,0.25)',
+          background: 'rgba(255,255,255,0.1)', color: '#fff', fontSize: 14,
+          fontFamily: 'Lato, sans-serif', outline: 'none', minWidth: 220,
+          transition: 'border-color 0.2s',
+        }}
+        onFocus={e => e.target.style.borderColor = '#e0c000'}
+        onBlur={e => e.target.style.borderColor = 'rgba(255,255,255,0.25)'}
+      />
+      <button type="submit" style={{
+        height: 44, padding: '0 22px', borderRadius: 10, border: 'none', cursor: 'pointer',
+        background: done ? 'rgba(255,255,255,0.2)' : 'linear-gradient(135deg, #e0c000, #b89a00)',
+        color: '#fff', fontSize: 14, fontWeight: 700, fontFamily: 'Lato, sans-serif',
+        boxShadow: '0 4px 16px rgba(224,192,0,0.3)', transition: 'all 0.2s',
+        whiteSpace: 'nowrap',
+      }}>
+        {done ? '✓ Subscribed!' : 'Subscribe ✦'}
+      </button>
+    </form>
+  )
+}
 
 /* ── Inline SVG social icons ── */
 const FacebookIcon = () => (
@@ -71,7 +109,7 @@ export default function Footer() {
   const dot = (
     <span style={{
       display: 'inline-block', width: 6, height: 6,
-      borderRadius: '50%', background: '#1bbc9b', flexShrink: 0,
+      borderRadius: '50%', background: '#0040a0', flexShrink: 0,
     }} />
   )
 
@@ -79,7 +117,24 @@ export default function Footer() {
     <footer style={{ background: '#0a1c15', fontFamily: 'Lato, sans-serif' }}>
 
       {/* ── Top gradient line ── */}
-      <div style={{ height: 3, background: 'linear-gradient(90deg, #1bbc9b, #0ea5e9, #1bbc9b)' }} />
+      <div style={{ height: 3, background: 'linear-gradient(90deg, #0040a0, #0ea5e9, #0040a0)' }} />
+
+      {/* ── Newsletter Strip ── */}
+      <div style={{ background: 'linear-gradient(135deg, #0040a0, #002f80)', padding: '40px 0' }}>
+        <div className="container">
+          <div className="newsletter-row" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 32, flexWrap: 'wrap' }}>
+            <div>
+              <h3 style={{ fontSize: 20, fontWeight: 700, color: '#fff', margin: '0 0 6px', fontFamily: 'Lato, sans-serif' }}>
+                Stay updated with School CloudX
+              </h3>
+              <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.65)', margin: 0 }}>
+                Get product updates, tips and school management insights straight to your inbox.
+              </p>
+            </div>
+            <NewsletterForm />
+          </div>
+        </div>
+      </div>
 
       <div className="container" style={{ padding: '0 24px' }}>
 
@@ -95,11 +150,13 @@ export default function Footer() {
 
           {/* ── Col 1: Brand ── */}
           <div>
-            <img
-              src="/auctech-logo.png"
-              alt="School CloudX"
-              style={{ height: 42, objectFit: 'contain', display: 'block', marginBottom: 18, filter: 'brightness(0) invert(1)' }}
-            />
+            <div style={{ background: '#fff', borderRadius: 12, padding: '8px 14px', display: 'inline-block', marginBottom: 18 }}>
+              <img
+                src="/auctech-logo.png"
+                alt="School CloudX"
+                style={{ height: 42, objectFit: 'contain', display: 'block' }}
+              />
+            </div>
 
             <p style={{ fontSize: 14, lineHeight: 1.8, color: 'rgba(255,255,255,0.45)', maxWidth: 230, marginBottom: 24, margin: '0 0 24px' }}>
               A modern school management platform — built for speed, simplicity, and every stakeholder.
@@ -114,11 +171,11 @@ export default function Footer() {
                 <div key={text} style={{ display: 'flex', alignItems: 'center', gap: 10, fontSize: 13, color: 'rgba(255,255,255,0.4)' }}>
                   <span style={{
                     width: 28, height: 28, borderRadius: 7,
-                    background: 'rgba(27,188,155,0.12)',
-                    border: '1px solid rgba(27,188,155,0.2)',
+                    background: 'rgba(0,64,160,0.12)',
+                    border: '1px solid rgba(0,64,160,0.2)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
                   }}>
-                    <Icon size={13} color="#1bbc9b" />
+                    <Icon size={13} color="#0040a0" />
                   </span>
                   {text}
                 </div>
@@ -149,9 +206,9 @@ export default function Footer() {
                     flexShrink: 0,
                   }}
                   onMouseEnter={e => {
-                    e.currentTarget.style.background = 'rgba(27,188,155,0.18)'
-                    e.currentTarget.style.borderColor = '#1bbc9b'
-                    e.currentTarget.style.color = '#1bbc9b'
+                    e.currentTarget.style.background = 'rgba(0,64,160,0.18)'
+                    e.currentTarget.style.borderColor = '#0040a0'
+                    e.currentTarget.style.color = '#0040a0'
                     e.currentTarget.style.transform = 'translateY(-3px)'
                   }}
                   onMouseLeave={e => {
@@ -170,7 +227,7 @@ export default function Footer() {
           {/* ── Col 2: Quick Links ── */}
           <div>
             <div style={colHead}>
-              <span style={{ width: 3, height: 16, background: '#1bbc9b', borderRadius: 2, display: 'inline-block' }} />
+              <span style={{ width: 3, height: 16, background: '#0040a0', borderRadius: 2, display: 'inline-block' }} />
               Quick Links
             </div>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 13 }}>
@@ -185,7 +242,7 @@ export default function Footer() {
                   <button
                     onClick={() => scrollTo(href)}
                     style={{ ...linkStyle, background: 'none', border: 'none', cursor: 'pointer', padding: 0, fontFamily: 'Lato, sans-serif' }}
-                    onMouseEnter={e => { e.currentTarget.style.color = '#1bbc9b' }}
+                    onMouseEnter={e => { e.currentTarget.style.color = '#0040a0' }}
                     onMouseLeave={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.5)' }}
                   >
                     {dot}{label}
@@ -198,7 +255,7 @@ export default function Footer() {
           {/* ── Col 3: Info ── */}
           <div>
             <div style={colHead}>
-              <span style={{ width: 3, height: 16, background: '#1bbc9b', borderRadius: 2, display: 'inline-block' }} />
+              <span style={{ width: 3, height: 16, background: '#0040a0', borderRadius: 2, display: 'inline-block' }} />
               Info
             </div>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 13 }}>
@@ -214,7 +271,7 @@ export default function Footer() {
                     target={ext ? '_blank' : '_self'}
                     rel="noreferrer"
                     style={linkStyle}
-                    onMouseEnter={e => { e.currentTarget.style.color = '#1bbc9b' }}
+                    onMouseEnter={e => { e.currentTarget.style.color = '#0040a0' }}
                     onMouseLeave={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.5)' }}
                   >
                     {dot}{label}
@@ -227,7 +284,7 @@ export default function Footer() {
           {/* ── Col 4: Download ── */}
           <div>
             <div style={colHead}>
-              <span style={{ width: 3, height: 16, background: '#1bbc9b', borderRadius: 2, display: 'inline-block' }} />
+              <span style={{ width: 3, height: 16, background: '#0040a0', borderRadius: 2, display: 'inline-block' }} />
               Download App
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
@@ -251,8 +308,8 @@ export default function Footer() {
                     transition: 'all 0.22s',
                   }}
                   onMouseEnter={e => {
-                    e.currentTarget.style.background = 'rgba(27,188,155,0.1)'
-                    e.currentTarget.style.borderColor = 'rgba(27,188,155,0.3)'
+                    e.currentTarget.style.background = 'rgba(0,64,160,0.1)'
+                    e.currentTarget.style.borderColor = 'rgba(0,64,160,0.3)'
                     e.currentTarget.style.transform = 'translateX(4px)'
                   }}
                   onMouseLeave={e => {
@@ -301,7 +358,7 @@ export default function Footer() {
               href="https://wrteam.in/"
               target="_blank"
               rel="noreferrer"
-              style={{ color: '#1bbc9b', textDecoration: 'none', fontWeight: 600 }}
+              style={{ color: '#0040a0', textDecoration: 'none', fontWeight: 600 }}
               onMouseEnter={e => { e.currentTarget.style.textDecoration = 'underline' }}
               onMouseLeave={e => { e.currentTarget.style.textDecoration = 'none' }}
             >WRTeam</a>

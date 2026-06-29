@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react'
+﻿import { useState, useRef, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import toast from 'react-hot-toast'
@@ -20,7 +20,7 @@ export default function PortalLoginPage() {
   return (
     <div style={{
       minHeight: '100vh',
-      background: 'linear-gradient(135deg, #f0fdf9 0%, #e8faf6 50%, #f0fdf9 100%)',
+      background: 'linear-gradient(135deg, #f0fdf9 0%, #e8f0fc 50%, #f0fdf9 100%)',
       display: 'flex',
       flexDirection: 'column',
       position: 'relative',
@@ -29,7 +29,7 @@ export default function PortalLoginPage() {
       {/* BG dot pattern */}
       <div style={{
         position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: 0,
-        backgroundImage: 'radial-gradient(circle, rgba(27,188,155,0.1) 1.5px, transparent 1.5px)',
+        backgroundImage: 'radial-gradient(circle, rgba(0,64,160,0.1) 1.5px, transparent 1.5px)',
         backgroundSize: '28px 28px',
       }} />
 
@@ -37,7 +37,7 @@ export default function PortalLoginPage() {
       <header style={{
         position: 'relative', zIndex: 10,
         padding: '14px 24px',
-        borderBottom: '1px solid #e8faf6',
+        borderBottom: '1px solid #e8f0fc',
         background: 'rgba(255,255,255,0.9)',
         backdropFilter: 'blur(20px)',
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
@@ -48,7 +48,7 @@ export default function PortalLoginPage() {
           color: '#64748b', fontSize: 14, fontWeight: 500,
           fontFamily: 'Lato, sans-serif', transition: 'color 0.2s',
         }}
-          onMouseEnter={e => e.currentTarget.style.color = '#1bbc9b'}
+          onMouseEnter={e => e.currentTarget.style.color = '#0040a0'}
           onMouseLeave={e => e.currentTarget.style.color = '#64748b'}
         >
           <ArrowLeft size={16} /> Back to Home
@@ -70,9 +70,9 @@ export default function PortalLoginPage() {
           <div style={{ textAlign: 'center', marginBottom: 32 }}>
             <div style={{
               width: 68, height: 68, borderRadius: '50%', margin: '0 auto 16px',
-              background: 'linear-gradient(135deg, #1bbc9b, #0e9f82)',
+              background: 'linear-gradient(135deg, #0040a0, #002f80)',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
-              boxShadow: '0 8px 28px rgba(27,188,155,0.35)',
+              boxShadow: '0 8px 28px rgba(0,64,160,0.35)',
             }}>
               <ShieldCheck size={30} color="#fff" />
             </div>
@@ -94,9 +94,9 @@ export default function PortalLoginPage() {
                 flex: 1, padding: '9px 0', border: 'none', cursor: 'pointer', borderRadius: 9,
                 fontSize: 13, fontWeight: 600, transition: 'all 0.2s',
                 fontFamily: 'Lato, sans-serif',
-                background: tab === key ? 'linear-gradient(135deg,#1bbc9b,#0e9f82)' : 'transparent',
+                background: tab === key ? 'linear-gradient(135deg,#0040a0,#002f80)' : 'transparent',
                 color: tab === key ? '#fff' : '#64748b',
-                boxShadow: tab === key ? '0 2px 8px rgba(27,188,155,0.3)' : 'none',
+                boxShadow: tab === key ? '0 2px 8px rgba(0,64,160,0.3)' : 'none',
               }}>
                 {label}
               </button>
@@ -113,7 +113,7 @@ export default function PortalLoginPage() {
           <p style={{ textAlign: 'center', marginTop: 20, fontSize: 13, color: '#94a3b8' }}>
             New here?{' '}
             <button onClick={() => navigate('/register')} style={{
-              background: 'none', border: 'none', color: '#1bbc9b',
+              background: 'none', border: 'none', color: '#0040a0',
               cursor: 'pointer', fontSize: 13, fontWeight: 600,
               fontFamily: 'Lato, sans-serif',
             }}>
@@ -131,10 +131,10 @@ function FormCard({ children }) {
   return (
     <div style={{
       background: '#fff',
-      border: '1.5px solid #e8faf6',
+      border: '1.5px solid #e8f0fc',
       borderRadius: 20,
       padding: 32,
-      boxShadow: '0 8px 32px rgba(27,188,155,0.08)',
+      boxShadow: '0 8px 32px rgba(0,64,160,0.08)',
     }}>
       {children}
     </div>
@@ -286,7 +286,7 @@ function OtpLoginForm({ onSuccess }) {
   return (
     <FormCard>
       <p style={{ fontSize: 13, color: '#64748b', marginBottom: 24, textAlign: 'center' }}>
-        OTP sent to: <strong style={{ color: '#1bbc9b' }}>{email}</strong>
+        OTP sent to: <strong style={{ color: '#0040a0' }}>{email}</strong>
       </p>
 
       <div style={{ display: 'flex', justifyContent: 'center', gap: 8, marginBottom: 20 }} onPaste={handlePaste}>
@@ -304,7 +304,7 @@ function OtpLoginForm({ onSuccess }) {
       <div style={{ textAlign: 'center', marginBottom: 18 }}>
         {canResend
           ? <button onClick={() => sendOtp()} disabled={resending} style={{
-              background: 'none', border: 'none', color: '#1bbc9b',
+              background: 'none', border: 'none', color: '#0040a0',
               cursor: 'pointer', fontSize: 13, fontWeight: 600,
               display: 'inline-flex', alignItems: 'center', gap: 5,
               fontFamily: 'Lato, sans-serif',
@@ -312,7 +312,7 @@ function OtpLoginForm({ onSuccess }) {
               <RefreshCw size={12} /> Resend OTP
             </button>
           : <span style={{ color: '#94a3b8', fontSize: 13 }}>
-              Resend in <strong style={{ color: '#1bbc9b' }}>{timer}s</strong>
+              Resend in <strong style={{ color: '#0040a0' }}>{timer}s</strong>
             </span>
         }
       </div>

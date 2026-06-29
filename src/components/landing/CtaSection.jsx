@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { Phone, Mail, MapPin, Send } from 'lucide-react'
 
 export default function CtaSection() {
@@ -21,10 +21,10 @@ export default function CtaSection() {
           <p className="section-sub">Have a question or just want to say hi? We'd love to hear from you.</p>
         </div>
 
-        <div className="contact-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 40, maxWidth: 960, margin: '0 auto', alignItems: 'start' }}>
+        <div className="contact-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 40, margin: '0 auto', alignItems: 'start' }}>
 
           {/* Form */}
-          <div style={{ background: '#f8fffe', borderRadius: 20, border: '1.5px solid #e8faf6', padding: '36px 32px', boxShadow: '0 4px 20px rgba(27,188,155,0.06)' }}>
+          <div style={{ background: '#f8fffe', borderRadius: 20, border: '1.5px solid #e8f0fc', padding: '36px 32px', boxShadow: '0 4px 20px rgba(0,64,160,0.06)' }}>
             <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
               <div>
                 <label className="form-label">Your Name</label>
@@ -50,11 +50,11 @@ export default function CtaSection() {
           {/* Contact info */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 20, paddingTop: 8 }}>
             {[
-              { Icon: Phone,  label: 'Phone',    color: '#1bbc9b', bg: 'rgba(27,188,155,0.08)',  value: 'Mobile : 1234567890' },
+              { Icon: Phone,  label: 'Phone',    color: '#0040a0', bg: 'rgba(0,64,160,0.08)',  value: 'Mobile : 1234567890' },
               { Icon: Mail,   label: 'Email',    color: '#0ea5e9', bg: 'rgba(14,165,233,0.08)',  value: 'example@gmail.com' },
               { Icon: MapPin, label: 'Location', color: '#8b5cf6', bg: 'rgba(139,92,246,0.08)', value: '#262-263, Time Square Empire, SH 42 Mirjapar highway, Bhuj - Kutch 370001 Gujarat India.' },
             ].map(({ Icon, label, color, bg, value }) => (
-              <div key={label} style={{ display: 'flex', alignItems: 'flex-start', gap: 16, background: '#f8fffe', borderRadius: 14, border: '1.5px solid #e8faf6', padding: '18px 20px', boxShadow: '0 2px 8px rgba(0,0,0,0.04)' }}>
+              <div key={label} style={{ display: 'flex', alignItems: 'flex-start', gap: 16, background: '#f8fffe', borderRadius: 14, border: '1.5px solid #e8f0fc', padding: '18px 20px', boxShadow: '0 2px 8px rgba(0,0,0,0.04)' }}>
                 <div style={{ width: 44, height: 44, borderRadius: 12, flexShrink: 0, background: bg, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <Icon size={20} color={color} />
                 </div>

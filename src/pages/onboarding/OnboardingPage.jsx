@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast'
 import { ArrowLeft, CheckCircle } from 'lucide-react'
@@ -25,35 +25,35 @@ export default function OnboardingPage() {
   const isSuccess = step === STEPS.length
 
   return (
-    <div style={{ minHeight:'100vh', background:'linear-gradient(160deg,#f0fdf9 0%,#e8faf6 40%,#f0f9ff 100%)', position:'relative', overflow:'hidden' }}>
+    <div style={{ minHeight:'100vh', background:'linear-gradient(160deg,#f0fdf9 0%,#e8f0fc 40%,#f0f9ff 100%)', position:'relative', overflow:'hidden' }}>
 
       {/* Decorative blobs */}
-      <div style={{ position:'fixed', top:-200, right:-200, width:600, height:600, borderRadius:'50%', background:'radial-gradient(circle,rgba(27,188,155,0.12) 0%,transparent 70%)', pointerEvents:'none' }} />
+      <div style={{ position:'fixed', top:-200, right:-200, width:600, height:600, borderRadius:'50%', background:'radial-gradient(circle,rgba(0,64,160,0.12) 0%,transparent 70%)', pointerEvents:'none' }} />
       <div style={{ position:'fixed', bottom:-200, left:-200, width:500, height:500, borderRadius:'50%', background:'radial-gradient(circle,rgba(14,165,233,0.1) 0%,transparent 70%)', pointerEvents:'none' }} />
 
       {/* Header */}
       <header style={{
-        padding:'0 24px', borderBottom:'1px solid rgba(27,188,155,0.15)',
+        padding:'0 24px', borderBottom:'1px solid rgba(0,64,160,0.15)',
         background:'rgba(255,255,255,0.92)', backdropFilter:'blur(20px)',
         display:'flex', alignItems:'center', justifyContent:'space-between',
         position:'sticky', top:0, zIndex:50, height:64,
       }}>
         <button onClick={() => navigate('/')} style={{ display:'flex', alignItems:'center', gap:8, background:'none', border:'none', cursor:'pointer', color:'#64748b', fontSize:14, fontWeight:500, transition:'color 0.2s' }}
-          onMouseEnter={e=>e.currentTarget.style.color='#1bbc9b'} onMouseLeave={e=>e.currentTarget.style.color='#64748b'}>
+          onMouseEnter={e=>e.currentTarget.style.color='#0040a0'} onMouseLeave={e=>e.currentTarget.style.color='#64748b'}>
           <ArrowLeft size={16} /> Back to Home
         </button>
         <div style={{ display:'flex', alignItems:'center', gap:10 }}>
           <img src="/auctech-logo.png" alt="CloudX" style={{ height:34, objectFit:'contain' }} />
         </div>
         <div style={{ fontSize:13, color:'#94a3b8', fontWeight:500 }}>
-          {isSuccess ? <span style={{ color:'#1bbc9b', fontWeight:700 }}>Complete ✓</span> : `Step ${step + 1} of ${STEPS.length}`}
+          {isSuccess ? <span style={{ color:'#0040a0', fontWeight:700 }}>Complete ✓</span> : `Step ${step + 1} of ${STEPS.length}`}
         </div>
       </header>
 
       {/* Progress Bar */}
       {!isSuccess && (
-        <div style={{ height:3, background:'rgba(27,188,155,0.1)' }}>
-          <div style={{ height:'100%', width:`${((step+1)/STEPS.length)*100}%`, background:'linear-gradient(90deg,#1bbc9b,#0ea5e9)', transition:'width 0.4s ease', borderRadius:'0 3px 3px 0' }} />
+        <div style={{ height:3, background:'rgba(0,64,160,0.1)' }}>
+          <div style={{ height:'100%', width:`${((step+1)/STEPS.length)*100}%`, background:'linear-gradient(90deg,#0040a0,#0ea5e9)', transition:'width 0.4s ease', borderRadius:'0 3px 3px 0' }} />
         </div>
       )}
 
@@ -69,20 +69,20 @@ export default function OnboardingPage() {
                     width:40, height:40, borderRadius:'50%',
                     display:'flex', alignItems:'center', justifyContent:'center',
                     fontWeight:700, fontSize:13,
-                    background: i < step ? 'linear-gradient(135deg,#1bbc9b,#0e9f82)' : i === step ? '#fff' : '#fff',
-                    color: i < step ? '#fff' : i === step ? '#1bbc9b' : '#94a3b8',
-                    border: i < step ? 'none' : i === step ? '2.5px solid #1bbc9b' : '2px solid #e2e8f0',
-                    boxShadow: i === step ? '0 0 0 4px rgba(27,188,155,0.15)' : 'none',
+                    background: i < step ? 'linear-gradient(135deg,#0040a0,#002f80)' : i === step ? '#fff' : '#fff',
+                    color: i < step ? '#fff' : i === step ? '#0040a0' : '#94a3b8',
+                    border: i < step ? 'none' : i === step ? '2.5px solid #0040a0' : '2px solid #e2e8f0',
+                    boxShadow: i === step ? '0 0 0 4px rgba(0,64,160,0.15)' : 'none',
                     transition:'all 0.3s',
                   }}>
                     {i < step ? <CheckCircle size={18} /> : s.short}
                   </div>
-                  <span style={{ fontSize:11.5, marginTop:8, color: i <= step ? '#1bbc9b' : '#94a3b8', fontWeight: i === step ? 700 : 500, textAlign:'center', whiteSpace:'nowrap' }}>
+                  <span style={{ fontSize:11.5, marginTop:8, color: i <= step ? '#0040a0' : '#94a3b8', fontWeight: i === step ? 700 : 500, textAlign:'center', whiteSpace:'nowrap' }}>
                     {s.label}
                   </span>
                 </div>
                 {i < STEPS.length - 1 && (
-                  <div style={{ width:64, height:2, background: i < step ? '#1bbc9b' : '#e2e8f0', marginBottom:22, transition:'background 0.3s', borderRadius:2 }} />
+                  <div style={{ width:64, height:2, background: i < step ? '#0040a0' : '#e2e8f0', marginBottom:22, transition:'background 0.3s', borderRadius:2 }} />
                 )}
               </div>
             ))}
@@ -99,8 +99,8 @@ export default function OnboardingPage() {
       </div>
 
       <Toaster position="top-right" toastOptions={{
-        style:{ background:'#fff', color:'#1a1a2e', border:'1px solid #d1f5ee', borderRadius:10, fontSize:14, boxShadow:'0 8px 24px rgba(27,188,155,0.15)' },
-        success:{ iconTheme:{ primary:'#1bbc9b', secondary:'#fff' } },
+        style:{ background:'#fff', color:'#1a1a2e', border:'1px solid #ccdaf5', borderRadius:10, fontSize:14, boxShadow:'0 8px 24px rgba(0,64,160,0.15)' },
+        success:{ iconTheme:{ primary:'#0040a0', secondary:'#fff' } },
         error:{ iconTheme:{ primary:'#ef4444', secondary:'#fff' } },
       }} />
 

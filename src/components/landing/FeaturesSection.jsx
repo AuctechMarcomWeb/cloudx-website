@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import React from 'react'
 import { Users, CreditCard, BookOpen, Bus, Bell, BarChart2, FileText, Shield, GraduationCap, Calendar, ClipboardList, Home, Settings } from 'lucide-react'
 import superAdminImg   from '../../assets/HxCMMWD6ttfGHPpTS4EzpysImSjyF4c8d1GLbQ12.png'
 import studentImg      from '../../assets/StudentImage.png'
@@ -52,7 +52,7 @@ function PhoneMockup({ children, tilt = false }) {
 function SuperAdminScreen1() {
   return (
     <>
-      <div style={{ background:'linear-gradient(135deg,#1bbc9b,#0ea5e9)', padding:'10px 12px 8px', display:'flex', alignItems:'center', gap:8 }}>
+      <div style={{ background:'linear-gradient(135deg,#0040a0,#0ea5e9)', padding:'10px 12px 8px', display:'flex', alignItems:'center', gap:8 }}>
         <div style={{ width:28,height:28,borderRadius:8,background:'rgba(255,255,255,0.25)',display:'flex',alignItems:'center',justifyContent:'center',fontSize:9,fontWeight:800,color:'#fff' }}>SA</div>
         <div>
           <div style={{ fontSize:8,color:'#fff',fontWeight:800 }}>Super Admin</div>
@@ -61,7 +61,7 @@ function SuperAdminScreen1() {
       </div>
       <div style={{ padding:'8px', background:'#f8fffe' }}>
         <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:5, marginBottom:8 }}>
-          {[{l:'Schools',v:'127',c:'#1bbc9b'},{l:'Students',v:'1.2L',c:'#0ea5e9'},{l:'Teachers',v:'8.9K',c:'#8b5cf6'},{l:'Revenue',v:'$48k',c:'#f59e0b'}].map((s,i)=>(
+          {[{l:'Schools',v:'127',c:'#0040a0'},{l:'Students',v:'1.2L',c:'#0ea5e9'},{l:'Teachers',v:'8.9K',c:'#8b5cf6'},{l:'Revenue',v:'$48k',c:'#f59e0b'}].map((s,i)=>(
             <div key={i} style={{ background:s.c+'15',borderRadius:8,padding:'7px 8px',textAlign:'center' }}>
               <div style={{ fontSize:11,fontWeight:900,color:s.c,fontFamily:"'Lato', sans-serif" }}>{s.v}</div>
               <div style={{ fontSize:6,color:'#64748b',marginTop:1 }}>{s.l}</div>
@@ -69,11 +69,11 @@ function SuperAdminScreen1() {
           ))}
         </div>
         <div style={{ fontSize:7,fontWeight:700,color:'#374151',marginBottom:5 }}>Schools</div>
-        {[{n:'Maple Grove',c:'#1bbc9b'},{n:'Crestwood',c:'#0ea5e9'},{n:'Vidhiya School',c:'#8b5cf6'}].map((s,i)=>(
+        {[{n:'Maple Grove',c:'#0040a0'},{n:'Crestwood',c:'#0ea5e9'},{n:'Vidhiya School',c:'#8b5cf6'}].map((s,i)=>(
           <div key={i} style={{ display:'flex',alignItems:'center',gap:7,padding:'5px 6px',marginBottom:4,background:'#fff',borderRadius:7,border:'1px solid #f0fdf9' }}>
             <div style={{ width:22,height:22,borderRadius:6,background:s.c,display:'flex',alignItems:'center',justifyContent:'center',fontSize:8,fontWeight:800,color:'#fff',flexShrink:0 }}>{s.n[0]}</div>
             <div style={{ flex:1,fontSize:7,fontWeight:700,color:'#1a1a2e' }}>{s.n}</div>
-            <div style={{ fontSize:6,background:'#e8faf6',color:'#1bbc9b',borderRadius:4,padding:'1px 5px',fontWeight:700 }}>Active</div>
+            <div style={{ fontSize:6,background:'#e8f0fc',color:'#0040a0',borderRadius:4,padding:'1px 5px',fontWeight:700 }}>Active</div>
           </div>
         ))}
       </div>
@@ -86,12 +86,12 @@ function SuperAdminScreen1() {
 function SuperAdminScreen2() {
   return (
     <>
-      <div style={{ background:'#1bbc9b',padding:'10px 12px 8px' }}>
+      <div style={{ background:'#0040a0',padding:'10px 12px 8px' }}>
         <div style={{ fontSize:8,color:'#fff',fontWeight:800 }}>Packages</div>
         <div style={{ fontSize:6.5,color:'rgba(255,255,255,0.85)' }}>Manage Plans</div>
       </div>
       <div style={{ padding:'8px' }}>
-        {[{n:'Basic',p:'$0.02/student',c:'#1bbc9b',pop:false},{n:'Standard',p:'$1.00/student',c:'#0ea5e9',pop:false},{n:'Pro',p:'$99 package',c:'#8b5cf6',pop:true}].map((pl,i)=>(
+        {[{n:'Basic',p:'$0.02/student',c:'#0040a0',pop:false},{n:'Standard',p:'$1.00/student',c:'#0ea5e9',pop:false},{n:'Pro',p:'$99 package',c:'#8b5cf6',pop:true}].map((pl,i)=>(
           <div key={i} style={{ background:pl.pop?pl.c:'#f8fffe',borderRadius:10,padding:'8px 10px',marginBottom:6,border:`1.5px solid ${pl.pop?pl.c:pl.c+'30'}` }}>
             <div style={{ display:'flex',justifyContent:'space-between',alignItems:'center' }}>
               <span style={{ fontSize:8,fontWeight:800,color:pl.pop?'#fff':'#1a1a2e',fontFamily:"'Lato', sans-serif" }}>{pl.n}</span>
@@ -100,7 +100,7 @@ function SuperAdminScreen2() {
             <div style={{ fontSize:7,color:pl.pop?'rgba(255,255,255,0.85)':pl.c,marginTop:2,fontWeight:600 }}>{pl.p}</div>
           </div>
         ))}
-        <div style={{ background:'linear-gradient(135deg,#1bbc9b,#0ea5e9)',borderRadius:9,padding:'8px',textAlign:'center',marginTop:4 }}>
+        <div style={{ background:'linear-gradient(135deg,#0040a0,#0ea5e9)',borderRadius:9,padding:'8px',textAlign:'center',marginTop:4 }}>
           <span style={{ fontSize:7.5,color:'#fff',fontWeight:800 }}>Add-Ons Available</span>
         </div>
       </div>
@@ -112,13 +112,13 @@ function SuperAdminScreen2() {
 function SchoolAdminScreen1() {
   return (
     <>
-      <div style={{ background:'linear-gradient(135deg,#1bbc9b,#0ea5e9)',padding:'10px 12px 8px',display:'flex',alignItems:'center',gap:8 }}>
+      <div style={{ background:'linear-gradient(135deg,#0040a0,#0ea5e9)',padding:'10px 12px 8px',display:'flex',alignItems:'center',gap:8 }}>
         <div style={{ width:28,height:28,borderRadius:8,background:'rgba(255,255,255,0.25)',display:'flex',alignItems:'center',justifyContent:'center',fontSize:9,fontWeight:800,color:'#fff' }}>MA</div>
         <div><div style={{ fontSize:8,color:'#fff',fontWeight:800 }}>Maple Grove</div><div style={{ fontSize:6.5,color:'rgba(255,255,255,0.8)' }}>Admin Dashboard</div></div>
       </div>
       <div style={{ padding:'8px',background:'#f8fffe' }}>
         <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:5,marginBottom:8 }}>
-          {[{l:'Students',v:'2,847',c:'#1bbc9b'},{l:'Teachers',v:'184',c:'#0ea5e9'},{l:'Classes',v:'56',c:'#8b5cf6'},{l:'Fees Due',v:'$12k',c:'#f59e0b'}].map((s,i)=>(
+          {[{l:'Students',v:'2,847',c:'#0040a0'},{l:'Teachers',v:'184',c:'#0ea5e9'},{l:'Classes',v:'56',c:'#8b5cf6'},{l:'Fees Due',v:'$12k',c:'#f59e0b'}].map((s,i)=>(
             <div key={i} style={{ background:s.c+'15',borderRadius:8,padding:'6px',textAlign:'center' }}>
               <div style={{ fontSize:10,fontWeight:900,color:s.c,fontFamily:"'Lato', sans-serif" }}>{s.v}</div>
               <div style={{ fontSize:5.5,color:'#64748b',marginTop:1 }}>{s.l}</div>
@@ -126,9 +126,9 @@ function SchoolAdminScreen1() {
           ))}
         </div>
         {['Admission Form','Fee Collection','Exam Schedule','Staff Leave','Timetable'].map((m,i)=>(
-          <div key={i} style={{ background:'#fff',borderRadius:7,padding:'6px 9px',marginBottom:4,display:'flex',alignItems:'center',justifyContent:'space-between',border:'1px solid #e8faf6' }}>
+          <div key={i} style={{ background:'#fff',borderRadius:7,padding:'6px 9px',marginBottom:4,display:'flex',alignItems:'center',justifyContent:'space-between',border:'1px solid #e8f0fc' }}>
             <span style={{ fontSize:7,fontWeight:700,color:'#374151' }}>{m}</span>
-            <span style={{ fontSize:9,color:'#1bbc9b' }}>›</span>
+            <span style={{ fontSize:9,color:'#0040a0' }}>›</span>
           </div>
         ))}
       </div>
@@ -138,19 +138,19 @@ function SchoolAdminScreen1() {
 function SchoolAdminScreen2() {
   return (
     <>
-      <div style={{ background:'#1bbc9b',padding:'10px 12px 8px' }}>
+      <div style={{ background:'#0040a0',padding:'10px 12px 8px' }}>
         <div style={{ fontSize:8,color:'#fff',fontWeight:800 }}>Students</div>
         <div style={{ fontSize:6.5,color:'rgba(255,255,255,0.8)' }}>Class X-A · 42 students</div>
       </div>
       <div style={{ padding:'8px' }}>
-        {[{n:'Riya Sharma',r:'Roll 01',c:'#1bbc9b'},{n:'Arjun Patel',r:'Roll 02',c:'#0ea5e9'},{n:'Priya Mehta',r:'Roll 03',c:'#8b5cf6'},{n:'Rahul Kumar',r:'Roll 04',c:'#f59e0b'},{n:'Sneha T.',r:'Roll 05',c:'#ec4899'}].map((st,i)=>(
+        {[{n:'Riya Sharma',r:'Roll 01',c:'#0040a0'},{n:'Arjun Patel',r:'Roll 02',c:'#0ea5e9'},{n:'Priya Mehta',r:'Roll 03',c:'#8b5cf6'},{n:'Rahul Kumar',r:'Roll 04',c:'#f59e0b'},{n:'Sneha T.',r:'Roll 05',c:'#ec4899'}].map((st,i)=>(
           <div key={i} style={{ display:'flex',alignItems:'center',gap:7,padding:'5px 2px',borderBottom:'1px solid #f0fdf9' }}>
             <div style={{ width:24,height:24,borderRadius:7,background:st.c,display:'flex',alignItems:'center',justifyContent:'center',fontSize:8,fontWeight:800,color:'#fff',flexShrink:0 }}>{st.n[0]}</div>
             <div style={{ flex:1 }}>
               <div style={{ fontSize:7.5,fontWeight:800,color:'#1a1a2e' }}>{st.n}</div>
               <div style={{ fontSize:6,color:'#94a3b8' }}>{st.r}</div>
             </div>
-            <span style={{ fontSize:6,background:'#e8faf6',color:'#1bbc9b',borderRadius:4,padding:'1px 5px',fontWeight:700 }}>Active</span>
+            <span style={{ fontSize:6,background:'#e8f0fc',color:'#0040a0',borderRadius:4,padding:'1px 5px',fontWeight:700 }}>Active</span>
           </div>
         ))}
       </div>
@@ -162,13 +162,13 @@ function SchoolAdminScreen2() {
 function TeacherScreen1() {
   return (
     <>
-      <div style={{ background:'linear-gradient(135deg,#8b5cf6,#1bbc9b)',padding:'10px 12px 8px' }}>
+      <div style={{ background:'linear-gradient(135deg,#8b5cf6,#0040a0)',padding:'10px 12px 8px' }}>
         <div style={{ fontSize:8,color:'#fff',fontWeight:800 }}>Teacher Panel</div>
         <div style={{ fontSize:6.5,color:'rgba(255,255,255,0.8)' }}>Mrs. Sharma · Maths</div>
       </div>
       <div style={{ padding:'8px',background:'#f8fffe' }}>
         <div style={{ fontSize:7,fontWeight:700,color:'#374151',marginBottom:6 }}>Today's Timetable</div>
-        {[{s:'Class X-A',t:'09:00',sub:'Maths',c:'#1bbc9b'},{s:'Class IX-B',t:'11:00',sub:'Algebra',c:'#0ea5e9'},{s:'Class VIII',t:'02:00',sub:'Geometry',c:'#8b5cf6'}].map((c,i)=>(
+        {[{s:'Class X-A',t:'09:00',sub:'Maths',c:'#0040a0'},{s:'Class IX-B',t:'11:00',sub:'Algebra',c:'#0ea5e9'},{s:'Class VIII',t:'02:00',sub:'Geometry',c:'#8b5cf6'}].map((c,i)=>(
           <div key={i} style={{ background:'#fff',borderRadius:8,padding:'7px 8px',marginBottom:5,border:`1.5px solid ${c.c}22`,display:'flex',alignItems:'center',gap:8 }}>
             <div style={{ width:3,height:34,background:c.c,borderRadius:3,flexShrink:0 }} />
             <div style={{ flex:1 }}>
@@ -178,8 +178,8 @@ function TeacherScreen1() {
             <div style={{ fontSize:6.5,color:'#94a3b8',background:'#f0fdf9',padding:'2px 6px',borderRadius:4,fontWeight:600 }}>{c.t}</div>
           </div>
         ))}
-        <div style={{ background:'#e8faf6',borderRadius:9,padding:'8px',textAlign:'center',marginTop:6,border:'1.5px solid rgba(27,188,155,0.25)' }}>
-          <div style={{ fontSize:7.5,fontWeight:800,color:'#1bbc9b' }}>✅ Mark Attendance</div>
+        <div style={{ background:'#e8f0fc',borderRadius:9,padding:'8px',textAlign:'center',marginTop:6,border:'1.5px solid rgba(0,64,160,0.25)' }}>
+          <div style={{ fontSize:7.5,fontWeight:800,color:'#0040a0' }}>✅ Mark Attendance</div>
           <div style={{ fontSize:6,color:'#64748b',marginTop:1 }}>Class X-A · 42 students</div>
         </div>
       </div>
@@ -194,7 +194,7 @@ function TeacherScreen2() {
         <div style={{ fontSize:6.5,color:'rgba(255,255,255,0.85)' }}>Class X-A · Maths</div>
       </div>
       <div style={{ padding:'8px' }}>
-        {[{n:'Chapter 5 Integration',d:'Due: 28 Jun',s:'12/42',c:'#f59e0b'},{n:'Practice Set 3',d:'Due: 30 Jun',s:'35/42',c:'#1bbc9b'},{n:'Model Paper 2025',d:'Due: 05 Jul',s:'5/42',c:'#ef4444'}].map((a,i)=>(
+        {[{n:'Chapter 5 Integration',d:'Due: 28 Jun',s:'12/42',c:'#f59e0b'},{n:'Practice Set 3',d:'Due: 30 Jun',s:'35/42',c:'#0040a0'},{n:'Model Paper 2025',d:'Due: 05 Jul',s:'5/42',c:'#ef4444'}].map((a,i)=>(
           <div key={i} style={{ background:'#f8fffe',borderRadius:9,padding:'7px 9px',marginBottom:6,border:`1.5px solid ${a.c}22` }}>
             <div style={{ fontSize:7.5,fontWeight:800,color:'#1a1a2e',marginBottom:3 }}>{a.n}</div>
             <div style={{ display:'flex',justifyContent:'space-between',alignItems:'center' }}>
@@ -203,7 +203,7 @@ function TeacherScreen2() {
             </div>
           </div>
         ))}
-        <div style={{ background:'linear-gradient(135deg,#0ea5e9,#1bbc9b)',borderRadius:9,padding:'8px',textAlign:'center',marginTop:2 }}>
+        <div style={{ background:'linear-gradient(135deg,#0ea5e9,#0040a0)',borderRadius:9,padding:'8px',textAlign:'center',marginTop:2 }}>
           <span style={{ fontSize:7.5,color:'#fff',fontWeight:800 }}>+ Create Assignment</span>
         </div>
       </div>
@@ -215,7 +215,7 @@ function TeacherScreen2() {
 function ParentsScreen1() {
   return (
     <>
-      <div style={{ background:'#1bbc9b',padding:'8px 10px',display:'flex',alignItems:'center',justifyContent:'space-between' }}>
+      <div style={{ background:'#0040a0',padding:'8px 10px',display:'flex',alignItems:'center',justifyContent:'space-between' }}>
         <div style={{ display:'flex',alignItems:'center',gap:7 }}>
           <div style={{ width:26,height:26,borderRadius:'50%',background:'rgba(255,255,255,0.3)',display:'flex',alignItems:'center',justifyContent:'center',fontSize:11,overflow:'hidden',border:'2px solid rgba(255,255,255,0.5)' }}>😊</div>
           <div>
@@ -226,7 +226,7 @@ function ParentsScreen1() {
         <span style={{ fontSize:14 }}>🔔</span>
       </div>
       {/* Christmas banner */}
-      <div style={{ background:'linear-gradient(135deg,#0d8f75,#1bbc9b)',margin:'6px',borderRadius:10,padding:'8px 10px',display:'flex',alignItems:'center',gap:8 }}>
+      <div style={{ background:'linear-gradient(135deg,#0d8f75,#0040a0)',margin:'6px',borderRadius:10,padding:'8px 10px',display:'flex',alignItems:'center',gap:8 }}>
         <span style={{ fontSize:20 }}>🎄</span>
         <div>
           <div style={{ fontSize:7.5,color:'#fff',fontWeight:800 }}>Merry Christmas</div>
@@ -236,7 +236,7 @@ function ParentsScreen1() {
       <div style={{ padding:'4px 8px 6px' }}>
         <div style={{ fontSize:7,fontWeight:800,color:'#1a1a2e',marginBottom:6 }}>My Subjects</div>
         <div style={{ display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:5 }}>
-          {[{s:'Maths\n(Practice)',ic:'📐',c:'#3b82f6'},{s:'Science\n(Practice)',ic:'🔬',c:'#1bbc9b'},{s:'English',ic:'📖',c:'#f59e0b'},{s:'History',ic:'🏛️',c:'#8b5cf6'},{s:'Computer',ic:'💻',c:'#0ea5e9'},{s:'Art',ic:'🎨',c:'#ec4899'}].map((sub,i)=>(
+          {[{s:'Maths\n(Practice)',ic:'📐',c:'#3b82f6'},{s:'Science\n(Practice)',ic:'🔬',c:'#0040a0'},{s:'English',ic:'📖',c:'#f59e0b'},{s:'History',ic:'🏛️',c:'#8b5cf6'},{s:'Computer',ic:'💻',c:'#0ea5e9'},{s:'Art',ic:'🎨',c:'#ec4899'}].map((sub,i)=>(
             <div key={i} style={{ background:'#f8fffe',borderRadius:8,padding:'6px 4px',textAlign:'center',border:`1px solid ${sub.c}20` }}>
               <div style={{ fontSize:16 }}>{sub.ic}</div>
               <div style={{ fontSize:5.5,fontWeight:700,color:'#374151',marginTop:2,lineHeight:1.3 }}>{sub.s}</div>
@@ -244,11 +244,11 @@ function ParentsScreen1() {
           ))}
         </div>
       </div>
-      <div style={{ background:'#f8fffe',borderTop:'1px solid #e8faf6',padding:'6px 0',display:'flex',justifyContent:'space-around',marginTop:4 }}>
+      <div style={{ background:'#f8fffe',borderTop:'1px solid #e8f0fc',padding:'6px 0',display:'flex',justifyContent:'space-around',marginTop:4 }}>
         {['🏠','📚','📅','☰'].map((ic,i)=>(
           <div key={i} style={{ textAlign:'center' }}>
             <div style={{ fontSize:13 }}>{ic}</div>
-            {i===0 && <div style={{ width:16,height:2,background:'#1bbc9b',borderRadius:2,margin:'2px auto 0' }} />}
+            {i===0 && <div style={{ width:16,height:2,background:'#0040a0',borderRadius:2,margin:'2px auto 0' }} />}
           </div>
         ))}
       </div>
@@ -259,7 +259,7 @@ function ParentsScreen1() {
 function ParentsScreen2() {
   return (
     <>
-      <div style={{ background:'#1bbc9b',padding:'8px 10px',display:'flex',alignItems:'center',justifyContent:'space-between' }}>
+      <div style={{ background:'#0040a0',padding:'8px 10px',display:'flex',alignItems:'center',justifyContent:'space-between' }}>
         <div style={{ display:'flex',alignItems:'center',gap:7 }}>
           <div style={{ width:26,height:26,borderRadius:'50%',background:'rgba(255,255,255,0.3)',display:'flex',alignItems:'center',justifyContent:'center',fontSize:11,border:'2px solid rgba(255,255,255,0.5)' }}>👨</div>
           <div>
@@ -270,7 +270,7 @@ function ParentsScreen2() {
         <span style={{ fontSize:14 }}>🔔</span>
       </div>
       {/* School image */}
-      <div style={{ height:58,background:'linear-gradient(135deg,#0ea5e9,#1bbc9b)',margin:'6px',borderRadius:10,display:'flex',alignItems:'center',justifyContent:'center',position:'relative',overflow:'hidden' }}>
+      <div style={{ height:58,background:'linear-gradient(135deg,#0ea5e9,#0040a0)',margin:'6px',borderRadius:10,display:'flex',alignItems:'center',justifyContent:'center',position:'relative',overflow:'hidden' }}>
         <div style={{ position:'absolute',inset:0,backgroundImage:'repeating-linear-gradient(45deg,rgba(255,255,255,0.04) 0,rgba(255,255,255,0.04) 2px,transparent 2px,transparent 8px)' }} />
         <div style={{ textAlign:'center',zIndex:1 }}>
           <div style={{ fontSize:8,color:'#fff',fontWeight:800 }}>Where Learning</div>
@@ -279,8 +279,8 @@ function ParentsScreen2() {
       </div>
       <div style={{ padding:'2px 8px 4px' }}>
         <div style={{ fontSize:7,fontWeight:800,color:'#1a1a2e',marginBottom:5 }}>My Children</div>
-        <div style={{ background:'#f0fdf9',borderRadius:9,padding:'7px 8px',border:'1.5px solid rgba(27,188,155,0.2)',display:'flex',alignItems:'center',gap:8,marginBottom:6 }}>
-          <div style={{ width:28,height:28,borderRadius:'50%',background:'linear-gradient(135deg,#1bbc9b,#0ea5e9)',display:'flex',alignItems:'center',justifyContent:'center',fontSize:13 }}>👦</div>
+        <div style={{ background:'#f0fdf9',borderRadius:9,padding:'7px 8px',border:'1.5px solid rgba(0,64,160,0.2)',display:'flex',alignItems:'center',gap:8,marginBottom:6 }}>
+          <div style={{ width:28,height:28,borderRadius:'50%',background:'linear-gradient(135deg,#0040a0,#0ea5e9)',display:'flex',alignItems:'center',justifyContent:'center',fontSize:13 }}>👦</div>
           <div>
             <div style={{ fontSize:7.5,fontWeight:800,color:'#1a1a2e' }}>Divy Jani</div>
             <div style={{ fontSize:6,color:'#64748b' }}>Class 1-A · Roll No. 5</div>
@@ -288,7 +288,7 @@ function ParentsScreen2() {
         </div>
         <div style={{ display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:4 }}>
           <span style={{ fontSize:7,fontWeight:800,color:'#1a1a2e' }}>Latest notices</span>
-          <span style={{ fontSize:6.5,color:'#1bbc9b',fontWeight:700 }}>View All</span>
+          <span style={{ fontSize:6.5,color:'#0040a0',fontWeight:700 }}>View All</span>
         </div>
         {[{t:'Holiday',d:'Due to bad weather...',ic:'🏖️'},{t:'Exam Schedule',d:'Finals from 10 Jul',ic:'📝'}].map((n,i)=>(
           <div key={i} style={{ display:'flex',gap:6,padding:'4px 0',borderTop:'1px solid #f0fdf9',alignItems:'flex-start' }}>
@@ -300,7 +300,7 @@ function ParentsScreen2() {
           </div>
         ))}
       </div>
-      <div style={{ background:'#f8fffe',borderTop:'1px solid #e8faf6',padding:'6px 0',display:'flex',justifyContent:'space-around' }}>
+      <div style={{ background:'#f8fffe',borderTop:'1px solid #e8f0fc',padding:'6px 0',display:'flex',justifyContent:'space-around' }}>
         {['🏠','👨‍👩‍👧','📚','☰'].map((ic,i)=><span key={i} style={{ fontSize:13 }}>{ic}</span>)}
       </div>
     </>
@@ -311,18 +311,18 @@ function ParentsScreen2() {
 function StudentScreen1() {
   return (
     <>
-      <div style={{ background:'linear-gradient(135deg,#1bbc9b,#0ea5e9)',padding:'10px 12px 8px' }}>
+      <div style={{ background:'linear-gradient(135deg,#0040a0,#0ea5e9)',padding:'10px 12px 8px' }}>
         <div style={{ fontSize:8,color:'#fff',fontWeight:800 }}>My Subjects</div>
         <div style={{ fontSize:6.5,color:'rgba(255,255,255,0.8)' }}>Class X-A · Riya Sharma</div>
       </div>
       <div style={{ padding:'8px' }}>
-        {[{s:'Mathematics',p:87,c:'#1bbc9b'},{s:'Science',p:92,c:'#0ea5e9'},{s:'English',p:78,c:'#8b5cf6'},{s:'History',p:85,c:'#f59e0b'}].map((sub,i)=>(
-          <div key={i} style={{ background:'#f8fffe',borderRadius:8,padding:'6px 8px',marginBottom:5,border:'1px solid #e8faf6' }}>
+        {[{s:'Mathematics',p:87,c:'#0040a0'},{s:'Science',p:92,c:'#0ea5e9'},{s:'English',p:78,c:'#8b5cf6'},{s:'History',p:85,c:'#f59e0b'}].map((sub,i)=>(
+          <div key={i} style={{ background:'#f8fffe',borderRadius:8,padding:'6px 8px',marginBottom:5,border:'1px solid #e8f0fc' }}>
             <div style={{ display:'flex',justifyContent:'space-between',marginBottom:4 }}>
               <span style={{ fontSize:7.5,fontWeight:800,color:'#1a1a2e' }}>{sub.s}</span>
               <span style={{ fontSize:8,fontWeight:900,color:sub.c,fontFamily:"'Lato', sans-serif" }}>{sub.p}%</span>
             </div>
-            <div style={{ background:'#e8faf6',borderRadius:4,height:5,overflow:'hidden' }}>
+            <div style={{ background:'#e8f0fc',borderRadius:4,height:5,overflow:'hidden' }}>
               <div style={{ width:`${sub.p}%`,height:'100%',background:`linear-gradient(90deg,${sub.c},${sub.c}bb)`,borderRadius:4 }} />
             </div>
           </div>
@@ -339,11 +339,11 @@ function StudentScreen2() {
         <div style={{ fontSize:6.5,color:'rgba(255,255,255,0.85)' }}>Term 2 · 2024-25</div>
       </div>
       <div style={{ padding:'8px' }}>
-        <div style={{ background:'linear-gradient(135deg,#e8faf6,#d1f5ee)',borderRadius:10,padding:'10px',textAlign:'center',marginBottom:8,border:'1.5px solid rgba(27,188,155,0.2)' }}>
-          <div style={{ fontSize:22,fontWeight:900,color:'#1bbc9b',fontFamily:"'Lato', sans-serif" }}>87.4%</div>
+        <div style={{ background:'linear-gradient(135deg,#e8f0fc,#ccdaf5)',borderRadius:10,padding:'10px',textAlign:'center',marginBottom:8,border:'1.5px solid rgba(0,64,160,0.2)' }}>
+          <div style={{ fontSize:22,fontWeight:900,color:'#0040a0',fontFamily:"'Lato', sans-serif" }}>87.4%</div>
           <div style={{ fontSize:7,color:'#64748b',marginTop:2 }}>Overall Score · Grade A</div>
         </div>
-        {[{s:'Maths',m:'92/100',c:'#1bbc9b'},{s:'Science',m:'88/100',c:'#0ea5e9'},{s:'English',m:'82/100',c:'#8b5cf6'},{s:'History',m:'85/100',c:'#f59e0b'}].map((r,i)=>(
+        {[{s:'Maths',m:'92/100',c:'#0040a0'},{s:'Science',m:'88/100',c:'#0ea5e9'},{s:'English',m:'82/100',c:'#8b5cf6'},{s:'History',m:'85/100',c:'#f59e0b'}].map((r,i)=>(
           <div key={i} style={{ display:'flex',justifyContent:'space-between',alignItems:'center',padding:'5px 0',borderTop:'1px solid #f0fdf9' }}>
             <span style={{ fontSize:7.5,color:'#374151',fontWeight:700 }}>{r.s}</span>
             <span style={{ fontSize:7.5,color:r.c,fontWeight:800,background:r.c+'18',padding:'2px 8px',borderRadius:5,fontFamily:"'Lato', sans-serif" }}>{r.m}</span>
@@ -364,14 +364,14 @@ function StaffScreen1() {
       </div>
       <div style={{ padding:'8px' }}>
         <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:5,marginBottom:8 }}>
-          {[{l:'Classes Today',v:'4',c:'#1bbc9b'},{l:'Pending Leave',v:'2',c:'#f59e0b'},{l:'Assignments',v:'8',c:'#0ea5e9'},{l:'Notices',v:'3',c:'#8b5cf6'}].map((s,i)=>(
+          {[{l:'Classes Today',v:'4',c:'#0040a0'},{l:'Pending Leave',v:'2',c:'#f59e0b'},{l:'Assignments',v:'8',c:'#0ea5e9'},{l:'Notices',v:'3',c:'#8b5cf6'}].map((s,i)=>(
             <div key={i} style={{ background:s.c+'18',borderRadius:8,padding:'6px',textAlign:'center' }}>
               <div style={{ fontSize:13,fontWeight:900,color:s.c,fontFamily:"'Lato', sans-serif" }}>{s.v}</div>
               <div style={{ fontSize:5.5,color:'#64748b',marginTop:1,lineHeight:1.3 }}>{s.l}</div>
             </div>
           ))}
         </div>
-        {[{t:'09:00',s:'Class X-A',sub:'Science',c:'#1bbc9b'},{t:'11:00',s:'Class IX-B',sub:'Biology',c:'#0ea5e9'},{t:'02:00',s:'Class XI-A',sub:'Physics',c:'#8b5cf6'}].map((c,i)=>(
+        {[{t:'09:00',s:'Class X-A',sub:'Science',c:'#0040a0'},{t:'11:00',s:'Class IX-B',sub:'Biology',c:'#0ea5e9'},{t:'02:00',s:'Class XI-A',sub:'Physics',c:'#8b5cf6'}].map((c,i)=>(
           <div key={i} style={{ background:'#f0fdf9',borderRadius:7,padding:'5px 8px',marginBottom:4,display:'flex',alignItems:'center',gap:7,border:`1px solid ${c.c}22` }}>
             <span style={{ fontSize:6.5,color:c.c,fontWeight:800,minWidth:32 }}>{c.t}</span>
             <div style={{ flex:1 }}>
@@ -387,12 +387,12 @@ function StaffScreen1() {
 function StaffScreen2() {
   return (
     <>
-      <div style={{ background:'#1bbc9b',padding:'10px 12px 8px' }}>
+      <div style={{ background:'#0040a0',padding:'10px 12px 8px' }}>
         <div style={{ fontSize:8,color:'#fff',fontWeight:800 }}>Leave Management</div>
         <div style={{ fontSize:6.5,color:'rgba(255,255,255,0.85)' }}>Apply & Track</div>
       </div>
       <div style={{ padding:'8px' }}>
-        {[{t:'Sick Leave',d:'12–13 Jun',s:'Approved',sc:'#1bbc9b'},{t:'Casual Leave',d:'20 Jun',s:'Pending',sc:'#f59e0b'},{t:'Emergency',d:'25 Jun',s:'Rejected',sc:'#ef4444'}].map((l,i)=>(
+        {[{t:'Sick Leave',d:'12–13 Jun',s:'Approved',sc:'#0040a0'},{t:'Casual Leave',d:'20 Jun',s:'Pending',sc:'#f59e0b'},{t:'Emergency',d:'25 Jun',s:'Rejected',sc:'#ef4444'}].map((l,i)=>(
           <div key={i} style={{ background:'#f8fffe',borderRadius:9,padding:'7px 9px',marginBottom:6,border:`1.5px solid ${l.sc}22` }}>
             <div style={{ display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:2 }}>
               <span style={{ fontSize:8,fontWeight:800,color:'#1a1a2e' }}>{l.t}</span>
@@ -401,7 +401,7 @@ function StaffScreen2() {
             <div style={{ fontSize:6.5,color:'#94a3b8' }}>{l.d}</div>
           </div>
         ))}
-        <div style={{ background:'linear-gradient(135deg,#1bbc9b,#0ea5e9)',borderRadius:9,padding:'8px',textAlign:'center',marginTop:4 }}>
+        <div style={{ background:'linear-gradient(135deg,#0040a0,#0ea5e9)',borderRadius:9,padding:'8px',textAlign:'center',marginTop:4 }}>
           <span style={{ fontSize:8,color:'#fff',fontWeight:800 }}>+ Apply New Leave</span>
         </div>
       </div>
@@ -437,7 +437,6 @@ const PANELS = [
       {icon:Bell,         title:'Announcements Made Simple',      desc:'Easily create and manage section-specific announcements. Keep your school community informed.'},
       {icon:BarChart2,    title:'Effortless Exam Management',     desc:'Simplify exam scheduling and management with our online and offline sections.'},
       {icon:CreditCard,   title:'Fees Management',                desc:'Create different types and maintain comprehensive logs of payments. Ensuring accurate records.'},
-      {icon:FileText,     title:'Staff Leave Management',         desc:'Leave management for all employees — teachers & staff. Track and manage leave requests.'},
     ],
   },
   {
@@ -498,10 +497,10 @@ const FEATURE_GRID = [
     title: 'Student management',
     icon: (
       <svg viewBox="0 0 48 48" fill="none" width="36" height="36">
-        <circle cx="24" cy="14" r="7" stroke="#1bbc9b" strokeWidth="2" fill="none"/>
-        <path d="M8 40c0-8.837 7.163-16 16-16s16 7.163 16 16" stroke="#1bbc9b" strokeWidth="2" strokeLinecap="round" fill="none"/>
-        <path d="M34 10l8-4-8-4v8z" stroke="#1bbc9b" strokeWidth="1.5" fill="none"/>
-        <circle cx="38" cy="18" r="2" stroke="#1bbc9b" strokeWidth="1.5" fill="none"/>
+        <circle cx="24" cy="14" r="7" stroke="#0040a0" strokeWidth="2" fill="none"/>
+        <path d="M8 40c0-8.837 7.163-16 16-16s16 7.163 16 16" stroke="#0040a0" strokeWidth="2" strokeLinecap="round" fill="none"/>
+        <path d="M34 10l8-4-8-4v8z" stroke="#0040a0" strokeWidth="1.5" fill="none"/>
+        <circle cx="38" cy="18" r="2" stroke="#0040a0" strokeWidth="1.5" fill="none"/>
       </svg>
     ),
   },
@@ -509,11 +508,11 @@ const FEATURE_GRID = [
     title: 'Academics management',
     icon: (
       <svg viewBox="0 0 48 48" fill="none" width="36" height="36">
-        <rect x="8" y="12" width="32" height="28" rx="3" stroke="#1bbc9b" strokeWidth="2" fill="none"/>
-        <path d="M16 12V8a2 2 0 012-2h12a2 2 0 012 2v4" stroke="#1bbc9b" strokeWidth="2" fill="none"/>
-        <path d="M16 24h16M16 30h10" stroke="#1bbc9b" strokeWidth="2" strokeLinecap="round"/>
-        <circle cx="36" cy="36" r="6" fill="#e8faf6" stroke="#1bbc9b" strokeWidth="1.5"/>
-        <path d="M34 36l1.5 1.5L38 34" stroke="#1bbc9b" strokeWidth="1.5" strokeLinecap="round"/>
+        <rect x="8" y="12" width="32" height="28" rx="3" stroke="#0040a0" strokeWidth="2" fill="none"/>
+        <path d="M16 12V8a2 2 0 012-2h12a2 2 0 012 2v4" stroke="#0040a0" strokeWidth="2" fill="none"/>
+        <path d="M16 24h16M16 30h10" stroke="#0040a0" strokeWidth="2" strokeLinecap="round"/>
+        <circle cx="36" cy="36" r="6" fill="#e8f0fc" stroke="#0040a0" strokeWidth="1.5"/>
+        <path d="M34 36l1.5 1.5L38 34" stroke="#0040a0" strokeWidth="1.5" strokeLinecap="round"/>
       </svg>
     ),
   },
@@ -521,12 +520,12 @@ const FEATURE_GRID = [
     title: 'Slider management',
     icon: (
       <svg viewBox="0 0 48 48" fill="none" width="36" height="36">
-        <rect x="4" y="12" width="40" height="26" rx="3" stroke="#1bbc9b" strokeWidth="2" fill="none"/>
-        <path d="M4 18h40" stroke="#1bbc9b" strokeWidth="1.5"/>
-        <rect x="10" y="22" width="28" height="10" rx="2" stroke="#1bbc9b" strokeWidth="1.5" fill="none"/>
-        <circle cx="14" cy="40" r="2" fill="#1bbc9b"/>
-        <circle cx="24" cy="40" r="2" fill="#d1f5ee" stroke="#1bbc9b" strokeWidth="1.5"/>
-        <circle cx="34" cy="40" r="2" fill="#d1f5ee" stroke="#1bbc9b" strokeWidth="1.5"/>
+        <rect x="4" y="12" width="40" height="26" rx="3" stroke="#0040a0" strokeWidth="2" fill="none"/>
+        <path d="M4 18h40" stroke="#0040a0" strokeWidth="1.5"/>
+        <rect x="10" y="22" width="28" height="10" rx="2" stroke="#0040a0" strokeWidth="1.5" fill="none"/>
+        <circle cx="14" cy="40" r="2" fill="#0040a0"/>
+        <circle cx="24" cy="40" r="2" fill="#ccdaf5" stroke="#0040a0" strokeWidth="1.5"/>
+        <circle cx="34" cy="40" r="2" fill="#ccdaf5" stroke="#0040a0" strokeWidth="1.5"/>
       </svg>
     ),
   },
@@ -534,10 +533,10 @@ const FEATURE_GRID = [
     title: 'Teacher management',
     icon: (
       <svg viewBox="0 0 48 48" fill="none" width="36" height="36">
-        <rect x="6" y="8" width="36" height="26" rx="3" stroke="#1bbc9b" strokeWidth="2" fill="none"/>
-        <path d="M16 38h16M24 34v4" stroke="#1bbc9b" strokeWidth="2" strokeLinecap="round"/>
-        <circle cx="24" cy="20" r="5" stroke="#1bbc9b" strokeWidth="1.5" fill="none"/>
-        <path d="M14 30c0-5.523 4.477-8 10-8s10 2.477 10 8" stroke="#1bbc9b" strokeWidth="1.5" strokeLinecap="round" fill="none"/>
+        <rect x="6" y="8" width="36" height="26" rx="3" stroke="#0040a0" strokeWidth="2" fill="none"/>
+        <path d="M16 38h16M24 34v4" stroke="#0040a0" strokeWidth="2" strokeLinecap="round"/>
+        <circle cx="24" cy="20" r="5" stroke="#0040a0" strokeWidth="1.5" fill="none"/>
+        <path d="M14 30c0-5.523 4.477-8 10-8s10 2.477 10 8" stroke="#0040a0" strokeWidth="1.5" strokeLinecap="round" fill="none"/>
       </svg>
     ),
   },
@@ -545,12 +544,12 @@ const FEATURE_GRID = [
     title: 'Session year management',
     icon: (
       <svg viewBox="0 0 48 48" fill="none" width="36" height="36">
-        <rect x="6" y="10" width="36" height="32" rx="3" stroke="#1bbc9b" strokeWidth="2" fill="none"/>
-        <path d="M6 18h36" stroke="#1bbc9b" strokeWidth="1.5"/>
-        <path d="M16 6v8M32 6v8" stroke="#1bbc9b" strokeWidth="2" strokeLinecap="round"/>
-        <rect x="12" y="24" width="8" height="6" rx="1" fill="#e8faf6" stroke="#1bbc9b" strokeWidth="1.2"/>
-        <rect x="28" y="24" width="8" height="6" rx="1" fill="#e8faf6" stroke="#1bbc9b" strokeWidth="1.2"/>
-        <path d="M12 34h8M28 34h8" stroke="#1bbc9b" strokeWidth="1.5" strokeLinecap="round"/>
+        <rect x="6" y="10" width="36" height="32" rx="3" stroke="#0040a0" strokeWidth="2" fill="none"/>
+        <path d="M6 18h36" stroke="#0040a0" strokeWidth="1.5"/>
+        <path d="M16 6v8M32 6v8" stroke="#0040a0" strokeWidth="2" strokeLinecap="round"/>
+        <rect x="12" y="24" width="8" height="6" rx="1" fill="#e8f0fc" stroke="#0040a0" strokeWidth="1.2"/>
+        <rect x="28" y="24" width="8" height="6" rx="1" fill="#e8f0fc" stroke="#0040a0" strokeWidth="1.2"/>
+        <path d="M12 34h8M28 34h8" stroke="#0040a0" strokeWidth="1.5" strokeLinecap="round"/>
       </svg>
     ),
   },
@@ -558,10 +557,10 @@ const FEATURE_GRID = [
     title: 'Holiday management',
     icon: (
       <svg viewBox="0 0 48 48" fill="none" width="36" height="36">
-        <path d="M24 6C15.163 6 8 13.163 8 22c0 8.284 5.5 15.284 13 17.5V42h6v-2.5C34.5 37.284 40 30.284 40 22c0-8.837-7.163-16-16-16z" stroke="#1bbc9b" strokeWidth="2" fill="none"/>
-        <path d="M18 22c0-3.314 2.686-6 6-6s6 2.686 6 6" stroke="#1bbc9b" strokeWidth="1.5" strokeLinecap="round" fill="none"/>
-        <path d="M20 42h8" stroke="#1bbc9b" strokeWidth="2" strokeLinecap="round"/>
-        <circle cx="24" cy="22" r="2" fill="#1bbc9b"/>
+        <path d="M24 6C15.163 6 8 13.163 8 22c0 8.284 5.5 15.284 13 17.5V42h6v-2.5C34.5 37.284 40 30.284 40 22c0-8.837-7.163-16-16-16z" stroke="#0040a0" strokeWidth="2" fill="none"/>
+        <path d="M18 22c0-3.314 2.686-6 6-6s6 2.686 6 6" stroke="#0040a0" strokeWidth="1.5" strokeLinecap="round" fill="none"/>
+        <path d="M20 42h8" stroke="#0040a0" strokeWidth="2" strokeLinecap="round"/>
+        <circle cx="24" cy="22" r="2" fill="#0040a0"/>
       </svg>
     ),
   },
@@ -569,11 +568,11 @@ const FEATURE_GRID = [
     title: 'Timetable management',
     icon: (
       <svg viewBox="0 0 48 48" fill="none" width="36" height="36">
-        <rect x="6" y="8" width="36" height="34" rx="3" stroke="#1bbc9b" strokeWidth="2" fill="none"/>
-        <path d="M6 18h36" stroke="#1bbc9b" strokeWidth="1.5"/>
-        <path d="M16 8v6M32 8v6" stroke="#1bbc9b" strokeWidth="2" strokeLinecap="round"/>
-        <path d="M12 25h6v5h-6zM21 25h6v5h-6zM30 25h6v5h-6z" stroke="#1bbc9b" strokeWidth="1.2" fill="none"/>
-        <path d="M12 34h6M21 34h6M30 34h6" stroke="#1bbc9b" strokeWidth="1.5" strokeLinecap="round"/>
+        <rect x="6" y="8" width="36" height="34" rx="3" stroke="#0040a0" strokeWidth="2" fill="none"/>
+        <path d="M6 18h36" stroke="#0040a0" strokeWidth="1.5"/>
+        <path d="M16 8v6M32 8v6" stroke="#0040a0" strokeWidth="2" strokeLinecap="round"/>
+        <path d="M12 25h6v5h-6zM21 25h6v5h-6zM30 25h6v5h-6z" stroke="#0040a0" strokeWidth="1.2" fill="none"/>
+        <path d="M12 34h6M21 34h6M30 34h6" stroke="#0040a0" strokeWidth="1.5" strokeLinecap="round"/>
       </svg>
     ),
   },
@@ -581,10 +580,10 @@ const FEATURE_GRID = [
     title: 'Attendance management',
     icon: (
       <svg viewBox="0 0 48 48" fill="none" width="36" height="36">
-        <rect x="8" y="8" width="32" height="36" rx="3" stroke="#1bbc9b" strokeWidth="2" fill="none"/>
-        <path d="M16 4v8M32 4v8" stroke="#1bbc9b" strokeWidth="2" strokeLinecap="round"/>
-        <path d="M14 24l4 4 8-8" stroke="#1bbc9b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M14 34h12M14 30h20" stroke="#1bbc9b" strokeWidth="1.5" strokeLinecap="round"/>
+        <rect x="8" y="8" width="32" height="36" rx="3" stroke="#0040a0" strokeWidth="2" fill="none"/>
+        <path d="M16 4v8M32 4v8" stroke="#0040a0" strokeWidth="2" strokeLinecap="round"/>
+        <path d="M14 24l4 4 8-8" stroke="#0040a0" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M14 34h12M14 30h20" stroke="#0040a0" strokeWidth="1.5" strokeLinecap="round"/>
       </svg>
     ),
   },
@@ -592,10 +591,76 @@ const FEATURE_GRID = [
     title: 'Exam management',
     icon: (
       <svg viewBox="0 0 48 48" fill="none" width="36" height="36">
-        <rect x="10" y="6" width="28" height="36" rx="3" stroke="#1bbc9b" strokeWidth="2" fill="none"/>
-        <path d="M18 16h12M18 22h12M18 28h8" stroke="#1bbc9b" strokeWidth="2" strokeLinecap="round"/>
-        <rect x="28" y="28" width="10" height="10" rx="2" fill="#e8faf6" stroke="#1bbc9b" strokeWidth="1.5"/>
-        <path d="M30 33l2 2 4-4" stroke="#1bbc9b" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <rect x="10" y="6" width="28" height="36" rx="3" stroke="#0040a0" strokeWidth="2" fill="none"/>
+        <path d="M18 16h12M18 22h12M18 28h8" stroke="#0040a0" strokeWidth="2" strokeLinecap="round"/>
+        <rect x="28" y="28" width="10" height="10" rx="2" fill="#e8f0fc" stroke="#0040a0" strokeWidth="1.5"/>
+        <path d="M30 33l2 2 4-4" stroke="#0040a0" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    ),
+  },
+]
+
+/* ── Extra features shown on "View more" ── */
+const FEATURE_GRID_EXTRA = [
+  {
+    title: 'Fee management',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" width="36" height="36">
+        <rect x="6" y="10" width="36" height="28" rx="3" stroke="#0040a0" strokeWidth="2" fill="none"/>
+        <circle cx="24" cy="24" r="7" stroke="#0040a0" strokeWidth="2" fill="none"/>
+        <path d="M24 18v12M21 20.5h4.5a2 2 0 010 4H22a2 2 0 000 4H27" stroke="#0040a0" strokeWidth="1.5" strokeLinecap="round"/>
+      </svg>
+    ),
+  },
+  {
+    title: 'Transportation management',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" width="36" height="36">
+        <rect x="4" y="14" width="40" height="22" rx="3" stroke="#0040a0" strokeWidth="2" fill="none"/>
+        <path d="M4 20h40" stroke="#0040a0" strokeWidth="1.5"/>
+        <circle cx="13" cy="40" r="4" stroke="#0040a0" strokeWidth="2" fill="none"/>
+        <circle cx="35" cy="40" r="4" stroke="#0040a0" strokeWidth="2" fill="none"/>
+        <path d="M17 40h14M4 32h40" stroke="#0040a0" strokeWidth="1.5" strokeLinecap="round"/>
+        <path d="M10 14V10a2 2 0 012-2h24a2 2 0 012 2v4" stroke="#0040a0" strokeWidth="1.5" fill="none"/>
+      </svg>
+    ),
+  },
+  {
+    title: 'Announcement management',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" width="36" height="36">
+        <path d="M8 20v8h6l10 8V12L14 20H8z" stroke="#0040a0" strokeWidth="2" strokeLinejoin="round" fill="none"/>
+        <path d="M34 16c2.5 2 4 5 4 8s-1.5 6-4 8" stroke="#0040a0" strokeWidth="2" strokeLinecap="round" fill="none"/>
+        <path d="M38 10c5 4 8 9 8 14s-3 10-8 14" stroke="#0040a0" strokeWidth="1.5" strokeLinecap="round" fill="none"/>
+      </svg>
+    ),
+  },
+  {
+    title: 'Assignment management',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" width="36" height="36">
+        <rect x="10" y="6" width="28" height="36" rx="3" stroke="#0040a0" strokeWidth="2" fill="none"/>
+        <path d="M18 16h12M18 22h12M18 28h8" stroke="#0040a0" strokeWidth="2" strokeLinecap="round"/>
+        <path d="M28 32l3 3 5-5" stroke="#0040a0" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    ),
+  },
+  {
+    title: 'Lesson management',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" width="36" height="36">
+        <rect x="8" y="8" width="32" height="32" rx="3" stroke="#0040a0" strokeWidth="2" fill="none"/>
+        <path d="M16 18h16M16 24h16M16 30h10" stroke="#0040a0" strokeWidth="2" strokeLinecap="round"/>
+        <path d="M36 32l4 8-4-2-4 2 4-8z" stroke="#0040a0" strokeWidth="1.5" strokeLinejoin="round" fill="none"/>
+      </svg>
+    ),
+  },
+  {
+    title: 'Chat module',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" width="36" height="36">
+        <path d="M6 10a3 3 0 013-3h30a3 3 0 013 3v22a3 3 0 01-3 3H16l-7 6V10z" stroke="#0040a0" strokeWidth="2" strokeLinejoin="round" fill="none"/>
+        <path d="M14 20h20M14 27h12" stroke="#0040a0" strokeWidth="2" strokeLinecap="round"/>
       </svg>
     ),
   },
@@ -603,68 +668,123 @@ const FEATURE_GRID = [
 
 /* ── Main Component — Simple vertical scroll, no tabs ── */
 export default function FeaturesSection() {
-  const [activeFeature, setActiveFeature] = useState({})
-
-  const getActiveFeature = (id) => activeFeature[id] ?? 0
-  const setFeature = (panelId, i) =>
-    setActiveFeature(prev => ({ ...prev, [panelId]: i }))
+  const [showMore, setShowMore] = React.useState(false)
 
   return (
     <section id="features" style={{ background: '#fff' }}>
 
       {/* ── Section Header ── */}
-      <div style={{ textAlign: 'center', padding: '80px 0 48px' }}>
-        <span style={{ display:'inline-block',fontSize:12,fontWeight:700,color:'#1bbc9b',letterSpacing:2,textTransform:'uppercase',background:'rgba(27,188,155,0.08)',padding:'5px 16px',borderRadius:50,marginBottom:14 }}>Features</span>
-        <h2 className="section-title">Explore our top features</h2>
+      <div style={{ textAlign: 'center', padding: '80px 0 52px' }}>
+        <span style={{ display:'inline-block',fontSize:12,fontWeight:700,color:'#0040a0',letterSpacing:2,textTransform:'uppercase',background:'rgba(0,64,160,0.08)',padding:'5px 16px',borderRadius:50,marginBottom:14 }}>Features</span>
+        <h2 className="section-title" style={{ marginBottom: 16 }}>Explore our top features</h2>
+        {/* blue underline with dot */}
+        <div style={{ display:'flex',alignItems:'center',justifyContent:'center',maxWidth:520,margin:'0 auto 16px' }}>
+          <div style={{ flex:1,height:2,background:'#0040a0',opacity:0.2 }} />
+          <div style={{ width:10,height:10,borderRadius:'50%',background:'#0040a0',margin:'0 8px',flexShrink:0 }} />
+          <div style={{ flex:1,height:2,background:'#0040a0',opacity:0.2 }} />
+        </div>
         <p style={{ color:'#64748b',fontSize:16,lineHeight:1.7,maxWidth:520,margin:'0 auto' }}>14+ robust features for an enhanced educational experience.</p>
       </div>
 
       {/* ── Feature Grid ── */}
-      <div style={{ padding: '0 0 72px' }}>
+      <div style={{ padding: '0 0 48px' }}>
         <div className="container">
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(3, 1fr)',
-            gap: 16,
-            maxWidth: 960,
-            margin: '0 auto',
+            gap: 20,
           }} className="feat-icon-grid">
             {FEATURE_GRID.map(({ title, icon }) => (
               <div key={title} style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: 14,
+                gap: 16,
                 background: '#fff',
-                border: '1.5px solid #e8f5f2',
-                borderLeft: '4px solid #1bbc9b',
-                borderRadius: 10,
-                padding: '16px 20px',
-                boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
+                border: '1.5px solid #e2e8f0',
+                borderLeft: '4px solid #0040a0',
+                borderRadius: 12,
+                padding: '20px 24px',
+                boxShadow: '0 2px 10px rgba(0,0,0,0.05)',
                 transition: 'all 0.2s',
+                cursor: 'default',
               }}
-                onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 6px 20px rgba(27,188,155,0.15)'; e.currentTarget.style.borderColor = '#1bbc9b' }}
-                onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.04)'; e.currentTarget.style.borderColor = '#e8f5f2'; e.currentTarget.style.borderLeftColor = '#1bbc9b' }}
+                onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,64,160,0.15)'; e.currentTarget.style.borderColor = '#0040a0'; e.currentTarget.style.transform = 'translateY(-2px)' }}
+                onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 2px 10px rgba(0,0,0,0.05)'; e.currentTarget.style.borderColor = '#e2e8f0'; e.currentTarget.style.borderLeftColor = '#0040a0'; e.currentTarget.style.transform = 'none' }}
               >
                 <div style={{
-                  width: 48, height: 48, borderRadius: 10, flexShrink: 0,
-                  background: '#f0fdf9',
+                  width: 52, height: 52, borderRadius: 12, flexShrink: 0,
+                  background: 'rgba(0,64,160,0.07)',
+                  border: '1px solid rgba(0,64,160,0.15)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                 }}>
                   {icon}
                 </div>
                 <span style={{
-                  fontSize: 14.5, fontWeight: 600, color: '#1a1a2e',
+                  fontSize: 16, fontWeight: 600, color: '#1a1a2e',
                   fontFamily: "'Lato', sans-serif", lineHeight: 1.4,
                 }}>{title}</span>
               </div>
             ))}
+
+            {/* Extra features — shown when expanded */}
+            {showMore && FEATURE_GRID_EXTRA.map(({ title, icon }) => (
+              <div key={title} style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 16,
+                background: '#fff',
+                border: '1.5px solid #e2e8f0',
+                borderLeft: '4px solid #0040a0',
+                borderRadius: 12,
+                padding: '20px 24px',
+                boxShadow: '0 2px 10px rgba(0,0,0,0.05)',
+                transition: 'all 0.2s',
+                cursor: 'default',
+                animation: 'fadeInUp 0.3s ease',
+              }}
+                onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,64,160,0.15)'; e.currentTarget.style.borderColor = '#0040a0'; e.currentTarget.style.transform = 'translateY(-2px)' }}
+                onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 2px 10px rgba(0,0,0,0.05)'; e.currentTarget.style.borderColor = '#e2e8f0'; e.currentTarget.style.borderLeftColor = '#0040a0'; e.currentTarget.style.transform = 'none' }}
+              >
+                <div style={{
+                  width: 52, height: 52, borderRadius: 12, flexShrink: 0,
+                  background: 'rgba(0,64,160,0.07)',
+                  border: '1px solid rgba(0,64,160,0.15)',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                }}>
+                  {icon}
+                </div>
+                <span style={{
+                  fontSize: 16, fontWeight: 600, color: '#1a1a2e',
+                  fontFamily: "'Lato', sans-serif", lineHeight: 1.4,
+                }}>{title}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* View more / View less features button */}
+          <div style={{ textAlign: 'center', marginTop: 36 }}>
+            <button
+              onClick={() => setShowMore(prev => !prev)}
+              style={{
+                display: 'inline-flex', alignItems: 'center', gap: 8,
+                padding: '13px 32px', borderRadius: 8, border: 'none', cursor: 'pointer',
+                background: 'linear-gradient(135deg, #0040a0, #0060d0)',
+                color: '#fff', fontSize: 15, fontWeight: 600,
+                fontFamily: "'Lato', sans-serif",
+                boxShadow: '0 6px 20px rgba(0,64,160,0.35)',
+                transition: 'all 0.2s',
+              }}
+              onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 10px 28px rgba(0,64,160,0.45)' }}
+              onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = '0 6px 20px rgba(0,64,160,0.35)' }}
+            >
+              {showMore ? 'View less features ←' : 'View more features →'}
+            </button>
           </div>
         </div>
       </div>
 
       {/* ── All Panels stacked vertically ── */}
       {PANELS.map((panel) => {
-        const activeF = getActiveFeature(panel.id)
         return (
           <div
             key={panel.id}
@@ -676,50 +796,46 @@ export default function FeaturesSection() {
 
               {/* Panel heading */}
               <div style={{ textAlign: 'center', marginBottom: 48 }}>
-                <p style={{ fontSize:14,fontWeight:700,color:'#1bbc9b',marginBottom:12,fontFamily:"'Lato', sans-serif" }}>{panel.label}</p>
+                <p style={{ fontSize:14,fontWeight:700,color:'#0040a0',marginBottom:12,fontFamily:"'Lato', sans-serif" }}>{panel.label}</p>
                 <h3 style={{
-                  fontSize: 'clamp(20px,3vw,32px)',
-                  fontWeight: 900,
+                  fontSize: 'clamp(28px, 3.5vw, 44px)',
+                  fontWeight: 700,
                   color: '#1a1a2e',
-                  maxWidth: 700,
+                  maxWidth: 860,
                   margin: '0 auto 20px',
-                  lineHeight: 1.3,
+                  lineHeight: 1.2,
                   fontFamily:"'Lato', sans-serif",
                 }}>{panel.heading}</h3>
                 {/* Divider line with dot */}
                 <div style={{ display:'flex',alignItems:'center',justifyContent:'center',maxWidth:600,margin:'0 auto' }}>
                   <div style={{ flex:1,height:2,background:'#1a1a2e',opacity:0.1 }} />
-                  <div style={{ width:10,height:10,borderRadius:'50%',background:'#1bbc9b',margin:'0 8px',flexShrink:0,boxShadow:'0 0 8px rgba(27,188,155,0.4)' }} />
+                  <div style={{ width:10,height:10,borderRadius:'50%',background:'#0040a0',margin:'0 8px',flexShrink:0,boxShadow:'0 0 8px rgba(0,64,160,0.4)' }} />
                   <div style={{ flex:1,height:2,background:'#1a1a2e',opacity:0.1 }} />
                 </div>
               </div>
 
-              {/* Two column: image left, features right */}
+              {/* Two column: image left (sticky), features right (scrollable) */}
               <div style={{
                 display: 'grid',
-                gridTemplateColumns: '1fr 1fr',
+                gridTemplateColumns: '45% 55%',
                 gap: 64,
-                alignItems: 'center',
-                maxWidth: 1000,
-                margin: '0 auto',
+                alignItems: 'start',
               }} className="feat-grid">
 
-                {/* Left — image */}
+                {/* Left — image sticky */}
                 <div style={{
-                  background: '#e8faf6',
-                  borderRadius: 24,
-                  padding: '28px',
+                  position: 'sticky',
+                  top: 88,
                   display: 'flex',
                   justifyContent: 'center',
-                  alignItems: 'center',
-                  minHeight: 380,
+                  alignItems: 'flex-start',
                 }}>
                   <img
                     src={panel.image}
                     alt={panel.label}
                     style={{
                       width: '100%',
-                      maxWidth: 420,
+                      maxWidth: 560,
                       height: 'auto',
                       display: 'block',
                       borderRadius: 16,
@@ -728,49 +844,50 @@ export default function FeaturesSection() {
                   />
                 </div>
 
-                {/* Right — feature list */}
-                <div style={{ display:'flex', flexDirection:'column', gap:4 }}>
-                  {panel.features.map(({ icon: Icon, title, desc }, i) => {
-                    const isActive = activeF === i
-                    return (
-                      <div
-                        key={title}
-                        onClick={() => setFeature(panel.id, i)}
-                        style={{
-                          display: 'flex',
-                          gap: 14,
-                          padding: '14px 16px',
-                          borderRadius: 12,
-                          cursor: 'pointer',
-                          background: isActive ? 'rgba(27,188,155,0.08)' : 'transparent',
-                          borderLeft: `3px solid ${isActive ? '#1bbc9b' : 'transparent'}`,
-                          transition: 'all 0.2s',
-                        }}
-                        onMouseEnter={e => { if (!isActive) { e.currentTarget.style.background='rgba(27,188,155,0.04)'; e.currentTarget.style.borderLeftColor='rgba(27,188,155,0.4)' }}}
-                        onMouseLeave={e => { if (!isActive) { e.currentTarget.style.background='transparent'; e.currentTarget.style.borderLeftColor='transparent' }}}
-                      >
-                        <div style={{
-                          width: 42, height: 42, borderRadius: 10, flexShrink: 0,
-                          background: isActive ? '#1bbc9b' : 'rgba(27,188,155,0.1)',
-                          border: `1px solid ${isActive ? '#1bbc9b' : 'rgba(27,188,155,0.2)'}`,
-                          display: 'flex', alignItems: 'center', justifyContent: 'center',
-                          transition: 'all 0.2s',
-                        }}>
-                          <Icon size={18} color={isActive ? '#fff' : '#1bbc9b'} />
-                        </div>
-                        <div style={{ flex: 1 }}>
-                          <h4 style={{
-                            fontSize: 15, fontWeight: 800, color: '#1a1a2e',
-                            marginBottom: isActive ? 6 : 0,
-                            fontFamily:"'Lato', sans-serif", lineHeight: 1.3,
-                          }}>{title}</h4>
-                          {isActive && (
-                            <p style={{ fontSize:13.5,color:'#64748b',lineHeight:1.65,margin:0,animation:'fadeIn 0.2s ease both' }}>{desc}</p>
-                          )}
-                        </div>
+                {/* Right — scrollable feature list */}
+                <div className="feat-list" style={{
+                  maxHeight: 480,
+                  overflowY: 'auto',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: 6,
+                  paddingRight: 8,
+                  scrollbarWidth: 'thin',
+                  scrollbarColor: '#ccdaf5 transparent',
+                }}>
+                  {panel.features.map(({ icon: Icon, title, desc }) => (
+                    <div
+                      key={title}
+                      style={{
+                        display: 'flex',
+                        gap: 16,
+                        padding: '18px 20px',
+                        borderRadius: 12,
+                        background: '#f8fafe',
+                        border: '1px solid #e8f0fc',
+                        transition: 'all 0.2s',
+                        cursor: 'default',
+                      }}
+                      onMouseEnter={e => { e.currentTarget.style.background = '#eef3fd'; e.currentTarget.style.borderColor = '#ccdaf5' }}
+                      onMouseLeave={e => { e.currentTarget.style.background = '#f8fafe'; e.currentTarget.style.borderColor = '#e8f0fc' }}
+                    >
+                      <div style={{
+                        width: 46, height: 46, borderRadius: 12, flexShrink: 0,
+                        background: 'rgba(0,64,160,0.1)',
+                        border: '1px solid rgba(0,64,160,0.2)',
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      }}>
+                        <Icon size={20} color='#0040a0' />
                       </div>
-                    )
-                  })}
+                      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                        <h4 style={{
+                          fontSize: 18, fontWeight: 700, color: '#1a1a2e',
+                          margin: 0, fontFamily:"'Lato', sans-serif", lineHeight: 1.3,
+                        }}>{title}</h4>
+                        <p style={{ fontSize: 15, color: '#64748b', lineHeight: 1.65, margin: '6px 0 0' }}>{desc}</p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
 
               </div>
@@ -786,10 +903,10 @@ export default function FeaturesSection() {
           {/* Title with teal underline — exactly like reference */}
           <div style={{ textAlign: 'center', marginBottom: 40 }}>
             <h2 style={{ fontSize: 24, fontWeight: 700, color: '#1a1a2e', marginBottom: 12 }}>Schools</h2>
-            <div style={{ width: 120, height: 3, background: 'linear-gradient(90deg, #1bbc9b, #0ea5e9)', borderRadius: 2, margin: '0 auto' }} />
+            <div style={{ width: 120, height: 3, background: 'linear-gradient(90deg, #0040a0, #0ea5e9)', borderRadius: 2, margin: '0 auto' }} />
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 20, maxWidth: 860, margin: '0 auto' }} className="schools-grid">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 20 }} className="schools-grid">
             {SCHOOL_LIST.map(school => (
               <div key={school.name} style={{
                 background: '#fff', border: '1px solid #e2e8f0', borderRadius: 8,
@@ -809,6 +926,10 @@ export default function FeaturesSection() {
       </div>
 
       <style>{`
+        @keyframes fadeInUp {
+          from { opacity: 0; transform: translateY(12px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
         @media(max-width: 900px){
           .feat-grid { grid-template-columns: 1fr !important; gap: 36px !important; }
           .feat-icon-grid { grid-template-columns: 1fr 1fr !important; }
