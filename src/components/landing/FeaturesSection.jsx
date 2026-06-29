@@ -1,4 +1,5 @@
-﻿import { Users, CreditCard, BookOpen, Bus, Bell, BarChart2, FileText, Shield, GraduationCap, Calendar, ClipboardList, Home, Settings } from 'lucide-react'
+﻿import React from 'react'
+import { Users, CreditCard, BookOpen, Bus, Bell, BarChart2, FileText, Shield, GraduationCap, Calendar, ClipboardList, Home, Settings } from 'lucide-react'
 import superAdminImg   from '../../assets/HxCMMWD6ttfGHPpTS4EzpysImSjyF4c8d1GLbQ12.png'
 import studentImg      from '../../assets/StudentImage.png'
 import schoolAdminImg  from '../../assets/682c33c666a931.887378031747727302.png'
@@ -599,21 +600,88 @@ const FEATURE_GRID = [
   },
 ]
 
+/* ── Extra features shown on "View more" ── */
+const FEATURE_GRID_EXTRA = [
+  {
+    title: 'Fee management',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" width="36" height="36">
+        <rect x="6" y="10" width="36" height="28" rx="3" stroke="#0040a0" strokeWidth="2" fill="none"/>
+        <circle cx="24" cy="24" r="7" stroke="#0040a0" strokeWidth="2" fill="none"/>
+        <path d="M24 18v12M21 20.5h4.5a2 2 0 010 4H22a2 2 0 000 4H27" stroke="#0040a0" strokeWidth="1.5" strokeLinecap="round"/>
+      </svg>
+    ),
+  },
+  {
+    title: 'Transportation management',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" width="36" height="36">
+        <rect x="4" y="14" width="40" height="22" rx="3" stroke="#0040a0" strokeWidth="2" fill="none"/>
+        <path d="M4 20h40" stroke="#0040a0" strokeWidth="1.5"/>
+        <circle cx="13" cy="40" r="4" stroke="#0040a0" strokeWidth="2" fill="none"/>
+        <circle cx="35" cy="40" r="4" stroke="#0040a0" strokeWidth="2" fill="none"/>
+        <path d="M17 40h14M4 32h40" stroke="#0040a0" strokeWidth="1.5" strokeLinecap="round"/>
+        <path d="M10 14V10a2 2 0 012-2h24a2 2 0 012 2v4" stroke="#0040a0" strokeWidth="1.5" fill="none"/>
+      </svg>
+    ),
+  },
+  {
+    title: 'Announcement management',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" width="36" height="36">
+        <path d="M8 20v8h6l10 8V12L14 20H8z" stroke="#0040a0" strokeWidth="2" strokeLinejoin="round" fill="none"/>
+        <path d="M34 16c2.5 2 4 5 4 8s-1.5 6-4 8" stroke="#0040a0" strokeWidth="2" strokeLinecap="round" fill="none"/>
+        <path d="M38 10c5 4 8 9 8 14s-3 10-8 14" stroke="#0040a0" strokeWidth="1.5" strokeLinecap="round" fill="none"/>
+      </svg>
+    ),
+  },
+  {
+    title: 'Assignment management',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" width="36" height="36">
+        <rect x="10" y="6" width="28" height="36" rx="3" stroke="#0040a0" strokeWidth="2" fill="none"/>
+        <path d="M18 16h12M18 22h12M18 28h8" stroke="#0040a0" strokeWidth="2" strokeLinecap="round"/>
+        <path d="M28 32l3 3 5-5" stroke="#0040a0" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    ),
+  },
+  {
+    title: 'Lesson management',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" width="36" height="36">
+        <rect x="8" y="8" width="32" height="32" rx="3" stroke="#0040a0" strokeWidth="2" fill="none"/>
+        <path d="M16 18h16M16 24h16M16 30h10" stroke="#0040a0" strokeWidth="2" strokeLinecap="round"/>
+        <path d="M36 32l4 8-4-2-4 2 4-8z" stroke="#0040a0" strokeWidth="1.5" strokeLinejoin="round" fill="none"/>
+      </svg>
+    ),
+  },
+  {
+    title: 'Chat module',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" width="36" height="36">
+        <path d="M6 10a3 3 0 013-3h30a3 3 0 013 3v22a3 3 0 01-3 3H16l-7 6V10z" stroke="#0040a0" strokeWidth="2" strokeLinejoin="round" fill="none"/>
+        <path d="M14 20h20M14 27h12" stroke="#0040a0" strokeWidth="2" strokeLinecap="round"/>
+      </svg>
+    ),
+  },
+]
+
 /* ── Main Component — Simple vertical scroll, no tabs ── */
 export default function FeaturesSection() {
+  const [showMore, setShowMore] = React.useState(false)
 
   return (
     <section id="features" style={{ background: '#fff' }}>
 
       {/* ── Section Header ── */}
       <div style={{ textAlign: 'center', padding: '80px 0 52px' }}>
-        <span style={{ display:'inline-block',fontSize:12,fontWeight:700,color:'#0d9488',letterSpacing:2,textTransform:'uppercase',background:'rgba(13,148,136,0.08)',padding:'5px 16px',borderRadius:50,marginBottom:14 }}>Features</span>
+        <span style={{ display:'inline-block',fontSize:12,fontWeight:700,color:'#0040a0',letterSpacing:2,textTransform:'uppercase',background:'rgba(0,64,160,0.08)',padding:'5px 16px',borderRadius:50,marginBottom:14 }}>Features</span>
         <h2 className="section-title" style={{ marginBottom: 16 }}>Explore our top features</h2>
-        {/* teal underline with dot — matches reference */}
+        {/* blue underline with dot */}
         <div style={{ display:'flex',alignItems:'center',justifyContent:'center',maxWidth:520,margin:'0 auto 16px' }}>
-          <div style={{ flex:1,height:2,background:'#0d9488',opacity:0.3 }} />
-          <div style={{ width:10,height:10,borderRadius:'50%',background:'#0d9488',margin:'0 8px',flexShrink:0 }} />
-          <div style={{ flex:1,height:2,background:'#0d9488',opacity:0.3 }} />
+          <div style={{ flex:1,height:2,background:'#0040a0',opacity:0.2 }} />
+          <div style={{ width:10,height:10,borderRadius:'50%',background:'#0040a0',margin:'0 8px',flexShrink:0 }} />
+          <div style={{ flex:1,height:2,background:'#0040a0',opacity:0.2 }} />
         </div>
         <p style={{ color:'#64748b',fontSize:16,lineHeight:1.7,maxWidth:520,margin:'0 auto' }}>14+ robust features for an enhanced educational experience.</p>
       </div>
@@ -633,20 +701,54 @@ export default function FeaturesSection() {
                 gap: 16,
                 background: '#fff',
                 border: '1.5px solid #e2e8f0',
-                borderLeft: '4px solid #0d9488',
+                borderLeft: '4px solid #0040a0',
                 borderRadius: 12,
                 padding: '20px 24px',
                 boxShadow: '0 2px 10px rgba(0,0,0,0.05)',
                 transition: 'all 0.2s',
                 cursor: 'default',
               }}
-                onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 8px 24px rgba(13,148,136,0.15)'; e.currentTarget.style.borderColor = '#0d9488'; e.currentTarget.style.transform = 'translateY(-2px)' }}
-                onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 2px 10px rgba(0,0,0,0.05)'; e.currentTarget.style.borderColor = '#e2e8f0'; e.currentTarget.style.borderLeftColor = '#0d9488'; e.currentTarget.style.transform = 'none' }}
+                onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,64,160,0.15)'; e.currentTarget.style.borderColor = '#0040a0'; e.currentTarget.style.transform = 'translateY(-2px)' }}
+                onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 2px 10px rgba(0,0,0,0.05)'; e.currentTarget.style.borderColor = '#e2e8f0'; e.currentTarget.style.borderLeftColor = '#0040a0'; e.currentTarget.style.transform = 'none' }}
               >
                 <div style={{
                   width: 52, height: 52, borderRadius: 12, flexShrink: 0,
-                  background: 'rgba(13,148,136,0.08)',
-                  border: '1px solid rgba(13,148,136,0.15)',
+                  background: 'rgba(0,64,160,0.07)',
+                  border: '1px solid rgba(0,64,160,0.15)',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                }}>
+                  {icon}
+                </div>
+                <span style={{
+                  fontSize: 16, fontWeight: 600, color: '#1a1a2e',
+                  fontFamily: "'Lato', sans-serif", lineHeight: 1.4,
+                }}>{title}</span>
+              </div>
+            ))}
+
+            {/* Extra features — shown when expanded */}
+            {showMore && FEATURE_GRID_EXTRA.map(({ title, icon }) => (
+              <div key={title} style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 16,
+                background: '#fff',
+                border: '1.5px solid #e2e8f0',
+                borderLeft: '4px solid #0040a0',
+                borderRadius: 12,
+                padding: '20px 24px',
+                boxShadow: '0 2px 10px rgba(0,0,0,0.05)',
+                transition: 'all 0.2s',
+                cursor: 'default',
+                animation: 'fadeInUp 0.3s ease',
+              }}
+                onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,64,160,0.15)'; e.currentTarget.style.borderColor = '#0040a0'; e.currentTarget.style.transform = 'translateY(-2px)' }}
+                onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 2px 10px rgba(0,0,0,0.05)'; e.currentTarget.style.borderColor = '#e2e8f0'; e.currentTarget.style.borderLeftColor = '#0040a0'; e.currentTarget.style.transform = 'none' }}
+              >
+                <div style={{
+                  width: 52, height: 52, borderRadius: 12, flexShrink: 0,
+                  background: 'rgba(0,64,160,0.07)',
+                  border: '1px solid rgba(0,64,160,0.15)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                 }}>
                   {icon}
@@ -659,23 +761,23 @@ export default function FeaturesSection() {
             ))}
           </div>
 
-          {/* View more features button — matches reference */}
+          {/* View more / View less features button */}
           <div style={{ textAlign: 'center', marginTop: 36 }}>
             <button
-              onClick={() => document.querySelector('#panel-super-admin')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => setShowMore(prev => !prev)}
               style={{
                 display: 'inline-flex', alignItems: 'center', gap: 8,
                 padding: '13px 32px', borderRadius: 8, border: 'none', cursor: 'pointer',
-                background: 'linear-gradient(135deg, #0d9488, #0f766e)',
+                background: 'linear-gradient(135deg, #0040a0, #0060d0)',
                 color: '#fff', fontSize: 15, fontWeight: 600,
                 fontFamily: "'Lato', sans-serif",
-                boxShadow: '0 6px 20px rgba(13,148,136,0.35)',
+                boxShadow: '0 6px 20px rgba(0,64,160,0.35)',
                 transition: 'all 0.2s',
               }}
-              onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 10px 28px rgba(13,148,136,0.45)' }}
-              onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = '0 6px 20px rgba(13,148,136,0.35)' }}
+              onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 10px 28px rgba(0,64,160,0.45)' }}
+              onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = '0 6px 20px rgba(0,64,160,0.35)' }}
             >
-              View more features →
+              {showMore ? 'View less features ←' : 'View more features →'}
             </button>
           </div>
         </div>
@@ -824,6 +926,10 @@ export default function FeaturesSection() {
       </div>
 
       <style>{`
+        @keyframes fadeInUp {
+          from { opacity: 0; transform: translateY(12px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
         @media(max-width: 900px){
           .feat-grid { grid-template-columns: 1fr !important; gap: 36px !important; }
           .feat-icon-grid { grid-template-columns: 1fr 1fr !important; }

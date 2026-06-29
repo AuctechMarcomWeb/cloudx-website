@@ -78,16 +78,7 @@ export default function Navbar() {
                   </div>
                 )}
               </div>
-            ) : (
-              <>
-                <button onClick={() => navigate('/portal/login')} className="btn-outline mob-hide" style={{ padding: '8px 20px', fontSize: 14 }}>
-                  Login
-                </button>
-                <button onClick={() => navigate('/register')} className="btn-primary" style={{ padding: '9px 20px', fontSize: 14 }}>
-                  Start trial
-                </button>
-              </>
-            )}
+            ) : null}
 
             {/* Hamburger */}
             <button onClick={() => setOpen(!open)} className="mob-btn">
@@ -106,10 +97,6 @@ export default function Navbar() {
               onMouseLeave={e => { e.currentTarget.style.background = 'none'; e.currentTarget.style.color = '#4a5568' }}
             >{l.label}</button>
           ))}
-          <div style={{ borderTop: '1px solid #f3f4f6', marginTop: 8, paddingTop: 12, display: 'flex', flexDirection: 'column', gap: 8 }}>
-            <button onClick={() => { navigate('/portal/login'); setOpen(false) }} className="btn-outline" style={{ width: '100%', justifyContent: 'center' }}>Login</button>
-            <button onClick={() => { navigate('/register'); setOpen(false) }} className="btn-primary" style={{ width: '100%', justifyContent: 'center' }}>Start trial</button>
-          </div>
         </div>
       )}
 
