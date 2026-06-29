@@ -25,11 +25,7 @@ export default function OnboardingPage() {
   const isSuccess = step === STEPS.length
 
   return (
-    <div style={{ minHeight:'100vh', background:'linear-gradient(160deg,#f0fdf9 0%,#e8f0fc 40%,#f0f9ff 100%)', position:'relative', overflow:'hidden' }}>
-
-      {/* Decorative blobs */}
-      <div style={{ position:'fixed', top:-200, right:-200, width:600, height:600, borderRadius:'50%', background:'radial-gradient(circle,rgba(0,64,160,0.12) 0%,transparent 70%)', pointerEvents:'none' }} />
-      <div style={{ position:'fixed', bottom:-200, left:-200, width:500, height:500, borderRadius:'50%', background:'radial-gradient(circle,rgba(14,165,233,0.1) 0%,transparent 70%)', pointerEvents:'none' }} />
+    <div style={{ minHeight:'100vh', background:'#f8fafc', position:'relative', overflow:'hidden' }}>
 
       {/* Header */}
       <header style={{
@@ -92,7 +88,7 @@ export default function OnboardingPage() {
         {/* Step content */}
         <div key={step} style={{ animation:'fadeInUp 0.35s ease both' }}>
           {step === 0 && <StepLeadInfo onNext={d => next({ registrationId:d.registrationId, email:d.email, mobileNo:d.mobileNo, contactName:d.contactName })} />}
-          {step === 1 && <StepVerifyOtp registrationId={state.registrationId} schoolEmail={state.email} mobileNo={state.mobileNo} onNext={() => next()} onBack={back} />}
+          {step === 1 && <StepVerifyOtp registrationId={state.registrationId} schoolEmail={state.email} onNext={() => next()} onBack={back} />}
           {step === 2 && <StepSchoolCreate registrationId={state.registrationId} contactName={state.contactName} onNext={d => next({ successData:d })} onBack={back} />}
           {step === 3 && <StepSuccess data={state.successData} />}
         </div>

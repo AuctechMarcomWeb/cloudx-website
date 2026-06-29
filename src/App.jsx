@@ -20,7 +20,7 @@ export default function App() {
               border: '1px solid rgba(250,191,34,0.25)',
               borderRadius: '10px',
               fontSize: '14px',
-              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              fontFamily: "'Lato', sans-serif",
             },
             success: { iconTheme: { primary: '#22c55e', secondary: '#fff' } },
             error:   { iconTheme: { primary: '#ef4444', secondary: '#fff' } },

@@ -20,18 +20,12 @@ export default function PortalLoginPage() {
   return (
     <div style={{
       minHeight: '100vh',
-      background: 'linear-gradient(135deg, #f0fdf9 0%, #e8f0fc 50%, #f0fdf9 100%)',
+      background: '#f8fafc',
       display: 'flex',
       flexDirection: 'column',
       position: 'relative',
       overflow: 'hidden',
     }}>
-      {/* BG dot pattern */}
-      <div style={{
-        position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: 0,
-        backgroundImage: 'radial-gradient(circle, rgba(0,64,160,0.1) 1.5px, transparent 1.5px)',
-        backgroundSize: '28px 28px',
-      }} />
 
       {/* Header */}
       <header style={{
@@ -67,16 +61,15 @@ export default function PortalLoginPage() {
         <div style={{ width: '100%', maxWidth: 440 }}>
 
           {/* Icon + Title */}
-          <div style={{ textAlign: 'center', marginBottom: 32 }}>
+          <div style={{ textAlign: 'center', marginBottom: 28 }}>
             <div style={{
-              width: 68, height: 68, borderRadius: '50%', margin: '0 auto 16px',
-              background: 'linear-gradient(135deg, #0040a0, #002f80)',
+              width: 56, height: 56, borderRadius: '50%', margin: '0 auto 14px',
+              background: '#e8f0fc',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
-              boxShadow: '0 8px 28px rgba(0,64,160,0.35)',
             }}>
-              <ShieldCheck size={30} color="#fff" />
+              <ShieldCheck size={26} color="#0040a0" />
             </div>
-            <h1 style={{ fontSize: 26, fontWeight: 700, color: '#1a1a2e', marginBottom: 6 }}>
+            <h1 style={{ fontSize: 24, fontWeight: 700, color: '#1a1a2e', marginBottom: 6 }}>
               School Portal Login
             </h1>
             <p style={{ color: '#64748b', fontSize: 14 }}>
@@ -86,17 +79,17 @@ export default function PortalLoginPage() {
 
           {/* Tab switcher */}
           <div style={{
-            display: 'flex', background: '#f1f5f9', borderRadius: 12,
-            padding: 4, marginBottom: 24, border: '1px solid #e2e8f0',
+            display: 'flex', background: '#f1f5f9', borderRadius: 10,
+            padding: 4, marginBottom: 20, border: '1px solid #e2e8f0',
           }}>
-            {[['password', 'Login with Password'], ['otp', 'Login with OTP']].map(([key, label]) => (
+            {[['password', 'Password'], ['otp', 'Email OTP']].map(([key, label]) => (
               <button key={key} onClick={() => setTab(key)} style={{
-                flex: 1, padding: '9px 0', border: 'none', cursor: 'pointer', borderRadius: 9,
-                fontSize: 13, fontWeight: 600, transition: 'all 0.2s',
+                flex: 1, padding: '9px 0', border: 'none', cursor: 'pointer', borderRadius: 7,
+                fontSize: 13, fontWeight: 600, transition: 'all 0.18s',
                 fontFamily: 'Lato, sans-serif',
-                background: tab === key ? 'linear-gradient(135deg,#0040a0,#002f80)' : 'transparent',
-                color: tab === key ? '#fff' : '#64748b',
-                boxShadow: tab === key ? '0 2px 8px rgba(0,64,160,0.3)' : 'none',
+                background: tab === key ? '#fff' : 'transparent',
+                color: tab === key ? '#0040a0' : '#64748b',
+                boxShadow: tab === key ? '0 1px 4px rgba(0,0,0,0.1)' : 'none',
               }}>
                 {label}
               </button>
@@ -131,10 +124,10 @@ function FormCard({ children }) {
   return (
     <div style={{
       background: '#fff',
-      border: '1.5px solid #e8f0fc',
-      borderRadius: 20,
-      padding: 32,
-      boxShadow: '0 8px 32px rgba(0,64,160,0.08)',
+      border: '1px solid #e2e8f0',
+      borderRadius: 16,
+      padding: '24px 28px',
+      boxShadow: '0 2px 12px rgba(0,0,0,0.06)',
     }}>
       {children}
     </div>
@@ -192,7 +185,7 @@ function PasswordLoginForm({ onSuccess }) {
           </div>
         </div>
 
-        <button type="submit" className="btn-primary" disabled={loading} style={{ width: '100%', justifyContent: 'center' }}>
+        <button type="submit" className="btn-primary btn-block" disabled={loading}>
           {loading ? <><div className="spinner" /> Logging in...</> : 'Login'}
         </button>
       </form>
@@ -275,7 +268,7 @@ function OtpLoginForm({ onSuccess }) {
                 placeholder="admin@yourschool.com" required />
             </div>
           </div>
-          <button type="submit" className="btn-primary" disabled={loading} style={{ width: '100%', justifyContent: 'center' }}>
+          <button type="submit" className="btn-primary btn-block" disabled={loading}>
             {loading ? <><div className="spinner" /> Sending...</> : 'Send OTP'}
           </button>
         </form>
@@ -317,15 +310,17 @@ function OtpLoginForm({ onSuccess }) {
         }
       </div>
 
-      <button className="btn-primary" onClick={verify}
+      <button className="btn-primary btn-block" onClick={verify}
         disabled={loading || otp.join('').length < 6}
-        style={{ width: '100%', justifyContent: 'center', marginBottom: 10 }}>
+        style={{ marginBottom: 10 }}>
         {loading ? <><div className="spinner" /> Verifying...</> : 'Verify & Login'}
       </button>
 
-      <button className="btn-ghost" onClick={() => setStep('email')} disabled={loading}>
-        <ArrowLeft size={14} /> Change Email
-      </button>
+      <div style={{ textAlign:'center', marginTop:4 }}>
+        <button className="btn-ghost" onClick={() => setStep('email')} disabled={loading}>
+          <ArrowLeft size={13} /> Change Email
+        </button>
+      </div>
     </FormCard>
   )
 }

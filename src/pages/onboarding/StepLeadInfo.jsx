@@ -1,7 +1,7 @@
 ﻿import { useState } from 'react'
 import axios from 'axios'
 import toast from 'react-hot-toast'
-import { ArrowRight, Globe, User, Phone, MessageCircle, Mail, CheckCircle, XCircle, Loader2 } from 'lucide-react'
+import { ArrowRight, Globe, CheckCircle, XCircle, Loader2 } from 'lucide-react'
 
 const API = import.meta.env.VITE_API_BASE_URL
 
@@ -53,7 +53,7 @@ export default function StepLeadInfo({ onNext }) {
       })
       const devOtp = res.data.data?.devOtp
       toast.success(res.data.message || 'OTP sent successfully!')
-      if (devOtp) toast(`📧 Dev OTP: ${devOtp}`, { duration: 15000, icon: '🔑' })
+      if (import.meta.env.DEV && devOtp) toast(`📧 Dev OTP: ${devOtp}`, { duration: 15000, icon: '🔑' })
       onNext({ registrationId: res.data.data.registrationId, email: form.email, mobileNo: form.mobileNo, contactName: form.contactName })
     } catch (err) {
       toast.error(err?.response?.data?.message || 'Something went wrong. Please try again.')
@@ -65,34 +65,24 @@ export default function StepLeadInfo({ onNext }) {
 
   return (
     <div>
-      <div style={{ textAlign:'center', marginBottom:32 }}>
-        <div style={{ display:'inline-flex',alignItems:'center',gap:7,background:'rgba(0,64,160,0.08)',border:'1px solid rgba(0,64,160,0.2)',borderRadius:50,padding:'5px 14px',marginBottom:16 }}>
-          <span style={{ width:6,height:6,borderRadius:'50%',background:'#0040a0',display:'inline-block' }} />
-          <span style={{ fontSize:11.5,fontWeight:700,color:'#0040a0',letterSpacing:'0.06em' }}>STEP 1 OF 3</span>
-        </div>
-        <h2 style={{ fontSize:30,fontWeight:800,marginBottom:8,color:'#1a1a2e',fontFamily:"'Lato', sans-serif" }}>Register Your School</h2>
-        <p style={{ color:'#64748b',fontSize:15,lineHeight:1.65 }}>Fill in your basic details — school setup comes next</p>
+      <div style={{ textAlign:'center', marginBottom:28 }}>
+        <h2 style={{ fontSize:24, fontWeight:700, marginBottom:6, color:'#1a1a2e' }}>Register Your School</h2>
+        <p style={{ color:'#64748b', fontSize:14, lineHeight:1.6 }}>Fill in your details to get started</p>
       </div>
 
-      <div style={{ background:'#fff',borderRadius:20,border:'1.5px solid #e8f0fc',padding:'32px',boxShadow:'0 4px 24px rgba(0,64,160,0.08)' }}>
+      <div style={{ background:'#fff', borderRadius:16, border:'1px solid #e2e8f0', padding:'24px 28px', boxShadow:'0 2px 12px rgba(0,0,0,0.06)' }}>
         <form onSubmit={handleSubmit} autoComplete="off">
 
           {/* Subdomain */}
-          <div style={{ marginBottom:24 }}>
-            <div style={{ display:'flex',alignItems:'center',gap:6,fontSize:11,fontWeight:700,color:'#0040a0',letterSpacing:'0.06em',textTransform:'uppercase',marginBottom:14,paddingBottom:8,borderBottom:'1px solid rgba(0,64,160,0.12)' }}>
-              <Globe size={12} /> Your School URL
-            </div>
-            <label style={{ display:'flex',alignItems:'center',gap:6,fontSize:13,fontWeight:600,color:'#374151',marginBottom:8 }}>
+          <div style={{ marginBottom:20 }}>
+            <label style={{ display:'block',fontSize:13,fontWeight:500,color:'#374151',marginBottom:6 }}>
               School Subdomain <span style={{ color:'#ef4444' }}>*</span>
             </label>
-            <div style={{ display:'flex',alignItems:'stretch',border:`1.5px solid ${sdBorder}`,borderRadius:10,overflow:'hidden',background:'#f8fffe',transition:'all 0.18s',boxShadow:sdShadow }}>
-              <div style={{ display:'flex',alignItems:'center',padding:'0 13px',background:'rgba(0,64,160,0.06)',borderRight:'1px solid #e8f0fc',color:'#0040a0',flexShrink:0 }}>
-                <Globe size={15} />
-              </div>
+            <div style={{ display:'flex',alignItems:'stretch',border:`1.5px solid ${sdBorder}`,borderRadius:10,overflow:'hidden',background:'#f9fafb',transition:'all 0.18s',boxShadow:sdShadow }}>
               <input name="subdomain" value={form.subdomain} onChange={handleSubdomain} placeholder="e.g. dps-noida"
-                style={{ flex:1,border:'none',background:'transparent',height:48,padding:'0 12px',fontSize:14,color:'#1a1a2e',outline:'none' }} autoComplete="off" />
+                style={{ flex:1,border:'none',background:'transparent',height:48,padding:'0 14px',fontSize:14,color:'#1a1a2e',outline:'none' }} autoComplete="off" />
               {subdomainStatus && (
-                <div style={{ display:'flex',alignItems:'center',paddingRight:10 }}>
+                <div style={{ display:'flex',alignItems:'center',paddingRight:12 }}>
                   {subdomainStatus==='checking' && <Loader2 size={15} color="#f59e0b" style={{ animation:'spin 1s linear infinite' }} />}
                   {subdomainStatus==='available' && <CheckCircle size={15} color="#0040a0" />}
                   {subdomainStatus==='taken' && <XCircle size={15} color="#ef4444" />}
@@ -119,66 +109,43 @@ export default function StepLeadInfo({ onNext }) {
           </div>
 
           {/* Contact Info */}
-          <div style={{ marginBottom:24 }}>
-            <div style={{ display:'flex',alignItems:'center',gap:6,fontSize:11,fontWeight:700,color:'#0040a0',letterSpacing:'0.06em',textTransform:'uppercase',marginBottom:14,paddingBottom:8,borderBottom:'1px solid rgba(0,64,160,0.12)' }}>
-              <User size={12} /> Contact Details
-            </div>
-
+          <div style={{ marginBottom:20 }}>
             <div style={{ marginBottom:16 }}>
-              <label style={{ display:'block',fontSize:13,fontWeight:600,color:'#374151',marginBottom:8 }}>Full Name <span style={{ color:'#ef4444' }}>*</span></label>
-              <div style={{ display:'flex',alignItems:'stretch',border:'1.5px solid #e2e8f0',borderRadius:10,overflow:'hidden',background:'#f8fffe',transition:'all 0.18s' }}
-                onFocusCapture={e=>e.currentTarget.style.borderColor='#0040a0'} onBlurCapture={e=>e.currentTarget.style.borderColor='#e2e8f0'}>
-                <div style={{ display:'flex',alignItems:'center',padding:'0 13px',background:'rgba(0,64,160,0.06)',borderRight:'1px solid #e8f0fc',color:'#0040a0',flexShrink:0 }}><User size={15} /></div>
-                <input className="dark-input" name="contactName" value={form.contactName} onChange={handle} placeholder="Principal / Director name" autoComplete="name"
-                  style={{ border:'none',borderRadius:0,background:'transparent',boxShadow:'none' }} />
-              </div>
+              <label style={{ display:'block',fontSize:13,fontWeight:500,color:'#374151',marginBottom:6 }}>Full Name <span style={{ color:'#ef4444' }}>*</span></label>
+              <input className="dark-input" name="contactName" value={form.contactName} onChange={handle} placeholder="Principal / Director name" autoComplete="name" />
             </div>
 
             <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:14,marginBottom:12 }}>
               <div>
-                <label style={{ display:'block',fontSize:13,fontWeight:600,color:'#374151',marginBottom:8 }}>Mobile Number <span style={{ color:'#ef4444' }}>*</span></label>
-                <div style={{ display:'flex',alignItems:'stretch',border:'1.5px solid #e2e8f0',borderRadius:10,overflow:'hidden',background:'#f8fffe' }}
-                  onFocusCapture={e=>e.currentTarget.style.borderColor='#0040a0'} onBlurCapture={e=>e.currentTarget.style.borderColor='#e2e8f0'}>
-                  <div style={{ display:'flex',alignItems:'center',padding:'0 13px',background:'rgba(0,64,160,0.06)',borderRight:'1px solid #e8f0fc',color:'#0040a0',flexShrink:0 }}><Phone size={15} /></div>
-                  <input className="dark-input" type="tel" name="mobileNo" value={form.mobileNo} onChange={handleMobile} placeholder="10-digit number" maxLength={10}
-                    style={{ border:'none',borderRadius:0,background:'transparent',boxShadow:'none' }} />
-                </div>
+                <label style={{ display:'block',fontSize:13,fontWeight:500,color:'#374151',marginBottom:6 }}>Mobile Number <span style={{ color:'#ef4444' }}>*</span></label>
+                <input className="dark-input" type="tel" name="mobileNo" value={form.mobileNo} onChange={handleMobile} placeholder="10-digit number" maxLength={10} />
               </div>
               <div>
-                <label style={{ display:'block',fontSize:13,fontWeight:600,color:'#374151',marginBottom:8 }}>WhatsApp Number</label>
-                <div style={{ display:'flex',alignItems:'stretch',border:'1.5px solid #e2e8f0',borderRadius:10,overflow:'hidden',background:'#f8fffe',opacity:form.sameAsWhatsapp?0.5:1 }}>
-                  <div style={{ display:'flex',alignItems:'center',padding:'0 13px',background:'rgba(0,64,160,0.06)',borderRight:'1px solid #e8f0fc',color:'#0040a0',flexShrink:0 }}><MessageCircle size={15} /></div>
-                  <input className="dark-input" type="tel" value={form.sameAsWhatsapp ? form.mobileNo : form.whatsappNo}
-                    onChange={e=>setForm(p=>({...p,whatsappNo:e.target.value.replace(/\D/g,'').slice(0,10),sameAsWhatsapp:false}))}
-                    placeholder="WhatsApp number" disabled={form.sameAsWhatsapp} maxLength={10}
-                    style={{ border:'none',borderRadius:0,background:'transparent',boxShadow:'none' }} />
-                </div>
+                <label style={{ display:'block',fontSize:13,fontWeight:500,color:'#374151',marginBottom:6 }}>WhatsApp Number</label>
+                <input className="dark-input" type="tel" value={form.sameAsWhatsapp ? form.mobileNo : form.whatsappNo}
+                  onChange={e=>setForm(p=>({...p,whatsappNo:e.target.value.replace(/\D/g,'').slice(0,10),sameAsWhatsapp:false}))}
+                  placeholder="WhatsApp number" disabled={form.sameAsWhatsapp} maxLength={10}
+                  style={{ opacity: form.sameAsWhatsapp ? 0.5 : 1 }} />
               </div>
             </div>
 
-            <div onClick={() => setForm(p=>({...p,sameAsWhatsapp:!p.sameAsWhatsapp,whatsappNo:!p.sameAsWhatsapp?p.mobileNo:''}))} style={{ display:'inline-flex',alignItems:'center',gap:9,cursor:'pointer',marginBottom:16,padding:'7px 14px',background:form.sameAsWhatsapp?'rgba(0,64,160,0.08)':'rgba(0,0,0,0.03)',border:`1.5px solid ${form.sameAsWhatsapp?'rgba(0,64,160,0.3)':'#e2e8f0'}`,borderRadius:8,transition:'all 0.18s',userSelect:'none' }}>
-              <div style={{ width:17,height:17,borderRadius:5,flexShrink:0,background:form.sameAsWhatsapp?'#0040a0':'transparent',border:`2px solid ${form.sameAsWhatsapp?'#0040a0':'#cbd5e0'}`,display:'flex',alignItems:'center',justifyContent:'center',transition:'all 0.18s' }}>
+            <div onClick={() => setForm(p=>({...p,sameAsWhatsapp:!p.sameAsWhatsapp,whatsappNo:!p.sameAsWhatsapp?p.mobileNo:''}))}
+              style={{ display:'inline-flex',alignItems:'center',gap:8,cursor:'pointer',marginBottom:16,userSelect:'none' }}>
+              <div style={{ width:16,height:16,borderRadius:4,flexShrink:0,background:form.sameAsWhatsapp?'#0040a0':'transparent',border:`1.5px solid ${form.sameAsWhatsapp?'#0040a0':'#d1d5db'}`,display:'flex',alignItems:'center',justifyContent:'center',transition:'all 0.15s' }}>
                 {form.sameAsWhatsapp && <svg width="9" height="7" viewBox="0 0 10 8" fill="none"><path d="M1 3.5L3.8 6.5L9 1" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>}
               </div>
-              <span style={{ fontSize:12.5,fontWeight:500,color:form.sameAsWhatsapp?'#374151':'#94a3b8' }}>Same as mobile number</span>
+              <span style={{ fontSize:13,color:'#374151' }}>Same as mobile number</span>
             </div>
 
             <div>
-              <label style={{ display:'block',fontSize:13,fontWeight:600,color:'#374151',marginBottom:8 }}>Email Address <span style={{ color:'#ef4444' }}>*</span></label>
-              <div style={{ display:'flex',alignItems:'stretch',border:'1.5px solid #e2e8f0',borderRadius:10,overflow:'hidden',background:'#f8fffe' }}
-                onFocusCapture={e=>e.currentTarget.style.borderColor='#0040a0'} onBlurCapture={e=>e.currentTarget.style.borderColor='#e2e8f0'}>
-                <div style={{ display:'flex',alignItems:'center',padding:'0 13px',background:'rgba(0,64,160,0.06)',borderRight:'1px solid #e8f0fc',color:'#0040a0',flexShrink:0 }}><Mail size={15} /></div>
-                <input className="dark-input" type="email" name="email" value={form.email} onChange={handle} placeholder="your@email.com" autoComplete="email"
-                  style={{ border:'none',borderRadius:0,background:'transparent',boxShadow:'none' }} />
-              </div>
-              <p style={{ fontSize:12,color:'#94a3b8',marginTop:7,display:'flex',alignItems:'center',gap:5 }}><Mail size={11} /> OTP will be sent to this email</p>
+              <label style={{ display:'block',fontSize:13,fontWeight:500,color:'#374151',marginBottom:6 }}>Email Address <span style={{ color:'#ef4444' }}>*</span></label>
+              <input className="dark-input" type="email" name="email" value={form.email} onChange={handle} placeholder="your@email.com" autoComplete="email" />
+              <p style={{ fontSize:12,color:'#94a3b8',marginTop:6 }}>OTP will be sent to this email</p>
             </div>
           </div>
 
           <button type="submit" disabled={loading || subdomainStatus==='taken' || subdomainStatus==='checking'}
-            style={{ display:'flex',alignItems:'center',justifyContent:'center',gap:8,width:'100%',height:52,background:'linear-gradient(135deg,#0040a0,#002f80)',color:'#fff',border:'none',borderRadius:12,fontSize:15,fontWeight:700,cursor:'pointer',boxShadow:'0 6px 20px rgba(0,64,160,0.35)',transition:'all 0.2s',opacity:(loading||subdomainStatus==='taken'||subdomainStatus==='checking')?0.6:1,fontFamily:'inherit' }}
-            onMouseEnter={e=>{if(!loading)e.currentTarget.style.transform='translateY(-1px)'}}
-            onMouseLeave={e=>e.currentTarget.style.transform=''}>
+            className="btn-primary btn-block">
             {loading ? <><div className="spinner" /> Sending OTP...</> : <>Continue <ArrowRight size={18} /></>}
           </button>
 
