@@ -81,7 +81,7 @@ export default function StatsSection() {
         </div>
 
         {/* Early adopter CTA banner */}
-        <div style={{
+        <div className="cta-card" style={{
           background: 'linear-gradient(135deg, #0040a0 0%, #002f80 100%)',
           borderRadius: 20, padding: '32px 40px',
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
@@ -106,9 +106,10 @@ export default function StatsSection() {
             </p>
           </div>
 
-          <div style={{ display: 'flex', gap: 12, flexShrink: 0, position: 'relative', zIndex: 1, flexWrap: 'wrap' }}>
+          <div className="cta-btn-group" style={{ display: 'flex', gap: 12, flexShrink: 0, position: 'relative', zIndex: 1, flexWrap: 'wrap' }}>
             <button
               onClick={() => navigate('/register')}
+              className="cta-btn-primary"
               style={{
                 padding: '12px 28px', borderRadius: 10, border: 'none', cursor: 'pointer',
                 background: 'linear-gradient(135deg, #e0c000, #b89a00)',
@@ -124,6 +125,7 @@ export default function StatsSection() {
             </button>
             <button
               onClick={() => window.open('https://crestwood-academy.eschool-saas.wrteam.me/', '_blank')}
+              className="cta-btn-secondary"
               style={{
                 padding: '12px 24px', borderRadius: 10, cursor: 'pointer',
                 background: 'rgba(255,255,255,0.12)', border: '1.5px solid rgba(255,255,255,0.25)',
@@ -143,6 +145,11 @@ export default function StatsSection() {
       <style>{`
         @media (max-width: 900px) {
           .benefits-grid { grid-template-columns: repeat(2, 1fr) !important; }
+        }
+        @media (max-width: 600px) {
+          .cta-card { flex-direction: column !important; align-items: stretch !important; padding: 24px 20px !important; }
+          .cta-btn-group { flex-direction: column !important; width: 100% !important; }
+          .cta-btn-primary, .cta-btn-secondary { width: 100% !important; text-align: center !important; white-space: normal !important; }
         }
         @media (max-width: 500px) {
           .benefits-grid { grid-template-columns: 1fr !important; }

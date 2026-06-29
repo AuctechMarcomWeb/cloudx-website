@@ -50,9 +50,9 @@ export default function CtaSection() {
           {/* Contact info */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 20, paddingTop: 8 }}>
             {[
-              { Icon: Phone,  label: 'Phone',    color: '#0040a0', bg: 'rgba(0,64,160,0.08)',  value: 'Mobile : 1234567890' },
-              { Icon: Mail,   label: 'Email',    color: '#0ea5e9', bg: 'rgba(14,165,233,0.08)',  value: 'example@gmail.com' },
-              { Icon: MapPin, label: 'Location', color: '#8b5cf6', bg: 'rgba(139,92,246,0.08)', value: '#262-263, Time Square Empire, SH 42 Mirjapar highway, Bhuj - Kutch 370001 Gujarat India.' },
+              { Icon: Phone,  label: 'Phone',    color: '#0040a0', bg: 'rgba(0,64,160,0.08)',  value: 'Mobile : 9838075493' },
+              { Icon: Mail,   label: 'Email',    color: '#0ea5e9', bg: 'rgba(14,165,233,0.08)',  value: 'cloudxsupport@gmail.com' },
+              { Icon: MapPin, label: 'Location', color: '#8b5cf6', bg: 'rgba(139,92,246,0.08)', value: 'Shaligram Building New, 167/101, Jiamau Rd, Chauraha, Hazratganj, Lucknow, Uttar Pradesh 226001' },
             ].map(({ Icon, label, color, bg, value }) => (
               <div key={label} style={{ display: 'flex', alignItems: 'flex-start', gap: 16, background: '#f8fffe', borderRadius: 14, border: '1.5px solid #e8f0fc', padding: '18px 20px', boxShadow: '0 2px 8px rgba(0,0,0,0.04)' }}>
                 <div style={{ width: 44, height: 44, borderRadius: 12, flexShrink: 0, background: bg, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>

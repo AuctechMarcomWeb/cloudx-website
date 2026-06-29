@@ -823,7 +823,7 @@ export default function FeaturesSection() {
               }} className="feat-grid">
 
                 {/* Left — image sticky */}
-                <div style={{
+                <div className="feat-img-wrap" style={{
                   position: 'sticky',
                   top: 88,
                   display: 'flex',
@@ -934,15 +934,20 @@ export default function FeaturesSection() {
           .feat-grid { grid-template-columns: 1fr !important; gap: 36px !important; }
           .feat-icon-grid { grid-template-columns: 1fr 1fr !important; }
           .schools-grid { grid-template-columns: 1fr 1fr !important; }
+          .feat-img-wrap { position: static !important; top: auto !important; width: 100% !important; }
+          .feat-img-wrap img { max-width: 400px !important; margin: 0 auto !important; }
+          .feat-list { max-height: none !important; overflow-y: visible !important; padding-right: 0 !important; }
         }
         @media(max-width: 600px){
           .feat-icon-grid { grid-template-columns: 1fr !important; }
           .schools-grid { grid-template-columns: 1fr !important; }
           .feat-panel { padding: 48px 0 !important; }
           .feat-panel-heading { font-size: 20px !important; }
+          .feat-img-wrap img { max-width: 300px !important; }
         }
         @media(max-width: 480px){
           .feat-icon-grid > div { padding: 12px 14px !important; }
+          .feat-img-wrap img { max-width: 260px !important; }
         }
       `}</style>
     </section>
