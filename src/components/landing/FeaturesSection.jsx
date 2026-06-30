@@ -894,25 +894,20 @@ export default function FeaturesSection() {
         <PanelBlock key={panel.id} panel={panel} />
       ))}
 
-      {/* ── Schools Section ── */}
-      <div style={{ background:'#fff', padding:'60px 0 80px' }}>
-        <div className="container">
-          <div style={{ textAlign:'center', marginBottom:40 }}>
-            <h2 style={{ fontSize:24, fontWeight:700, color:'#1a1a2e', marginBottom:12 }}>Schools</h2>
-            <div style={{ width:120, height:3, background:'linear-gradient(90deg, #0040a0, #0ea5e9)', borderRadius:2, margin:'0 auto' }} />
-          </div>
-          <div style={{ display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:20 }} className="schools-grid">
-            {SCHOOL_LIST.map(school => (
-              <div key={school.name} style={{
-                background:'#fff', border:'1px solid #e2e8f0', borderRadius:8,
-                padding:'24px 16px 16px', display:'flex', flexDirection:'column',
-                alignItems:'center', gap:12, transition:'box-shadow 0.2s',
-              }}
-                onMouseEnter={e => e.currentTarget.style.boxShadow='0 4px 16px rgba(0,0,0,0.08)'}
-                onMouseLeave={e => e.currentTarget.style.boxShadow='none'}
-              >
-                <img src={school.logo} alt={school.name} style={{ width:80, height:80, objectFit:'contain' }} />
-                <p style={{ fontSize:13, fontWeight:600, color:'#374151', textAlign:'center', margin:0 }}>{school.name}</p>
+      {/* ── Schools Marquee Strip ── */}
+      <div style={{ background:'#fff', padding:'40px 0', overflow:'hidden' }}>
+
+        {/* Marquee track */}
+        <div style={{ position:'relative', overflow:'hidden' }}>
+          {/* Fade edges */}
+          <div style={{ position:'absolute', left:0, top:0, bottom:0, width:80, background:'linear-gradient(to right, #fff, transparent)', zIndex:2, pointerEvents:'none' }} />
+          <div style={{ position:'absolute', right:0, top:0, bottom:0, width:80, background:'linear-gradient(to left, #fff, transparent)', zIndex:2, pointerEvents:'none' }} />
+
+          <div className="marquee-track">
+            {[...SCHOOL_LIST, ...SCHOOL_LIST, ...SCHOOL_LIST].map((school, i) => (
+              <div key={i} className="marquee-item">
+                <img src={school.logo} alt={school.name} style={{ height:48, width:'auto', maxWidth:120, objectFit:'contain', filter:'grayscale(30%)' }} />
+                <span style={{ fontSize:13, fontWeight:600, color:'#374151', whiteSpace:'nowrap' }}>{school.name}</span>
               </div>
             ))}
           </div>
@@ -920,6 +915,26 @@ export default function FeaturesSection() {
       </div>
 
       <style>{`
+        @keyframes marqueeScroll {
+          0%   { transform: translateX(0); }
+          100% { transform: translateX(-33.333%); }
+        }
+        .marquee-track {
+          display: flex;
+          align-items: center;
+          gap: 0;
+          width: max-content;
+          animation: marqueeScroll 18s linear infinite;
+        }
+        .marquee-track:hover { animation-play-state: paused; }
+        .marquee-item {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          padding: 14px 36px;
+          border-right: 1px solid #e2e8f0;
+          flex-shrink: 0;
+        }
         @keyframes fadeInUp {
           from { opacity: 0; transform: translateY(12px); }
           to   { opacity: 1; transform: translateY(0); }
@@ -931,14 +946,12 @@ export default function FeaturesSection() {
         @media(max-width: 900px){
           .feat-grid { grid-template-columns: 1fr !important; gap: 36px !important; }
           .feat-icon-grid { grid-template-columns: 1fr 1fr !important; }
-          .schools-grid { grid-template-columns: 1fr 1fr !important; }
           .feat-img-wrap { position: static !important; top: auto !important; width: 100% !important; }
           .feat-img-wrap img { max-width: 400px !important; margin: 0 auto !important; }
           .feat-list { max-height: none !important; overflow-y: visible !important; padding-right: 0 !important; }
         }
         @media(max-width: 600px){
           .feat-icon-grid { grid-template-columns: 1fr !important; }
-          .schools-grid { grid-template-columns: 1fr !important; }
           .feat-panel { padding: 48px 0 !important; }
           .feat-img-wrap img { max-width: 300px !important; }
         }

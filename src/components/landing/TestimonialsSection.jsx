@@ -100,60 +100,78 @@ export default function TestimonialsSection() {
           <ArrowBtn onClick={goNext} dir="right" />
         </div>
 
-        {/* Early adopter strip */}
+        {/* Early adopter CTA */}
         <div style={{
           marginTop: 72,
-          background: 'linear-gradient(135deg,#0040a0 0%,#002f80 100%)',
-          borderRadius: 24, padding: '48px 40px',
-          position: 'relative', overflow: 'hidden',
-          boxShadow: '0 16px 56px rgba(0,64,160,0.25)',
-        }}>
-          <div style={{ position:'absolute',top:-60,right:-60,width:280,height:280,borderRadius:'50%',background:'rgba(255,255,255,0.04)',pointerEvents:'none' }} />
-          <div style={{ position:'absolute',bottom:-80,left:'30%',width:240,height:240,borderRadius:'50%',background:'rgba(14,165,233,0.08)',pointerEvents:'none' }} />
+          borderRadius: 20,
+          overflow: 'hidden',
+          boxShadow: '0 20px 60px rgba(0,64,160,0.15)',
+          display: 'grid',
+          gridTemplateColumns: '1fr 1fr',
+        }} className="cta-strip">
 
-          <div style={{ textAlign:'center', marginBottom:36, position:'relative', zIndex:1 }}>
-            <div style={{ display:'inline-flex',alignItems:'center',gap:6,background:'rgba(224,192,0,0.18)',border:'1px solid rgba(224,192,0,0.35)',borderRadius:50,padding:'4px 14px',marginBottom:14 }}>
-              <span style={{ width:6,height:6,borderRadius:'50%',background:'#e0c000',display:'inline-block' }} />
-              <span style={{ fontSize:11,fontWeight:700,color:'#e0c000',letterSpacing:1,textTransform:'uppercase' }}>Founding School Perks</span>
+          {/* Left — content */}
+          <div style={{
+            background: 'linear-gradient(135deg, #0040a0 0%, #0056cc 100%)',
+            padding: '52px 48px',
+            position: 'relative',
+            overflow: 'hidden',
+          }}>
+            {/* BG circle deco */}
+            <div style={{ position:'absolute', top:-40, left:-40, width:200, height:200, borderRadius:'50%', background:'rgba(255,255,255,0.05)', pointerEvents:'none' }} />
+            <div style={{ position:'absolute', bottom:-60, right:-20, width:160, height:160, borderRadius:'50%', background:'rgba(255,255,255,0.04)', pointerEvents:'none' }} />
+
+            <div style={{ position:'relative', zIndex:1 }}>
+              <div style={{
+                display:'inline-flex', alignItems:'center', gap:6,
+                background:'rgba(255,213,0,0.15)', border:'1px solid rgba(255,213,0,0.3)',
+                borderRadius:50, padding:'4px 14px', marginBottom:20,
+              }}>
+                <span style={{ width:6, height:6, borderRadius:'50%', background:'#ffd500', display:'inline-block' }} />
+                <span style={{ fontSize:11, fontWeight:700, color:'#ffd500', letterSpacing:1, textTransform:'uppercase' }}>Limited Early Access</span>
+              </div>
+
+              <h3 style={{ fontSize:'clamp(22px,2.8vw,32px)', fontWeight:800, color:'#fff', margin:'0 0 12px', lineHeight:1.25, fontFamily:"'Lato',sans-serif" }}>
+                Start free.<br />Scale as you grow.
+              </h3>
+              <p style={{ fontSize:14, color:'rgba(255,255,255,0.72)', lineHeight:1.8, margin:'0 0 32px', maxWidth:340 }}>
+                Schools that register now get priority onboarding, locked-in pricing, and a dedicated support person — not a chatbot.
+              </p>
+
+              <button onClick={() => navigate('/register')} style={{
+                display:'inline-flex', alignItems:'center', gap:8,
+                padding:'13px 28px', borderRadius:10, border:'none', cursor:'pointer',
+                background:'#ffd500', color:'#1a1a2e',
+                fontSize:14, fontWeight:700, fontFamily:"'Lato',sans-serif",
+                boxShadow:'0 6px 24px rgba(255,213,0,0.35)', transition:'all 0.2s',
+              }}
+                onMouseEnter={e=>{ e.currentTarget.style.transform='translateY(-2px)'; e.currentTarget.style.boxShadow='0 10px 30px rgba(255,213,0,0.45)' }}
+                onMouseLeave={e=>{ e.currentTarget.style.transform='none'; e.currentTarget.style.boxShadow='0 6px 24px rgba(255,213,0,0.35)' }}
+              >
+                Register your school free →
+              </button>
             </div>
-            <h3 style={{ fontSize:'clamp(20px,2.5vw,28px)',fontWeight:700,color:'#fff',margin:'0 0 8px',fontFamily:"'Lato',sans-serif" }}>
-              Join early. Get rewarded forever.
-            </h3>
-            <p style={{ fontSize:15,color:'rgba(255,255,255,0.6)',margin:0 }}>
-              Schools that register now get exclusive benefits locked in for life.
-            </p>
           </div>
 
-          <div className="perks-strip" style={{ display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:16,marginBottom:36,position:'relative',zIndex:1 }}>
+          {/* Right — perks list */}
+          <div style={{ background:'#f8faff', padding:'52px 48px', display:'flex', flexDirection:'column', justifyContent:'center', gap:24 }}>
             {PERKS.map(({ icon: Icon, title, desc }) => (
-              <div key={title} style={{
-                background:'rgba(255,255,255,0.07)', border:'1px solid rgba(255,255,255,0.12)',
-                borderRadius:16, padding:'20px 16px', transition:'all 0.25s',
-              }}
-                onMouseEnter={e=>{ e.currentTarget.style.background='rgba(255,255,255,0.14)'; e.currentTarget.style.transform='translateY(-4px)' }}
-                onMouseLeave={e=>{ e.currentTarget.style.background='rgba(255,255,255,0.07)'; e.currentTarget.style.transform='none' }}
-              >
-                <div style={{ width:40,height:40,borderRadius:10,background:'rgba(255,255,255,0.15)',display:'flex',alignItems:'center',justifyContent:'center',marginBottom:12 }}>
+              <div key={title} style={{ display:'flex', alignItems:'flex-start', gap:16 }}>
+                <div style={{
+                  width:42, height:42, borderRadius:10, flexShrink:0,
+                  background:'linear-gradient(135deg,#0040a0,#0ea5e9)',
+                  display:'flex', alignItems:'center', justifyContent:'center',
+                }}>
                   <Icon size={18} color="#fff" strokeWidth={1.8} />
                 </div>
-                <div style={{ fontSize:13.5,fontWeight:700,color:'#fff',marginBottom:5,fontFamily:"'Lato',sans-serif" }}>{title}</div>
-                <div style={{ fontSize:12,color:'rgba(255,255,255,0.58)',lineHeight:1.6 }}>{desc}</div>
+                <div>
+                  <div style={{ fontSize:14, fontWeight:700, color:'#1a1a2e', marginBottom:3, fontFamily:"'Lato',sans-serif" }}>{title}</div>
+                  <div style={{ fontSize:13, color:'#64748b', lineHeight:1.6 }}>{desc}</div>
+                </div>
               </div>
             ))}
           </div>
 
-          <div style={{ textAlign:'center', position:'relative', zIndex:1 }}>
-            <button onClick={() => navigate('/register')} style={{
-              padding:'13px 36px', borderRadius:10, border:'none', cursor:'pointer',
-              background:'linear-gradient(135deg,#e0c000,#b89a00)',
-              color:'#fff', fontSize:15, fontWeight:700, fontFamily:"'Lato',sans-serif",
-              boxShadow:'0 6px 20px rgba(224,192,0,0.4)', transition:'all 0.2s',
-            }}
-              onMouseEnter={e=>{e.currentTarget.style.transform='translateY(-2px)';e.currentTarget.style.boxShadow='0 10px 28px rgba(224,192,0,0.5)'}}
-              onMouseLeave={e=>{e.currentTarget.style.transform='none';e.currentTarget.style.boxShadow='0 6px 20px rgba(224,192,0,0.4)'}}>
-              Register your school free →
-            </button>
-          </div>
         </div>
 
       </div>
@@ -162,6 +180,7 @@ export default function TestimonialsSection() {
         @media (max-width: 900px) {
           .testi-grid    { grid-template-columns: 1fr 1fr !important; }
           .perks-strip   { grid-template-columns: repeat(2,1fr) !important; }
+          .cta-strip     { grid-template-columns: 1fr !important; }
         }
         @media (max-width: 600px) {
           .testi-grid    { grid-template-columns: 1fr !important; }
