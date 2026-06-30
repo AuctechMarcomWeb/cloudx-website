@@ -801,36 +801,72 @@ export default function FeaturesSection() {
         <div className="container">
           <div style={{ display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:20 }} className="feat-icon-grid">
             {FEATURE_GRID.map(({ title, icon }) => (
-              <div key={title} style={{
+              <div key={title} className="feat-card" style={{
                 display:'flex', alignItems:'center', gap:16, background:'#fff',
-                border:'1.5px solid #e2e8f0', borderLeft:'4px solid #0040a0',
+                border:'1.5px solid #e2e8f0',
                 borderRadius:12, padding:'20px 24px',
-                boxShadow:'0 2px 10px rgba(0,0,0,0.05)', transition:'all 0.2s', cursor:'default',
+                boxShadow:'0 2px 10px rgba(0,0,0,0.05)', transition:'all 0.3s ease', cursor:'default',
               }}
-                onMouseEnter={e => { e.currentTarget.style.boxShadow='0 8px 24px rgba(0,64,160,0.15)'; e.currentTarget.style.borderColor='#0040a0'; e.currentTarget.style.transform='translateY(-2px)' }}
-                onMouseLeave={e => { e.currentTarget.style.boxShadow='0 2px 10px rgba(0,0,0,0.05)'; e.currentTarget.style.borderColor='#e2e8f0'; e.currentTarget.style.borderLeftColor='#0040a0'; e.currentTarget.style.transform='none' }}
+                onMouseEnter={e => {
+                  const card = e.currentTarget
+                  card.style.background = 'linear-gradient(135deg, #0040a0 0%, #0ea5e9 100%)'
+                  card.style.border = '1.5px solid transparent'
+                  card.style.transform = 'translateY(-4px)'
+                  card.style.boxShadow = '0 16px 36px rgba(0,64,160,0.28)'
+                  card.querySelector('.fc-icon').style.background = '#fff'
+                  card.querySelector('.fc-icon').style.border = '1px solid rgba(255,255,255,0.3)'
+                  card.querySelector('.fc-title').style.color = '#fff'
+                }}
+                onMouseLeave={e => {
+                  const card = e.currentTarget
+                  card.style.background = '#fff'
+                  card.style.border = '1.5px solid #e2e8f0'
+                  card.style.transform = 'none'
+                  card.style.boxShadow = '0 2px 10px rgba(0,0,0,0.05)'
+                  card.querySelector('.fc-icon').style.background = 'rgba(0,64,160,0.07)'
+                  card.querySelector('.fc-icon').style.border = '1px solid rgba(0,64,160,0.15)'
+                  card.querySelector('.fc-title').style.color = '#1a1a2e'
+                }}
               >
-                <div style={{ width:52,height:52,borderRadius:12,flexShrink:0,background:'rgba(0,64,160,0.07)',border:'1px solid rgba(0,64,160,0.15)',display:'flex',alignItems:'center',justifyContent:'center' }}>
+                <div className="fc-icon" style={{ width:52,height:52,borderRadius:12,flexShrink:0,background:'rgba(0,64,160,0.07)',border:'1px solid rgba(0,64,160,0.15)',display:'flex',alignItems:'center',justifyContent:'center',transition:'all 0.3s ease' }}>
                   {icon}
                 </div>
-                <span style={{ fontSize:16,fontWeight:600,color:'#1a1a2e',fontFamily:"'Lato', sans-serif",lineHeight:1.4 }}>{title}</span>
+                <span className="fc-title" style={{ fontSize:16,fontWeight:600,color:'#1a1a2e',fontFamily:"'Lato', sans-serif",lineHeight:1.4,transition:'color 0.3s ease' }}>{title}</span>
               </div>
             ))}
             {showMore && FEATURE_GRID_EXTRA.map(({ title, icon }) => (
-              <div key={title} style={{
+              <div key={title} className="feat-card" style={{
                 display:'flex', alignItems:'center', gap:16, background:'#fff',
-                border:'1.5px solid #e2e8f0', borderLeft:'4px solid #0040a0',
+                border:'1.5px solid #e2e8f0',
                 borderRadius:12, padding:'20px 24px',
-                boxShadow:'0 2px 10px rgba(0,0,0,0.05)', transition:'all 0.2s', cursor:'default',
+                boxShadow:'0 2px 10px rgba(0,0,0,0.05)', transition:'all 0.3s ease', cursor:'default',
                 animation:'fadeInUp 0.3s ease',
               }}
-                onMouseEnter={e => { e.currentTarget.style.boxShadow='0 8px 24px rgba(0,64,160,0.15)'; e.currentTarget.style.borderColor='#0040a0'; e.currentTarget.style.transform='translateY(-2px)' }}
-                onMouseLeave={e => { e.currentTarget.style.boxShadow='0 2px 10px rgba(0,0,0,0.05)'; e.currentTarget.style.borderColor='#e2e8f0'; e.currentTarget.style.borderLeftColor='#0040a0'; e.currentTarget.style.transform='none' }}
+                onMouseEnter={e => {
+                  const card = e.currentTarget
+                  card.style.background = 'linear-gradient(135deg, #0040a0 0%, #0ea5e9 100%)'
+                  card.style.border = '1.5px solid transparent'
+                  card.style.transform = 'translateY(-4px)'
+                  card.style.boxShadow = '0 16px 36px rgba(0,64,160,0.28)'
+                  card.querySelector('.fc-icon').style.background = '#fff'
+                  card.querySelector('.fc-icon').style.border = '1px solid rgba(255,255,255,0.3)'
+                  card.querySelector('.fc-title').style.color = '#fff'
+                }}
+                onMouseLeave={e => {
+                  const card = e.currentTarget
+                  card.style.background = '#fff'
+                  card.style.border = '1.5px solid #e2e8f0'
+                  card.style.transform = 'none'
+                  card.style.boxShadow = '0 2px 10px rgba(0,0,0,0.05)'
+                  card.querySelector('.fc-icon').style.background = 'rgba(0,64,160,0.07)'
+                  card.querySelector('.fc-icon').style.border = '1px solid rgba(0,64,160,0.15)'
+                  card.querySelector('.fc-title').style.color = '#1a1a2e'
+                }}
               >
-                <div style={{ width:52,height:52,borderRadius:12,flexShrink:0,background:'rgba(0,64,160,0.07)',border:'1px solid rgba(0,64,160,0.15)',display:'flex',alignItems:'center',justifyContent:'center' }}>
+                <div className="fc-icon" style={{ width:52,height:52,borderRadius:12,flexShrink:0,background:'rgba(0,64,160,0.07)',border:'1px solid rgba(0,64,160,0.15)',display:'flex',alignItems:'center',justifyContent:'center',transition:'all 0.3s ease' }}>
                   {icon}
                 </div>
-                <span style={{ fontSize:16,fontWeight:600,color:'#1a1a2e',fontFamily:"'Lato', sans-serif",lineHeight:1.4 }}>{title}</span>
+                <span className="fc-title" style={{ fontSize:16,fontWeight:600,color:'#1a1a2e',fontFamily:"'Lato', sans-serif",lineHeight:1.4,transition:'color 0.3s ease' }}>{title}</span>
               </div>
             ))}
           </div>

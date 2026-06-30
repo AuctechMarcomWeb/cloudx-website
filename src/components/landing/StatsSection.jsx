@@ -58,24 +58,48 @@ export default function StatsSection() {
         {/* Benefit cards */}
         <div className="benefits-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 24, marginBottom: 48 }}>
           {BENEFITS.map(({ icon: Icon, value, unit, label, desc, color, bg }) => (
-            <div key={label} style={{
+            <div key={label} className="benefit-card" style={{
               background: '#fff', borderRadius: 20, padding: '28px 22px',
               border: '1.5px solid #e8f0fc', textAlign: 'center',
               boxShadow: '0 4px 20px rgba(0,64,160,0.06)',
-              transition: 'transform 0.25s, box-shadow 0.25s',
+              transition: 'all 0.3s ease', cursor: 'default',
             }}
-              onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-6px)'; e.currentTarget.style.boxShadow = '0 16px 40px rgba(0,64,160,0.12)' }}
-              onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,64,160,0.06)' }}
+              onMouseEnter={e => {
+                const card = e.currentTarget
+                card.style.background = 'linear-gradient(135deg, #0040a0 0%, #0ea5e9 100%)'
+                card.style.border = '1.5px solid transparent'
+                card.style.transform = 'translateY(-8px)'
+                card.style.boxShadow = '0 20px 48px rgba(0,64,160,0.30)'
+                card.querySelector('.bc-icon').style.background = '#fff'
+                card.querySelector('.bc-icon').style.boxShadow = '0 4px 16px rgba(0,0,0,0.12)'
+                card.querySelector('.bc-value').style.color = '#fff'
+                card.querySelector('.bc-unit').style.color = 'rgba(255,255,255,0.85)'
+                card.querySelector('.bc-label').style.color = '#fff'
+                card.querySelector('.bc-desc').style.color = 'rgba(255,255,255,0.80)'
+              }}
+              onMouseLeave={e => {
+                const card = e.currentTarget
+                card.style.background = '#fff'
+                card.style.border = '1.5px solid #e8f0fc'
+                card.style.transform = 'translateY(0)'
+                card.style.boxShadow = '0 4px 20px rgba(0,64,160,0.06)'
+                card.querySelector('.bc-icon').style.background = bg
+                card.querySelector('.bc-icon').style.boxShadow = 'none'
+                card.querySelector('.bc-value').style.color = '#1a1a2e'
+                card.querySelector('.bc-unit').style.color = color
+                card.querySelector('.bc-label').style.color = '#1a1a2e'
+                card.querySelector('.bc-desc').style.color = '#64748b'
+              }}
             >
-              <div style={{ width: 56, height: 56, borderRadius: 16, background: bg, display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px' }}>
+              <div className="bc-icon" style={{ width: 56, height: 56, borderRadius: 16, background: bg, display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px', transition: 'all 0.3s ease' }}>
                 <Icon size={26} color={color} strokeWidth={1.8} />
               </div>
               <div style={{ lineHeight: 1, marginBottom: 6 }}>
-                <span style={{ fontSize: 40, fontWeight: 800, color: '#1a1a2e', fontFamily: "'Lato', sans-serif" }}>{value}</span>
-                <span style={{ fontSize: 18, fontWeight: 700, color, marginLeft: 2 }}>{unit}</span>
+                <span className="bc-value" style={{ fontSize: 40, fontWeight: 800, color: '#1a1a2e', fontFamily: "'Lato', sans-serif", transition: 'color 0.3s ease' }}>{value}</span>
+                <span className="bc-unit" style={{ fontSize: 18, fontWeight: 700, color, marginLeft: 2, transition: 'color 0.3s ease' }}>{unit}</span>
               </div>
-              <div style={{ fontSize: 14, fontWeight: 700, color: '#1a1a2e', marginBottom: 8 }}>{label}</div>
-              <div style={{ fontSize: 13, color: '#64748b', lineHeight: 1.6 }}>{desc}</div>
+              <div className="bc-label" style={{ fontSize: 14, fontWeight: 700, color: '#1a1a2e', marginBottom: 8, transition: 'color 0.3s ease' }}>{label}</div>
+              <div className="bc-desc" style={{ fontSize: 13, color: '#64748b', lineHeight: 1.6, transition: 'color 0.3s ease' }}>{desc}</div>
             </div>
           ))}
         </div>
