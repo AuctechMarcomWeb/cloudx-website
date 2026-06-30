@@ -166,27 +166,27 @@ export default function TestimonialsSection() {
 function TestiCard({ school }) {
   return (
     <div style={{
-      background: '#fff8f0',
+      background: '#e8f0fc',
       borderRadius: 0,
       padding: '24px 22px 22px',
-      border: '1px solid #f0e0cc',
+      border: '1px solid #c5d8f8',
       position: 'relative',
       display: 'flex',
       flexDirection: 'column',
       gap: 14,
       minHeight: 280,
-      boxShadow: '0 2px 12px rgba(0,0,0,0.05)',
+      boxShadow: '0 2px 12px rgba(0,64,160,0.07)',
       transition: 'box-shadow 0.25s, transform 0.25s',
     }}
-      onMouseEnter={e => { e.currentTarget.style.boxShadow='0 10px 32px rgba(0,0,0,0.10)'; e.currentTarget.style.transform='translateY(-4px)' }}
-      onMouseLeave={e => { e.currentTarget.style.boxShadow='0 2px 12px rgba(0,0,0,0.05)'; e.currentTarget.style.transform='none' }}
+      onMouseEnter={e => { e.currentTarget.style.boxShadow='0 10px 32px rgba(0,64,160,0.15)'; e.currentTarget.style.transform='translateY(-4px)' }}
+      onMouseLeave={e => { e.currentTarget.style.boxShadow='0 2px 12px rgba(0,64,160,0.07)'; e.currentTarget.style.transform='none' }}
     >
-      {/* Orange quote badge — inside card, top-right corner, flush */}
+      {/* Blue quote badge — inside card, top-right corner, flush */}
       <div style={{
         position: 'absolute', top: 0, right: 0,
         width: 44, height: 44,
         borderRadius: '0 0 0 12px',
-        background: '#e05a00',
+        background: '#0040a0',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
       }}>
         <svg width="15" height="12" viewBox="0 0 15 12" fill="none">
@@ -239,17 +239,17 @@ function ArrowBtn({ onClick, dir }) {
       onMouseLeave={() => setHov(false)}
       style={{
         width: 40, height: 40, borderRadius: '50%',
-        border: `1.5px solid ${hov ? '#e05a00' : '#f0cdb8'}`,
-        background: hov ? '#e05a00' : '#fff',
+        border: `1.5px solid ${hov ? '#0040a0' : '#c5d8f8'}`,
+        background: hov ? '#0040a0' : '#fff',
         cursor: 'pointer',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
-        boxShadow: '0 2px 10px rgba(0,0,0,0.08)',
+        boxShadow: '0 2px 10px rgba(0,64,160,0.10)',
         transition: 'all 0.2s',
       }}
     >
       {dir === 'left'
-        ? <ChevronLeft  size={18} color={hov ? '#fff' : '#e05a00'} />
-        : <ChevronRight size={18} color={hov ? '#fff' : '#e05a00'} />
+        ? <ChevronLeft  size={18} color={hov ? '#fff' : '#0040a0'} />
+        : <ChevronRight size={18} color={hov ? '#fff' : '#0040a0'} />
       }
     </button>
   )
