@@ -40,14 +40,14 @@ function NewsletterForm() {
     }
   }
   return (
-    <form onSubmit={submit} style={{ display: 'flex', gap: 10, flexWrap: 'wrap', flexShrink: 0 }}>
+    <form onSubmit={submit} style={{ display: 'flex', gap: 10, flexWrap: 'wrap', flexShrink: 0, width: '100%', maxWidth: 420 }}>
       <input
         type="email" value={email} onChange={e => setEmail(e.target.value)}
         placeholder="your@email.com" required
         style={{
           height: 44, padding: '0 16px', borderRadius: 10, border: '1.5px solid rgba(255,255,255,0.25)',
           background: 'rgba(255,255,255,0.1)', color: '#fff', fontSize: 14,
-          fontFamily: 'Lato, sans-serif', outline: 'none', minWidth: 220,
+          fontFamily: 'Lato, sans-serif', outline: 'none', minWidth: 0, width: '100%', maxWidth: 260,
           transition: 'border-color 0.2s',
         }}
         onFocus={e => e.target.style.borderColor = '#e0c000'}
@@ -381,10 +381,13 @@ export default function Footer() {
         @media (max-width: 1024px) {
           .footer-grid { grid-template-columns: 1fr 1fr !important; gap: 36px 48px !important; padding-top: 52px !important; }
         }
-        @media (max-width: 600px) {
-          .footer-grid { grid-template-columns: 1fr !important; gap: 32px !important; padding-top: 40px !important; padding-bottom: 36px !important; }
-          .footer-bottom { flex-direction: column !important; align-items: flex-start !important; gap: 4px !important; padding: 16px 0 !important; }
+        @media (max-width: 768px) {
+          .footer-grid { grid-template-columns: 1fr 1fr !important; gap: 28px 32px !important; }
           .newsletter-row { flex-direction: column !important; align-items: flex-start !important; }
+        }
+        @media (max-width: 560px) {
+          .footer-grid { grid-template-columns: 1fr !important; gap: 28px !important; padding-top: 36px !important; padding-bottom: 32px !important; }
+          .footer-bottom { flex-direction: column !important; align-items: flex-start !important; gap: 4px !important; padding: 14px 0 !important; }
         }
       `}</style>
     </footer>

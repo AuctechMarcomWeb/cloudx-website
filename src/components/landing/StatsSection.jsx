@@ -21,12 +21,12 @@ const BENEFITS = [
     color: '#e0c000',
     bg: 'rgba(224,192,0,0.10)',
   },
- {
+{
   icon: ShieldCheck,
   value: '1',
   unit: ' App',
-  label: 'Unified Mobile App',
-  desc: 'One platform with dedicated experiences for parents, students, and teachers.',
+  label: 'Student Mobile App',
+  desc: 'A dedicated mobile app for students to access classes, assignments, attendance, and more.',
   color: '#002f80',
   bg: 'rgba(0,47,128,0.08)',
 },

@@ -49,14 +49,29 @@ const PERKS = [
   { icon: Users,  title: 'Dedicated Support',       desc: 'A real person to help — not a chatbot. We respond fast.' },
 ]
 
-const VISIBLE = 3
+const VISIBLE_DESKTOP = 3
+const VISIBLE_TABLET  = 2
+const VISIBLE_MOBILE  = 1
 
 export default function TestimonialsSection() {
   const navigate  = useNavigate()
   const [start, setStart]   = useState(0)
   const [paused, setPaused] = useState(false)
-  const total   = SCHOOLS.length
-  const maxStart = total - VISIBLE
+  const [visible, setVisible] = useState(VISIBLE_DESKTOP)
+
+  useEffect(() => {
+    const update = () => {
+      if (window.innerWidth < 600)      setVisible(VISIBLE_MOBILE)
+      else if (window.innerWidth < 900) setVisible(VISIBLE_TABLET)
+      else                              setVisible(VISIBLE_DESKTOP)
+    }
+    update()
+    window.addEventListener('resize', update)
+    return () => window.removeEventListener('resize', update)
+  }, [])
+
+  const total    = SCHOOLS.length
+  const maxStart = Math.max(0, total - visible)
 
   const goNext = () => setStart(s => (s >= maxStart ? 0 : s + 1))
   const goPrev = () => setStart(s => (s <= 0 ? maxStart : s - 1))
@@ -65,12 +80,12 @@ export default function TestimonialsSection() {
     if (paused) return
     const id = setInterval(goNext, 4000)
     return () => clearInterval(id)
-  }, [paused, start])
+  }, [paused, start, visible])
 
-  const visible = SCHOOLS.slice(start, start + VISIBLE)
+  const visibleCards = SCHOOLS.slice(start, start + visible)
 
   return (
-    <section style={{ background: '#fff', padding: '90px 0 80px' }}>
+    <section style={{ background: '#fff', padding: 'clamp(48px,8vw,90px) 0 clamp(40px,6vw,80px)' }}>
       <div className="container">
 
         {/* Header */}
@@ -91,7 +106,7 @@ export default function TestimonialsSection() {
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
         >
-          {visible.map(s => <TestiCard key={s.personName} school={s} />)}
+          {visibleCards.map(s => <TestiCard key={s.personName} school={s} />)}
         </div>
 
         {/* Arrows only — no dots */}
@@ -111,9 +126,9 @@ export default function TestimonialsSection() {
         }} className="cta-strip">
 
           {/* Left — content */}
-          <div style={{
+          <div className="cta-left" style={{
             background: 'linear-gradient(135deg, #0040a0 0%, #0056cc 100%)',
-            padding: '52px 48px',
+            padding: 'clamp(28px,4vw,52px) clamp(24px,4vw,48px)',
             position: 'relative',
             overflow: 'hidden',
           }}>
@@ -154,7 +169,7 @@ export default function TestimonialsSection() {
           </div>
 
           {/* Right — perks list */}
-          <div style={{ background:'#f8faff', padding:'52px 48px', display:'flex', flexDirection:'column', justifyContent:'center', gap:24 }}>
+          <div className="cta-right" style={{ background:'#f8faff', padding:'clamp(28px,4vw,52px) clamp(24px,4vw,48px)', display:'flex', flexDirection:'column', justifyContent:'center', gap:24 }}>
             {PERKS.map(({ icon: Icon, title, desc }) => (
               <div key={title} style={{ display:'flex', alignItems:'flex-start', gap:16 }}>
                 <div style={{
@@ -178,13 +193,12 @@ export default function TestimonialsSection() {
 
       <style>{`
         @media (max-width: 900px) {
-          .testi-grid    { grid-template-columns: 1fr 1fr !important; }
-          .perks-strip   { grid-template-columns: repeat(2,1fr) !important; }
-          .cta-strip     { grid-template-columns: 1fr !important; }
+          .testi-grid { grid-template-columns: 1fr 1fr !important; }
+          .cta-strip  { grid-template-columns: 1fr !important; }
         }
         @media (max-width: 600px) {
-          .testi-grid    { grid-template-columns: 1fr !important; }
-          .perks-strip   { grid-template-columns: 1fr !important; }
+          .testi-grid { grid-template-columns: 1fr !important; }
+          .cta-right  { gap: 16px !important; }
         }
       `}</style>
     </section>
