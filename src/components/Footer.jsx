@@ -90,17 +90,23 @@ const LinkedInIcon = () => (
 )
 
 const PlayIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-    <path d="M3 20.5v-17c0-.83.93-1.3 1.6-.8l14 8.5c.6.37.6 1.23 0 1.6l-14 8.5c-.67.5-1.6.03-1.6-.8z"/>
+  <svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    {/* Google Play colorful triangle */}
+    <path d="M3.18 23.76a2 2 0 001.07-.3l10.84-6.26-2.95-2.95-8.96 9.51z" fill="#EA4335"/>
+    <path d="M20.82 10.7L17.6 8.87l-3.3 3.13 3.3 3.13 3.24-1.87a1.97 1.97 0 000-3.46z" fill="#FBBC04"/>
+    <path d="M3.18.24L12.14 9.2l2.95-2.95L4.25.54A2 2 0 003.18.24z" fill="#4285F4"/>
+    <path d="M3.18.24A2 2 0 002 2.07v19.86a2 2 0 001.18 1.83L13.1 12 3.18.24z" fill="#34A853"/>
   </svg>
 )
+
 const AppleIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
     <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
   </svg>
 )
+
 const WebIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" xmlns="http://www.w3.org/2000/svg">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" xmlns="http://www.w3.org/2000/svg">
     <circle cx="12" cy="12" r="10"/>
     <line x1="2" y1="12" x2="22" y2="12"/>
     <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
@@ -141,27 +147,27 @@ export default function Footer() {
 
   const dot = (
     <span style={{
-      display: 'inline-block', width: 6, height: 6,
-      borderRadius: '50%', background: '#0040a0', flexShrink: 0,
+      display: 'inline-block', width: 5, height: 5,
+      borderRadius: '50%', background: '#4d9fff', flexShrink: 0,
     }} />
   )
 
   return (
-    <footer style={{ background: '#0a1c15', fontFamily: 'Lato, sans-serif' }}>
+    <footer style={{ background: '#0d1b3e', fontFamily: 'Lato, sans-serif' }}>
 
-      {/* ── Top gradient line ── */}
-      <div style={{ height: 3, background: 'linear-gradient(90deg, #0040a0, #0ea5e9, #0040a0)' }} />
+      {/* ── Top accent line ── */}
+      <div style={{ height: 3, background: 'linear-gradient(90deg, #0040a0, #4d9fff, #0040a0)' }} />
 
       {/* ── Newsletter Strip ── */}
-      <div style={{ background: 'linear-gradient(135deg, #0040a0, #002f80)', padding: '40px 0' }}>
+      <div style={{ background: 'rgba(0,64,160,0.25)', borderBottom: '1px solid rgba(255,255,255,0.06)', padding: '36px 0' }}>
         <div className="container">
           <div className="newsletter-row" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 32, flexWrap: 'wrap' }}>
             <div>
-              <h3 style={{ fontSize: 20, fontWeight: 700, color: '#fff', margin: '0 0 6px', fontFamily: 'Lato, sans-serif' }}>
+              <h3 style={{ fontSize: 19, fontWeight: 700, color: '#fff', margin: '0 0 5px', fontFamily: 'Lato, sans-serif' }}>
                 Stay updated with School CloudX
               </h3>
-              <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.65)', margin: 0 }}>
-                Get product updates, tips and school management insights straight to your inbox.
+              <p style={{ fontSize: 13.5, color: 'rgba(255,255,255,0.5)', margin: 0 }}>
+                Product updates, tips and school management insights — straight to your inbox.
               </p>
             </div>
             <NewsletterForm />
@@ -176,22 +182,24 @@ export default function Footer() {
           display: 'grid',
           gridTemplateColumns: '1.8fr 1fr 1fr 1.6fr',
           gap: 40,
-          paddingTop: 60,
+          paddingTop: 56,
           paddingBottom: 48,
           borderBottom: '1px solid rgba(255,255,255,0.07)',
         }}>
 
           {/* ── Col 1: Brand ── */}
           <div>
-            <div style={{ background: '#fff', borderRadius: 12, padding: '8px 14px', display: 'inline-block', marginBottom: 18 }}>
-              <img
-                src="/auctech-logo.png"
-                alt="School CloudX"
-                style={{ height: 42, objectFit: 'contain', display: 'block' }}
-              />
+            {/* Brand name text instead of logo */}
+            <div style={{ marginBottom: 18 }}>
+              <span style={{
+                fontSize: 22, fontWeight: 800, color: '#fff',
+                fontFamily: 'Lato, sans-serif', letterSpacing: '-0.3px',
+              }}>
+                School <span style={{ color: '#4d9fff' }}>CloudX</span>
+              </span>
             </div>
 
-            <p style={{ fontSize: 14, lineHeight: 1.8, color: 'rgba(255,255,255,0.45)', maxWidth: 230, marginBottom: 24, margin: '0 0 24px' }}>
+            <p style={{ fontSize: 14, lineHeight: 1.85, color: 'rgba(255,255,255,0.42)', maxWidth: 240, margin: '0 0 24px' }}>
               A modern school management platform — built for speed, simplicity, and every stakeholder.
             </p>
 
@@ -201,14 +209,14 @@ export default function Footer() {
                 { Icon: Phone, text: `+91 ${settings.phone}` },
                 { Icon: Mail,  text: settings.email },
               ].map(({ Icon, text }) => (
-                <div key={text} style={{ display: 'flex', alignItems: 'center', gap: 10, fontSize: 13, color: 'rgba(255,255,255,0.4)' }}>
+                <div key={text} style={{ display: 'flex', alignItems: 'center', gap: 10, fontSize: 13, color: 'rgba(255,255,255,0.42)' }}>
                   <span style={{
-                    width: 28, height: 28, borderRadius: 7,
-                    background: 'rgba(0,64,160,0.12)',
-                    border: '1px solid rgba(0,64,160,0.2)',
+                    width: 30, height: 30, borderRadius: 8,
+                    background: 'rgba(77,159,255,0.12)',
+                    border: '1px solid rgba(77,159,255,0.2)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
                   }}>
-                    <Icon size={13} color="#0040a0" />
+                    <Icon size={13} color="#4d9fff" />
                   </span>
                   {text}
                 </div>
@@ -228,13 +236,16 @@ export default function Footer() {
                   title={label}
                   style={{
                     width: 36, height: 36, borderRadius: 9,
-                    background: 'rgba(255,255,255,0.06)',
+                    background: 'rgba(255,255,255,0.05)',
                     border: '1px solid rgba(255,255,255,0.1)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    color: 'rgba(255,255,255,0.5)',
+                    color: 'rgba(255,255,255,0.45)',
+                    cursor: 'pointer',
                     transition: 'all 0.2s',
                     flexShrink: 0,
                   }}
+                  onMouseEnter={e => { e.currentTarget.style.background='rgba(77,159,255,0.15)'; e.currentTarget.style.borderColor='rgba(77,159,255,0.4)'; e.currentTarget.style.color='#4d9fff' }}
+                  onMouseLeave={e => { e.currentTarget.style.background='rgba(255,255,255,0.05)'; e.currentTarget.style.borderColor='rgba(255,255,255,0.1)'; e.currentTarget.style.color='rgba(255,255,255,0.45)' }}
                 >
                   <Icon />
                 </span>
@@ -245,7 +256,7 @@ export default function Footer() {
           {/* ── Col 2: Quick Links ── */}
           <div>
             <div style={colHead}>
-              <span style={{ width: 3, height: 16, background: '#0040a0', borderRadius: 2, display: 'inline-block' }} />
+              <span style={{ width: 3, height: 14, background: '#4d9fff', borderRadius: 2, display: 'inline-block' }} />
               Quick Links
             </div>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 13 }}>
@@ -260,7 +271,7 @@ export default function Footer() {
                   <button
                     onClick={() => scrollTo(href)}
                     style={{ ...linkStyle, background: 'none', border: 'none', cursor: 'pointer', padding: 0, fontFamily: 'Lato, sans-serif' }}
-                    onMouseEnter={e => { e.currentTarget.style.color = '#0040a0' }}
+                    onMouseEnter={e => { e.currentTarget.style.color = '#4d9fff' }}
                     onMouseLeave={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.5)' }}
                   >
                     {dot}{label}
@@ -273,30 +284,28 @@ export default function Footer() {
           {/* ── Col 3: Info ── */}
           <div>
             <div style={colHead}>
-              <span style={{ width: 3, height: 16, background: '#0040a0', borderRadius: 2, display: 'inline-block' }} />
+              <span style={{ width: 3, height: 14, background: '#4d9fff', borderRadius: 2, display: 'inline-block' }} />
               Info
             </div>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 13 }}>
               {[
-                { label: 'About us',              href: '#info',    ext: false },
-                { label: 'Privacy Policy',        href: null,       ext: false },
-                { label: 'Terms & Conditions',    href: null,       ext: false },
-                { label: 'Refund & Cancellation', href: null,       ext: false },
-              ].map(({ label, href, ext }) => (
+                { label: 'About us',              href: '#info' },
+                { label: 'Privacy Policy',        href: null },
+                { label: 'Terms & Conditions',    href: null },
+                { label: 'Refund & Cancellation', href: null },
+              ].map(({ label, href }) => (
                 <li key={label}>
                   {href ? (
-                  <a
-                    href={href}
-                    target={ext ? '_blank' : '_self'}
-                    rel="noreferrer"
-                    style={linkStyle}
-                    onMouseEnter={e => { e.currentTarget.style.color = '#0040a0' }}
-                    onMouseLeave={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.5)' }}
-                  >
-                    {dot}{label}
-                  </a>
+                    <a
+                      href={href}
+                      style={linkStyle}
+                      onMouseEnter={e => { e.currentTarget.style.color = '#4d9fff' }}
+                      onMouseLeave={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.5)' }}
+                    >
+                      {dot}{label}
+                    </a>
                   ) : (
-                  <span style={linkStyle}>{dot}{label}</span>
+                    <span style={{ ...linkStyle, cursor: 'default' }}>{dot}{label}</span>
                   )}
                 </li>
               ))}
@@ -306,38 +315,41 @@ export default function Footer() {
           {/* ── Col 4: Download ── */}
           <div>
             <div style={colHead}>
-              <span style={{ width: 3, height: 16, background: '#0040a0', borderRadius: 2, display: 'inline-block' }} />
+              <span style={{ width: 3, height: 14, background: '#4d9fff', borderRadius: 2, display: 'inline-block' }} />
               Download App
             </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 10, maxWidth: 200 }}>
               {[
-                { label: 'Google Play', sub: 'Get it on',       Icon: PlayIcon,  bg: '#34a853' },
-                { label: 'App Store',   sub: 'Download on the', Icon: AppleIcon, bg: '#555' },
-                { label: 'Student Web', sub: 'Access via',      Icon: WebIcon,   bg: '#0ea5e9' },
-              ].map(({ label, sub, Icon, bg }) => (
+                { label: 'Google Play', sub: 'Get it on',       Icon: PlayIcon,  bg: 'rgba(255,255,255,0.08)', border: true },
+                { label: 'App Store',   sub: 'Download on the', Icon: AppleIcon, bg: 'linear-gradient(135deg,#555,#333)', border: false },
+                { label: 'Student Web', sub: 'Access via',      Icon: WebIcon,   bg: 'linear-gradient(135deg,#0040a0,#0ea5e9)', border: false },
+              ].map(({ label, sub, Icon, bg, border }) => (
                 <span
                   key={label}
                   style={{
                     display: 'flex', alignItems: 'center', gap: 12,
                     padding: '10px 14px',
                     background: 'rgba(255,255,255,0.04)',
-                    border: '1px solid rgba(255,255,255,0.08)',
+                    border: '1px solid rgba(255,255,255,0.07)',
                     borderRadius: 10,
+                    cursor: 'pointer',
+                    transition: 'all 0.2s',
                   }}
+                  onMouseEnter={e => { e.currentTarget.style.background='rgba(77,159,255,0.08)'; e.currentTarget.style.borderColor='rgba(77,159,255,0.2)' }}
+                  onMouseLeave={e => { e.currentTarget.style.background='rgba(255,255,255,0.04)'; e.currentTarget.style.borderColor='rgba(255,255,255,0.07)' }}
                 >
-                  {/* Icon box */}
                   <span style={{
                     width: 36, height: 36, borderRadius: 9, flexShrink: 0,
                     background: bg,
+                    border: border ? '1px solid rgba(255,255,255,0.15)' : 'none',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     color: '#fff',
                   }}>
                     <Icon />
                   </span>
-                  {/* Text */}
                   <div style={{ flex: 1, minWidth: 0 }}>
-                    <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.35)', letterSpacing: '0.5px', lineHeight: 1, marginBottom: 4 }}>{sub}</div>
-                    <div style={{ fontSize: 13, fontWeight: 700, color: 'rgba(255,255,255,0.85)', lineHeight: 1, whiteSpace: 'nowrap' }}>{label}</div>
+                    <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.3)', letterSpacing: '0.5px', lineHeight: 1, marginBottom: 4 }}>{sub}</div>
+                    <div style={{ fontSize: 13, fontWeight: 700, color: 'rgba(255,255,255,0.82)', lineHeight: 1, whiteSpace: 'nowrap' }}>{label}</div>
                   </div>
                 </span>
               ))}
@@ -348,43 +360,31 @@ export default function Footer() {
 
         {/* ── Bottom bar ── */}
         <div className="footer-bottom" style={{
-          padding: '20px 0',
+          padding: '18px 0',
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
           gap: 12,
           flexWrap: 'wrap',
         }}>
-          <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.3)', margin: 0 }}>
+          <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.25)', margin: 0 }}>
             © {year} School CloudX. All rights reserved.
+          </p>
+          <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.18)', margin: 0 }}>
+            Designed &amp; built with care for Indian schools.
           </p>
         </div>
 
       </div>
 
       <style>{`
-        /* ── Tablet: 2 col ── */
         @media (max-width: 1024px) {
-          .footer-grid {
-            grid-template-columns: 1fr 1fr !important;
-            gap: 36px 48px !important;
-            padding-top: 52px !important;
-          }
+          .footer-grid { grid-template-columns: 1fr 1fr !important; gap: 36px 48px !important; padding-top: 52px !important; }
         }
-        /* ── Mobile: 1 col ── */
         @media (max-width: 600px) {
-          .footer-grid {
-            grid-template-columns: 1fr !important;
-            gap: 32px !important;
-            padding-top: 40px !important;
-            padding-bottom: 36px !important;
-          }
-          .footer-bottom {
-            flex-direction: column !important;
-            align-items: flex-start !important;
-            gap: 4px !important;
-            padding: 16px 0 !important;
-          }
+          .footer-grid { grid-template-columns: 1fr !important; gap: 32px !important; padding-top: 40px !important; padding-bottom: 36px !important; }
+          .footer-bottom { flex-direction: column !important; align-items: flex-start !important; gap: 4px !important; padding: 16px 0 !important; }
+          .newsletter-row { flex-direction: column !important; align-items: flex-start !important; }
         }
       `}</style>
     </footer>
