@@ -1,33 +1,43 @@
-﻿import { useState, useEffect, useRef } from 'react'
+﻿import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ChevronLeft, ChevronRight, Rocket, Gift, Star, Users } from 'lucide-react'
 
-import schoolLogo from '../../assets/6561c20cbfb617.710131971700905484.jpg'
+import personPhoto from '../../assets/6561c20cbfb617.710131971700905484.jpg'
 
 const SCHOOLS = [
   {
-    name: 'Maple Grove High School,\nDelhi',
-    logo: schoolLogo,
+    personName: 'Mr. Rajesh Sharma',
+    role: 'Principal',
+    schoolName: 'Maple Grove High School, Delhi',
+    photo: personPhoto,
     desc: 'Maple Grove transformed how they manage 1,200+ students. Fee collection, attendance, and parent communication all moved to one platform seamlessly...',
   },
   {
-    name: 'Crestwood Academy,\nMumbai',
-    logo: schoolLogo,
+    personName: 'Mrs. Priya Mehta',
+    role: 'Admin Head',
+    schoolName: 'Crestwood Academy, Mumbai',
+    photo: personPhoto,
     desc: 'Crestwood switched from manual registers to School CloudX in under a week. The timetable and exam modules alone saved 10+ hours every month...',
   },
   {
-    name: 'Vidhiya International School,\nBengaluru',
-    logo: schoolLogo,
+    personName: 'Dr. Suresh Nair',
+    role: 'Director',
+    schoolName: 'Vidhiya International School, Bengaluru',
+    photo: personPhoto,
     desc: 'Parents love getting real-time attendance alerts and fee reminders on the app. Staff communication improved dramatically since moving to CloudX...',
   },
   {
-    name: 'Sunrise Public School,\nAhmedabad',
-    logo: schoolLogo,
+    personName: 'Mr. Amit Patel',
+    role: 'Managing Trustee',
+    schoolName: 'Sunrise Public School, Ahmedabad',
+    photo: personPhoto,
     desc: 'Managing six schools from one super admin dashboard was a dream. School CloudX made it reality with its powerful yet simple interface...',
   },
   {
-    name: "St. Mary's Convent School,\nPune",
-    logo: schoolLogo,
+    personName: 'Sr. Mary Thomas',
+    role: 'Headmistress',
+    schoolName: "St. Mary's Convent School, Pune",
+    photo: personPhoto,
     desc: 'Within 3 days the entire school was live — students, teachers, timetables, everything configured. The onboarding team was exceptional...',
   },
 ]
@@ -81,7 +91,7 @@ export default function TestimonialsSection() {
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
         >
-          {visible.map(s => <TestiCard key={s.name} school={s} />)}
+          {visible.map(s => <TestiCard key={s.personName} school={s} />)}
         </div>
 
         {/* Arrows only — no dots */}
@@ -162,13 +172,13 @@ export default function TestimonialsSection() {
   )
 }
 
-/* ── Card — exact image match ── */
+/* ── Card ── */
 function TestiCard({ school }) {
   return (
     <div style={{
       background: '#e8f0fc',
-      borderRadius: 0,
-      padding: '24px 22px 22px',
+      borderRadius: 12,
+      padding: '28px 22px 22px',
       border: '1px solid #c5d8f8',
       position: 'relative',
       display: 'flex',
@@ -181,34 +191,57 @@ function TestiCard({ school }) {
       onMouseEnter={e => { e.currentTarget.style.boxShadow='0 10px 32px rgba(0,64,160,0.15)'; e.currentTarget.style.transform='translateY(-4px)' }}
       onMouseLeave={e => { e.currentTarget.style.boxShadow='0 2px 12px rgba(0,64,160,0.07)'; e.currentTarget.style.transform='none' }}
     >
-      {/* Blue quote badge — inside card, top-right corner, flush */}
-      <div style={{
-        position: 'absolute', top: 0, right: 0,
-        width: 44, height: 44,
-        borderRadius: '0 0 0 12px',
-        background: '#0040a0',
-        display: 'flex', alignItems: 'center', justifyContent: 'center',
-      }}>
-        <svg width="15" height="12" viewBox="0 0 15 12" fill="none">
-          <path d="M0 12V7.909C0 6.576 0.29 5.358 0.87 4.254C1.45 3.15 2.37 2.182 3.636 1.4L5.09 2.682C4.167 3.291 3.504 3.924 3.102 4.582C2.7 5.24 2.5 5.977 2.5 6.795H5.09V12H0ZM8.41 12V7.909C8.41 6.576 8.7 5.358 9.28 4.254C9.86 3.15 10.78 2.182 12.046 1.4L13.5 2.682C12.577 3.291 11.914 3.924 11.512 4.582C11.11 5.24 10.91 5.977 10.91 6.795H13.5V12H8.41Z" fill="white"/>
-        </svg>
+      {/* Person photo — circular with ring + quote badge */}
+      <div style={{ position: 'relative', width: 72, height: 72 }}>
+        <div style={{
+          width: 72, height: 72, borderRadius: '50%',
+          border: '3px solid #c5d8f8',
+          padding: 2,
+          background: '#fff',
+          boxSizing: 'border-box',
+        }}>
+          <img
+            src={school.photo}
+            alt={school.personName}
+            style={{
+              width: '100%', height: '100%',
+              borderRadius: '50%',
+              objectFit: 'cover',
+              objectPosition: 'center top',
+              display: 'block',
+            }}
+          />
+        </div>
+        {/* Quote badge — overlapping bottom-right */}
+        <div style={{
+          position: 'absolute', bottom: -4, right: -6,
+          width: 26, height: 26, borderRadius: '50%',
+          background: '#0040a0',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          boxShadow: '0 2px 8px rgba(0,64,160,0.3)',
+        }}>
+          <svg width="10" height="8" viewBox="0 0 15 12" fill="none">
+            <path d="M0 12V7.909C0 6.576 0.29 5.358 0.87 4.254C1.45 3.15 2.37 2.182 3.636 1.4L5.09 2.682C4.167 3.291 3.504 3.924 3.102 4.582C2.7 5.24 2.5 5.977 2.5 6.795H5.09V12H0ZM8.41 12V7.909C8.41 6.576 8.7 5.358 9.28 4.254C9.86 3.15 10.78 2.182 12.046 1.4L13.5 2.682C12.577 3.291 11.914 3.924 11.512 4.582C11.11 5.24 10.91 5.977 10.91 6.795H13.5V12H8.41Z" fill="white"/>
+          </svg>
+        </div>
       </div>
 
-      {/* School logo */}
-      <img
-        src={school.logo}
-        alt={school.name}
-        style={{ height: 60, width: 'auto', maxWidth: 150, objectFit: 'contain', objectPosition: 'left center' }}
-      />
-
-      {/* School name */}
-      <div style={{ fontSize: 15, fontWeight: 700, color: '#1a1a2e', fontFamily: "'Lato',sans-serif", lineHeight: 1.45 }}>
-        {school.name.split('\n').map((line, i) => <div key={i}>{line}</div>)}
+      {/* Person name + school */}
+      <div>
+        <div style={{ fontSize: 15, fontWeight: 700, color: '#1a1a2e', fontFamily: "'Lato',sans-serif", lineHeight: 1.3 }}>
+          {school.personName}
+        </div>
+        <div style={{ fontSize: 12, color: '#0040a0', fontWeight: 600, marginTop: 2 }}>
+          {school.role}
+        </div>
+        <div style={{ fontSize: 12, color: '#64748b', marginTop: 1 }}>
+          {school.schoolName}
+        </div>
       </div>
 
       {/* Description */}
       <p style={{
-        fontSize: 13, color: '#64748b', lineHeight: 1.75, margin: 0, flex: 1,
+        fontSize: 13, color: '#475569', lineHeight: 1.75, margin: 0, flex: 1,
         display: '-webkit-box', WebkitLineClamp: 4, WebkitBoxOrient: 'vertical', overflow: 'hidden',
       }}>
         {school.desc}
