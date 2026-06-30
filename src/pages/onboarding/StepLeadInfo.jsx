@@ -79,7 +79,7 @@ export default function StepLeadInfo({ onNext }) {
               School Subdomain <span style={{ color:'#ef4444' }}>*</span>
             </label>
             <div style={{ display:'flex',alignItems:'stretch',border:`1.5px solid ${sdBorder}`,borderRadius:10,overflow:'hidden',background:'#f9fafb',transition:'all 0.18s',boxShadow:sdShadow }}>
-              <input name="subdomain" value={form.subdomain} onChange={handleSubdomain} placeholder="e.g. dps-noida"
+              <input name="subdomain" value={form.subdomain} onChange={handleSubdomain} placeholder="your-school-name"
                 style={{ flex:1,border:'none',background:'transparent',height:48,padding:'0 14px',fontSize:14,color:'#1a1a2e',outline:'none' }} autoComplete="off" />
               {subdomainStatus && (
                 <div style={{ display:'flex',alignItems:'center',paddingRight:12 }}>
