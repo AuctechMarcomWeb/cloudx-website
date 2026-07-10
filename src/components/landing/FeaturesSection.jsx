@@ -1,37 +1,45 @@
 import React from 'react'
 import { Users, CreditCard, BookOpen, Bus, Bell, BarChart2, FileText, Shield, GraduationCap, Calendar, ClipboardList, Home, Settings } from 'lucide-react'
-import superAdminImg   from '../../assets/HxCMMWD6ttfGHPpTS4EzpysImSjyF4c8d1GLbQ12.png'
+import superAdminImg   from '../../assets/superadmin/Admin Dashboard.png'
 import studentImg      from '../../assets/StudentImage.png'
-import schoolAdminImg  from '../../assets/682c33c666a931.887378031747727302.png'
+import schoolAdminImg  from '../../assets/admin/Cloudximage.jpg'
 import teacherImg      from '../../assets/qFMqcY4MZ7kTMZ0fRigMJkhlhDFiOcCg9v3qosVw.png'
 import staffAppImg     from '../../assets/mobile phone.png'
-import parentsAppImg   from '../../assets/ourApp.png'
-import schoolLogoImg   from '../../assets/6561c20cbfb617.710131971700905484.jpg'
+import parentsAppImg   from '../../assets/admin/appImage.png'
+import schoolLogoImg   from '../../assets/schoolImage.png'
 
 /* ── Feature-specific screenshots from reference files ── */
-import feat_multiSchool   from '../../assets/Transform School Management With eSchool SaaS_files/HxCMMWD6ttfGHPpTS4EzpysImSjyF4c8d1GLbQ12.png'
-import feat_packages      from '../../assets/Transform School Management With eSchool SaaS_files/682c33c63c5ee5.046102311747727302.png'
-import feat_addons        from '../../assets/Transform School Management With eSchool SaaS_files/4NAmlU5byYY0J96KtSk96dnE8u7ZUhp4WuiPiphb.png'
-import feat_staff         from '../../assets/Transform School Management With eSchool SaaS_files/NUFaNlPvdp1tcuVbpBPblhD9xeedyuwT0UHNvofg.png'
+import feat_multiSchool   from '../../assets/superadmin/Admin Dashboard.png'
+import feat_packages      from '../../assets/superadmin/FeeManagment.png'
+import feat_addons        from '../../assets/superadmin/Masterscategory.png'
+import feat_staff         from '../../assets/superadmin/create admin.png'
 import feat_website       from '../../assets/Transform School Management With eSchool SaaS_files/TCkUawdabsTEei1hym9YeV1n4yc5uelci0v1Kumq.png'
-import feat_academy       from '../../assets/Transform School Management With eSchool SaaS_files/682c33c666a931.887378031747727302.png'
-import feat_students      from '../../assets/Transform School Management With eSchool SaaS_files/3fDl3iw6gxhjjMoLaAU9xgohPF31dVcXFxQQb2HB.png'
-import feat_teachers      from '../../assets/Transform School Management With eSchool SaaS_files/qFMqcY4MZ7kTMZ0fRigMJkhlhDFiOcCg9v3qosVw.png'
+import feat_academy       from '../../assets/admin/Cloudximage.jpg'
+import HelpSupport from "../../assets/admin/faqSystem.png"
+import feat_students      from '../../assets/admin/StudentManagement.png'
+import feat_teachers      from '../../assets/admin/TeacherManagement.png'
 import feat_timetable     from '../../assets/Transform School Management With eSchool SaaS_files/5poWFmozQ3ivOeQohZhX8wpsHRjwSFUQfl6fZj5q.png'
-import feat_announce      from '../../assets/Transform School Management With eSchool SaaS_files/wQlvitZmfh1FX3dNEMPozLuUIF4S2SdKraM2zdDM.png'
-import feat_exam          from '../../assets/Transform School Management With eSchool SaaS_files/XuefSezViBEVkFGfU39FLSnXap4cK1yt5osGVrew.png'
-import feat_fees          from '../../assets/Transform School Management With eSchool SaaS_files/KjO0IjKCPHc8XqY1HyxpigM1dQMdv6YHuomVNdVv.png'
-import feat_lessons       from '../../assets/Transform School Management With eSchool SaaS_files/RMA8ExnQRSbwelgL2qulPTnH6I6y6S7Ss3UfZNy5.png'
-import feat_assignments   from '../../assets/Transform School Management With eSchool SaaS_files/UXxcBKoGEAVGcoKteSyKs0NQ49A5nAJOH8MH67RZ.png'
-import feat_attendance    from '../../assets/Transform School Management With eSchool SaaS_files/tLHQtBRwQvpV3MBawCW7TFpfPPZ3N5OLRh64TWNu.png'
-import feat_parentsHome   from '../../assets/ourApp.png'
-import feat_transport     from '../../assets/Transform School Management With eSchool SaaS_files/zf2i1fBLkW4ZigmO6egVUqOQUMbsxkfvJ5Wstpym.png'
-import feat_staffDash     from '../../assets/Transform School Management With eSchool SaaS_files/qfKu1Xo49Rpt7xTue58B32nME1utaiH0RnWJyzgT.png'
+import feat_announce      from '../../assets/admin/noticeboardandcertificate.png'
+import feat_exam          from '../../assets/superadmin/Examination Management.png'
+import feat_fees          from '../../assets/admin/FeeManagement.png'
+import feat_lessons       from '../../assets/admin/topper report.png'
+import feat_assignments   from '../../assets/admin/HomeworkManagement.png'
+import feat_attendance    from '../../assets/admin/Attendence.png'
+import feat_parentsHome   from '../../assets/admin/appImage.png'
+import feat_transport     from '../../assets/superadmin/TransportImage.png'
+import feat_staffDash     from '../../assets/classTeacher/TeacherDashboard.png'
+import Studentprofile from '../../assets/StudentImages/myprofilestudent.png'
+import studentdashboard from '../../assets/StudentImages/Studentdashboard.png'
+import Paymenthistory from '../../assets/StudentImages/Paymenthistory.png'
+import homework from '../../assets/StudentImages/homework.png'
+import Noticeboard from '../../assets/StudentImages/Noticeboard.png'
+import marksheet from '../../assets/admin/marksheet.png'
+import Attendance from '../../assets/StudentImages/MyAttendance.png'
 
 const SCHOOL_LIST = [
-  { name: 'Maple Grove High School', logo: schoolLogoImg },
-  { name: 'Crestwood Academy',       logo: schoolLogoImg },
-  { name: 'Vidhiya School',          logo: schoolLogoImg },
+  { name: 'Murtuza Public School', logo: schoolLogoImg },
+  { name: 'Murtuza Public School',       logo: schoolLogoImg },
+  { name: 'Murtuza Public School',          logo: schoolLogoImg },
 ]
 
 /* ---------------------------------------------
@@ -374,60 +382,7 @@ function StudentScreen2() {
   )
 }
 
-/* -- Teacher Staff screens -- */
-function StaffScreen1() {
-  return (
-    <>
-      <div style={{ background:'linear-gradient(135deg,#0ea5e9,#8b5cf6)',padding:'10px 12px 8px' }}>
-        <div style={{ fontSize:8,color:'#fff',fontWeight:800 }}>Staff Dashboard</div>
-        <div style={{ fontSize:6.5,color:'rgba(255,255,255,0.8)' }}>Mr. Raj � Science Dept.</div>
-      </div>
-      <div style={{ padding:'8px' }}>
-        <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:5,marginBottom:8 }}>
-          {[{l:'Classes Today',v:'4',c:'#0040a0'},{l:'Pending Leave',v:'2',c:'#f59e0b'},{l:'Assignments',v:'8',c:'#0ea5e9'},{l:'Notices',v:'3',c:'#8b5cf6'}].map((s,i)=>(
-            <div key={i} style={{ background:s.c+'18',borderRadius:8,padding:'6px',textAlign:'center' }}>
-              <div style={{ fontSize:13,fontWeight:900,color:s.c,fontFamily:"'Lato', sans-serif" }}>{s.v}</div>
-              <div style={{ fontSize:5.5,color:'#64748b',marginTop:1,lineHeight:1.3 }}>{s.l}</div>
-            </div>
-          ))}
-        </div>
-        {[{t:'09:00',s:'Class X-A',sub:'Science',c:'#0040a0'},{t:'11:00',s:'Class IX-B',sub:'Biology',c:'#0ea5e9'},{t:'02:00',s:'Class XI-A',sub:'Physics',c:'#8b5cf6'}].map((c,i)=>(
-          <div key={i} style={{ background:'#f0fdf9',borderRadius:7,padding:'5px 8px',marginBottom:4,display:'flex',alignItems:'center',gap:7,border:`1px solid ${c.c}22` }}>
-            <span style={{ fontSize:6.5,color:c.c,fontWeight:800,minWidth:32 }}>{c.t}</span>
-            <div style={{ flex:1 }}>
-              <div style={{ fontSize:7.5,fontWeight:800,color:'#1a1a2e' }}>{c.s}</div>
-              <div style={{ fontSize:6,color:'#64748b' }}>{c.sub}</div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </>
-  )
-}
-function StaffScreen2() {
-  return (
-    <>
-      <div style={{ background:'#0040a0',padding:'10px 12px 8px' }}>
-        <div style={{ fontSize:8,color:'#fff',fontWeight:800 }}>Leave Management</div>
-        <div style={{ fontSize:6.5,color:'rgba(255,255,255,0.85)' }}>Apply & Track</div>
-      </div>
-      <div style={{ padding:'8px' }}>
-        {[{t:'Sick Leave',d:'12�13 Jun',s:'Approved',sc:'#0040a0'},{t:'Casual Leave',d:'20 Jun',s:'Pending',sc:'#f59e0b'},{t:'Emergency',d:'25 Jun',s:'Rejected',sc:'#ef4444'}].map((l,i)=>(
-          <div key={i} style={{ background:'#f8fffe',borderRadius:9,padding:'7px 9px',marginBottom:6,border:`1.5px solid ${l.sc}22` }}>
-            <div style={{ display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:2 }}>
-              <span style={{ fontSize:8,fontWeight:800,color:'#1a1a2e' }}>{l.t}</span>
-              <span style={{ fontSize:6.5,fontWeight:700,color:l.sc,background:l.sc+'18',padding:'1px 6px',borderRadius:4 }}>{l.s}</span>
-            </div>
-            <div style={{ fontSize:6.5,color:'#94a3b8' }}>{l.d}</div>
-          </div>
-        ))}
-        <div style={{ background:'linear-gradient(135deg,#0040a0,#0ea5e9)',borderRadius:9,padding:'8px',textAlign:'center',marginTop:4 }}>
-          <span style={{ fontSize:8,color:'#fff',fontWeight:800 }}>+ Apply New Leave</span>
-        </div>
-      </div>
-    </>
-  )
-}
+
 
 /* -- Panel data -- */
 const PANELS = [
@@ -442,8 +397,7 @@ const PANELS = [
       {icon:CreditCard,   image:feat_packages,    title:'Fee Management',               desc:'Define fee structures, create fee heads, set late fee rules, and manage fee installments at the system level.'},
       {icon:Bell,         image:feat_announce,    title:'Notice Board',                 desc:'Broadcast important notices and announcements to keep all school stakeholders informed instantly.'},
       {icon:Users,        image:feat_staff,       title:'Create Admin',                 desc:'Create and manage admin accounts for schools. Assign roles and control access permissions across the platform.'},
-      {icon:Shield,       image:feat_website,     title:'Subscriptions & Plans',        desc:'Manage school subscription plans, track active subscriptions, and handle renewals directly from the Super Admin panel.'},
-      {icon:GraduationCap,image:feat_academy,     title:'Help & Support / FAQ',         desc:'Built-in support system and FAQ management to assist school admins with platform queries and issues.'},
+      {icon:GraduationCap,image:HelpSupport,     title:'Help & Support / FAQ',         desc:'Built-in support system and FAQ management to assist school admins with platform queries and issues.'},
     ],
   },
   {
@@ -485,7 +439,7 @@ const PANELS = [
     features:[
       {icon:Home,         image:feat_parentsHome, title:'Parent Dashboard',             desc:"Parents get a unified view of their child's school information — attendance, fees, notices, and key academic updates at a glance."},
       {icon:Bell,         image:feat_announce,    title:'Notice Board Access',          desc:'Parents can view school announcements, holiday notices, and important circulars directly from their panel.'},
-      {icon:Shield,       image:feat_academy,     title:'FAQ & Help',                   desc:'Parents have access to a FAQ section and Help & Support to resolve their queries about the school portal easily.'},
+      {icon:Shield,       image:HelpSupport,     title:'FAQ & Help',                   desc:'Parents have access to a FAQ section and Help & Support to resolve their queries about the school portal easily.'},
     ],
   },
   {
@@ -494,13 +448,13 @@ const PANELS = [
     image: studentImg,
     screens:[<StudentScreen1/>,<StudentScreen2/>],
     features:[
-      {icon:BarChart2,    image:feat_staffDash,   title:'Student Dashboard',            desc:'A personalized dashboard showing upcoming homework, recent announcements, and quick links to all key sections.'},
-      {icon:Users,        image:feat_students,    title:'My Profile',                   desc:'View personal profile details, class information, roll number, and enrolled subject list.'},
-      {icon:ClipboardList,image:feat_attendance,  title:'Attendance',                   desc:'Students can check their subject-wise and monthly attendance records in real time.'},
-      {icon:BookOpen,     image:feat_assignments, title:'Homework',                     desc:'View assigned homework, check due dates, and track submission status for all subjects.'},
-      {icon:CreditCard,   image:feat_fees,        title:'Academic Fees & Payment History',desc:'View fee dues, make payments online, and access complete payment history and receipts.'},
-      {icon:FileText,     image:feat_exam,        title:'Marksheet',                    desc:'Access subject-wise marks and generated marksheets for all examinations — both online and offline.'},
-      {icon:Bell,         image:feat_announce,    title:'Query / Notice Board',         desc:'Raise queries and stay updated with school notices and communications directly from the panel.'},
+      {icon:BarChart2,    image:studentdashboard,   title:'Student Dashboard',            desc:'A personalized dashboard showing upcoming homework, recent announcements, and quick links to all key sections.'},
+      {icon:Users,        image:Studentprofile,    title:'My Profile',                   desc:'View personal profile details, class information, roll number, and enrolled subject list.'},
+      {icon:ClipboardList,image:Attendance,  title:'Attendance',                   desc:'Students can check their subject-wise and monthly attendance records in real time.'},
+      {icon:BookOpen,     image:homework, title:'Homework',                     desc:'View assigned homework, check due dates, and track submission status for all subjects.'},
+      {icon:CreditCard,   image:Paymenthistory,        title:'Academic Fees & Payment History',desc:'View fee dues, make payments online, and access complete payment history and receipts.'},
+      {icon:FileText,     image:marksheet,        title:'Marksheet',                    desc:'Access subject-wise marks and generated marksheets for all examinations — both online and offline.'},
+      {icon:Bell,         image:Noticeboard,    title:'Query / Notice Board',         desc:'Raise queries and stay updated with school notices and communications directly from the panel.'},
     ],
   },
 ]

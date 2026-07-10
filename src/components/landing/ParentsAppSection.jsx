@@ -1,4 +1,4 @@
-import appImage from '../../assets/ourApp.png'
+import appImage from '../../assets/admin/appImage.png'
 
 const GooglePlayIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none">

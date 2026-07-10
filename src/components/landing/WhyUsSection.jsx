@@ -1,4 +1,4 @@
-import whyImg from '../../assets/682c33c666a931.887378031747727302.png'
+import whyImg from '../../assets/admin/Cloudximage.jpg'
 import { CheckCircle2 } from 'lucide-react'
 
 
@@ -45,7 +45,14 @@ export default function HowItWorksSection() {
             <img
               src={whyImg}
               alt="School CloudX Dashboard"
-              style={{ width: '100%', height: 'auto', display: 'block', filter: 'drop-shadow(0 16px 40px rgba(0,0,0,0.12))' }}
+              style={{
+                width: '100%',
+                maxWidth: 480,
+                height: 'auto',
+                display: 'block',
+                borderRadius: 20,
+                filter: 'drop-shadow(0 16px 40px rgba(0,0,0,0.12))'
+              }}
             />
           </div>
         </div>

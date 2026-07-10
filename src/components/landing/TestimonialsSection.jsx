@@ -2,42 +2,44 @@
 import { useNavigate } from 'react-router-dom'
 import { ChevronLeft, ChevronRight, Rocket, Gift, Star, Users } from 'lucide-react'
 
-import personPhoto from '../../assets/6561c20cbfb617.710131971700905484.jpg'
+/** Returns a UI-Avatars URL for a given display name */
+const avatarUrl = (name) =>
+  `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&size=144&background=e8f0fc&color=0040a0&bold=true&rounded=true`
 
 const SCHOOLS = [
   {
     personName: 'Mr. Rajesh Sharma',
     role: 'Principal',
     schoolName: 'Maple Grove High School, Delhi',
-    photo: personPhoto,
+    photo: avatarUrl('Rajesh Sharma'),
     desc: 'Maple Grove transformed how they manage 1,200+ students. Fee collection, attendance, and parent communication all moved to one platform seamlessly...',
   },
   {
     personName: 'Mrs. Priya Mehta',
     role: 'Admin Head',
     schoolName: 'Crestwood Academy, Mumbai',
-    photo: personPhoto,
+    photo: avatarUrl('Priya Mehta'),
     desc: 'Crestwood switched from manual registers to School CloudX in under a week. The timetable and exam modules alone saved 10+ hours every month...',
   },
   {
     personName: 'Dr. Suresh Nair',
     role: 'Director',
     schoolName: 'Vidhiya International School, Bengaluru',
-    photo: personPhoto,
+    photo: avatarUrl('Suresh Nair'),
     desc: 'Parents love getting real-time attendance alerts and fee reminders on the app. Staff communication improved dramatically since moving to CloudX...',
   },
   {
     personName: 'Mr. Amit Patel',
     role: 'Managing Trustee',
     schoolName: 'Sunrise Public School, Ahmedabad',
-    photo: personPhoto,
+    photo: avatarUrl('Amit Patel'),
     desc: 'Managing six schools from one super admin dashboard was a dream. School CloudX made it reality with its powerful yet simple interface...',
   },
   {
     personName: 'Sr. Mary Thomas',
     role: 'Headmistress',
     schoolName: "St. Mary's Convent School, Pune",
-    photo: personPhoto,
+    photo: avatarUrl('Mary Thomas'),
     desc: 'Within 3 days the entire school was live — students, teachers, timetables, everything configured. The onboarding team was exceptional...',
   },
 ]
@@ -236,6 +238,7 @@ function TestiCard({ school }) {
           <img
             src={school.photo}
             alt={school.personName}
+            onError={e => { e.currentTarget.onerror = null; e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(school.personName)}&size=144&background=e8f0fc&color=0040a0&bold=true&rounded=true` }}
             style={{
               width: '100%', height: '100%',
               borderRadius: '50%',
