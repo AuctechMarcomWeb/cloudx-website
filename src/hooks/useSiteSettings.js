@@ -5,7 +5,7 @@ const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:9001/api
 const DEFAULT_SETTINGS = {
   phone:   '9838075493',
   email:   'cloudxsupport@gmail.com',
-  address: 'Shaligram Building New, 167/101, Jiamau Rd, Chauraha, Hazratganj, Lucknow, Uttar Pradesh 226001',
+  address: 'Shaligram Building New, 167/101, Jiamau Rd, 1090 Chauraha, Hazratganj, Lucknow, Uttar Pradesh 226001',
 }
 
 export function useSiteSettings() {
