@@ -21,15 +21,15 @@ const BENEFITS = [
     color: '#e0c000',
     bg: 'rgba(224,192,0,0.10)',
   },
-  {
-    icon: ShieldCheck,
-    value: '3',
-    unit: ' Apps',
-    label: 'Mobile Apps',
-    desc: 'Separate apps for parents, students, and teachers — all included.',
-    color: '#002f80',
-    bg: 'rgba(0,47,128,0.08)',
-  },
+{
+  icon: ShieldCheck,
+  value: '1',
+  unit: ' App',
+  label: 'Student Mobile App',
+  desc: 'A dedicated mobile app for students to access classes, assignments, attendance, and more.',
+  color: '#002f80',
+  bg: 'rgba(0,47,128,0.08)',
+},
   {
     icon: HeadphonesIcon,
     value: '24',
@@ -58,30 +58,54 @@ export default function StatsSection() {
         {/* Benefit cards */}
         <div className="benefits-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 24, marginBottom: 48 }}>
           {BENEFITS.map(({ icon: Icon, value, unit, label, desc, color, bg }) => (
-            <div key={label} style={{
+            <div key={label} className="benefit-card" style={{
               background: '#fff', borderRadius: 20, padding: '28px 22px',
               border: '1.5px solid #e8f0fc', textAlign: 'center',
               boxShadow: '0 4px 20px rgba(0,64,160,0.06)',
-              transition: 'transform 0.25s, box-shadow 0.25s',
+              transition: 'all 0.3s ease', cursor: 'default',
             }}
-              onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-6px)'; e.currentTarget.style.boxShadow = '0 16px 40px rgba(0,64,160,0.12)' }}
-              onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,64,160,0.06)' }}
+              onMouseEnter={e => {
+                const card = e.currentTarget
+                card.style.background = 'linear-gradient(135deg, #0040a0 0%, #0ea5e9 100%)'
+                card.style.border = '1.5px solid transparent'
+                card.style.transform = 'translateY(-8px)'
+                card.style.boxShadow = '0 20px 48px rgba(0,64,160,0.30)'
+                card.querySelector('.bc-icon').style.background = '#fff'
+                card.querySelector('.bc-icon').style.boxShadow = '0 4px 16px rgba(0,0,0,0.12)'
+                card.querySelector('.bc-value').style.color = '#fff'
+                card.querySelector('.bc-unit').style.color = 'rgba(255,255,255,0.85)'
+                card.querySelector('.bc-label').style.color = '#fff'
+                card.querySelector('.bc-desc').style.color = 'rgba(255,255,255,0.80)'
+              }}
+              onMouseLeave={e => {
+                const card = e.currentTarget
+                card.style.background = '#fff'
+                card.style.border = '1.5px solid #e8f0fc'
+                card.style.transform = 'translateY(0)'
+                card.style.boxShadow = '0 4px 20px rgba(0,64,160,0.06)'
+                card.querySelector('.bc-icon').style.background = bg
+                card.querySelector('.bc-icon').style.boxShadow = 'none'
+                card.querySelector('.bc-value').style.color = '#1a1a2e'
+                card.querySelector('.bc-unit').style.color = color
+                card.querySelector('.bc-label').style.color = '#1a1a2e'
+                card.querySelector('.bc-desc').style.color = '#64748b'
+              }}
             >
-              <div style={{ width: 56, height: 56, borderRadius: 16, background: bg, display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px' }}>
+              <div className="bc-icon" style={{ width: 56, height: 56, borderRadius: 16, background: bg, display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px', transition: 'all 0.3s ease' }}>
                 <Icon size={26} color={color} strokeWidth={1.8} />
               </div>
               <div style={{ lineHeight: 1, marginBottom: 6 }}>
-                <span style={{ fontSize: 40, fontWeight: 800, color: '#1a1a2e', fontFamily: "'Lato', sans-serif" }}>{value}</span>
-                <span style={{ fontSize: 18, fontWeight: 700, color, marginLeft: 2 }}>{unit}</span>
+                <span className="bc-value" style={{ fontSize: 40, fontWeight: 800, color: '#1a1a2e', fontFamily: "'Lato', sans-serif", transition: 'color 0.3s ease' }}>{value}</span>
+                <span className="bc-unit" style={{ fontSize: 18, fontWeight: 700, color, marginLeft: 2, transition: 'color 0.3s ease' }}>{unit}</span>
               </div>
-              <div style={{ fontSize: 14, fontWeight: 700, color: '#1a1a2e', marginBottom: 8 }}>{label}</div>
-              <div style={{ fontSize: 13, color: '#64748b', lineHeight: 1.6 }}>{desc}</div>
+              <div className="bc-label" style={{ fontSize: 14, fontWeight: 700, color: '#1a1a2e', marginBottom: 8, transition: 'color 0.3s ease' }}>{label}</div>
+              <div className="bc-desc" style={{ fontSize: 13, color: '#64748b', lineHeight: 1.6, transition: 'color 0.3s ease' }}>{desc}</div>
             </div>
           ))}
         </div>
 
         {/* Early adopter CTA banner */}
-        <div style={{
+        <div className="cta-card" style={{
           background: 'linear-gradient(135deg, #0040a0 0%, #002f80 100%)',
           borderRadius: 20, padding: '32px 40px',
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
@@ -106,9 +130,10 @@ export default function StatsSection() {
             </p>
           </div>
 
-          <div style={{ display: 'flex', gap: 12, flexShrink: 0, position: 'relative', zIndex: 1, flexWrap: 'wrap' }}>
+          <div className="cta-btn-group" style={{ display: 'flex', gap: 12, flexShrink: 0, position: 'relative', zIndex: 1, flexWrap: 'wrap' }}>
             <button
               onClick={() => navigate('/register')}
+              className="cta-btn-primary"
               style={{
                 padding: '12px 28px', borderRadius: 10, border: 'none', cursor: 'pointer',
                 background: 'linear-gradient(135deg, #e0c000, #b89a00)',
@@ -123,7 +148,8 @@ export default function StatsSection() {
               Register your school free →
             </button>
             <button
-              onClick={() => window.open('https://crestwood-academy.eschool-saas.wrteam.me/', '_blank')}
+              onClick={() => {}}
+              className="cta-btn-secondary"
               style={{
                 padding: '12px 24px', borderRadius: 10, cursor: 'pointer',
                 background: 'rgba(255,255,255,0.12)', border: '1.5px solid rgba(255,255,255,0.25)',
@@ -143,6 +169,11 @@ export default function StatsSection() {
       <style>{`
         @media (max-width: 900px) {
           .benefits-grid { grid-template-columns: repeat(2, 1fr) !important; }
+        }
+        @media (max-width: 600px) {
+          .cta-card { flex-direction: column !important; align-items: stretch !important; padding: 24px 20px !important; }
+          .cta-btn-group { flex-direction: column !important; width: 100% !important; }
+          .cta-btn-primary, .cta-btn-secondary { width: 100% !important; text-align: center !important; white-space: normal !important; }
         }
         @media (max-width: 500px) {
           .benefits-grid { grid-template-columns: 1fr !important; }

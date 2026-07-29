@@ -184,7 +184,7 @@ export default function StepSchoolInfo({ onNext }) {
               <label className="form-label">School Name <span className="req">*</span></label>
               <div className="input-group">
                 <div className="input-icon"><User size={15} /></div>
-                <input className="dark-input" name="schoolName" value={form.schoolName} onChange={handleSchoolName} placeholder="e.g. Delhi Public School" required />
+                <input className="dark-input" name="schoolName" value={form.schoolName} onChange={handleSchoolName} placeholder="Enter your school name" required />
               </div>
             </div>
 
@@ -194,7 +194,7 @@ export default function StepSchoolInfo({ onNext }) {
               <div style={{ display: 'flex', alignItems: 'stretch' }}>
                 <div className="input-group" style={{ flex: 1, borderRadius: '10px 0 0 10px', borderRight: 'none' }}>
                   <div className="input-icon"><Globe size={15} /></div>
-                  <input className="dark-input" name="subdomain" value={form.subdomain} onChange={handleSubdomain} placeholder="e.g. dps-noida" required />
+                  <input className="dark-input" name="subdomain" value={form.subdomain} onChange={handleSubdomain} placeholder="your-school-name" required />
                 </div>
                 <span style={{ display: 'inline-flex', alignItems: 'center', padding: '0 14px', fontSize: 12.5, fontWeight: 600, background: 'rgba(255,255,255,0.03)', border: '1.5px solid rgba(255,255,255,0.1)', borderLeft: 'none', borderRadius: '0 10px 10px 0', color: 'rgba(255,255,255,0.38)', whiteSpace: 'nowrap', userSelect: 'none', letterSpacing: '-0.01em' }}>
                   .schoolcloudx.com
@@ -268,7 +268,7 @@ export default function StepSchoolInfo({ onNext }) {
                 <label className="form-label">School Code <span className="req">*</span></label>
                 <div className="input-group">
                   <div className="input-icon"><Hash size={15} /></div>
-                  <input className="dark-input" name="schoolCode" value={form.schoolCode} onChange={handle} placeholder="e.g. DPS001" required />
+                  <input className="dark-input" name="schoolCode" value={form.schoolCode} onChange={handle} placeholder="e.g. SCH001" required />
                 </div>
               </div>
               <div>

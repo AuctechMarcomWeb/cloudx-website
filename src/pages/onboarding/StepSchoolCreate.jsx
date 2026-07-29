@@ -110,7 +110,7 @@ export default function StepSchoolCreate({ registrationId, onNext, onBack }) {
           <div style={field}>
             <label style={lbl}>School Name <span style={{ color:'#ef4444' }}>*</span></label>
             <input className="dark-input" name="schoolName" value={form.schoolName}
-              onChange={handle} placeholder="e.g. Delhi Public School" required />
+              onChange={handle} placeholder="Enter your school name" required />
           </div>
 
           {/* Address */}
