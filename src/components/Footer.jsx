@@ -1,4 +1,5 @@
 ﻿import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { Mail, Phone } from 'lucide-react'
 import { useSiteSettings } from '../hooks/useSiteSettings'
 
@@ -289,13 +290,15 @@ export default function Footer() {
             </div>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 13 }}>
               {[
-                { label: 'About us',              href: '#info' },
-                { label: 'Privacy Policy',        href: null },
-                { label: 'Terms & Conditions',    href: null },
-                { label: 'Refund & Cancellation', href: null },
-              ].map(({ label, href }) => (
+                { label: 'About us',              href: '#info',             external: true  },
+                { label: 'Privacy Policy',        href: '/privacy-policy',   external: false },
+                { label: 'Terms & Conditions',    href: '/terms',            external: false },
+                { label: 'Refund & Cancellation', href: '/refund-policy',    external: false },
+                { label: 'Account Deletion',      href: '/account-deletion', external: false },
+                { label: 'Help & Support',        href: '/help',             external: false },
+              ].map(({ label, href, external }) => (
                 <li key={label}>
-                  {href ? (
+                  {external ? (
                     <a
                       href={href}
                       style={linkStyle}
@@ -305,7 +308,14 @@ export default function Footer() {
                       {dot}{label}
                     </a>
                   ) : (
-                    <span style={{ ...linkStyle, cursor: 'default' }}>{dot}{label}</span>
+                    <Link
+                      to={href}
+                      style={linkStyle}
+                      onMouseEnter={e => { e.currentTarget.style.color = '#4d9fff' }}
+                      onMouseLeave={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.5)' }}
+                    >
+                      {dot}{label}
+                    </Link>
                   )}
                 </li>
               ))}

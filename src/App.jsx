@@ -6,6 +6,11 @@ import OnboardingPage from './pages/onboarding/OnboardingPage'
 import MyPlanPage from './pages/MyPlanPage'
 import PortalLoginPage from './pages/portal/PortalLoginPage'
 import PortalDashboard from './pages/portal/PortalDashboard'
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage'
+import TermsPage from './pages/TermsPage'
+import RefundPolicyPage from './pages/RefundPolicyPage'
+import AccountDeletionPage from './pages/AccountDeletionPage'
+import HelpSupportPage from './pages/HelpSupportPage'
 
 export default function App() {
   return (
@@ -33,6 +38,12 @@ export default function App() {
           <Route path="/my-plan"            element={<MyPlanPage />} />
           <Route path="/portal/login"       element={<PortalLoginPage />} />
           <Route path="/portal/dashboard"   element={<PortalDashboard />} />
+          {/* Legal & Policy Pages */}
+          <Route path="/privacy-policy"     element={<PrivacyPolicyPage />} />
+          <Route path="/terms"              element={<TermsPage />} />
+          <Route path="/refund-policy"      element={<RefundPolicyPage />} />
+          <Route path="/account-deletion"   element={<AccountDeletionPage />} />
+          <Route path="/help"               element={<HelpSupportPage />} />
         </Routes>
       </BrowserRouter>
     </PortalAuthProvider>
